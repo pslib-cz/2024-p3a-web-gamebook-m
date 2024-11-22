@@ -1,5 +1,6 @@
 # **Funkční požadavky**
-
+- [x] **0. Seznam funkčních požadavků**
+---
 - [ ] **1. Správa uživatelů**
   - **Registrace a přihlašování**
     - Hráči si mohou vytvořit účet.
