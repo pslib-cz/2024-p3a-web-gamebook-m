@@ -2,14 +2,14 @@
 
 ### **1. Správa uživatelů**
 - **Registrace a přihlašování**
-  - Hráči si mohou vytvořit účet s bezpečným heslem (šifrovaným).
-  - Hráči se přihlašují ke svým účtům, aby mohli ukládat postup hry, inventář a statistiky postavy.
+  - Hráči si mohou vytvořit účet
+  - Hráči se přihlašují ke svým účtům, aby mohli ukládat postup hry a statistiky postavy.
 
 ---
 
 ### **2. Výběr postav a schopností**
 - **Výběr postavy**
-  - Hráči si vybírají z několika tříd postav, které mají jedinečné schopnosti.
+  - Hráči si vybírají z několika možností postav, které mají jedinečné schopnosti.
   - Každá postava má různé bonusy, síly a slabiny.
   - Příklady:
     - **Válečník**: Vysoká síla, střední HP.
@@ -21,8 +21,8 @@
 ### **3. Pohyb a mechanismus kostky**
 - **Pohyb po herním plánu**
   - Herní mapa je rozdělena na políčka.
-  - Pohyb hráče závisí na hodu kostkou (např. hod D6).
-  - Některá políčka spouštějí události (např. souboje, poklady nebo buffy).
+  - Pohyb hráče závisí na hodu kostkou (hod D6).
+  - Na většině políček se vyhodnocuje nějaká akce
 
 ---
 
@@ -30,9 +30,9 @@
 - **Základní statistiky pro každou postavu**
   - **HP (životy)**: Určuje přežití hráče.
   - **Zlaťáky**: Měna pro nákup předmětů.
-  - **Vůle**: Ovlivňuje speciální schopnosti nebo kouzla.
+  - **Vůle**: Pro mentální souboj.
   - **Body osudu**: Umožňují přehodit kostku nebo se vyhnout kritickým zásahům.
-  - **Síla**: Ovlivňuje způsobené poškození během soubojů.
+  - **Síla**: Pro normální boj.
 
 ---
 
