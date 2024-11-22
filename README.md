@@ -37,44 +37,23 @@
 ---
 
 - [ ] **5. Události na políčkách**
-  - **Dynamické efekty políček**
-    - Každé políčko může spustit jednu z následujících událostí:
-      - **Souboj s nepřítelem**: Boj s náhodně generovaným nepřítelem.
-      - **Poklad**: Získání předmětu, zlaťáků nebo bonusu na statistiky.
-      - **Překážka**: Ztráta HP nebo jiného zdroje při překonávání.
-      - **Speciální aktivita**: Hráč plní specifický úkol nebo aktivitu.
-    - Políčka se při každé hře náhodně generují pro vyšší znovuhratelnost.
-
+    -Každé polícko může spustit jednu z událostí.
 ---
 
 - [ ] **6. Inventář**
   - **Správa inventáře**
     - Hráči mohou během hry sbírat předměty (zbraně, lektvary, brnění atd.).
-    - Předměty lze vybavit nebo použít k posílení statistik či v soubojích.
     - Inventář má omezenou kapacitu na 8 políček.
 
 ---
 
 - [ ] **7. Bojový systém**
   - **Souboje založené na kostkách**
-    - Boj se odehrává prostřednictvím hodů kostkami:
-      - **Útočný hod**: Určuje výsledek útoku hráče.
-      - **Obranný hod**: Nepřítel reaguje na základě svých statistik.
-    - Poškození se vypočítává jako:
-      `Poškození = (Hod hráče + Síla) - (Hod nepřítele + Obrana)`
+    - V boji se pouze porovnává hráčova sílaúvůle + hod kostky vs síla/vůle nepřítele + hod kostky
     - Speciální schopnosti nebo předměty mohou ovlivnit hody nebo poškození.
-
 ---
 
-- [ ] **8. Souboje s bossy**
-  - **Bossové jednotlivých fází**
-    - Každá fáze hry (vrstva mapy) končí soubojem s bossem.
-    - Bossové mají vyšší statistiky a unikátní schopnosti.
-    - Porážka bosse je podmínkou pro postup do další fáze.
-
----
-
-- [ ] **9. Speciální aktivity**
+- [ ] **9. Speciální aktivity (když zbyde čas a síla :D)**
   - **Interaktivní aktivity na specifických políčkách**
     - 4 políčka na každé vrstvě mapy obsahují speciální úkoly nebo interakce, jako:
       - Logické hádanky.
@@ -86,14 +65,7 @@
 - [ ] **10. Minimap**
   - **Mapa pro orientaci**
     - Na obrazovce je minimapa zobrazující aktuální pozici hráče.
-    - Hráč vidí odhalená a neodhalená políčka, což pomáhá při plánování pohybu.
-
----
-
-- [ ] **11. Perky pro postavy**
-  - **Pasivní bonusy (perky)**
-    - Postavy získávají během hry speciální perky, které zvyšují jejich statistiky nebo schopnosti.
-    - Perky mohou být získány splněním úkolů, nalezením předmětu nebo vylepšením postavy.
+    - Hráč vidí jestli je na políčku již nějaká karta události nebo ne.
 
 # **Pravidla**
 ## Cíl hry
@@ -188,6 +160,7 @@ Jakmile postava ukončí svůj pohyb, musí buď vyřešit setkání na poli, ka
 ### Útok
 
 Útoky se dělí na dva druhy: boj a mentální souboj. K boji dojde, když je postava napadena příšerou s sílou větší než vůlí, a k mentálnímu souboji, když je tomu naopak.
+Souboj probíhá tak že si hráč sečte všechnu svoji sílu / vůli a hodí si kostkou, když je větší než protivníkova je protivník poražen. Pokud ne hráč přichází o život.
 
 #### Vyhodnocení boje s příšerami
 
