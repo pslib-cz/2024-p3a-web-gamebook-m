@@ -1,3 +1,4 @@
+[Figma](https://www.figma.com/design/6HRwZXBQD1sIQPfbiijI8l/GameBook?m=auto&t=3MAc6CycythzVzST-6)
 # **Funkční požadavky**
 - [x] **0. Seznam funkčních požadavků**
 ---
