@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Gamebook.Server.Models;
 using Microsoft.AspNetCore.Identity;
+using Gamebook.Server.Models.Gamebook.Server.Models;
 
 namespace Gamebook.Server.Data
 {
