@@ -1,7 +1,5 @@
-﻿namespace Gamebook.Server.Models
-{
-    public class File
-    {
+﻿namespace Gamebook.Server.Models {
+    public class File {
         public int FileId { get; set; }
         public required string Name { get; set; }
         public required long Size { get; set; }

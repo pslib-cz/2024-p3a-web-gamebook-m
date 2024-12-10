@@ -25,5 +25,6 @@ namespace Gamebook.Server.Data {
         public DbSet<Character> Characters { get; set; }
         public DbSet<Image> Images { get; set; }
 
+               
     }
 }
