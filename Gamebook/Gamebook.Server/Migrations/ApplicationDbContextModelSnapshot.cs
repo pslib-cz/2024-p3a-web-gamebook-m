@@ -242,15 +242,30 @@ namespace Gamebook.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Alt")
+                    b.Property<byte[]>("Content")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
+                    b.Property<string>("ContentType")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Root")
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedById")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ImageId");
+
+                    b.HasIndex("CreatedById");
 
                     b.ToTable("Images");
                 });
@@ -556,6 +571,15 @@ namespace Gamebook.Server.Migrations
                     b.Navigation("Character");
 
                     b.Navigation("Inventory");
+                });
+
+            modelBuilder.Entity("Gamebook.Server.Models.Image", b =>
+                {
+                    b.HasOne("Gamebook.Server.Models.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.Navigation("CreatedBy");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
