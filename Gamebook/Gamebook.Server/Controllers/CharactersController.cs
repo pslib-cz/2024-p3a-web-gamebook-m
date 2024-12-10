@@ -1,71 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data;
-using Gamebook.Server.Models;
+using Gamebook.Server.Data; // Namespace pro DbContext
+using Gamebook.Server.Models; // Namespace pro modely
 
-namespace Gamebook.Server.Controllers
-{
+namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class CharactersController : ControllerBase
-    {
+    public class CharactersController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        public CharactersController(ApplicationDbContext context)
-        {
+        public CharactersController(ApplicationDbContext context) {
             _context = context;
         }
 
         // GET: api/Characters
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Character>>> GetCharacters()
-        {
-            return await _context.Characters.ToListAsync();
+        public async Task<ActionResult<IEnumerable<Character>>> GetCharacters() {
+            return await _context.Characters.Include(c => c.Image).ToListAsync();
         }
 
-        // GET: api/Characters/5
+        // GET: api/Characters/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacter(int id)
-        {
-            var character = await _context.Characters.FindAsync(id);
+        public async Task<ActionResult<Character>> GetCharacter(int id) {
+            var character = await _context.Characters
+                .Include(c => c.Image)
+                .Include(c => c.StartingField)
+                .FirstOrDefaultAsync(c => c.CharacterId == id);
 
-            if (character == null)
-            {
+            if (character == null) {
                 return NotFound();
             }
 
             return character;
         }
 
-        // PUT: api/Characters/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/Characters
+        [HttpPost]
+        public async Task<ActionResult<Character>> CreateCharacter(Character character) {
+            _context.Characters.Add(character);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetCharacter), new { id = character.CharacterId }, character);
+        }
+
+        // PUT: api/Characters/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCharacter(int id, Character character)
-        {
-            if (id != character.CharacterId)
-            {
+        public async Task<IActionResult> UpdateCharacter(int id, Character character) {
+            if (id != character.CharacterId) {
                 return BadRequest();
             }
 
             _context.Entry(character).State = EntityState.Modified;
 
-            try
-            {
+            try {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CharacterExists(id))
-                {
+            } catch (DbUpdateConcurrencyException) {
+                if (!CharacterExists(id)) {
                     return NotFound();
-                }
-                else
-                {
+                } else {
                     throw;
                 }
             }
@@ -73,24 +65,11 @@ namespace Gamebook.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Characters
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Character>> PostCharacter(Character character)
-        {
-            _context.Characters.Add(character);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCharacter", new { id = character.CharacterId }, character);
-        }
-
-        // DELETE: api/Characters/5
+        // DELETE: api/Characters/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCharacter(int id)
-        {
+        public async Task<IActionResult> DeleteCharacter(int id) {
             var character = await _context.Characters.FindAsync(id);
-            if (character == null)
-            {
+            if (character == null) {
                 return NotFound();
             }
 
@@ -100,9 +79,8 @@ namespace Gamebook.Server.Controllers
             return NoContent();
         }
 
-        private bool CharacterExists(int id)
-        {
-            return _context.Characters.Any(e => e.CharacterId == id);
+        private bool CharacterExists(int id) {
+            return _context.Characters.Any(c => c.CharacterId == id);
         }
     }
 }
