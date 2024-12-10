@@ -1,7 +1,5 @@
-namespace Gamebook.Server
-{
-    public class WeatherForecast
-    {
+namespace Gamebook.Server {
+    public class WeatherForecast {
         public DateOnly Date { get; set; }
 
         public int TemperatureC { get; set; }

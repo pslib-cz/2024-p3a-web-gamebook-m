@@ -222,6 +222,20 @@ namespace Gamebook.Server.Migrations
                     b.ToTable("GameStates");
                 });
 
+            modelBuilder.Entity("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", b =>
+                {
+                    b.Property<int>("InventoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("NumOfCards")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("InventoryId");
+
+                    b.ToTable("Inventories");
+                });
+
             modelBuilder.Entity("Gamebook.Server.Models.Image", b =>
                 {
                     b.Property<int>("ImageId")
@@ -239,20 +253,6 @@ namespace Gamebook.Server.Migrations
                     b.HasKey("ImageId");
 
                     b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("Gamebook.Server.Models.Inventory", b =>
-                {
-                    b.Property<int>("InventoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NumOfCards")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("InventoryId");
-
-                    b.ToTable("Inventories");
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.Role", b =>
@@ -472,7 +472,7 @@ namespace Gamebook.Server.Migrations
                         .WithMany()
                         .HasForeignKey("ImageId");
 
-                    b.HasOne("Gamebook.Server.Models.Inventory", null)
+                    b.HasOne("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", null)
                         .WithMany("Cards")
                         .HasForeignKey("InventoryId");
 
@@ -547,7 +547,7 @@ namespace Gamebook.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Gamebook.Server.Models.Inventory", "Inventory")
+                    b.HasOne("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", "Inventory")
                         .WithMany()
                         .HasForeignKey("InventoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -629,7 +629,7 @@ namespace Gamebook.Server.Migrations
                     b.Navigation("Cards");
                 });
 
-            modelBuilder.Entity("Gamebook.Server.Models.Inventory", b =>
+            modelBuilder.Entity("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", b =>
                 {
                     b.Navigation("Cards");
                 });

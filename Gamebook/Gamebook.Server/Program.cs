@@ -5,45 +5,46 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Přidejte ApplicationDbContext s databázovým providerem
+// Konfigurace DbContext pro použití SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))); // Použijte UseSqlite, pokud používáte SQLite
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Přidejte Identity
+// Přidání Identity
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// Přidání dalších služeb, jako je MVC a Razor Pages
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+// Přidání služeb pro API
+builder.Services.AddControllers();
 
-// Vytvoření aplikace
+// Přidání Swaggeru pro dokumentaci API (volitelné)
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Middleware
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
+    app.UseSwagger();
+    app.UseSwaggerUI();
+} else {
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // Slouží k obsluze statických souborů (např. CSS, JS)
+
 app.UseRouting();
-app.UseAuthentication();
+app.UseAuthentication(); // Nutné pro Identity
 app.UseAuthorization();
 
+// Mapování controllerů pro API
+app.MapControllers();
 
-// Nastavení routování pro MVC a Razor Pages
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+// Nastavení fallback pro SPA nebo jiný front-end
+app.MapFallbackToFile("/index.html");
 
 // Spuštění aplikace
 app.Run();
