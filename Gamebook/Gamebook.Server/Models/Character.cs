@@ -15,13 +15,14 @@ namespace Gamebook.Server.Models {
         public string Backstory { get; set; }
         public string Ability { get; set; }
         public int MaxHP { get; set; }
+        public int MaxDificulty { get; set; }
 
         // Počáteční pole
         [ForeignKey("Field")]
         public int StartingFieldId { get; set; }
         public Field StartingField { get; set; }
 
-        // Obrázek spojený s postavou
+        // Obrázek
         [ForeignKey("Image")]
         public int? ImageId { get; set; }
         public Image Image { get; set; }

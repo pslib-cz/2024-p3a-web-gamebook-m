@@ -45,6 +45,9 @@ namespace Gamebook.Server.Migrations
                     b.Property<int>("DiceRoll6Result")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("EnemyId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("FieldId")
                         .HasColumnType("INTEGER");
 
@@ -63,6 +66,9 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("CardId");
+
+                    b.HasIndex("EnemyId")
+                        .IsUnique();
 
                     b.HasIndex("FieldId");
 
@@ -92,6 +98,9 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("ImageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxDificulty")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("MaxHP")
@@ -143,8 +152,6 @@ namespace Gamebook.Server.Migrations
 
                     b.HasKey("EnemyId");
 
-                    b.HasIndex("RewardCardId");
-
                     b.ToTable("Enemies");
                 });
 
@@ -158,6 +165,24 @@ namespace Gamebook.Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("DiceRoll1Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll2Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll3Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll4Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll5Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll6Result")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
 
@@ -165,6 +190,13 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("ImageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("numOfCards")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("FieldId");
@@ -215,6 +247,8 @@ namespace Gamebook.Server.Migrations
 
                     b.HasKey("GameStateId");
 
+                    b.HasIndex("ActualFieldId");
+
                     b.HasIndex("CharacterId");
 
                     b.HasIndex("InventoryId");
@@ -226,9 +260,6 @@ namespace Gamebook.Server.Migrations
                 {
                     b.Property<int>("InventoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NumOfCards")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("InventoryId");
@@ -479,6 +510,10 @@ namespace Gamebook.Server.Migrations
 
             modelBuilder.Entity("Gamebook.Server.Models.Card", b =>
                 {
+                    b.HasOne("Gamebook.Server.Models.Enemy", "Enemy")
+                        .WithOne("RewardCard")
+                        .HasForeignKey("Gamebook.Server.Models.Card", "EnemyId");
+
                     b.HasOne("Gamebook.Server.Models.Field", null)
                         .WithMany("Cards")
                         .HasForeignKey("FieldId");
@@ -490,6 +525,8 @@ namespace Gamebook.Server.Migrations
                     b.HasOne("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", null)
                         .WithMany("Cards")
                         .HasForeignKey("InventoryId");
+
+                    b.Navigation("Enemy");
 
                     b.Navigation("Image");
                 });
@@ -509,15 +546,6 @@ namespace Gamebook.Server.Migrations
                     b.Navigation("Image");
 
                     b.Navigation("StartingField");
-                });
-
-            modelBuilder.Entity("Gamebook.Server.Models.Enemy", b =>
-                {
-                    b.HasOne("Gamebook.Server.Models.Card", "RewardCard")
-                        .WithMany()
-                        .HasForeignKey("RewardCardId");
-
-                    b.Navigation("RewardCard");
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.Field", b =>
@@ -556,6 +584,12 @@ namespace Gamebook.Server.Migrations
 
             modelBuilder.Entity("Gamebook.Server.Models.GameState", b =>
                 {
+                    b.HasOne("Gamebook.Server.Models.Field", "ActualField")
+                        .WithMany()
+                        .HasForeignKey("ActualFieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Gamebook.Server.Models.Character", "Character")
                         .WithMany()
                         .HasForeignKey("CharacterId")
@@ -567,6 +601,8 @@ namespace Gamebook.Server.Migrations
                         .HasForeignKey("InventoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ActualField");
 
                     b.Navigation("Character");
 
@@ -645,6 +681,12 @@ namespace Gamebook.Server.Migrations
                         .WithMany()
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Gamebook.Server.Models.Enemy", b =>
+                {
+                    b.Navigation("RewardCard")
                         .IsRequired();
                 });
 

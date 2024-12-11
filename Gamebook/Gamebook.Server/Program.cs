@@ -1,50 +1,56 @@
-﻿using Gamebook.Server.Data;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Gamebook.Server.Constants;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Konfigurace DbContext pro použití SQLite
+
+// Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Přidání Identity
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
-
-// Přidání služeb pro API
+//builder.Services.AddSingleton<IEmailSender<User>, EmailSender<User>>();
 builder.Services.AddControllers();
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy(Policy.Admin, policy => policy.RequireRole(Gamebook.Server.Constants.Role.Admin));
+    options.AddPolicy(Policy.Author, policy => policy.RequireRole(Gamebook.Server.Constants.Role.Author));
+});
+// Identita
+builder.Services.AddIdentityApiEndpoints<User>(options => {
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+})
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+//.AddDefaultTokenProviders();
 
-// Přidání Swaggeru pro dokumentaci API (volitelné)
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Middleware
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
-    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-} else {
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // Slouží k obsluze statických souborů (např. CSS, JS)
 
-app.UseRouting();
-app.UseAuthentication(); // Nutné pro Identity
+app.UseAuthentication();
 app.UseAuthorization();
+app.MapGroup("/api/account").MapIdentityApi<User>();
 
-// Mapování controllerů pro API
 app.MapControllers();
 
-// Nastavení fallback pro SPA nebo jiný front-end
 app.MapFallbackToFile("/index.html");
 
-// Spuštění aplikace
 app.Run();

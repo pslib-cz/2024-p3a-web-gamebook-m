@@ -14,6 +14,8 @@ namespace Gamebook.Server.Models {
         public int CharacterId { get; set; }
         public Character Character { get; set; }
 
+        [ForeignKey("ActualField")]
         public int ActualFieldId { get; set; }
+        public Field ActualField { get; set; }
     }
 }
