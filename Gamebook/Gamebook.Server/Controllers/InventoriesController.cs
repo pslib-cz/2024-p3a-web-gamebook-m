@@ -1,108 +1,105 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Gamebook.Server.Data;
+using Gamebook.Server.Models;
+using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data;
-using Gamebook.Server.Models.Gamebook.Server.Models;
 
-namespace Gamebook.Server.Controllers
-{
+namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class InventoriesController : ControllerBase
-    {
+    public class InventoriesController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        public InventoriesController(ApplicationDbContext context)
-        {
+        public InventoriesController(ApplicationDbContext context) {
             _context = context;
         }
 
-        // GET: api/Inventories
+        // GET: api/inventories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Inventory>>> GetInventories()
-        {
-            return await _context.Inventories.ToListAsync();
+        public async Task<ActionResult<ListResult<InventoryVM>>> GetInventories(int? page = null, int? size = null) {
+            var query = _context.Inventories.Include(i => i.Cards).AsQueryable();
+
+            var total = await query.CountAsync();
+            var inventories = await query
+                .Skip((page ?? 0) * (size ?? 10))
+                .Take(size ?? 10)
+                .Select(i => new InventoryVM {
+                    InventoryId = i.InventoryId,
+                    CardIds = i.Cards.Select(c => c.CardId).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(new ListResult<InventoryVM> {
+                Total = total,
+                Items = inventories,
+                Count = inventories.Count,
+                Page = page ?? 0,
+                Size = size ?? 10
+            });
         }
 
-        // GET: api/Inventories/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Inventory>> GetInventory(int id)
-        {
-            var inventory = await _context.Inventories.FindAsync(id);
-
-            if (inventory == null)
-            {
-                return NotFound();
-            }
-
-            return inventory;
-        }
-
-        // PUT: api/Inventories/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutInventory(int id, Inventory inventory)
-        {
-            if (id != inventory.InventoryId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(inventory).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!InventoryExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Inventories
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/inventories
         [HttpPost]
-        public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
-        {
+        public async Task<IActionResult> CreateInventory([FromBody] InventoryVM inventoryVm) {
+            if (inventoryVm.CardIds == null || inventoryVm.CardIds.Count == 0) {
+                return BadRequest("At least one CardId must be provided.");
+            }
+
+            // Retrieve the cards based on the IDs
+            var cards = await _context.Cards
+                .Where(c => inventoryVm.CardIds.Contains(c.CardId))
+                .ToListAsync();
+
+            // Create a new Inventory and associate the cards with it
+            var inventory = new Inventory {
+                Cards = cards
+            };
+
+            // Add the inventory to the database
             _context.Inventories.Add(inventory);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInventory", new { id = inventory.InventoryId }, inventory);
+            return CreatedAtAction(nameof(GetInventories), new { id = inventory.InventoryId }, inventory);
         }
 
-        // DELETE: api/Inventories/5
+        // PUT: api/inventories/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateInventory(int id, [FromBody] InventoryVM inventoryVm) {
+            var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == id);
+            if (inventory == null) {
+                return NotFound();
+            }
+
+            if (inventoryVm.CardIds == null || inventoryVm.CardIds.Count == 0) {
+                return BadRequest("At least one CardId must be provided.");
+            }
+
+            // Retrieve the cards based on the IDs
+            var cards = await _context.Cards
+                .Where(c => inventoryVm.CardIds.Contains(c.CardId))
+                .ToListAsync();
+
+            // Update the inventory's cards
+            inventory.Cards = cards;
+
+            _context.Inventories.Update(inventory);
+            await _context.SaveChangesAsync();
+
+            return Ok(inventory);
+        }
+
+        // DELETE: api/inventories/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInventory(int id)
-        {
+        public async Task<IActionResult> DeleteInventory(int id) {
             var inventory = await _context.Inventories.FindAsync(id);
-            if (inventory == null)
-            {
+            if (inventory == null) {
                 return NotFound();
             }
 
             _context.Inventories.Remove(inventory);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool InventoryExists(int id)
-        {
-            return _context.Inventories.Any(e => e.InventoryId == id);
+            return Ok();
         }
     }
 }

@@ -100,7 +100,7 @@ namespace Gamebook.Server.Controllers {
 
         // POST: api/Files
         [HttpPost]
-        [Authorize(Policy = Policy.Author)]
+        //[Authorize(Policy = Policy.Author)]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> PostFile(IFormFile file) {
             _logger.LogInformation("Uploading file");

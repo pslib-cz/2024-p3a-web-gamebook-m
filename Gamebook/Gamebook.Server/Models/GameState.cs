@@ -1,4 +1,4 @@
-﻿using Gamebook.Server.Models.Gamebook.Server.Models;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gamebook.Server.Models {

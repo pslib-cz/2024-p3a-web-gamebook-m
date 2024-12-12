@@ -3,6 +3,7 @@ using System;
 using Gamebook.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241212164457_hth545")]
+    partial class hth545
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -329,13 +332,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "52e853fe-af8e-4a3d-ba54-a5cde401d6e3",
+                            Id = "98125c45-b234-4936-9a28-b4a9bde14368",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b46277d7-50f7-400e-a3cd-a770df5e3319",
+                            Id = "c4ef5dd8-3e8c-4071-a093-6db47d38919e",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         });
@@ -407,15 +410,15 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e",
+                            Id = "12426a07-a48d-4d4c-8159-03ce30c4f4e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56057084-c1c0-4651-8afe-f508a3e044c1",
+                            ConcurrencyStamp = "fc0d12c4-eca9-40b6-9073-bbe13e1f8cb8",
                             Email = "admin@localhost.test",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.TEST",
                             NormalizedUserName = "ADMIN@LOCALHOST.TEST",
-                            PasswordHash = "AQAAAAIAAYagAAAAELlkD/oYsLkzC//53i9eJAmUEZ2pAT1DamXHiNgBd8YSRdmiajtL/eaj45yFDhxjAA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOphwqViKI5tus2rCssBqjRsa5kNtOjtmwBSCyPa7psGe6Iu9yspfd6SlmA+Nib6LA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -508,13 +511,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = "52e853fe-af8e-4a3d-ba54-a5cde401d6e3",
-                            UserId = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e"
+                            RoleId = "98125c45-b234-4936-9a28-b4a9bde14368",
+                            UserId = "12426a07-a48d-4d4c-8159-03ce30c4f4e5"
                         },
                         new
                         {
-                            RoleId = "b46277d7-50f7-400e-a3cd-a770df5e3319",
-                            UserId = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e"
+                            RoleId = "c4ef5dd8-3e8c-4071-a093-6db47d38919e",
+                            UserId = "12426a07-a48d-4d4c-8159-03ce30c4f4e5"
                         });
                 });
 

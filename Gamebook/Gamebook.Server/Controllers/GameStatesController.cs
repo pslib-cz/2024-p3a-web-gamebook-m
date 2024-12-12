@@ -1,108 +1,121 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Gamebook.Server.Data;
+using Gamebook.Server.Models;
+using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data;
-using Gamebook.Server.Models;
 
-namespace Gamebook.Server.Controllers
-{
+namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class GameStatesController : ControllerBase
-    {
+    public class GameStatesController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        public GameStatesController(ApplicationDbContext context)
-        {
+        public GameStatesController(ApplicationDbContext context) {
             _context = context;
         }
 
-        // GET: api/GameStates
+        // GET: api/gamestates
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GameState>>> GetGameStates()
-        {
-            return await _context.GameStates.ToListAsync();
+        public async Task<ActionResult<ListResult<GameStateVM>>> GetGameStates(int? page = null, int? size = null) {
+            var query = _context.GameStates
+                .Include(g => g.Inventory)
+                .Include(g => g.Character)
+                .Include(g => g.ActualField)
+                .AsQueryable();
+
+            var total = await query.CountAsync();
+            var gameStates = await query
+                .Skip((page ?? 0) * (size ?? 10))
+                .Take(size ?? 10)
+                .Select(g => new GameStateVM {
+                    GameStateId = g.GameStateId,
+                    InventoryId = g.InventoryId,
+                    CharacterId = g.CharacterId,
+                    ActualFieldId = g.ActualFieldId
+                })
+                .ToListAsync();
+
+            return Ok(new ListResult<GameStateVM> {
+                Total = total,
+                Items = gameStates,
+                Count = gameStates.Count,
+                Page = page ?? 0,
+                Size = size ?? 10
+            });
         }
 
-        // GET: api/GameStates/5
+        // GET: api/gamestates/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameState>> GetGameState(int id)
-        {
-            var gameState = await _context.GameStates.FindAsync(id);
+        public async Task<IActionResult> GetGameStateById(int id) {
+            var gameState = await _context.GameStates
+                .Include(g => g.Inventory)
+                .Include(g => g.Character)
+                .Include(g => g.ActualField)
+                .FirstOrDefaultAsync(g => g.GameStateId == id);
 
-            if (gameState == null)
-            {
+            if (gameState == null) {
                 return NotFound();
             }
 
-            return gameState;
+            var gameStateVm = new GameStateVM {
+                GameStateId = gameState.GameStateId,
+                InventoryId = gameState.InventoryId,
+                CharacterId = gameState.CharacterId,
+                ActualFieldId = gameState.ActualFieldId
+            };
+
+            return Ok(gameStateVm);
         }
 
-        // PUT: api/GameStates/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutGameState(int id, GameState gameState)
-        {
-            if (id != gameState.GameStateId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(gameState).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GameStateExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/GameStates
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/gamestates
         [HttpPost]
-        public async Task<ActionResult<GameState>> PostGameState(GameState gameState)
-        {
+        public async Task<IActionResult> CreateGameState([FromBody] GameStateVM gameStateVm) {
+            if (gameStateVm == null) {
+                return BadRequest("GameState data is invalid.");
+            }
+
+            var gameState = new GameState {
+                InventoryId = gameStateVm.InventoryId,
+                CharacterId = gameStateVm.CharacterId,
+                ActualFieldId = gameStateVm.ActualFieldId
+            };
+
             _context.GameStates.Add(gameState);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGameState", new { id = gameState.GameStateId }, gameState);
+            return CreatedAtAction(nameof(GetGameStateById), new { id = gameState.GameStateId }, gameState);
         }
 
-        // DELETE: api/GameStates/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteGameState(int id)
-        {
+        // PUT: api/gamestates/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateGameState(int id, [FromBody] GameStateVM gameStateVm) {
             var gameState = await _context.GameStates.FindAsync(id);
-            if (gameState == null)
-            {
+            if (gameState == null) {
+                return NotFound();
+            }
+
+            gameState.InventoryId = gameStateVm.InventoryId;
+            gameState.CharacterId = gameStateVm.CharacterId;
+            gameState.ActualFieldId = gameStateVm.ActualFieldId;
+
+            _context.GameStates.Update(gameState);
+            await _context.SaveChangesAsync();
+
+            return Ok(gameState);
+        }
+
+        // DELETE: api/gamestates/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGameState(int id) {
+            var gameState = await _context.GameStates.FindAsync(id);
+            if (gameState == null) {
                 return NotFound();
             }
 
             _context.GameStates.Remove(gameState);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool GameStateExists(int id)
-        {
-            return _context.GameStates.Any(e => e.GameStateId == id);
+            return Ok();
         }
     }
 }

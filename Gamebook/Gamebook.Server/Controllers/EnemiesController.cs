@@ -1,108 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Gamebook.Server.Data;
+using Gamebook.Server.Models;
+using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data;
-using Gamebook.Server.Models;
 
-namespace Gamebook.Server.Controllers
-{
+namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class EnemiesController : ControllerBase
-    {
+    public class EnemiesController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        public EnemiesController(ApplicationDbContext context)
-        {
+        public EnemiesController(ApplicationDbContext context) {
             _context = context;
         }
 
-        // GET: api/Enemies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Enemy>>> GetEnemies()
-        {
-            return await _context.Enemies.ToListAsync();
+        public async Task<ActionResult<ListResult<EnemyListVM>>> GetEnemies(string? name, int? page = null, int? size = null) {
+            var query = _context.Enemies.Include(x => x.RewardCard).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name)) {
+                query = query.Where(e => e.Name.Contains(name));
+            }
+
+            var total = await query.CountAsync();
+            var enemies = await query
+                .Skip((page ?? 0) * (size ?? 10))
+                .Take(size ?? 10)
+                .Select(e => new EnemyListVM {
+                    Id = e.EnemyId,
+                    Name = e.Name,
+                    RewardCardId = e.RewardCardId
+                })
+                .ToListAsync();
+
+            return Ok(new ListResult<EnemyListVM> {
+                Total = total,
+                Items = enemies,
+                Count = enemies.Count,
+                Page = page ?? 0,
+                Size = size ?? 10
+            });
         }
 
-        // GET: api/Enemies/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Enemy>> GetEnemy(int id)
-        {
-            var enemy = await _context.Enemies.FindAsync(id);
-
-            if (enemy == null)
-            {
-                return NotFound();
-            }
-
-            return enemy;
-        }
-
-        // PUT: api/Enemies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEnemy(int id, Enemy enemy)
-        {
-            if (id != enemy.EnemyId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(enemy).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EnemyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Enemies
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Enemy>> PostEnemy(Enemy enemy)
-        {
+        public async Task<IActionResult> CreateEnemy([FromBody] EnemyVM enemyVm) {
+            var enemy = new Enemy {
+                Name = enemyVm.Name,
+                Strength = enemyVm.Strength,
+                Will = enemyVm.Will,
+                RewardCardId = enemyVm.RewardCardId
+            };
+
             _context.Enemies.Add(enemy);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEnemy", new { id = enemy.EnemyId }, enemy);
+            return Ok(enemy);
         }
 
-        // DELETE: api/Enemies/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEnemy(int id)
-        {
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetEnemyById(int id) {
+            var enemy = await _context.Enemies
+                .Include(e => e.RewardCard)
+                .FirstOrDefaultAsync(e => e.EnemyId == id);
+
+            if (enemy == null) {
+                return NotFound();
+            }
+
+            return Ok(enemy);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateEnemy(int id, [FromBody] EnemyVM enemyVm) {
             var enemy = await _context.Enemies.FindAsync(id);
-            if (enemy == null)
-            {
+            if (enemy == null) {
+                return NotFound();
+            }
+
+            enemy.Name = enemyVm.Name;
+            enemy.Strength = enemyVm.Strength;
+            enemy.Will = enemyVm.Will;
+            enemy.RewardCardId = enemyVm.RewardCardId;
+
+            _context.Enemies.Update(enemy);
+            await _context.SaveChangesAsync();
+
+            return Ok(enemy);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEnemy(int id) {
+            var enemy = await _context.Enemies.FindAsync(id);
+            if (enemy == null) {
                 return NotFound();
             }
 
             _context.Enemies.Remove(enemy);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool EnemyExists(int id)
-        {
-            return _context.Enemies.Any(e => e.EnemyId == id);
+            return Ok();
         }
     }
 }

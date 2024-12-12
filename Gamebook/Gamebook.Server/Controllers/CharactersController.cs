@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Gamebook.Server.Data;
+using Gamebook.Server.Models;
+using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data; // Namespace pro DbContext
-using Gamebook.Server.Models; // Namespace pro modely
 
 namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
@@ -13,59 +14,96 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
-        // GET: api/Characters
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Character>>> GetCharacters() {
-            return await _context.Characters.Include(c => c.Image).ToListAsync();
+        public async Task<ActionResult<ListResult<CharacterListVM>>> GetCharacters(string? name, int? page = null, int? size = null) {
+            var query = _context.Characters.Include(x => x.StartingField).Include(x => x.Image).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name)) {
+                query = query.Where(c => c.Name.Contains(name));
+            }
+
+            var total = await query.CountAsync();
+            var characters = await query
+                .Skip((page ?? 0) * (size ?? 10))
+                .Take(size ?? 10)
+                .Select(c => new CharacterListVM {
+                    Id = c.CharacterId,
+                    Name = c.Name,
+                    StartingFieldId = c.StartingFieldId, 
+                    ImageId = c.ImageId 
+                })
+                .ToListAsync();
+
+            return Ok(new ListResult<CharacterListVM> {
+                Total = total,
+                Items = characters,
+                Count = characters.Count,
+                Page = page ?? 0,
+                Size = size ?? 10
+            });
         }
 
-        // GET: api/Characters/{id}
+        [HttpPost]
+        public async Task<IActionResult> CreateCharacter([FromBody] CharacterVM characterVm) {
+            var character = new Character {
+                Name = characterVm.Name,
+                Class = characterVm.Class,
+                Strength = characterVm.Strength,
+                Will = characterVm.Will,
+                PointsOfDestiny = characterVm.PointsOfDestiny,
+                Backstory = characterVm.Backstory,
+                Ability = characterVm.Ability,
+                MaxHP = characterVm.MaxHP,
+                MaxDificulty = characterVm.MaxDificulty,
+                StartingFieldId = characterVm.StartingFieldId,
+                ImageId = characterVm.ImageId 
+            };
+
+            _context.Characters.Add(character);
+            await _context.SaveChangesAsync();
+
+            return Ok(character);
+        }
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacter(int id) {
+        public async Task<IActionResult> GetCharacterById(int id) {
             var character = await _context.Characters
-                .Include(c => c.Image)
-                .Include(c => c.StartingField)
-                .FirstOrDefaultAsync(c => c.CharacterId == id);
+      .Include(c => c.StartingField)
+      .Include(c => c.Image)
+      .FirstOrDefaultAsync(c => c.CharacterId == id);
 
             if (character == null) {
                 return NotFound();
             }
 
-            return character;
+            return Ok(character);
         }
 
-        // POST: api/Characters
-        [HttpPost]
-        public async Task<ActionResult<Character>> CreateCharacter(Character character) {
-            _context.Characters.Add(character);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCharacter(int id, [FromBody] CharacterVM characterVm) {
+            var character = await _context.Characters.FindAsync(id);
+            if (character == null) {
+                return NotFound();
+            }
+
+            character.Name = characterVm.Name;
+            character.Class = characterVm.Class;
+            character.Strength = characterVm.Strength;
+            character.Will = characterVm.Will;
+            character.PointsOfDestiny = characterVm.PointsOfDestiny;
+            character.Backstory = characterVm.Backstory;
+            character.Ability = characterVm.Ability;
+            character.MaxHP = characterVm.MaxHP;
+            character.MaxDificulty = characterVm.MaxDificulty;
+            character.StartingFieldId = characterVm.StartingFieldId;
+            character.ImageId = characterVm.ImageId; 
+
+            _context.Characters.Update(character);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCharacter), new { id = character.CharacterId }, character);
+            return Ok(character);
         }
 
-        // PUT: api/Characters/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCharacter(int id, Character character) {
-            if (id != character.CharacterId) {
-                return BadRequest();
-            }
-
-            _context.Entry(character).State = EntityState.Modified;
-
-            try {
-                await _context.SaveChangesAsync();
-            } catch (DbUpdateConcurrencyException) {
-                if (!CharacterExists(id)) {
-                    return NotFound();
-                } else {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // DELETE: api/Characters/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCharacter(int id) {
             var character = await _context.Characters.FindAsync(id);
@@ -76,11 +114,8 @@ namespace Gamebook.Server.Controllers {
             _context.Characters.Remove(character);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool CharacterExists(int id) {
-            return _context.Characters.Any(c => c.CharacterId == id);
+            return Ok();
         }
     }
 }
+

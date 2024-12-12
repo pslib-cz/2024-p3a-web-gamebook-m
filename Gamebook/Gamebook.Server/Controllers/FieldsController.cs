@@ -1,108 +1,129 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Gamebook.Server.Data;
+using Gamebook.Server.Models;
+using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gamebook.Server.Data;
-using Gamebook.Server.Models;
 
-namespace Gamebook.Server.Controllers
-{
+namespace Gamebook.Server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class FieldsController : ControllerBase
-    {
+    public class FieldsController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        public FieldsController(ApplicationDbContext context)
-        {
+        public FieldsController(ApplicationDbContext context) {
             _context = context;
         }
 
         // GET: api/Fields
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Field>>> GetFields()
-        {
-            return await _context.Fields.ToListAsync();
+        public async Task<ActionResult<ListResult<FieldListVM>>> GetFields(string? title, int? page = null, int? size = null) {
+            var query = _context.Fields.Include(f => f.Image).Include(f => f.Enemy).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(title)) {
+                query = query.Where(f => f.Title.Contains(title));
+            }
+
+            var total = await query.CountAsync();
+            var fields = await query
+                .Skip((page ?? 0) * (size ?? 10))
+                .Take(size ?? 10)
+                .Select(f => new FieldListVM {
+                    Id = f.FieldId,
+                    Title = f.Title,
+                    Difficulty = f.Difficulty,
+                    ImageId = f.ImageId,
+                    EnemyId = f.EnemyId
+                })
+                .ToListAsync();
+
+            return Ok(new ListResult<FieldListVM> {
+                Total = total,
+                Items = fields,
+                Count = fields.Count,
+                Page = page ?? 0,
+                Size = size ?? 10
+            });
+        }
+
+        // POST: api/Fields
+        [HttpPost]
+        public async Task<IActionResult> CreateField([FromBody] FieldVM fieldVm) {
+            var field = new Field {
+                Title = fieldVm.Title,
+                Description = fieldVm.Description,
+                Difficulty = fieldVm.Difficulty,
+                numOfCards = fieldVm.numOfCards,
+                DiceRoll1Result = fieldVm.DiceRoll1Result,
+                DiceRoll2Result = fieldVm.DiceRoll2Result,
+                DiceRoll3Result = fieldVm.DiceRoll3Result,
+                DiceRoll4Result = fieldVm.DiceRoll4Result,
+                DiceRoll5Result = fieldVm.DiceRoll5Result,
+                DiceRoll6Result = fieldVm.DiceRoll6Result,
+                EnemyId = fieldVm.EnemyId,
+                ImageId = fieldVm.ImageId
+            };
+
+            _context.Fields.Add(field);
+            await _context.SaveChangesAsync();
+
+            return Ok(field);
         }
 
         // GET: api/Fields/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Field>> GetField(int id)
-        {
-            var @field = await _context.Fields.FindAsync(id);
+        public async Task<IActionResult> GetFieldById(int id) {
+            var field = await _context.Fields
+                .Include(f => f.Image)
+                .Include(f => f.Enemy)
+                .Include(f => f.Cards) // If you want to include the associated cards
+                .FirstOrDefaultAsync(f => f.FieldId == id);
 
-            if (@field == null)
-            {
+            if (field == null) {
                 return NotFound();
             }
 
-            return @field;
+            return Ok(field);
         }
 
         // PUT: api/Fields/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutField(int id, Field @field)
-        {
-            if (id != @field.FieldId)
-            {
-                return BadRequest();
+        public async Task<IActionResult> UpdateField(int id, [FromBody] FieldVM fieldVm) {
+            var field = await _context.Fields.FindAsync(id);
+            if (field == null) {
+                return NotFound();
             }
 
-            _context.Entry(@field).State = EntityState.Modified;
+            field.Title = fieldVm.Title;
+            field.Description = fieldVm.Description;
+            field.Difficulty = fieldVm.Difficulty;
+            field.numOfCards = fieldVm.numOfCards;
+            field.DiceRoll1Result = fieldVm.DiceRoll1Result;
+            field.DiceRoll2Result = fieldVm.DiceRoll2Result;
+            field.DiceRoll3Result = fieldVm.DiceRoll3Result;
+            field.DiceRoll4Result = fieldVm.DiceRoll4Result;
+            field.DiceRoll5Result = fieldVm.DiceRoll5Result;
+            field.DiceRoll6Result = fieldVm.DiceRoll6Result;
+            field.EnemyId = fieldVm.EnemyId;
+            field.ImageId = fieldVm.ImageId;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!FieldExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Fields
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Field>> PostField(Field @field)
-        {
-            _context.Fields.Add(@field);
+            _context.Fields.Update(field);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetField", new { id = @field.FieldId }, @field);
+            return Ok(field);
         }
 
         // DELETE: api/Fields/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteField(int id)
-        {
-            var @field = await _context.Fields.FindAsync(id);
-            if (@field == null)
-            {
+        public async Task<IActionResult> DeleteField(int id) {
+            var field = await _context.Fields.FindAsync(id);
+            if (field == null) {
                 return NotFound();
             }
 
-            _context.Fields.Remove(@field);
+            _context.Fields.Remove(field);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
-
-        private bool FieldExists(int id)
-        {
-            return _context.Fields.Any(e => e.FieldId == id);
+            return Ok();
         }
     }
 }
