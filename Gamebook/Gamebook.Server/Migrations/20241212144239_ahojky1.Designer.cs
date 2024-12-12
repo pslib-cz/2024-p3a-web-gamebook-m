@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241211102705_ggtr")]
-    partial class ggtr
+    [Migration("20241212144239_ahojky1")]
+    partial class ahojky1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -328,6 +328,20 @@ namespace Gamebook.Server.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "accb0992-1b86-4445-b8ea-4ac024b767b3",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "383c1213-d090-4fca-8d2b-f612cf3245b9",
+                            Name = "Author",
+                            NormalizedName = "AUTHOR"
+                        });
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.User", b =>
@@ -392,6 +406,24 @@ namespace Gamebook.Server.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4a22fbd1-38c2-4b58-8b5a-f7b318dd9a7a",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f5f3c198-a765-4df2-8103-10ea5f801f67",
+                            Email = "admin@localhost.test",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.TEST",
+                            NormalizedUserName = "ADMIN@LOCALHOST.TEST",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEC51RESEvHyN8jhJyYHTIAQlHZFmnIQ3nmHJtD4azUP2007E9N0oou2iXVRQrHQYg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@localhost.test"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -464,17 +496,29 @@ namespace Gamebook.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("RoleId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("RoleId");
+                    b.HasKey("RoleId", "UserId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = "accb0992-1b86-4445-b8ea-4ac024b767b3",
+                            UserId = "4a22fbd1-38c2-4b58-8b5a-f7b318dd9a7a"
+                        },
+                        new
+                        {
+                            RoleId = "383c1213-d090-4fca-8d2b-f612cf3245b9",
+                            UserId = "4a22fbd1-38c2-4b58-8b5a-f7b318dd9a7a"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -494,21 +538,6 @@ namespace Gamebook.Server.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("RoleUser", b =>
-                {
-                    b.Property<string>("RolesId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("RolesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("RoleUser");
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.Card", b =>
@@ -668,21 +697,6 @@ namespace Gamebook.Server.Migrations
                     b.HasOne("Gamebook.Server.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RoleUser", b =>
-                {
-                    b.HasOne("Gamebook.Server.Models.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Gamebook.Server.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

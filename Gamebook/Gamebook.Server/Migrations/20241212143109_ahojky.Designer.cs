@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241210153551_dataa")]
-    partial class dataa
+    [Migration("20241212143109_ahojky")]
+    partial class ahojky
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,9 @@ namespace Gamebook.Server.Migrations
                     b.Property<int>("DiceRoll6Result")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("EnemyId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("FieldId")
                         .HasColumnType("INTEGER");
 
@@ -66,6 +69,9 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("CardId");
+
+                    b.HasIndex("EnemyId")
+                        .IsUnique();
 
                     b.HasIndex("FieldId");
 
@@ -95,6 +101,9 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("ImageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxDificulty")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("MaxHP")
@@ -146,8 +155,6 @@ namespace Gamebook.Server.Migrations
 
                     b.HasKey("EnemyId");
 
-                    b.HasIndex("RewardCardId");
-
                     b.ToTable("Enemies");
                 });
 
@@ -161,6 +168,24 @@ namespace Gamebook.Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("DiceRoll1Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll2Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll3Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll4Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll5Result")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiceRoll6Result")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
 
@@ -168,6 +193,13 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("ImageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("numOfCards")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("FieldId");
@@ -218,6 +250,8 @@ namespace Gamebook.Server.Migrations
 
                     b.HasKey("GameStateId");
 
+                    b.HasIndex("ActualFieldId");
+
                     b.HasIndex("CharacterId");
 
                     b.HasIndex("InventoryId");
@@ -231,9 +265,6 @@ namespace Gamebook.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("NumOfCards")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("InventoryId");
 
                     b.ToTable("Inventories");
@@ -245,15 +276,30 @@ namespace Gamebook.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Alt")
+                    b.Property<byte[]>("Content")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
+                    b.Property<string>("ContentType")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Root")
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedById")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ImageId");
+
+                    b.HasIndex("CreatedById");
 
                     b.ToTable("Images");
                 });
@@ -282,6 +328,20 @@ namespace Gamebook.Server.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1a264ec1-06c9-476a-bd66-9c2d1f8f4bdd",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "9944988d-5f5d-43ce-8357-e97c267cebad",
+                            Name = "Author",
+                            NormalizedName = "AUTHOR"
+                        });
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.User", b =>
@@ -346,6 +406,24 @@ namespace Gamebook.Server.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "e28763ed-48f7-4c29-aabe-751b47fbd8ea",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6bd69c9d-5893-4ddf-bf17-fa2e8bf51bfc",
+                            Email = "admin@localhost.test",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.TEST",
+                            NormalizedUserName = "ADMIN@LOCALHOST.TEST",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI8MbS9J4N3YwksDMbzKr02KoHF1hNYK3kJXbGX9kxvTTvZPIIdt52WjqKKcD0SQiQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@localhost.test"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -418,17 +496,29 @@ namespace Gamebook.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("RoleId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("RoleId");
+                    b.HasKey("RoleId", "UserId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = "1a264ec1-06c9-476a-bd66-9c2d1f8f4bdd",
+                            UserId = "e28763ed-48f7-4c29-aabe-751b47fbd8ea"
+                        },
+                        new
+                        {
+                            RoleId = "9944988d-5f5d-43ce-8357-e97c267cebad",
+                            UserId = "e28763ed-48f7-4c29-aabe-751b47fbd8ea"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -450,23 +540,12 @@ namespace Gamebook.Server.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RoleUser", b =>
-                {
-                    b.Property<string>("RolesId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("RolesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("RoleUser");
-                });
-
             modelBuilder.Entity("Gamebook.Server.Models.Card", b =>
                 {
+                    b.HasOne("Gamebook.Server.Models.Enemy", "Enemy")
+                        .WithOne("RewardCard")
+                        .HasForeignKey("Gamebook.Server.Models.Card", "EnemyId");
+
                     b.HasOne("Gamebook.Server.Models.Field", null)
                         .WithMany("Cards")
                         .HasForeignKey("FieldId");
@@ -478,6 +557,8 @@ namespace Gamebook.Server.Migrations
                     b.HasOne("Gamebook.Server.Models.Gamebook.Server.Models.Inventory", null)
                         .WithMany("Cards")
                         .HasForeignKey("InventoryId");
+
+                    b.Navigation("Enemy");
 
                     b.Navigation("Image");
                 });
@@ -497,15 +578,6 @@ namespace Gamebook.Server.Migrations
                     b.Navigation("Image");
 
                     b.Navigation("StartingField");
-                });
-
-            modelBuilder.Entity("Gamebook.Server.Models.Enemy", b =>
-                {
-                    b.HasOne("Gamebook.Server.Models.Card", "RewardCard")
-                        .WithMany()
-                        .HasForeignKey("RewardCardId");
-
-                    b.Navigation("RewardCard");
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.Field", b =>
@@ -544,6 +616,12 @@ namespace Gamebook.Server.Migrations
 
             modelBuilder.Entity("Gamebook.Server.Models.GameState", b =>
                 {
+                    b.HasOne("Gamebook.Server.Models.Field", "ActualField")
+                        .WithMany()
+                        .HasForeignKey("ActualFieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Gamebook.Server.Models.Character", "Character")
                         .WithMany()
                         .HasForeignKey("CharacterId")
@@ -556,9 +634,20 @@ namespace Gamebook.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("ActualField");
+
                     b.Navigation("Character");
 
                     b.Navigation("Inventory");
+                });
+
+            modelBuilder.Entity("Gamebook.Server.Models.Image", b =>
+                {
+                    b.HasOne("Gamebook.Server.Models.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.Navigation("CreatedBy");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -612,18 +701,9 @@ namespace Gamebook.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RoleUser", b =>
+            modelBuilder.Entity("Gamebook.Server.Models.Enemy", b =>
                 {
-                    b.HasOne("Gamebook.Server.Models.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Gamebook.Server.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("RewardCard")
                         .IsRequired();
                 });
 

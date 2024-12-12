@@ -3,14 +3,16 @@ using Gamebook.Server.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Gamebook.Server.Constants;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-//builder.Services.AddSingleton<IEmailSender<User>, EmailSender<User>>();
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")) 
+      .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning)));
+
 builder.Services.AddControllers();
 builder.Services.AddAuthorization(options => {
     options.AddPolicy(Policy.Admin, policy => policy.RequireRole(Gamebook.Server.Constants.Role.Admin));
