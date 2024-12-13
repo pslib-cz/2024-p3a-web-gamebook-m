@@ -25,6 +25,6 @@ namespace Gamebook.Server.Models {
         // Obrázek
         [ForeignKey("Image")]
         public int? ImageId { get; set; }
-        public Image Image { get; set; }
+        public Image? Image { get; set; }
     }
 }

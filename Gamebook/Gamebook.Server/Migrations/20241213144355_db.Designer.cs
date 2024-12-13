@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241213075657_egr")]
-    partial class egr
+    [Migration("20241213144355_db")]
+    partial class db
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,28 +30,11 @@ namespace Gamebook.Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DiceRoll1Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll2Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll3Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll4Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll5Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll6Result")
-                        .HasColumnType("INTEGER");
+                    b.PrimitiveCollection<string>("DiceRollResults")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("EnemyId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("FieldId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("ImageId")
@@ -70,10 +53,7 @@ namespace Gamebook.Server.Migrations
 
                     b.HasKey("CardId");
 
-                    b.HasIndex("EnemyId")
-                        .IsUnique();
-
-                    b.HasIndex("FieldId");
+                    b.HasIndex("EnemyId");
 
                     b.HasIndex("ImageId");
 
@@ -140,12 +120,13 @@ namespace Gamebook.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("RewardCardId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Strength")
                         .HasColumnType("INTEGER");
@@ -168,23 +149,9 @@ namespace Gamebook.Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DiceRoll1Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll2Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll3Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll4Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll5Result")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DiceRoll6Result")
-                        .HasColumnType("INTEGER");
+                    b.PrimitiveCollection<string>("DiceRollResults")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
@@ -332,13 +299,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "46f6c6b5-3e9b-4125-a728-718d910e862f",
+                            Id = "844a72a2-3519-4e63-ad93-909468198681",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b5546392-5b30-4d9a-a0a8-e2abb0763cda",
+                            Id = "3ebb8db8-59db-4461-a0dd-108c9fd305d1",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         });
@@ -410,15 +377,15 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5c5842d1-14c5-4243-8386-17778af64d51",
+                            Id = "88cd4614-c049-4289-92b0-daf800b7f098",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d606675e-9129-4627-9173-9a13f82b6fd2",
+                            ConcurrencyStamp = "ddaa4c58-d09c-46f7-9b16-8a90a93bce7f",
                             Email = "admin@localhost.test",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.TEST",
                             NormalizedUserName = "ADMIN@LOCALHOST.TEST",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDnBLjShnh+LrFLzafE/7vP6WkAbbsIAvky9X+JTSMHCV4kHknkWJYBRge3a8I5nmA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEACrp5OI/qJdJDp20u36ydwZhq/l8teZhNDRz6hcP0m3NCrqM0MvdIJYy7JN5DIbLA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -511,13 +478,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = "46f6c6b5-3e9b-4125-a728-718d910e862f",
-                            UserId = "5c5842d1-14c5-4243-8386-17778af64d51"
+                            RoleId = "844a72a2-3519-4e63-ad93-909468198681",
+                            UserId = "88cd4614-c049-4289-92b0-daf800b7f098"
                         },
                         new
                         {
-                            RoleId = "b5546392-5b30-4d9a-a0a8-e2abb0763cda",
-                            UserId = "5c5842d1-14c5-4243-8386-17778af64d51"
+                            RoleId = "3ebb8db8-59db-4461-a0dd-108c9fd305d1",
+                            UserId = "88cd4614-c049-4289-92b0-daf800b7f098"
                         });
                 });
 
@@ -543,12 +510,8 @@ namespace Gamebook.Server.Migrations
             modelBuilder.Entity("Gamebook.Server.Models.Card", b =>
                 {
                     b.HasOne("Gamebook.Server.Models.Enemy", "Enemy")
-                        .WithOne("RewardCard")
-                        .HasForeignKey("Gamebook.Server.Models.Card", "EnemyId");
-
-                    b.HasOne("Gamebook.Server.Models.Field", null)
-                        .WithMany("Cards")
-                        .HasForeignKey("FieldId");
+                        .WithMany()
+                        .HasForeignKey("EnemyId");
 
                     b.HasOne("Gamebook.Server.Models.Image", "Image")
                         .WithMany()
@@ -699,17 +662,6 @@ namespace Gamebook.Server.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Gamebook.Server.Models.Enemy", b =>
-                {
-                    b.Navigation("RewardCard")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Gamebook.Server.Models.Field", b =>
-                {
-                    b.Navigation("Cards");
                 });
 
             modelBuilder.Entity("Gamebook.Server.Models.Inventory", b =>

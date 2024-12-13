@@ -11,7 +11,9 @@ namespace Gamebook.Server.Models {
         public required string ContentType { get; set; }
         public required byte[] Content { get; set; }
         public required DateTime CreatedAt { get; set; } = DateTime.Now;
-        public User? CreatedBy { get; set; }
+        [ForeignKey("Field")]
         public string? CreatedById { get; set; }
+        public User? CreatedBy { get; set; }
+
     }
 }

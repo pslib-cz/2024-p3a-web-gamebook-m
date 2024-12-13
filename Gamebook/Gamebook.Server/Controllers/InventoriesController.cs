@@ -14,22 +14,22 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
-        // GET: api/inventories
+        // GET /api/inventories
         [HttpGet]
-        public async Task<ActionResult<ListResult<InventoryVM>>> GetInventories(int? page = null, int? size = null) {
+        public async Task<ActionResult<ListResult<InventoryListVM>>> GetInventories([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
             var query = _context.Inventories.Include(i => i.Cards).AsQueryable();
 
             var total = await query.CountAsync();
             var inventories = await query
                 .Skip((page ?? 0) * (size ?? 10))
                 .Take(size ?? 10)
-                .Select(i => new InventoryVM {
-                    InventoryId = i.InventoryId,
+                .Select(i => new InventoryListVM {
+                    Id = i.InventoryId,
                     CardIds = i.Cards.Select(c => c.CardId).ToList()
                 })
                 .ToListAsync();
 
-            return Ok(new ListResult<InventoryVM> {
+            return Ok(new ListResult<InventoryListVM> {
                 Total = total,
                 Items = inventories,
                 Count = inventories.Count,
@@ -38,45 +38,56 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        // POST: api/inventories
+        // GET /api/inventories/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetInventoryById(int id) {
+            var inventory = await _context.Inventories
+                .Include(i => i.Cards)
+                .FirstOrDefaultAsync(i => i.InventoryId == id);
+
+            if (inventory == null) {
+                return NotFound();
+            }
+
+            return Ok(new InventoryDetailVM {
+                Id = inventory.InventoryId,
+                CardIds = inventory.Cards.Select(c => c.CardId).ToList()
+            });
+        }
+
+        // POST /api/inventories
         [HttpPost]
-        public async Task<IActionResult> CreateInventory([FromBody] InventoryVM inventoryVm) {
+        public async Task<IActionResult> CreateInventory([FromBody] InventoryCreateVM inventoryVm) {
+            var cards = await _context.Cards.Where(c => inventoryVm.CardIds.Contains(c.CardId)).ToListAsync();
 
-            // Retrieve the cards based on the IDs
-            var cards = await _context.Cards
-                .Where(c => inventoryVm.CardIds.Contains(c.CardId))
-                .ToListAsync();
+            if (cards.Count != inventoryVm.CardIds.Count) {
+                return BadRequest("Some CardIds are invalid.");
+            }
 
-            // Create a new Inventory and associate the cards with it
             var inventory = new Inventory {
                 Cards = cards
             };
 
-            // Add the inventory to the database
             _context.Inventories.Add(inventory);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetInventories), new { id = inventory.InventoryId }, inventory);
+            return Ok(inventory);
         }
 
-        // PUT: api/inventories/{id}
+        // PUT /api/inventories/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateInventory(int id, [FromBody] InventoryVM inventoryVm) {
+        public async Task<IActionResult> UpdateInventory(int id, [FromBody] InventoryCreateVM inventoryVm) {
             var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == id);
             if (inventory == null) {
                 return NotFound();
             }
 
-            if (inventoryVm.CardIds == null || inventoryVm.CardIds.Count == 0) {
-                return BadRequest("At least one CardId must be provided.");
+            var cards = await _context.Cards.Where(c => inventoryVm.CardIds.Contains(c.CardId)).ToListAsync();
+
+            if (cards.Count != inventoryVm.CardIds.Count) {
+                return BadRequest("Some CardIds are invalid.");
             }
 
-            // Retrieve the cards based on the IDs
-            var cards = await _context.Cards
-                .Where(c => inventoryVm.CardIds.Contains(c.CardId))
-                .ToListAsync();
-
-            // Update the inventory's cards
             inventory.Cards = cards;
 
             _context.Inventories.Update(inventory);
@@ -85,7 +96,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(inventory);
         }
 
-        // DELETE: api/inventories/{id}
+        // DELETE /api/inventories/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteInventory(int id) {
             var inventory = await _context.Inventories.FindAsync(id);
@@ -97,6 +108,46 @@ namespace Gamebook.Server.Controllers {
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+        [HttpPost("add-card")]
+        public async Task<IActionResult> AddCardToInventory([FromBody] AddCardToInventoryVM inventoryVm) {
+            var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == inventoryVm.InventoryId);
+            if (inventory == null) {
+                return NotFound("Inventory not found.");
+            }
+
+            var card = await _context.Cards.FindAsync(inventoryVm.CardId);
+            if (card == null) {
+                return NotFound("Card not found.");
+            }
+
+            // Přidání karty do inventáře
+            if (!inventory.Cards.Any(c => c.CardId == inventoryVm.CardId)) {
+                inventory.Cards.Add(card);
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok(inventory);
+        }
+
+        // Odstraní kartu z inventáře
+        [HttpPost("remove-card")]
+        public async Task<IActionResult> DeleteCardFromInventory([FromBody] RemoveCardFromInventoryVM inventoryVm) {
+            var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == inventoryVm.InventoryId);
+            if (inventory == null) {
+                return NotFound("Inventory not found.");
+            }
+
+            var card = inventory.Cards.FirstOrDefault(c => c.CardId == inventoryVm.CardId);
+            if (card == null) {
+                return NotFound("Card not found in the inventory.");
+            }
+
+            // Odebrání karty z inventáře
+            inventory.Cards.Remove(card);
+            await _context.SaveChangesAsync();
+
+            return Ok(inventory);
         }
     }
 }

@@ -8,12 +8,8 @@ namespace Gamebook.Server.Models {
         public int EnemyId { get; set; }
 
         public string Name { get; set; }
+        public string Description { get; set; }
         public int Strength { get; set; }
         public int Will { get; set; }
-
-        // Odměna v podobě karty
-        [ForeignKey("Card")]
-        public int? RewardCardId { get; set; }
-        public Card RewardCard { get; set; }
     }
 }

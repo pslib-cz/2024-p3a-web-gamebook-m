@@ -11,11 +11,11 @@ namespace Gamebook.Server.Models {
         public Inventory Inventory { get; set; }
 
         [ForeignKey("Character")]
-        public int CharacterId { get; set; }
-        public Character Character { get; set; }
+        public int? CharacterId { get; set; }
+        public Character? Character { get; set; }
 
         [ForeignKey("ActualField")]
-        public int ActualFieldId { get; set; }
-        public Field ActualField { get; set; }
+        public int? ActualFieldId { get; set; }
+        public Field? ActualField { get; set; }
     }
 }

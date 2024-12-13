@@ -1,15 +1,19 @@
-// ViewModel pro pøenos dat pøi vytváøení a aktualizaci
-public class EnemyVM {
+public class EnemyListVM {
     public int Id { get; set; }
     public string Name { get; set; }
     public int Strength { get; set; }
     public int Will { get; set; }
-    public int? RewardCardId { get; set; } // Pouze ID pro RewardCard
 }
-
-// ViewModel pro seznam nepøátel (základní údaje)
-public class EnemyListVM {
+public class EnemyCreateVM {
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Strength { get; set; }
+    public int Will { get; set; }
+}
+public class EnemyDetailVM {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int? RewardCardId { get; set; } // Pouze ID pro RewardCard
+    public string Description { get; set; }
+    public int Strength { get; set; }
+    public int Will { get; set; }
 }

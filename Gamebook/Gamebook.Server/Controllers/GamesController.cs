@@ -14,29 +14,23 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
-        // GET: api/games
+        // GET /api/games
         [HttpGet]
-        public async Task<ActionResult<ListResult<GameVM>>> GetGames(string? userId, int? page = null, int? size = null) {
+        public async Task<ActionResult<ListResult<GameListVM>>> GetGames([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
             var query = _context.Games.Include(g => g.User).Include(g => g.GameState).AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(userId)) {
-                query = query.Where(g => g.UserId.Contains(userId));
-            }
 
             var total = await query.CountAsync();
             var games = await query
                 .Skip((page ?? 0) * (size ?? 10))
                 .Take(size ?? 10)
-                .Select(g => new GameVM {
-                    GameId = g.GameId,
+                .Select(g => new GameListVM {
+                    Id = g.GameId,
                     UserId = g.UserId,
-                    GameStateId = g.GameStateId,
-                    UserName = g.User.UserName, // Assuming User has a property 'UserName'
-                    GameStateName = g.GameState != null ? g.GameState.ToString() : "Unknown" // Replace with actual GameState field
+                    GameStateId = g.GameStateId
                 })
                 .ToListAsync();
 
-            return Ok(new ListResult<GameVM> {
+            return Ok(new ListResult<GameListVM> {
                 Total = total,
                 Items = games,
                 Count = games.Count,
@@ -45,7 +39,7 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        // GET: api/games/{id}
+        // GET /api/games/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetGameById(int id) {
             var game = await _context.Games
@@ -57,22 +51,21 @@ namespace Gamebook.Server.Controllers {
                 return NotFound();
             }
 
-            var gameVm = new GameVM {
-                GameId = game.GameId,
+            return Ok(new GameDetailVM {
+                Id = game.GameId,
                 UserId = game.UserId,
-                GameStateId = game.GameStateId,
-                UserName = game.User.UserName, // Assuming User has a 'UserName'
-                GameStateName = game.GameState != null ? game.GameState.ToString() : "Unknown"
-            };
-
-            return Ok(gameVm);
+                GameStateId = game.GameStateId
+            });
         }
 
-        // POST: api/games
+        // POST /api/games
         [HttpPost]
-        public async Task<IActionResult> CreateGame([FromBody] GameVM gameVm) {
-            if (gameVm == null) {
-                return BadRequest("Game data is invalid.");
+        public async Task<IActionResult> CreateGame([FromBody] GameCreateVM gameVm) {
+            var user = await _context.Users.FindAsync(gameVm.UserId);
+            var gameState = await _context.GameStates.FindAsync(gameVm.GameStateId);
+
+            if (user == null || gameState == null) {
+                return BadRequest("Invalid UserId or GameStateId provided.");
             }
 
             var game = new Game {
@@ -83,15 +76,22 @@ namespace Gamebook.Server.Controllers {
             _context.Games.Add(game);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetGameById), new { id = game.GameId }, game);
+            return Ok(game);
         }
 
-        // PUT: api/games/{id}
+        // PUT /api/games/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateGame(int id, [FromBody] GameVM gameVm) {
+        public async Task<IActionResult> UpdateGame(int id, [FromBody] GameCreateVM gameVm) {
             var game = await _context.Games.FindAsync(id);
             if (game == null) {
                 return NotFound();
+            }
+
+            var user = await _context.Users.FindAsync(gameVm.UserId);
+            var gameState = await _context.GameStates.FindAsync(gameVm.GameStateId);
+
+            if (user == null || gameState == null) {
+                return BadRequest("Invalid UserId or GameStateId provided.");
             }
 
             game.UserId = gameVm.UserId;
@@ -103,7 +103,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(game);
         }
 
-        // DELETE: api/games/{id}
+        // DELETE /api/games/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGame(int id) {
             var game = await _context.Games.FindAsync(id);

@@ -10,8 +10,8 @@ namespace Gamebook.Server.Models {
         public User User { get; set; }
 
         [ForeignKey("GameState")]
-        public int GameStateId { get; set; }
-        public GameState GameState { get; set; }
+        public int? GameStateId { get; set; }
+        public GameState? GameState { get; set; }
     }
 }
     

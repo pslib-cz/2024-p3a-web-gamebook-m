@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gamebook.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class egr : Migration
+    public partial class db : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,9 +59,9 @@ namespace Gamebook.Server.Migrations
                     EnemyId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
                     Strength = table.Column<int>(type: "INTEGER", nullable: false),
-                    Will = table.Column<int>(type: "INTEGER", nullable: false),
-                    RewardCardId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Will = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,6 +210,40 @@ namespace Gamebook.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cards",
+                columns: table => new
+                {
+                    CardId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    SpecialAbilities = table.Column<string>(type: "TEXT", nullable: false),
+                    DiceRollResults = table.Column<string>(type: "TEXT", nullable: false),
+                    ImageId = table.Column<int>(type: "INTEGER", nullable: true),
+                    EnemyId = table.Column<int>(type: "INTEGER", nullable: true),
+                    InventoryId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cards", x => x.CardId);
+                    table.ForeignKey(
+                        name: "FK_Cards_Enemies_EnemyId",
+                        column: x => x.EnemyId,
+                        principalTable: "Enemies",
+                        principalColumn: "EnemyId");
+                    table.ForeignKey(
+                        name: "FK_Cards_Images_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "Images",
+                        principalColumn: "ImageId");
+                    table.ForeignKey(
+                        name: "FK_Cards_Inventories_InventoryId",
+                        column: x => x.InventoryId,
+                        principalTable: "Inventories",
+                        principalColumn: "InventoryId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Fields",
                 columns: table => new
                 {
@@ -219,12 +253,7 @@ namespace Gamebook.Server.Migrations
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Difficulty = table.Column<int>(type: "INTEGER", nullable: false),
                     numOfCards = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll1Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll2Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll3Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll4Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll5Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll6Result = table.Column<int>(type: "INTEGER", nullable: false),
+                    DiceRollResults = table.Column<string>(type: "TEXT", nullable: false),
                     EnemyId = table.Column<int>(type: "INTEGER", nullable: true),
                     ImageId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -241,51 +270,6 @@ namespace Gamebook.Server.Migrations
                         column: x => x.ImageId,
                         principalTable: "Images",
                         principalColumn: "ImageId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cards",
-                columns: table => new
-                {
-                    CardId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    SpecialAbilities = table.Column<string>(type: "TEXT", nullable: false),
-                    DiceRoll1Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll2Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll3Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll4Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll5Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    DiceRoll6Result = table.Column<int>(type: "INTEGER", nullable: false),
-                    ImageId = table.Column<int>(type: "INTEGER", nullable: true),
-                    EnemyId = table.Column<int>(type: "INTEGER", nullable: true),
-                    FieldId = table.Column<int>(type: "INTEGER", nullable: true),
-                    InventoryId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cards", x => x.CardId);
-                    table.ForeignKey(
-                        name: "FK_Cards_Enemies_EnemyId",
-                        column: x => x.EnemyId,
-                        principalTable: "Enemies",
-                        principalColumn: "EnemyId");
-                    table.ForeignKey(
-                        name: "FK_Cards_Fields_FieldId",
-                        column: x => x.FieldId,
-                        principalTable: "Fields",
-                        principalColumn: "FieldId");
-                    table.ForeignKey(
-                        name: "FK_Cards_Images_ImageId",
-                        column: x => x.ImageId,
-                        principalTable: "Images",
-                        principalColumn: "ImageId");
-                    table.ForeignKey(
-                        name: "FK_Cards_Inventories_InventoryId",
-                        column: x => x.InventoryId,
-                        principalTable: "Inventories",
-                        principalColumn: "InventoryId");
                 });
 
             migrationBuilder.CreateTable(
@@ -386,22 +370,22 @@ namespace Gamebook.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "46f6c6b5-3e9b-4125-a728-718d910e862f", null, "Admin", "ADMIN" },
-                    { "b5546392-5b30-4d9a-a0a8-e2abb0763cda", null, "Author", "AUTHOR" }
+                    { "3ebb8db8-59db-4461-a0dd-108c9fd305d1", null, "Author", "AUTHOR" },
+                    { "844a72a2-3519-4e63-ad93-909468198681", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "5c5842d1-14c5-4243-8386-17778af64d51", 0, "d606675e-9129-4627-9173-9a13f82b6fd2", "admin@localhost.test", true, false, null, "ADMIN@LOCALHOST.TEST", "ADMIN@LOCALHOST.TEST", "AQAAAAIAAYagAAAAEDnBLjShnh+LrFLzafE/7vP6WkAbbsIAvky9X+JTSMHCV4kHknkWJYBRge3a8I5nmA==", null, false, "", false, "admin@localhost.test" });
+                values: new object[] { "88cd4614-c049-4289-92b0-daf800b7f098", 0, "ddaa4c58-d09c-46f7-9b16-8a90a93bce7f", "admin@localhost.test", true, false, null, "ADMIN@LOCALHOST.TEST", "ADMIN@LOCALHOST.TEST", "AQAAAAIAAYagAAAAEACrp5OI/qJdJDp20u36ydwZhq/l8teZhNDRz6hcP0m3NCrqM0MvdIJYy7JN5DIbLA==", null, false, "", false, "admin@localhost.test" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "46f6c6b5-3e9b-4125-a728-718d910e862f", "5c5842d1-14c5-4243-8386-17778af64d51" },
-                    { "b5546392-5b30-4d9a-a0a8-e2abb0763cda", "5c5842d1-14c5-4243-8386-17778af64d51" }
+                    { "3ebb8db8-59db-4461-a0dd-108c9fd305d1", "88cd4614-c049-4289-92b0-daf800b7f098" },
+                    { "844a72a2-3519-4e63-ad93-909468198681", "88cd4614-c049-4289-92b0-daf800b7f098" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -444,13 +428,7 @@ namespace Gamebook.Server.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Cards_EnemyId",
                 table: "Cards",
-                column: "EnemyId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cards_FieldId",
-                table: "Cards",
-                column: "FieldId");
+                column: "EnemyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cards_ImageId",

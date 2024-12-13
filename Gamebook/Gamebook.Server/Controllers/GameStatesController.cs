@@ -14,28 +14,24 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
-        // GET: api/gamestates
+        // GET /api/gamestates
         [HttpGet]
-        public async Task<ActionResult<ListResult<GameStateVM>>> GetGameStates(int? page = null, int? size = null) {
-            var query = _context.GameStates
-                .Include(g => g.Inventory)
-                .Include(g => g.Character)
-                .Include(g => g.ActualField)
-                .AsQueryable();
+        public async Task<ActionResult<ListResult<GameStateListVM>>> GetGameStates([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
+            var query = _context.GameStates.Include(g => g.Inventory).Include(g => g.Character).Include(g => g.ActualField).AsQueryable();
 
             var total = await query.CountAsync();
             var gameStates = await query
                 .Skip((page ?? 0) * (size ?? 10))
                 .Take(size ?? 10)
-                .Select(g => new GameStateVM {
-                    GameStateId = g.GameStateId,
-                    InventoryId = g.InventoryId,
-                    CharacterId = g.CharacterId,
-                    ActualFieldId = g.ActualFieldId
+                .Select(gs => new GameStateListVM {
+                    Id = gs.GameStateId,
+                    InventoryId = gs.InventoryId,
+                    CharacterId = gs.CharacterId,
+                    ActualFieldId = gs.ActualFieldId
                 })
                 .ToListAsync();
 
-            return Ok(new ListResult<GameStateVM> {
+            return Ok(new ListResult<GameStateListVM> {
                 Total = total,
                 Items = gameStates,
                 Count = gameStates.Count,
@@ -44,34 +40,36 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        // GET: api/gamestates/{id}
+        // GET /api/gamestates/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetGameStateById(int id) {
             var gameState = await _context.GameStates
-                .Include(g => g.Inventory)
-                .Include(g => g.Character)
-                .Include(g => g.ActualField)
-                .FirstOrDefaultAsync(g => g.GameStateId == id);
+                .Include(gs => gs.Inventory)
+                .Include(gs => gs.Character)
+                .Include(gs => gs.ActualField)
+                .FirstOrDefaultAsync(gs => gs.GameStateId == id);
 
             if (gameState == null) {
                 return NotFound();
             }
 
-            var gameStateVm = new GameStateVM {
-                GameStateId = gameState.GameStateId,
+            return Ok(new GameStateDetailVM {
+                Id = gameState.GameStateId,
                 InventoryId = gameState.InventoryId,
                 CharacterId = gameState.CharacterId,
                 ActualFieldId = gameState.ActualFieldId
-            };
-
-            return Ok(gameStateVm);
+            });
         }
 
-        // POST: api/gamestates
+        // POST /api/gamestates
         [HttpPost]
-        public async Task<IActionResult> CreateGameState([FromBody] GameStateVM gameStateVm) {
-            if (gameStateVm == null) {
-                return BadRequest("GameState data is invalid.");
+        public async Task<IActionResult> CreateGameState([FromBody] GameStateCreateVM gameStateVm) {
+            var inventory = await _context.Inventories.FindAsync(gameStateVm.InventoryId);
+            var character = await _context.Characters.FindAsync(gameStateVm.CharacterId);
+            var actualField = await _context.Fields.FindAsync(gameStateVm.ActualFieldId);
+
+            if (inventory == null || character == null || actualField == null) {
+                return BadRequest("Invalid InventoryId, CharacterId, or ActualFieldId provided.");
             }
 
             var gameState = new GameState {
@@ -83,15 +81,23 @@ namespace Gamebook.Server.Controllers {
             _context.GameStates.Add(gameState);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetGameStateById), new { id = gameState.GameStateId }, gameState);
+            return Ok(gameState);
         }
 
-        // PUT: api/gamestates/{id}
+        // PUT /api/gamestates/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateGameState(int id, [FromBody] GameStateVM gameStateVm) {
+        public async Task<IActionResult> UpdateGameState(int id, [FromBody] GameStateCreateVM gameStateVm) {
             var gameState = await _context.GameStates.FindAsync(id);
             if (gameState == null) {
                 return NotFound();
+            }
+
+            var inventory = await _context.Inventories.FindAsync(gameStateVm.InventoryId);
+            var character = await _context.Characters.FindAsync(gameStateVm.CharacterId);
+            var actualField = await _context.Fields.FindAsync(gameStateVm.ActualFieldId);
+
+            if (inventory == null || character == null || actualField == null) {
+                return BadRequest("Invalid InventoryId, CharacterId, or ActualFieldId provided.");
             }
 
             gameState.InventoryId = gameStateVm.InventoryId;
@@ -104,7 +110,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(gameState);
         }
 
-        // DELETE: api/gamestates/{id}
+        // DELETE /api/gamestates/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGameState(int id) {
             var gameState = await _context.GameStates.FindAsync(id);

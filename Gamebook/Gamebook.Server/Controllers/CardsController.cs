@@ -10,18 +10,13 @@ namespace Gamebook.Server.Controllers {
     public class CardsController : ControllerBase {
         private readonly ApplicationDbContext _context;
 
-        // Constructor that initializes the _context field
         public CardsController(ApplicationDbContext context) {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<ListResult<CardListVM>>> GetCards(string? title, int? page = null, int? size = null) {
-            var query = _context.Cards.Include(c => c.Image).Include(c => c.Enemy).AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(title)) {
-                query = query.Where(c => c.Title.Contains(title));
-            }
+        public async Task<ActionResult<ListResult<CardListVM>>> GetCards([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
+            var query = _context.Cards.AsQueryable();
 
             var total = await query.CountAsync();
             var cards = await query
@@ -44,46 +39,6 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCard([FromBody] CardVM cardVm) {
-            Image image = null;
-            if (cardVm.ImageId.HasValue) {
-                image = await _context.Images.FindAsync(cardVm.ImageId.Value);
-                if (image == null) {
-                    return BadRequest("Invalid ImageId provided.");
-                }
-            }
-
-            // Fetch the Enemy if EnemyId is provided
-            Enemy enemy = null;
-            if (cardVm.EnemyId.HasValue) {
-                enemy = await _context.Enemies.FindAsync(cardVm.EnemyId.Value);
-                if (enemy == null) {
-                    return BadRequest("Invalid EnemyId provided.");
-                }
-            }
-
-            // Create the new card
-            var card = new Card {
-                Title = cardVm.Title,
-                Description = cardVm.Description,
-                SpecialAbilities = cardVm.SpecialAbilities,
-                DiceRoll1Result = cardVm.DiceRoll1Result,
-                DiceRoll2Result = cardVm.DiceRoll2Result,
-                DiceRoll3Result = cardVm.DiceRoll3Result,
-                DiceRoll4Result = cardVm.DiceRoll4Result,
-                DiceRoll5Result = cardVm.DiceRoll5Result,
-                DiceRoll6Result = cardVm.DiceRoll6Result,
-                ImageId = image.ImageId,
-                EnemyId = enemy.EnemyId  
-            };
-
-            _context.Cards.Add(card);
-            await _context.SaveChangesAsync();
-
-            return Ok(card);
-        }
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCardById(int id) {
             var card = await _context.Cards
@@ -95,12 +50,37 @@ namespace Gamebook.Server.Controllers {
                 return NotFound();
             }
 
+            return Ok(new CardDetailVM {
+                Id = card.CardId,
+                Title = card.Title,
+                Description = card.Description,
+                SpecialAbilities = card.SpecialAbilities,
+                ImageId = card.ImageId,
+                EnemyId = card.EnemyId,
+                EnemyName = card.Enemy?.Name,
+                ImageName = card.Image?.Name
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm) {
+            var card = new Card {
+                Title = cardVm.Title,
+                Description = cardVm.Description,
+                SpecialAbilities = cardVm.SpecialAbilities,
+                DiceRollResults = cardVm.DiceRollResults,
+                ImageId = cardVm.ImageId,
+                EnemyId = cardVm.EnemyId
+            };
+
+            _context.Cards.Add(card);
+            await _context.SaveChangesAsync();
+
             return Ok(card);
         }
 
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCard(int id, [FromBody] CardVM cardVm) {
+        public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm) {
             var card = await _context.Cards.FindAsync(id);
             if (card == null) {
                 return NotFound();
@@ -109,12 +89,7 @@ namespace Gamebook.Server.Controllers {
             card.Title = cardVm.Title;
             card.Description = cardVm.Description;
             card.SpecialAbilities = cardVm.SpecialAbilities;
-            card.DiceRoll1Result = cardVm.DiceRoll1Result;
-            card.DiceRoll2Result = cardVm.DiceRoll2Result;
-            card.DiceRoll3Result = cardVm.DiceRoll3Result;
-            card.DiceRoll4Result = cardVm.DiceRoll4Result;
-            card.DiceRoll5Result = cardVm.DiceRoll5Result;
-            card.DiceRoll6Result = cardVm.DiceRoll6Result;
+            card.DiceRollResults = cardVm.DiceRollResults;
             card.ImageId = cardVm.ImageId;
             card.EnemyId = cardVm.EnemyId;
 

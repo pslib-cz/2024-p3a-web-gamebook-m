@@ -14,13 +14,10 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
+        // GET /api/characters
         [HttpGet]
-        public async Task<ActionResult<ListResult<CharacterListVM>>> GetCharacters(string? name, int? page = null, int? size = null) {
-            var query = _context.Characters.Include(x => x.StartingField).Include(x => x.Image).AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(name)) {
-                query = query.Where(c => c.Name.Contains(name));
-            }
+        public async Task<ActionResult<ListResult<CharacterListVM>>> GetCharacters([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
+            var query = _context.Characters.Include(c => c.StartingField).Include(c => c.Image).AsQueryable();
 
             var total = await query.CountAsync();
             var characters = await query
@@ -29,8 +26,9 @@ namespace Gamebook.Server.Controllers {
                 .Select(c => new CharacterListVM {
                     Id = c.CharacterId,
                     Name = c.Name,
-                    StartingFieldId = c.StartingFieldId, 
-                    ImageId = c.ImageId 
+                    Class = c.Class,
+                    StartingFieldId = c.StartingFieldId,
+                    ImageId = c.ImageId
                 })
                 .ToListAsync();
 
@@ -43,44 +41,7 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCharacter([FromBody] CharacterVM characterVm) {
-            // Fetch the StartingField based on the provided ID
-            var startingField = await _context.Fields.FindAsync(characterVm.StartingFieldId);
-            if (startingField == null) {
-                return BadRequest("Invalid StartingFieldId provided.");
-            }
-
-            // Fetch the Image based on the provided ID
-            Image image = null;
-            if (characterVm.ImageId.HasValue) {
-                image = await _context.Images.FindAsync(characterVm.ImageId.Value);
-                if (image == null) {
-                    return BadRequest("Invalid ImageId provided.");
-                }
-            }
-
-            // Create the new character
-            var character = new Character {
-                Name = characterVm.Name,
-                Class = characterVm.Class,
-                Strength = characterVm.Strength,
-                Will = characterVm.Will,
-                PointsOfDestiny = characterVm.PointsOfDestiny,
-                Backstory = characterVm.Backstory,
-                Ability = characterVm.Ability,
-                MaxHP = characterVm.MaxHP,
-                MaxDificulty = characterVm.MaxDificulty,
-                StartingField = startingField, // Assign the field
-                Image = image // Assign the image (if any)
-            };
-
-            _context.Characters.Add(character);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetCharacterById), new { id = character.CharacterId }, character);
-        }
-
+        // GET /api/characters/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCharacterById(int id) {
             var character = await _context.Characters
@@ -92,15 +53,65 @@ namespace Gamebook.Server.Controllers {
                 return NotFound();
             }
 
+            return Ok(new CharacterDetailVM {
+                Id = character.CharacterId,
+                Name = character.Name,
+                Class = character.Class,
+                Strength = character.Strength,
+                Will = character.Will,
+                PointsOfDestiny = character.PointsOfDestiny,
+                Backstory = character.Backstory,
+                Ability = character.Ability,
+                MaxHP = character.MaxHP,
+                MaxDificulty = character.MaxDificulty,
+                StartingFieldId = character.StartingFieldId,
+                ImageId = character.ImageId
+            });
+        }
+
+        // POST /api/characters
+        [HttpPost]
+        public async Task<IActionResult> CreateCharacter([FromBody] CharacterCreateVM characterVm) {
+            var startingField = await _context.Fields.FindAsync(characterVm.StartingFieldId);
+            var image = await _context.Images.FindAsync(characterVm.ImageId);
+
+            if (startingField == null || (characterVm.ImageId.HasValue && image == null)) {
+                return BadRequest("Invalid StartingFieldId or ImageId provided.");
+            }
+
+            var character = new Character {
+                Name = characterVm.Name,
+                Class = characterVm.Class,
+                Strength = characterVm.Strength,
+                Will = characterVm.Will,
+                PointsOfDestiny = characterVm.PointsOfDestiny,
+                Backstory = characterVm.Backstory,
+                Ability = characterVm.Ability,
+                MaxHP = characterVm.MaxHP,
+                MaxDificulty = characterVm.MaxDificulty,
+                StartingFieldId = characterVm.StartingFieldId,
+                ImageId = characterVm.ImageId
+            };
+
+            _context.Characters.Add(character);
+            await _context.SaveChangesAsync();
+
             return Ok(character);
         }
 
-
+        // PUT /api/characters/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCharacter(int id, [FromBody] CharacterVM characterVm) {
+        public async Task<IActionResult> UpdateCharacter(int id, [FromBody] CharacterCreateVM characterVm) {
             var character = await _context.Characters.FindAsync(id);
             if (character == null) {
                 return NotFound();
+            }
+
+            var startingField = await _context.Fields.FindAsync(characterVm.StartingFieldId);
+            var image = await _context.Images.FindAsync(characterVm.ImageId);
+
+            if (startingField == null || (characterVm.ImageId.HasValue && image == null)) {
+                return BadRequest("Invalid StartingFieldId or ImageId provided.");
             }
 
             character.Name = characterVm.Name;
@@ -113,7 +124,7 @@ namespace Gamebook.Server.Controllers {
             character.MaxHP = characterVm.MaxHP;
             character.MaxDificulty = characterVm.MaxDificulty;
             character.StartingFieldId = characterVm.StartingFieldId;
-            character.ImageId = characterVm.ImageId; 
+            character.ImageId = characterVm.ImageId;
 
             _context.Characters.Update(character);
             await _context.SaveChangesAsync();
@@ -121,6 +132,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(character);
         }
 
+        // DELETE /api/characters/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCharacter(int id) {
             var character = await _context.Characters.FindAsync(id);
@@ -135,4 +147,3 @@ namespace Gamebook.Server.Controllers {
         }
     }
 }
-

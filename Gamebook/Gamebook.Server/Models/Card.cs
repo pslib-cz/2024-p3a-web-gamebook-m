@@ -12,15 +12,8 @@ namespace Gamebook.Server.Models {
         public string Description { get; set; }
         public string SpecialAbilities { get; set; }
 
-        // Výsledky hodu kostkou (1–6)
-        public int DiceRoll1Result { get; set; }
-        public int DiceRoll2Result { get; set; }
-        public int DiceRoll3Result { get; set; }
-        public int DiceRoll4Result { get; set; }
-        public int DiceRoll5Result { get; set; }
-        public int DiceRoll6Result { get; set; }
+        public string[]? DiceRollResults { get; set; }
 
-        // Propojení s obrázkem
         [ForeignKey("Image")]
         public int? ImageId { get; set; }
         public Image? Image { get; set; }

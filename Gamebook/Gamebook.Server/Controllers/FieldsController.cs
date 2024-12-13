@@ -14,7 +14,6 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
-        // GET: api/Fields
         [HttpGet]
         public async Task<ActionResult<ListResult<FieldListVM>>> GetFields(string? title, int? page = null, int? size = null) {
             var query = _context.Fields.Include(f => f.Image).Include(f => f.Enemy).AsQueryable();
@@ -28,11 +27,10 @@ namespace Gamebook.Server.Controllers {
                 .Skip((page ?? 0) * (size ?? 10))
                 .Take(size ?? 10)
                 .Select(f => new FieldListVM {
-                    Id = f.FieldId,
+                    FieldId = f.FieldId,
                     Title = f.Title,
-                    Difficulty = f.Difficulty,
-                    ImageId = f.ImageId,
-                    EnemyId = f.EnemyId
+                    EnemyId = f.EnemyId,
+                    ImageId = f.ImageId
                 })
                 .ToListAsync();
 
@@ -45,22 +43,34 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
-        // POST: api/Fields
         [HttpPost]
         public async Task<IActionResult> CreateField([FromBody] FieldVM fieldVm) {
+            Image image = null;
+            if (fieldVm.ImageId.HasValue) {
+                image = await _context.Images.FindAsync(fieldVm.ImageId.Value);
+                if (image == null) {
+                    return BadRequest("Invalid ImageId provided.");
+                }
+            }
+
+            // Fetch the Enemy if EnemyId is provided
+            Enemy enemy = null;
+            if (fieldVm.EnemyId.HasValue) {
+                enemy = await _context.Enemies.FindAsync(fieldVm.EnemyId.Value);
+                if (enemy == null) {
+                    return BadRequest("Invalid EnemyId provided.");
+                }
+            }
+
+            // Create the new field
             var field = new Field {
                 Title = fieldVm.Title,
                 Description = fieldVm.Description,
                 Difficulty = fieldVm.Difficulty,
                 numOfCards = fieldVm.numOfCards,
-                DiceRoll1Result = fieldVm.DiceRoll1Result,
-                DiceRoll2Result = fieldVm.DiceRoll2Result,
-                DiceRoll3Result = fieldVm.DiceRoll3Result,
-                DiceRoll4Result = fieldVm.DiceRoll4Result,
-                DiceRoll5Result = fieldVm.DiceRoll5Result,
-                DiceRoll6Result = fieldVm.DiceRoll6Result,
-                EnemyId = fieldVm.EnemyId,
-                ImageId = fieldVm.ImageId
+                DiceRollResults = fieldVm.DiceRollResults, // Mapping DiceRollResults from ViewModel
+                ImageId = image?.ImageId,
+                EnemyId = enemy?.EnemyId
             };
 
             _context.Fields.Add(field);
@@ -69,13 +79,11 @@ namespace Gamebook.Server.Controllers {
             return Ok(field);
         }
 
-        // GET: api/Fields/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetFieldById(int id) {
             var field = await _context.Fields
                 .Include(f => f.Image)
                 .Include(f => f.Enemy)
-                .Include(f => f.Cards) // If you want to include the associated cards
                 .FirstOrDefaultAsync(f => f.FieldId == id);
 
             if (field == null) {
@@ -85,7 +93,6 @@ namespace Gamebook.Server.Controllers {
             return Ok(field);
         }
 
-        // PUT: api/Fields/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateField(int id, [FromBody] FieldVM fieldVm) {
             var field = await _context.Fields.FindAsync(id);
@@ -97,14 +104,9 @@ namespace Gamebook.Server.Controllers {
             field.Description = fieldVm.Description;
             field.Difficulty = fieldVm.Difficulty;
             field.numOfCards = fieldVm.numOfCards;
-            field.DiceRoll1Result = fieldVm.DiceRoll1Result;
-            field.DiceRoll2Result = fieldVm.DiceRoll2Result;
-            field.DiceRoll3Result = fieldVm.DiceRoll3Result;
-            field.DiceRoll4Result = fieldVm.DiceRoll4Result;
-            field.DiceRoll5Result = fieldVm.DiceRoll5Result;
-            field.DiceRoll6Result = fieldVm.DiceRoll6Result;
-            field.EnemyId = fieldVm.EnemyId;
+            field.DiceRollResults = fieldVm.DiceRollResults; // Updating DiceRollResults
             field.ImageId = fieldVm.ImageId;
+            field.EnemyId = fieldVm.EnemyId;
 
             _context.Fields.Update(field);
             await _context.SaveChangesAsync();
@@ -112,7 +114,6 @@ namespace Gamebook.Server.Controllers {
             return Ok(field);
         }
 
-        // DELETE: api/Fields/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteField(int id) {
             var field = await _context.Fields.FindAsync(id);

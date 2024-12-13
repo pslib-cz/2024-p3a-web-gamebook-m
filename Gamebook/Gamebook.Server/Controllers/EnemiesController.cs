@@ -14,13 +14,10 @@ namespace Gamebook.Server.Controllers {
             _context = context;
         }
 
+        // GET /api/enemies
         [HttpGet]
-        public async Task<ActionResult<ListResult<EnemyListVM>>> GetEnemies(string? name, int? page = null, int? size = null) {
-            var query = _context.Enemies.Include(x => x.RewardCard).AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(name)) {
-                query = query.Where(e => e.Name.Contains(name));
-            }
+        public async Task<ActionResult<ListResult<EnemyListVM>>> GetEnemies([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
+            var query = _context.Enemies.AsQueryable();
 
             var total = await query.CountAsync();
             var enemies = await query
@@ -29,7 +26,8 @@ namespace Gamebook.Server.Controllers {
                 .Select(e => new EnemyListVM {
                     Id = e.EnemyId,
                     Name = e.Name,
-                    RewardCardId = e.RewardCardId
+                    Strength = e.Strength,
+                    Will = e.Will
                 })
                 .ToListAsync();
 
@@ -42,13 +40,32 @@ namespace Gamebook.Server.Controllers {
             });
         }
 
+        // GET /api/enemies/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetEnemyById(int id) {
+            var enemy = await _context.Enemies.FirstOrDefaultAsync(e => e.EnemyId == id);
+
+            if (enemy == null) {
+                return NotFound();
+            }
+
+            return Ok(new EnemyDetailVM {
+                Id = enemy.EnemyId,
+                Name = enemy.Name,
+                Description = enemy.Description,
+                Strength = enemy.Strength,
+                Will = enemy.Will
+            });
+        }
+
+        // POST /api/enemies
         [HttpPost]
-        public async Task<IActionResult> CreateEnemy([FromBody] EnemyVM enemyVm) {
+        public async Task<IActionResult> CreateEnemy([FromBody] EnemyCreateVM enemyVm) {
             var enemy = new Enemy {
                 Name = enemyVm.Name,
+                Description = enemyVm.Description,
                 Strength = enemyVm.Strength,
-                Will = enemyVm.Will,
-                RewardCardId = enemyVm.RewardCardId
+                Will = enemyVm.Will
             };
 
             _context.Enemies.Add(enemy);
@@ -57,30 +74,18 @@ namespace Gamebook.Server.Controllers {
             return Ok(enemy);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetEnemyById(int id) {
-            var enemy = await _context.Enemies
-                .Include(e => e.RewardCard)
-                .FirstOrDefaultAsync(e => e.EnemyId == id);
-
-            if (enemy == null) {
-                return NotFound();
-            }
-
-            return Ok(enemy);
-        }
-
+        // PUT /api/enemies/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEnemy(int id, [FromBody] EnemyVM enemyVm) {
+        public async Task<IActionResult> UpdateEnemy(int id, [FromBody] EnemyCreateVM enemyVm) {
             var enemy = await _context.Enemies.FindAsync(id);
             if (enemy == null) {
                 return NotFound();
             }
 
             enemy.Name = enemyVm.Name;
+            enemy.Description = enemyVm.Description;
             enemy.Strength = enemyVm.Strength;
             enemy.Will = enemyVm.Will;
-            enemy.RewardCardId = enemyVm.RewardCardId;
 
             _context.Enemies.Update(enemy);
             await _context.SaveChangesAsync();
@@ -88,6 +93,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(enemy);
         }
 
+        // DELETE /api/enemies/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEnemy(int id) {
             var enemy = await _context.Enemies.FindAsync(id);
