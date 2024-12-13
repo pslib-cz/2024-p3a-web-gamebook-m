@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241212164520_hth54555")]
-    partial class hth54555
+    [Migration("20241213075657_egr")]
+    partial class egr
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -332,13 +332,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "52e853fe-af8e-4a3d-ba54-a5cde401d6e3",
+                            Id = "46f6c6b5-3e9b-4125-a728-718d910e862f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b46277d7-50f7-400e-a3cd-a770df5e3319",
+                            Id = "b5546392-5b30-4d9a-a0a8-e2abb0763cda",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         });
@@ -410,15 +410,15 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e",
+                            Id = "5c5842d1-14c5-4243-8386-17778af64d51",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56057084-c1c0-4651-8afe-f508a3e044c1",
+                            ConcurrencyStamp = "d606675e-9129-4627-9173-9a13f82b6fd2",
                             Email = "admin@localhost.test",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.TEST",
                             NormalizedUserName = "ADMIN@LOCALHOST.TEST",
-                            PasswordHash = "AQAAAAIAAYagAAAAELlkD/oYsLkzC//53i9eJAmUEZ2pAT1DamXHiNgBd8YSRdmiajtL/eaj45yFDhxjAA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDnBLjShnh+LrFLzafE/7vP6WkAbbsIAvky9X+JTSMHCV4kHknkWJYBRge3a8I5nmA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -511,13 +511,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = "52e853fe-af8e-4a3d-ba54-a5cde401d6e3",
-                            UserId = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e"
+                            RoleId = "46f6c6b5-3e9b-4125-a728-718d910e862f",
+                            UserId = "5c5842d1-14c5-4243-8386-17778af64d51"
                         },
                         new
                         {
-                            RoleId = "b46277d7-50f7-400e-a3cd-a770df5e3319",
-                            UserId = "a5b3b45a-1857-4aa1-8c5f-c1b27de7422e"
+                            RoleId = "b5546392-5b30-4d9a-a0a8-e2abb0763cda",
+                            UserId = "5c5842d1-14c5-4243-8386-17778af64d51"
                         });
                 });
 

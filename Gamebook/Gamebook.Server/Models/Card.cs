@@ -23,7 +23,7 @@ namespace Gamebook.Server.Models {
         // Propojení s obrázkem
         [ForeignKey("Image")]
         public int? ImageId { get; set; }
-        public Image Image { get; set; }
+        public Image? Image { get; set; }
 
         [ForeignKey("Enemy")]
         public int? EnemyId { get; set; }

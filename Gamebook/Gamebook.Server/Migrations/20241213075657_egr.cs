@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gamebook.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class lol1 : Migration
+    public partial class egr : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -151,7 +151,7 @@ namespace Gamebook.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.RoleId, x.UserId });
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
@@ -207,30 +207,6 @@ namespace Gamebook.Server.Migrations
                         column: x => x.CreatedById,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RoleUser",
-                columns: table => new
-                {
-                    RolesId = table.Column<string>(type: "TEXT", nullable: false),
-                    UsersId = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RoleUser", x => new { x.RolesId, x.UsersId });
-                    table.ForeignKey(
-                        name: "FK_RoleUser_AspNetRoles_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RoleUser_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -410,22 +386,22 @@ namespace Gamebook.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "9C1C7A99-1AB3-4F5F-A3D8-77C7B17F3DA2", null, "Admin", "ADMIN" },
-                    { "C2C1B4A5-3A9D-4C8E-B41E-812FAB7C6D91", null, "Author", "AUTHOR" }
+                    { "46f6c6b5-3e9b-4125-a728-718d910e862f", null, "Admin", "ADMIN" },
+                    { "b5546392-5b30-4d9a-a0a8-e2abb0763cda", null, "Author", "AUTHOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "76F6E659-4A8D-4B23-9C85-46A513F76182", 0, "b975b988-3eb9-4e9d-ad79-4cece53d57ad", "admin@localhost.test", true, false, null, "ADMIN@LOCALHOST.TEST", "ADMIN@LOCALHOST.TEST", "AQAAAAIAAYagAAAAEBaLBIKiyPC5Uzc8iYISCyFssDCPFwRbslz4mwhWqYaCS1K8LyPNBPR03tEojNIV7A==", null, false, "", false, "admin@localhost.test" });
+                values: new object[] { "5c5842d1-14c5-4243-8386-17778af64d51", 0, "d606675e-9129-4627-9173-9a13f82b6fd2", "admin@localhost.test", true, false, null, "ADMIN@LOCALHOST.TEST", "ADMIN@LOCALHOST.TEST", "AQAAAAIAAYagAAAAEDnBLjShnh+LrFLzafE/7vP6WkAbbsIAvky9X+JTSMHCV4kHknkWJYBRge3a8I5nmA==", null, false, "", false, "admin@localhost.test" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "9C1C7A99-1AB3-4F5F-A3D8-77C7B17F3DA2", "76F6E659-4A8D-4B23-9C85-46A513F76182" },
-                    { "C2C1B4A5-3A9D-4C8E-B41E-812FAB7C6D91", "76F6E659-4A8D-4B23-9C85-46A513F76182" }
+                    { "46f6c6b5-3e9b-4125-a728-718d910e862f", "5c5842d1-14c5-4243-8386-17778af64d51" },
+                    { "b5546392-5b30-4d9a-a0a8-e2abb0763cda", "5c5842d1-14c5-4243-8386-17778af64d51" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -450,9 +426,9 @@ namespace Gamebook.Server.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_RoleId",
+                name: "IX_AspNetUserRoles_UserId",
                 table: "AspNetUserRoles",
-                column: "RoleId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -535,11 +511,6 @@ namespace Gamebook.Server.Migrations
                 name: "IX_Images_CreatedById",
                 table: "Images",
                 column: "CreatedById");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RoleUser_UsersId",
-                table: "RoleUser",
-                column: "UsersId");
         }
 
         /// <inheritdoc />
@@ -567,13 +538,10 @@ namespace Gamebook.Server.Migrations
                 name: "Games");
 
             migrationBuilder.DropTable(
-                name: "RoleUser");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "GameStates");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Characters");

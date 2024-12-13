@@ -41,9 +41,6 @@ namespace Gamebook.Server.Controllers {
         // POST: api/inventories
         [HttpPost]
         public async Task<IActionResult> CreateInventory([FromBody] InventoryVM inventoryVm) {
-            if (inventoryVm.CardIds == null || inventoryVm.CardIds.Count == 0) {
-                return BadRequest("At least one CardId must be provided.");
-            }
 
             // Retrieve the cards based on the IDs
             var cards = await _context.Cards

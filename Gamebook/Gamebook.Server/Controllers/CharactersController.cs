@@ -45,6 +45,22 @@ namespace Gamebook.Server.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> CreateCharacter([FromBody] CharacterVM characterVm) {
+            // Fetch the StartingField based on the provided ID
+            var startingField = await _context.Fields.FindAsync(characterVm.StartingFieldId);
+            if (startingField == null) {
+                return BadRequest("Invalid StartingFieldId provided.");
+            }
+
+            // Fetch the Image based on the provided ID
+            Image image = null;
+            if (characterVm.ImageId.HasValue) {
+                image = await _context.Images.FindAsync(characterVm.ImageId.Value);
+                if (image == null) {
+                    return BadRequest("Invalid ImageId provided.");
+                }
+            }
+
+            // Create the new character
             var character = new Character {
                 Name = characterVm.Name,
                 Class = characterVm.Class,
@@ -55,22 +71,22 @@ namespace Gamebook.Server.Controllers {
                 Ability = characterVm.Ability,
                 MaxHP = characterVm.MaxHP,
                 MaxDificulty = characterVm.MaxDificulty,
-                StartingFieldId = characterVm.StartingFieldId,
-                ImageId = characterVm.ImageId 
+                StartingField = startingField, // Assign the field
+                Image = image // Assign the image (if any)
             };
 
             _context.Characters.Add(character);
             await _context.SaveChangesAsync();
 
-            return Ok(character);
+            return CreatedAtAction(nameof(GetCharacterById), new { id = character.CharacterId }, character);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCharacterById(int id) {
             var character = await _context.Characters
-      .Include(c => c.StartingField)
-      .Include(c => c.Image)
-      .FirstOrDefaultAsync(c => c.CharacterId == id);
+                .Include(c => c.StartingField)
+                .Include(c => c.Image)
+                .FirstOrDefaultAsync(c => c.CharacterId == id);
 
             if (character == null) {
                 return NotFound();
@@ -78,6 +94,7 @@ namespace Gamebook.Server.Controllers {
 
             return Ok(character);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCharacter(int id, [FromBody] CharacterVM characterVm) {

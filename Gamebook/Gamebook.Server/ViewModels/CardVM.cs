@@ -1,27 +1,31 @@
-// ViewModel pro pøenos dat pøi vytváøení a aktualizaci
-public class CardVM {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public string SpecialAbilities { get; set; }
 
-    // Výsledky hodu kostkou
-    public int DiceRoll1Result { get; set; }
-    public int DiceRoll2Result { get; set; }
-    public int DiceRoll3Result { get; set; }
-    public int DiceRoll4Result { get; set; }
-    public int DiceRoll5Result { get; set; }
-    public int DiceRoll6Result { get; set; }
+using System.ComponentModel.DataAnnotations;
 
-    // Pouze ID pro Image a Enemy
-    public int? ImageId { get; set; }
-    public int? EnemyId { get; set; }
-}
+namespace Gamebook.Server.ViewModels {
+    public class CardVM {
+        [Required]
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string SpecialAbilities { get; set; }
 
-// ViewModel pro seznam karet (základní údaje)
-public class CardListVM {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public int? ImageId { get; set; }
-    public int? EnemyId { get; set; }
+        // Dice results
+        public int DiceRoll1Result { get; set; }
+        public int DiceRoll2Result { get; set; }
+        public int DiceRoll3Result { get; set; }
+        public int DiceRoll4Result { get; set; }
+        public int DiceRoll5Result { get; set; }
+        public int DiceRoll6Result { get; set; }
+
+        // Foreign keys for associations
+        public int? ImageId { get; set; }
+        public int? EnemyId { get; set; }
+    }
+
+
+    public class CardListVM {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public int? ImageId { get; set; }
+        public int? EnemyId { get; set; }
+    }
 }

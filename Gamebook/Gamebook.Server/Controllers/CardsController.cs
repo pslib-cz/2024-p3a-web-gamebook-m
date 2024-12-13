@@ -46,6 +46,24 @@ namespace Gamebook.Server.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> CreateCard([FromBody] CardVM cardVm) {
+            Image image = null;
+            if (cardVm.ImageId.HasValue) {
+                image = await _context.Images.FindAsync(cardVm.ImageId.Value);
+                if (image == null) {
+                    return BadRequest("Invalid ImageId provided.");
+                }
+            }
+
+            // Fetch the Enemy if EnemyId is provided
+            Enemy enemy = null;
+            if (cardVm.EnemyId.HasValue) {
+                enemy = await _context.Enemies.FindAsync(cardVm.EnemyId.Value);
+                if (enemy == null) {
+                    return BadRequest("Invalid EnemyId provided.");
+                }
+            }
+
+            // Create the new card
             var card = new Card {
                 Title = cardVm.Title,
                 Description = cardVm.Description,
@@ -56,8 +74,8 @@ namespace Gamebook.Server.Controllers {
                 DiceRoll4Result = cardVm.DiceRoll4Result,
                 DiceRoll5Result = cardVm.DiceRoll5Result,
                 DiceRoll6Result = cardVm.DiceRoll6Result,
-                ImageId = cardVm.ImageId,
-                EnemyId = cardVm.EnemyId
+                ImageId = image.ImageId,
+                EnemyId = enemy.EnemyId  
             };
 
             _context.Cards.Add(card);
@@ -79,6 +97,7 @@ namespace Gamebook.Server.Controllers {
 
             return Ok(card);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCard(int id, [FromBody] CardVM cardVm) {
