@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gamebook.Server.Controllers {
+
     [Route("api/[controller]")]
     [ApiController]
     public class CardsController : ControllerBase {
@@ -12,6 +13,59 @@ namespace Gamebook.Server.Controllers {
 
         public CardsController(ApplicationDbContext context) {
             _context = context;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm) {
+            var card = new Card {
+                Title = cardVm.Title,
+                Description = cardVm.Description,
+                SpecialAbilities = cardVm.SpecialAbilities,
+                DiceRollResults = cardVm.DiceRollResults,
+                ImageId = cardVm.ImageId,
+                EnemyId = cardVm.EnemyId
+            };
+
+            _context.Cards.Add(card);
+            await _context.SaveChangesAsync();
+
+            return Ok(card);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCard(int id) {
+            var card = await _context.Cards.FindAsync(id);
+            if (card == null) {
+                return NotFound();
+            }
+
+            _context.Cards.Remove(card);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCardById(int id) {
+            var card = await _context.Cards
+                .Include(c => c.Image)
+                .Include(c => c.Enemy)
+                .FirstOrDefaultAsync(c => c.CardId == id);
+
+            if (card == null) {
+                return NotFound();
+            }
+
+            return Ok(new CardDetailVM {
+                Id = card.CardId,
+                Title = card.Title,
+                Description = card.Description,
+                SpecialAbilities = card.SpecialAbilities,
+                ImageId = card.ImageId,
+                EnemyId = card.EnemyId,
+                EnemyName = card.Enemy?.Name,
+                ImageName = card.Image?.Name
+            });
         }
 
         [HttpGet]
@@ -38,47 +92,6 @@ namespace Gamebook.Server.Controllers {
                 Size = size ?? 10
             });
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCardById(int id) {
-            var card = await _context.Cards
-                .Include(c => c.Image)
-                .Include(c => c.Enemy)
-                .FirstOrDefaultAsync(c => c.CardId == id);
-
-            if (card == null) {
-                return NotFound();
-            }
-
-            return Ok(new CardDetailVM {
-                Id = card.CardId,
-                Title = card.Title,
-                Description = card.Description,
-                SpecialAbilities = card.SpecialAbilities,
-                ImageId = card.ImageId,
-                EnemyId = card.EnemyId,
-                EnemyName = card.Enemy?.Name,
-                ImageName = card.Image?.Name
-            });
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm) {
-            var card = new Card {
-                Title = cardVm.Title,
-                Description = cardVm.Description,
-                SpecialAbilities = cardVm.SpecialAbilities,
-                DiceRollResults = cardVm.DiceRollResults,
-                ImageId = cardVm.ImageId,
-                EnemyId = cardVm.EnemyId
-            };
-
-            _context.Cards.Add(card);
-            await _context.SaveChangesAsync();
-
-            return Ok(card);
-        }
-
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm) {
             var card = await _context.Cards.FindAsync(id);
@@ -97,19 +110,6 @@ namespace Gamebook.Server.Controllers {
             await _context.SaveChangesAsync();
 
             return Ok(card);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCard(int id) {
-            var card = await _context.Cards.FindAsync(id);
-            if (card == null) {
-                return NotFound();
-            }
-
-            _context.Cards.Remove(card);
-            await _context.SaveChangesAsync();
-
-            return Ok();
         }
     }
 }
