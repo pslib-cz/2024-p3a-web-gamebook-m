@@ -64,7 +64,7 @@
 
 ---
 
-- [ ] **10. Minimap**
+- [ ] **10. Minimapa** (možnost budoucího rozšíření)
   - **Mapa pro orientaci**
     - Na obrazovce je minimapa zobrazující aktuální pozici hráče.
     - Hráč vidí jestli je na políčku již nějaká karta události nebo ne.
