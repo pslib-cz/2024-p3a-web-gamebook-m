@@ -1,14 +1,22 @@
-import { useState, useEffect } from 'react';
-import {Alert} from '../components/common';
-import requireAuth from '../hocs/requireAuth';
-
+import { useNavigate } from "react-router-dom";
 
 const StartPage = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
-            <h1>Start</h1>     
+            <h1>Vítejte!</h1>
+            <p>Vyberte si, jak chcete pokračovat:</p>
+            <div>
+                <button onClick={() => navigate("/signin")}>
+                    Přihlásit se
+                </button>
+                <button onClick={() => navigate("/home")}>
+                    Hrát anonymně
+                </button>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default requireAuth(StartPage);
+export default StartPage;
