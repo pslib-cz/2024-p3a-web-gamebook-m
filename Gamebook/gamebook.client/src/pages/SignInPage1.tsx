@@ -1,13 +1,13 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "../components/common";
-import useAuth from "../hooks/useAuth";
-import { SET_TOKEN } from "../providers/authProvider";
+import { Alert } from "../components/common/index.tsx";
+import useAuth from "../hooks/useAuth.tsx";
+import { SET_TOKEN } from "../providers/authProvider.tsx";
 
 const SignInPage = () => {
     const [error, setError] = useState<Error | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const { state, dispatch } = useAuth();
+    const { dispatch } = useAuth();
     const navigate = useNavigate();
 
     const loginUser = async (email: string, password: string) => {
@@ -69,4 +69,4 @@ const SignInPage = () => {
     );
 }
 
-export default SignInPage;
+export default SignInPage; */

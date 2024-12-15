@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../components/common";
-import useAuth from "../hooks/useAuth";
-import { SET_TOKEN } from "../providers/authProvider";
 
-const SignInPage = () => {
+const SignUpPage = () => {
     const [error, setError] = useState<Error | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const { state, dispatch } = useAuth();
     const navigate = useNavigate();
 
-    const loginUser = async (email: string, password: string) => {
+    const registerUser = async (email: string, password: string) => {
         setLoading(true);
         try {
-            const response = await fetch("/api/account/login", {
+            const response = await fetch("/api/account/register", {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
@@ -21,11 +18,10 @@ const SignInPage = () => {
                 body: JSON.stringify({ email, password }),
             });
             if (!response.ok) {
-                throw new Error("Přihlášení nebylo úspěšné");
+                throw new Error("Registrace nebyla úspěšná");
             }
             const data = await response.json();
-            dispatch({ type: SET_TOKEN, token: data.accessToken });
-            navigate("/");
+            navigate("/sign-in");
         } catch (error) {
             if (error instanceof Error) {
                 setError(error);
@@ -42,7 +38,7 @@ const SignInPage = () => {
     
     return (
         <div>
-        <h1>Přihlášení</h1>
+        <h1>Registrace</h1>
         {error && <Alert message={error.message} type="error" />}
         <form
             onSubmit={(event) => {
@@ -50,7 +46,7 @@ const SignInPage = () => {
                 const form = event.target as HTMLFormElement;
                 const email = form.email.value;
                 const password = form.password.value;
-                loginUser(email, password);
+                registerUser(email, password);
             }}
         >
             <div>
@@ -62,11 +58,11 @@ const SignInPage = () => {
                 <input type="password" id="password" name="password" required />
             </div>
             <button type="submit" disabled={loading}>
-                Přihlásit
+                Registrace
             </button>
         </form>
         </div>
     );
 }
 
-export default SignInPage;
+export default SignUpPage;

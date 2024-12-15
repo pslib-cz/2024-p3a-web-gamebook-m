@@ -7,6 +7,13 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowMyApp", policy =>
+        policy.WithOrigins("https://localhost:58186") 
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -36,6 +43,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseCors("AllowMyApp");
+
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -56,3 +66,4 @@ app.MapControllers();
 app.MapFallbackToFile("/index.html");
 
 app.Run();
+
