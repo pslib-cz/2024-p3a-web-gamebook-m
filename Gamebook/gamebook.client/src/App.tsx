@@ -8,6 +8,7 @@ import TokenPage from './pages/TokenPage';
 import StartPage from "./pages/StartPage";
 import Pokusy from "./pages/Pokusy.tsx";
 import Game from "./pages/Game.tsx";
+import RoomNavigation from "./pages/RoomNavigation.tsx";
 
 // Definice tras
 const router = createBrowserRouter([
@@ -36,8 +37,12 @@ const router = createBrowserRouter([
     element: <Pokusy />,
   },
   {
-    path: "/game", // Hlavní hra
-    element: <Game />,
+    path: "/game", // Hlavní hra bez parametru
+    element: <RoomNavigation />,
+  },
+  {
+    path: "/game/:id", // Hlavní hra s ID místnosti
+    element: <RoomNavigation />,
   }
 ]);
 

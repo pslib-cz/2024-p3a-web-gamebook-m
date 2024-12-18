@@ -11,7 +11,7 @@ const StartPage = () => {
                 <button onClick={() => navigate("/signin")}>
                     Přihlásit se
                 </button>
-                <button onClick={() => navigate("/home")}>
+                <button onClick={() => navigate("/ChoosingCharacter")}>
                     Hrát anonymně
                 </button>
             </div>
