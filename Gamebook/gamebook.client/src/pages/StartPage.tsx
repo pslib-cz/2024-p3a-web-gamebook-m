@@ -1,21 +1,20 @@
 import { useNavigate } from "react-router-dom";
-
+import '../StartPage.css';
 const StartPage = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
-            <h1>Vítejte!</h1>
-            <p>Vyberte si, jak chcete pokračovat:</p>
-            <div>
-                <button onClick={() => navigate("/signin")}>
-                    Přihlásit se
+       
+            <div className="start-page-container">
+            <div className="start-page">
+                <button className="buttonstart" onClick={() => navigate("/signin")}>
+                    Přihlásit se a hrát
                 </button>
-                <button onClick={() => navigate("/ChoosingCharacter")}>
+                <button  className="buttonstart" onClick={() => navigate("/ChoosingCharacter")}>
                     Hrát anonymně
                 </button>
             </div>
-        </div>
+            </div>
     );
 };
 

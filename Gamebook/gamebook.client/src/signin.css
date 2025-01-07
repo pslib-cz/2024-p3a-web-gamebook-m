@@ -1,0 +1,45 @@
+.signinbg {
+    background: url(img/prihlasenibg.png) no-repeat center center; /* Or use a different image if you prefer */
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Add some spacing between form groups */
+}
+
+.form-group label {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.form-group button {
+    padding: 10px;
+    margin-top: 10px; /* Add some top margin to the button */
+    border: none;
+    background-color: #0067FF;
+    color: white;
+    cursor: pointer;
+}
+
+.form-group button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.registrace { /* Style for the heading */
+    text-align: center;
+    margin-bottom: 20px;
+}

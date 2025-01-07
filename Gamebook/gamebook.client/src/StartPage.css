@@ -1,0 +1,34 @@
+.start-page-container {
+    background: url(img/bg.png) no-repeat center center;
+    background-size: cover; /* Toto zajistí, že obrázek pokryje celé pozadí */
+    height: 100vh; /* Výška na celou výšku obrazovky */
+    width: 100vw; /* Šířka na celou šířku obrazovky */
+    position: absolute; /* Důležité pro absolutní pozici */
+    top: 0; /* Nastaví horní okraj na 0 */
+    left: 0; /* Nastaví levý okraj na 0 */
+right: 0;
+bottom: 0;    
+    display: flex;
+    justify-content: center; /* Horizontální centrování */
+    align-items: center; /* Vertikální centrování */
+}
+.start-page {
+display: flex;
+flex-direction: column;
+  }
+  .buttonstart {
+    margin-top: 20px;
+    padding: 16px 64px;
+    font-size: 16px;
+    cursor: pointer;
+background-color: #F4E5C3;  
+border: 2px solid #C0A080;
+background-size: cover;
+  color: black;
+  font-size: 64px;
+    border-radius: 25px;
+  }
+    .buttonstart:hover {
+        background-color: #C0A080;
+        border: none;
+    }

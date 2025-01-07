@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\controllers\\characterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\characterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -111,15 +123,7 @@
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\enemiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\downloads\\gmb\\gamebook\\gamebook.server\\migrations\\20241213144355_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,7 +137,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -145,67 +149,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "InventoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "RelativeToolTip": "Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAkwJkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RegisterVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\RegisterVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\RegisterVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\RegisterVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\RegisterVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:43:08.681Z"
+              "WhenOpened": "2025-01-07T17:41:42.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "FieldVM.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FieldVM.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\FieldVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:36:00.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FieldsController.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FieldsController.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
-              "RelativeToolTip": "Gamebook.Server\\Controllers\\FieldsController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowGsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:35:49.424Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "InventoryVM.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T17:40:03.11Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CardsController.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
-              "RelativeToolTip": "Gamebook.Server\\Controllers\\CardsController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwB8AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:20:03.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Game.cs",
@@ -217,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "FilesController.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FilesController.cs",
@@ -229,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "CardVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CardVM.cs",
@@ -241,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Character.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Character.cs",
@@ -253,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "FileListVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FileListVM.cs",
@@ -265,20 +221,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "CharactersController.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CharactersController.cs",
               "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\CharactersController.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAkwKMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAkwKMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:37:28.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T15:37:28.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Program.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Program.cs",
@@ -290,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Image.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Image.cs",
@@ -302,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Enemy.cs",
@@ -314,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Field.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Field.cs",
@@ -326,7 +281,92 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Gamebook.Server\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAiwK4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:37:32.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserListVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:07:43.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CardsController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
+              "RelativeToolTip": "Gamebook.Server\\Controllers\\CardsController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:20:03.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "InventoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T17:40:03.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FieldsController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FieldsController.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
+              "RelativeToolTip": "Gamebook.Server\\Controllers\\FieldsController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowGsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:35:49.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FieldVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:36:00.694Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 17,
+              "Title": "InventoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "RelativeToolTip": "Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAkwJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:43:08.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "Card.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Card.cs",
@@ -338,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "CharacterVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
@@ -350,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
@@ -362,7 +402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\User.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\User.cs",
@@ -374,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "Inventory.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Inventory.cs",
@@ -386,7 +426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "GameStateVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameStateVM.cs",
@@ -398,7 +438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "EnemyVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\EnemyVM.cs",
@@ -410,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "GameStatesController.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GameStatesController.cs",
@@ -422,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "GamesController.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GamesController.cs",
@@ -434,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "GameVM.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameVM.cs",
@@ -446,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\GameState.cs",
@@ -458,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "EnemiesController.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\EnemiesController.cs",
@@ -470,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "20241213144355_db.cs",
               "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20241213144355_db.cs",
@@ -482,19 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Gamebook.Server\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:37:32.363Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "20241213140925_db.cs",
               "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
@@ -502,18 +530,6 @@
               "RelativeToolTip": "..\\..\\..\\..\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:09:25.849Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "UserListVM.cs",
-              "DocumentMoniker": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\UserListVM.cs",
-              "ToolTip": "C:\\Users\\Radek\\Downloads\\gmb\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\UserListVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:07:43.669Z"
             }
           ]
         }
