@@ -9,6 +9,8 @@ import StartPage from "./pages/StartPage";
 import Pokusy from "./pages/Pokusy.tsx";
 import Game from "./pages/Game.tsx";
 import RoomNavigation from "./pages/RoomNavigation.tsx";
+import './styles.css';
+
 
 // Definice tras
 const router = createBrowserRouter([

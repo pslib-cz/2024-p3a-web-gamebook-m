@@ -3,3 +3,4 @@ C:\Users\Radek\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\gamebook.client\obj
 C:\Users\rkmek\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\radek.belohlav.022\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Radek\Source\Repos\2024-p3a-web-gamebook-m8\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
+C:\Users\Radek\Downloads\gmb\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache

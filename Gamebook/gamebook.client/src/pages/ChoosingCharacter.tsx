@@ -2,149 +2,159 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Character {
-    id: number;
-    name: string;
-    class: string;
-    startingFieldId: number;
-    imageId: number | null;
+  id: number;
+  name: string;
+  class: string;
+  startingFieldId: number;
+  imageId: number | null;
+}
+
+interface CharacterDetail {
+  id: number;
+  name: string;
+  backstory: string;
+  ability: string;
 }
 
 interface ApiResponse {
-    items: Character[];
-    total: number;
-    count: number;
-    page: number;
-    size: number;
+  items: Character[];
+  total: number;
+  count: number;
+  page: number;
+  size: number;
 }
 
 const ChoosingCharacter = () => {
-    const [characters, setCharacters] = useState<Character[]>([]);
-    const [images, setImages] = useState<Record<number, string>>({});
-    const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
-    const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const navigate = useNavigate();
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [images, setImages] = useState<Record<number, string>>({});
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [selectedCharacterDetail, setSelectedCharacterDetail] = useState<CharacterDetail | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchCharacters = async () => {
-            setLoading(true);
-            setError(null);
+  useEffect(() => {
+    const fetchCharacters = async () => {
+      setLoading(true);
+      setError(null);
 
-            try {
-                const response = await fetch("/api/characters");
-                if (!response.ok) {
-                    throw new Error(`Server vrátil chybu: ${response.status} ${response.statusText}`);
-                }
-
-                const data: ApiResponse = await response.json();
-
-                if (!data.items || !Array.isArray(data.items)) {
-                    throw new Error("Data z API nejsou ve správném formátu (chybí 'items').");
-                }
-
-                setCharacters(data.items);
-
-                // Načtení obrázků
-                for (const character of data.items) {
-                    if (character.imageId) {
-                        fetchImage(character.imageId);
-                    }
-                }
-            } catch (err) {
-                setError((err as Error).message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchCharacters();
-    }, []);
-
-    const fetchImage = async (imageId: number) => {
-        try {
-            const response = await fetch(`/api/images/${imageId}`);
-            if (!response.ok) {
-                throw new Error(`Nepodařilo se načíst obrázek ID: ${imageId}`);
-            }
-
-            const imageData = await response.json();
-
-            // Předpokládáme, že `Content` je Base64
-            const base64String = `data:${imageData.contentType};base64,${imageData.content}`;
-            setImages((prev) => ({ ...prev, [imageId]: base64String }));
-        } catch (err) {
-            console.error(`Chyba při načítání obrázku ID: ${imageId}`, err);
+      try {
+        const response = await fetch("/api/characters");
+        if (!response.ok) {
+          throw new Error(`Server vrátil chybu: ${response.status} ${response.statusText}`);
         }
-    };
 
-    const handleCharacterClick = (character: Character) => {
-        setSelectedCharacter(character);
-    };
+        const data: ApiResponse = await response.json();
 
-    const handleStartGameClick = () => {
-        if (selectedCharacter) {
-            navigate("/game");
+        if (!data.items || !Array.isArray(data.items)) {
+          throw new Error("Data z API nejsou ve správném formátu (chybí 'items').");
         }
+
+        setCharacters(data.items);
+
+        // Načtení obrázků
+        for (const character of data.items) {
+          if (character.imageId) {
+            fetchImage(character.imageId);
+          }
+        }
+      } catch (err) {
+        setError((err as Error).message);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    return (
-        <div>
-            <h1>Vyberte svou postavu</h1>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {loading && <p>Načítám postavy...</p>}
+    fetchCharacters();
+  }, []);
 
-            {/* Zobrazujeme seznam postav */}
-            <div style={{ display: "flex", gap: "20px", overflowX: "scroll" }}>
-                {characters.length > 0 ? (
-                    characters.map((character) => (
-                        <div
-                            key={character.id}
-                            onClick={() => handleCharacterClick(character)}
-                            style={{
-                                cursor: "pointer",
-                                textAlign: "center",
-                                border: selectedCharacter?.id === character.id ? "2px solid blue" : "none",
-                                padding: "10px",
-                            }}
-                        >
-                            {character.imageId && images[character.imageId] ? (
-                                <img
-                                    src={images[character.imageId]}
-                                    alt={character.name}
-                                    style={{ width: "150px", height: "auto", borderRadius: "8px" }}
-                                />
-                            ) : (
-                                <p>No image available</p>
-                            )}
-                            <p>{character.name}</p>
-                        </div>
-                    ))
-                ) : !loading ? (
-                    <p>Žádné postavy nejsou dostupné.</p>
-                ) : null}
-            </div>
+  const fetchImage = async (imageId: number) => {
+    try {
+      const response = await fetch(`/api/Files/${imageId}/base64`);
+      if (!response.ok) {
+        throw new Error(`Nepodařilo se načíst obrázek ID: ${imageId}`);
+      }
 
-            {/* Detaily vybrané postavy */}
-            {selectedCharacter && (
-                <div style={{ marginTop: "20px" }}>
-                    <h2>{selectedCharacter.name}</h2>
-                    <p><strong>Třída:</strong> {selectedCharacter.class}</p>
-                    <p><strong>Startovní pole ID:</strong> {selectedCharacter.startingFieldId}</p>
-                </div>
+      const imageData = await response.json();
+      const base64String = imageData.Base64Content;
+      setImages((prev) => ({ ...prev, [imageId]: base64String }));
+    } catch (err) {
+      console.error(`Chyba při načítání obrázku ID: ${imageId}`, err);
+    }
+  };
+
+  const handleCharacterClick = async (character: Character) => {
+    setSelectedCharacter(character);
+
+    // Získání detailů o postavě
+    try {
+      const response = await fetch(`/api/characters/${character.id}`);
+      if (!response.ok) {
+        throw new Error(`Nepodařilo se načíst detaily postavy ID: ${character.id}`);
+      }
+
+      const detail: CharacterDetail = await response.json();
+      setSelectedCharacterDetail(detail);
+
+      // Dynamická změna pozadí podle ID postavy
+      document.body.classList.remove("background1", "background2", "background3");
+      document.body.classList.add(`background${character.id}`);
+    } catch (err) {
+      setError("Chyba při načítání detailů postavy.");
+    }
+  };
+
+  const handleStartGameClick = () => {
+    if (selectedCharacter) {
+      navigate("/game");
+    }
+  };
+
+  return (
+    <div className="container">
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {loading && <p>Načítám postavy...</p>}
+
+      <div className="character-list">
+        {characters.map((character) => (
+          <div
+            key={character.id}
+            onClick={() => handleCharacterClick(character)}
+            className={`character-item ${selectedCharacter?.id === character.id ? "selected" : ""}`}
+          >
+            {character.imageId && images[character.imageId] ? (
+              <img src={images[character.imageId]} alt={character.name} />
+            ) : (
+              <p>No image available</p>
             )}
+           {character.name}
+          </div>
+        ))}
+      </div>
 
-            {/* Tlačítko pro start hry */}
-            <div style={{ marginTop: "20px" }}>
-                <button
-                    onClick={handleStartGameClick}
-                    style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}
-                    disabled={!selectedCharacter}
-                >
-                    Začít hru
-                </button>
-            </div>
+      {selectedCharacterDetail && (
+        <div className="character-details">
+         <div className="FIRSTTOP">
+           <div className="NAME"><h2>{selectedCharacterDetail.name}</h2></div>
+          {selectedCharacter && <div className="classname">{selectedCharacter.class}</div>}
+          </div>
+
+          <div className="character-details-content">
+            <div className="character-details-text">
+          <strong className="About">Backstory</strong> 
+          {selectedCharacterDetail.backstory}</div>
+          <div className="character-details-text">
+              <strong className="About">Ability</strong> {selectedCharacterDetail.ability}
+              </div>
+          </div>
         </div>
-    );
+      )}
+
+      <button onClick={handleStartGameClick} className="start-game-button" disabled={!selectedCharacter}>
+        Vybrat postavu
+      </button>
+    </div>
+  );
 };
 
 export default ChoosingCharacter;
