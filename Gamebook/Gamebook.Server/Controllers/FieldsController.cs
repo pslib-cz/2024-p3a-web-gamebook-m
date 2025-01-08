@@ -68,7 +68,7 @@ namespace Gamebook.Server.Controllers {
                 Description = fieldVm.Description,
                 Difficulty = fieldVm.Difficulty,
                 numOfCards = fieldVm.numOfCards,
-                DiceRollResults = fieldVm.DiceRollResults, // Mapping DiceRollResults from ViewModel
+                DiceRollResults = fieldVm.DiceRollResults,
                 ImageId = image?.ImageId,
                 EnemyId = enemy?.EnemyId
             };

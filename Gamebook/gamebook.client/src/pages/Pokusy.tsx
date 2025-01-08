@@ -1,45 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useCallback } from "react";
 
-const Pokusy = () => {
-  const [data, setData] = useState(null); // Stav pro uchování odpovědi z API
-  const [loading, setLoading] = useState(false); // Stav pro sledování načítání
-  const [error, setError] = useState(null); // Stav pro chyby
+const CharacterImage: React.FC = () => {
+  const [characterImageUrl, setCharacterImageUrl] = useState<string | null>(null);
 
-  const fetchData = async () => {
-    setLoading(true);
-    setError(null); // Resetování chybového stavu před novým požadavkem
-
+  // Funkce pro načtení obrázku charakteru s ID 1
+  const fetchCharacterImage = useCallback(async () => {
     try {
-      const response = await fetch(`/api/Enemies`);
-
-      
+      const response = await fetch(`/api/Files/1`); // Endpoint pro načtení obrázku s ID 1
       if (!response.ok) {
-        throw new Error('Chyba při načítání dat');
+        throw new Error("Nepodařilo se načíst obrázek charakteru.");
       }
 
-      const result = await response.json(); // Parsování odpovědi
-      setData(result); // Uložení odpovědi do stavu
-    } catch (err) {
-    } finally {
-      setLoading(false); // Nastavení načítání na false
+      // Načtení binárních dat (blob)
+      const blob = await response.blob();
+
+      // Vytvoření URL pro tento blob
+      const imageUrl = URL.createObjectURL(blob);
+
+      setCharacterImageUrl(imageUrl); // Uložení URL pro obrázek
+    } catch (error) {
+      console.error("Chyba při načítání obrázku charakteru:", error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchCharacterImage(); // Načíst obrázek při mountu komponenty
+  }, [fetchCharacterImage]);
 
   return (
     <div>
-      <h1>Fetch Data from API</h1>
-      <button onClick={fetchData} disabled={loading}>
-        {loading ? 'Načítání...' : 'Načíst data'}
-      </button>
-
-      {error && <div style={{ color: 'red' }}>Chyba: {error}</div>}
-
-      <div>
-        <h2>Odpověď z API:</h2>
-        <pre>{data ? JSON.stringify(data, null, 2) : 'Žádná data k zobrazení'}</pre>
-      </div>
+      {characterImageUrl ? (
+        <img src={characterImageUrl} alt="Character" />
+      ) : (
+        <p>Načítám obrázek...</p>
+      )}
     </div>
   );
 };
 
-export default Pokusy;
+export default CharacterImage;

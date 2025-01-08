@@ -83,7 +83,7 @@ namespace Gamebook.Server.Controllers {
                 _logger.LogWarning($"File {id} not found");
                 return NotFound();
             }
-            return file;
+            return File(file.Content,file.ContentType);
         }
 
         // GET: api/Files/5/download
