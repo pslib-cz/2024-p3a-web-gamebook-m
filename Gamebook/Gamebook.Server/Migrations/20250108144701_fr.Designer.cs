@@ -3,6 +3,7 @@ using System;
 using Gamebook.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamebook.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250108144701_fr")]
+    partial class fr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -146,6 +149,7 @@ namespace Gamebook.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.PrimitiveCollection<string>("DiceRollResults")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Difficulty")
@@ -294,13 +298,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "28f152a1-8ff9-4537-bb8c-000b5feac8c9",
+                            Id = "bd45174c-5013-48a2-9b56-7d66d6161e88",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "44ed3e6c-bc90-4775-b409-498fbc45a474",
+                            Id = "f9b12b26-8e5d-46c9-be28-b05e451ba1ef",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         });
@@ -372,15 +376,15 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a06f5c02-28ff-439a-b29c-9fe7f1eb8316",
+                            Id = "9e87d7ba-0705-4d12-8fcc-23c1989a6533",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8d7ef57-3a3d-4987-b620-ef4abdb043c7",
+                            ConcurrencyStamp = "e98f6a04-b016-40db-a21d-a292647f998b",
                             Email = "admin@localhost.test",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.TEST",
                             NormalizedUserName = "ADMIN@LOCALHOST.TEST",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF3CkUrOhOh5U9H+7QTNrI76hqaHcZmQN5SRfT75gkiXVoOYPh5z40nldb2Dk3pFcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOKqAFb9BBWCcufUOqFB5Vm3v8hlyo8tUQwhklltbd11g3DgtE3ZvQmPjyYzqV2Owg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -473,13 +477,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = "28f152a1-8ff9-4537-bb8c-000b5feac8c9",
-                            UserId = "a06f5c02-28ff-439a-b29c-9fe7f1eb8316"
+                            RoleId = "bd45174c-5013-48a2-9b56-7d66d6161e88",
+                            UserId = "9e87d7ba-0705-4d12-8fcc-23c1989a6533"
                         },
                         new
                         {
-                            RoleId = "44ed3e6c-bc90-4775-b409-498fbc45a474",
-                            UserId = "a06f5c02-28ff-439a-b29c-9fe7f1eb8316"
+                            RoleId = "f9b12b26-8e5d-46c9-be28-b05e451ba1ef",
+                            UserId = "9e87d7ba-0705-4d12-8fcc-23c1989a6533"
                         });
                 });
 

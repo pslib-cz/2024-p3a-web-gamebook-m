@@ -10,7 +10,7 @@ namespace Gamebook.Server.Models {
         public string Description { get; set; }
         public int Difficulty { get; set; }
         public int numOfCards { get; set; }
-        public string[] DiceRollResults { get; set; }
+        public string[]? DiceRollResults { get; set; }
 
         [ForeignKey("Enemy")]
         public int? EnemyId { get; set; }

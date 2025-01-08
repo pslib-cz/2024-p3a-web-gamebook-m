@@ -29,6 +29,7 @@ namespace Gamebook.Server.Controllers {
                 .Select(f => new FieldListVM {
                     FieldId = f.FieldId,
                     Title = f.Title,
+                    Difficulty = f.Difficulty,
                     EnemyId = f.EnemyId,
                     ImageId = f.ImageId
                 })

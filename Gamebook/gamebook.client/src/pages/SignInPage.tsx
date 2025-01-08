@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Alert } from "../components/common";
 import useAuth from "../hooks/useAuth";
 import { SET_TOKEN } from "../providers/authProvider";
-import '../signin.css';
+import styles from "../styles/SignPage.module.css";
 
 const SignInPage = () => {
     const [error, setError] = useState<Error | null>(null);
@@ -31,35 +31,37 @@ const SignInPage = () => {
     };
 
     return (
-        <div className="signinbg">
-        <div className="signin-container">
-            <h2 className="registrace">Přihlášení</h2> {/* Use the same heading class */}
-            {error && <Alert message={error.message} type="error" />}
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    const form = e.target as HTMLFormElement;
-                    loginUser(form.email.value, form.password.value);
-                }}
-            >
-                <div className="form-group"> {/* Use form-group for styling */}
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" required />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" required />
-                </div>
-                <div className="form-group"> {/* Wrap the button in a form-group */}
-                    <button type="submit" disabled={loading}>
-                        Přihlásit
-                    </button>
-                </div>
-            </form>
-            <button onClick={() => navigate("/signup")}>Registrovat se</button>
+        <div className={styles.signbg}>
+            <div className={styles.signContainer}>
+                <h2 className={styles.registrace}>Přihlášení</h2>
+                {error && <Alert message={error.message} type="error" />}
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        const form = e.target as HTMLFormElement;
+                        loginUser(form.email.value, form.password.value);
+                    }}
+                >
+                    <div className={styles.formGroup}>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <button type="submit" disabled={loading}>
+                            Přihlásit
+                        </button>
+                    </div>
+                </form>
+                <button className={styles.signupButton} onClick={() => navigate("/signup")}>
+                    Registrovat se
+                </button>
+            </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default SignInPage;

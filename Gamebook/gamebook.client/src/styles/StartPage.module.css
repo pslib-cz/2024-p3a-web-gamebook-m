@@ -1,0 +1,55 @@
+/* StartPage.module.css */
+.startPageContainer {
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: 
+       linear-gradient(
+          rgba(78, 2, 68, 0.3),
+          rgba(5, 63, 0, 0.301)  
+      ), 
+      url(../../public/img/BG_Start.avif) no-repeat center center;
+  background-size: cover;
+}
+
+.startPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonStart {
+  margin-top: 20px;
+  padding: 18px 48px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #4B3621; 
+  color: #E0D5B1; 
+  font-weight: bold;
+  border: 2px solid #2E1A08; 
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-family: "MedievalSharp", sans-serif; 
+  transition: all 0.3s ease;
+}
+
+.buttonStart:hover {
+  background-color: #C78B4A; 
+  color: #FFF8E1; 
+  border: 2px solid #D07F3D; 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); 
+  transform: scale(1.05); 
+}
+
+.buttonStart:active {
+  transform: scale(0.98); 
+}
