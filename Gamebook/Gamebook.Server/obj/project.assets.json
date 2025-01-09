@@ -47,6 +47,28 @@
           }
         }
       },
+      "CoreAdmin/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.2",
+          "NonFactors.Grid.Core.Mvc6": "7.2.0"
+        },
+        "compile": {
+          "lib/net8.0/DotNetEd.CoreAdmin.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/DotNetEd.CoreAdmin.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ],
+        "build": {
+          "buildTransitive/CoreAdmin.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/CoreAdmin.props": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -2249,6 +2271,18 @@
           }
         }
       },
+      "NonFactors.Grid.Core.Mvc6/7.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Mvc.Grid.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Mvc.Grid.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "NuGet.Common/6.11.0": {
         "type": "package",
         "dependencies": {
@@ -3288,6 +3322,40 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "CoreAdmin/3.0.0": {
+      "sha512": "XK4C3e9jmxhwF3ETT3qB1J/rE1RmgvsA6PYtM6uGSyk3tpNPJSzUU9jfKcx6QlW8u/0FwLXB4bxAzamFqItemw==",
+      "type": "package",
+      "path": "coreadmin/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/CoreAdmin.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/CoreAdmin.props",
+        "buildTransitive/CoreAdmin.props",
+        "coreadmin.3.0.0.nupkg.sha512",
+        "coreadmin.nuspec",
+        "lib/net8.0/DotNetEd.CoreAdmin.dll",
+        "staticwebassets/css/bootstrap-grid.min.css",
+        "staticwebassets/css/bootstrap-reboot.min.css",
+        "staticwebassets/css/bootstrap.min.css",
+        "staticwebassets/css/easymde/easymde-dark.css",
+        "staticwebassets/css/easymde/easymde.css",
+        "staticwebassets/css/fonts/bootstrap-icons.woff",
+        "staticwebassets/css/fonts/bootstrap-icons.woff2",
+        "staticwebassets/css/mvc-grid/fonts/grid-glyphs.woff",
+        "staticwebassets/css/mvc-grid/mvc-grid-dark.css",
+        "staticwebassets/css/mvc-grid/mvc-grid.css",
+        "staticwebassets/css/style.css",
+        "staticwebassets/js/aspnet-validation.min.js",
+        "staticwebassets/js/bootstrap.bundle.min.js",
+        "staticwebassets/js/bootstrap.min.js",
+        "staticwebassets/js/color-modes.js",
+        "staticwebassets/js/easymde/easymde.min.js",
+        "staticwebassets/js/mvc-grid/mvc-grid.js",
+        "staticwebassets/js/navbar.js"
       ]
     },
     "Humanizer/2.14.1": {
@@ -7308,6 +7376,18 @@
         "packageIcon.png"
       ]
     },
+    "NonFactors.Grid.Core.Mvc6/7.2.0": {
+      "sha512": "Fn+s1mhpJNrKKfhA16bxuO15TDLSPCfUt3i2wZU08rlwu1Tmuo0Qiu8BXdAOrSWkhnhkBSlSmHgld7IonMslKw==",
+      "type": "package",
+      "path": "nonfactors.grid.core.mvc6/7.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Mvc.Grid.Core.dll",
+        "nonfactors.grid.core.mvc6.7.2.0.nupkg.sha512",
+        "nonfactors.grid.core.mvc6.nuspec"
+      ]
+    },
     "NuGet.Common/6.11.0": {
       "sha512": "T3bCiKUSx8wdYpcqr6Dbx93zAqFp689ee/oa1tH22XI/xl7EUzQ7No/WlE1FUqvEX1+Mqar3wRNAn2O/yxo94g==",
       "type": "package",
@@ -8961,6 +9041,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CoreAdmin >= 3.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.11",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.11",
       "Microsoft.AspNetCore.SpaProxy >= 8.*-*",
@@ -8973,23 +9054,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rad3k_m\\.nuget\\packages\\": {},
+    "C:\\Users\\rkmek\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "projectUniqueName": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
       "projectName": "Gamebook.Server",
-      "projectPath": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
-      "packagesPath": "C:\\Users\\Rad3k_m\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\obj\\",
+      "projectPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "packagesPath": "C:\\Users\\rkmek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rad3k_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rkmek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8998,6 +9079,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9015,13 +9097,16 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "CoreAdmin": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.11, )"
@@ -9080,7 +9165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

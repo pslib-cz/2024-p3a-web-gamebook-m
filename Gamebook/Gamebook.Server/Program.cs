@@ -41,7 +41,13 @@ builder.Services.AddIdentityApiEndpoints<User>(options => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCoreAdmin();
+
+
 var app = builder.Build();
+
+app.UseStaticFiles();
+app.MapDefaultControllerRoute();
 
 app.UseCors("AllowMyApp");
 
