@@ -1,5 +1,9 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { fetchField, fetchImage, fetchFields } from '../utils/api';
+import styles from "../styles/RoomNavigate.module.css"
+import { getRandomNumber } from '../utils/utils';
+
 
 interface Field {
     fieldId: number;
@@ -7,113 +11,108 @@ interface Field {
     description: string;
     difficulty: number;
     numOfCards: number;
-    diceRollResults: string[]; // Odkazy na ID místností
-    enemyId?: number | null;
-    imageId?: number | null;
-    [key: string]: any; // Pro další možné atributy
+    diceRollResults: string;
+    imageId: number | null;
+    enemyId: number | null;
 }
 
-const RoomNavigation = () => {
-    const [currentField, setCurrentField] = useState<Field | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const navigate = useNavigate();
-    const { id } = useParams<{ id: string }>(); // Získání ID z URL
+const RoomNavigate: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const [field, setField] = useState<Field | null>(null);
+    const [fieldImage, setFieldImage] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
 
-    // Funkce pro načtení místnosti podle ID
-    const fetchField = async (fieldId: number) => {
-        setLoading(true);
-        setError(null);
+  const startingFieldId = id ? parseInt(id, 10) : null;
 
-        try {
-            const response = await fetch(`/api/fields/${fieldId}`);
-            if (!response.ok) {
-                throw new Error(`Nepodařilo se načíst místnost s ID ${fieldId}`);
-            }
-
-            const data: Field = await response.json();
-            setCurrentField(data);
-        } catch (err) {
-            setError((err as Error).message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    // Funkce pro hod kostkou a přesun do jiné místnosti
-    const rollDiceAndMove = () => {
-        if (!currentField || !currentField.diceRollResults || currentField.diceRollResults.length === 0) {
-            setError("Nelze hodit kostkou. Aktuální místnost nemá definované výsledky hodu.");
-            return;
-        }
-
-        const diceRoll = Math.floor(Math.random() * 6); // Hod 0 až (počet výsledků - 1)
-        const nextFieldId = currentField.fieldId + (diceRoll + 1);
-
-        console.log(`Hod kostkou: ${diceRoll + 1}, další místnost ID: ${nextFieldId}`);
-        navigate(`/game/${nextFieldId}`); // Změna URL na novou místnost
-    };
-
-    // Načtení aktuální místnosti při změně ID v URL
     useEffect(() => {
-        if (id) {
-            const fieldId = parseInt(id, 10);
-            if (!isNaN(fieldId)) {
-                fetchField(fieldId);
-            } else {
-                setError("Neplatné ID místnosti v URL.");
-            }
+    const loadData = async () => {
+       if(!startingFieldId){
+            navigate("/")
+          return;
+       }
+      try {
+        setLoading(true)
+        const fetchedField = await fetchField(startingFieldId)
+        setField(fetchedField)
+        if(fetchedField.imageId){
+            const imageUrl = await fetchImage(fetchedField.imageId);
+            setFieldImage(imageUrl)
         }
-    }, [id]);
+        else{
+          setFieldImage(null)
+        }
 
-    return (
-        <div>
-            <h1>Posun v místnostech</h1>
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load field data.");
+      }finally{
+        setLoading(false)
+      }
+    }
+    loadData();
+  }, [startingFieldId, navigate]);
 
-            {/* Chybové hlášky */}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+    const handleFilterAndMove = async () => {
+        try {
+            setLoading(true)
+            const fields = await fetchFields();
+            const filteredFields = fields.filter((field: Field) => field.difficulty === 1);
 
-            {/* Zobrazení aktuální místnosti */}
-            {loading ? (
-                <p>Načítám místnost...</p>
-            ) : currentField ? (
-                <div>
-                    <h2>{currentField.title}</h2>
-                    <p>{currentField.description}</p>
-                    <p><strong>Obtížnost:</strong> {currentField.difficulty}</p>
-                    <p><strong>Počet karet:</strong> {currentField.numOfCards}</p>
-                    {currentField.enemyId && <p><strong>Enemy ID:</strong> {currentField.enemyId}</p>}
-                    {currentField.imageId && (
-                        <img
-                            src={`/api/images/${currentField.imageId}`} // Předpokládáme endpoint pro načtení obrázku
-                            alt={currentField.title}
-                            style={{ width: "200px", height: "auto", borderRadius: "8px" }}
-                        />
-                    )}
-                    <pre>{JSON.stringify(currentField, null, 2)}</pre>
-                </div>
-            ) : (
-                <p>Načtěte místnost.</p>
-            )}
+            if (filteredFields.length === 0) {
+                setError("No fields with difficulty 1 found.");
+              return;
+            }
 
-            {/* Tlačítka */}
-            <div style={{ marginTop: "20px" }}>
-                <button
-                    onClick={() => navigate(`/game/1`)} // Načíst místnost s ID = 1
-                    style={{ padding: "10px 20px", fontSize: "16px", marginRight: "10px" }}
-                >
-                    Načíst místnost s ID 1
-                </button>
-                <button
-                    onClick={rollDiceAndMove}
-                    style={{ padding: "10px 20px", fontSize: "16px" }}
-                    disabled={!currentField || loading}
-                >
-                    Hodit kostkou a přesunout se
-                </button>
-            </div>
+             const randomNumber = getRandomNumber(1, 6);
+            const currentIndex = filteredFields.findIndex((f: { fieldId: number | null; }) => f.fieldId === startingFieldId);
+
+
+            let nextIndex = (currentIndex + randomNumber) % filteredFields.length;
+
+            if(nextIndex < 0)
+                nextIndex += filteredFields.length
+            const nextField = filteredFields[nextIndex]
+             if (nextField) {
+              navigate(`/game/${nextField.fieldId}`);
+             }else {
+                 setError("No next field found")
+             }
+         } catch (err) {
+            setError(err instanceof Error ? err.message : "Failed to load or filter fields.");
+        } finally {
+            setLoading(false)
+        }
+
+    };
+
+  if(loading)
+    return <p>Loading...</p>
+    if (error) {
+        return <p>Error: {error}</p>
+    }
+
+
+    if (!field) {
+        return <p>Chyba: Pole s ID {startingFieldId} nenalezeno.</p>;
+    }
+
+  return (
+    <div className={styles.container}>
+         {fieldImage && (
+            <div
+             className={styles.background}
+             style={{ backgroundImage: `url(${fieldImage})` }}
+          />
+        )}
+        <div className={styles.content}>
+            <h1>{field.title}</h1>
+            <p>{field.description}</p>
+            <p>Difficulty: {field.difficulty}</p>
+            <button onClick={handleFilterAndMove}>Hodit kostkou</button>
         </div>
-    );
+    </div>
+  );
 };
 
-export default RoomNavigation;
+export default RoomNavigate;

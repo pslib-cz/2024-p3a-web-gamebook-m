@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import './App.css';
-import { AuthProvider } from './providers/authProvider.tsx';
-import SignInPage from './pages/SignInPage';
-import ChoosingCharacter from './pages/ChoosingCharacter.tsx';
-import SignUpPage from './pages/SignUpPage.tsx';
-import TokenPage from './pages/TokenPage';
+import "./App.css";
+import { AuthProvider } from "./providers/authProvider.tsx";
+import SignInPage from "./pages/SignInPage";
+import ChoosingCharacter from "./pages/ChoosingCharacter.tsx";
+import SignUpPage from "./pages/SignUpPage.tsx";
+import TokenPage from "./pages/TokenPage";
 import StartPage from "./pages/StartPage";
 import Pokusy from "./pages/Pokusy.tsx";
-import RoomNavigation from "./pages/RoomNavigation.tsx";
+import RoomNavigate from "./pages/RoomNavigation.tsx";
 
 // Definice tras
 const router = createBrowserRouter([
@@ -36,13 +36,9 @@ const router = createBrowserRouter([
     element: <Pokusy />,
   },
   {
-    path: "/game", // Hlavní hra bez parametru
-    element: <RoomNavigation />,
-  },
-  {
     path: "/game/:id", // Hlavní hra s ID místnosti
-    element: <RoomNavigation />,
-  }
+    element: <RoomNavigate />,
+  },
 ]);
 
 function App() {

@@ -92,7 +92,7 @@ const ChoosingCharacter: React.FC = () => {
 
   const handleStartGameClick = () => {
     if (selectedCharacter) {
-      navigate("/game");
+      navigate(`/game/${selectedCharacter.startingFieldId}`);
     }
   };
 

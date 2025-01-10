@@ -1,5 +1,4 @@
 public class FieldListVM {
-    public int Id { get; set; }
     public int FieldId { get; set; }
     public string Title { get; set; }
     public int Difficulty { get; set; }
