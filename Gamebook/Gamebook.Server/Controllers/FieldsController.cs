@@ -16,7 +16,7 @@ namespace Gamebook.Server.Controllers {
 
         [HttpGet]
         public async Task<ActionResult<ListResult<FieldListVM>>> GetFields(string? title, int? page = null, int? size = null) {
-            var query = _context.Fields.Include(f => f.Image).Include(f => f.Enemy).AsQueryable();
+            var query = _context.Fields.Include(f => f.Image).Include(f => f.Card).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(title)) {
                 query = query.Where(f => f.Title.Contains(title));
@@ -30,7 +30,7 @@ namespace Gamebook.Server.Controllers {
                     FieldId = f.FieldId,
                     Title = f.Title,
                     Difficulty = f.Difficulty,
-                    EnemyId = f.EnemyId,
+                    EnemyId = f.CardId,
                     ImageId = f.ImageId
                 })
                 .ToListAsync();
@@ -56,8 +56,8 @@ namespace Gamebook.Server.Controllers {
 
             // Fetch the Enemy if EnemyId is provided
             Enemy enemy = null;
-            if (fieldVm.EnemyId.HasValue) {
-                enemy = await _context.Enemies.FindAsync(fieldVm.EnemyId.Value);
+            if (fieldVm.CardId.HasValue) {
+                enemy = await _context.Enemies.FindAsync(fieldVm.CardId.Value);
                 if (enemy == null) {
                     return BadRequest("Invalid EnemyId provided.");
                 }
@@ -71,7 +71,7 @@ namespace Gamebook.Server.Controllers {
                 numOfCards = fieldVm.numOfCards,
                 DiceRollResults = fieldVm.DiceRollResults,
                 ImageId = image?.ImageId,
-                EnemyId = enemy?.EnemyId
+                CardId = enemy?.EnemyId
             };
 
             _context.Fields.Add(field);
@@ -84,7 +84,7 @@ namespace Gamebook.Server.Controllers {
         public async Task<IActionResult> GetFieldById(int id) {
             var field = await _context.Fields
                 .Include(f => f.Image)
-                .Include(f => f.Enemy)
+                .Include(f => f.Card)
                 .FirstOrDefaultAsync(f => f.FieldId == id);
 
             if (field == null) {
@@ -107,7 +107,7 @@ namespace Gamebook.Server.Controllers {
             field.numOfCards = fieldVm.numOfCards;
             field.DiceRollResults = fieldVm.DiceRollResults; // Updating DiceRollResults
             field.ImageId = fieldVm.ImageId;
-            field.EnemyId = fieldVm.EnemyId;
+            field.CardId = fieldVm.CardId;
 
             _context.Fields.Update(field);
             await _context.SaveChangesAsync();

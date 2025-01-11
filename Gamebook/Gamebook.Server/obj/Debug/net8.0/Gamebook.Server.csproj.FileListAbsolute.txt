@@ -2119,3 +2119,5 @@ C:\Users\radek.belohlav.022\Downloads\DAMN\Gamebook\Gamebook.Server\obj\Debug\ne
 C:\Users\radek.belohlav.022\Downloads\DAMN\Gamebook\Gamebook.Server\obj\Debug\net8.0\Gamebook.Server.pdb
 C:\Users\radek.belohlav.022\Downloads\DAMN\Gamebook\Gamebook.Server\obj\Debug\net8.0\Gamebook.Server.genruntimeconfig.cache
 C:\Users\radek.belohlav.022\Downloads\DAMN\Gamebook\Gamebook.Server\obj\Debug\net8.0\ref\Gamebook.Server.dll
+C:\Users\Rad3k_m\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\Gamebook.Server\bin\Debug\net8.0\DotNetEd.CoreAdmin.dll
+C:\Users\Rad3k_m\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\Gamebook.Server\bin\Debug\net8.0\Mvc.Grid.Core.dll

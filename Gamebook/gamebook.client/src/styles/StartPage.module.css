@@ -16,7 +16,7 @@
           rgba(78, 2, 68, 0.3),
           rgba(5, 63, 0, 0.301)  
       ), 
-      url(../../public/img/BG_Start.avif) no-repeat center center;
+      url(../../public/img/BG_StartPage.avif) no-repeat center center;
   background-size: cover;
 }
 

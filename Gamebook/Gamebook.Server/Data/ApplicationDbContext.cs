@@ -3,6 +3,7 @@ using Gamebook.Server.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Gamebook.Server.Data {
     public class ApplicationDbContext : IdentityDbContext<User, Models.Role, string> {
@@ -20,8 +21,17 @@ namespace Gamebook.Server.Data {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
+
             var adminRoleId = Guid.NewGuid().ToString();
+
             var authorRoleId = Guid.NewGuid().ToString();
+
+        modelBuilder.Entity<Field>()
+            .Property(f => f.DiceRollResults)
+            .HasConversion(
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
+                v => JsonSerializer.Deserialize<Dictionary<int, string>>(v, (JsonSerializerOptions?)null)
+            );
             modelBuilder.Entity<Models.Role>(options => {
                 options.HasData(
                     new Models.Role {

@@ -10,8 +10,8 @@ public class FieldVM {
     public string Description { get; set; }
     public int Difficulty { get; set; }
     public int numOfCards { get; set; }
-    public string[]? DiceRollResults { get; set; }  // Nové pole pro výsledky hodù
+    public Dictionary<int, string>? DiceRollResults { get; set; }
 
-    public int? EnemyId { get; set; }
+    public int? CardId { get; set; }
     public int? ImageId { get; set; }
 }
