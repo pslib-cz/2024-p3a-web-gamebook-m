@@ -7,8 +7,8 @@ namespace Gamebook.Server.Models {
     public class Card {
         [Key]
         public int CardId { get; set; }
-
         public string Title { get; set; }
+        public string Type { get; set; }
         public string Description { get; set; }
         public string? SpecialAbilities { get; set; }
 

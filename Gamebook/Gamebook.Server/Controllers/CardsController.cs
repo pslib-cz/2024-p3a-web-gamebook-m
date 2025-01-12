@@ -19,6 +19,7 @@ namespace Gamebook.Server.Controllers {
         public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm) {
             var card = new Card {
                 Title = cardVm.Title,
+                Type = cardVm.Type,
                 Description = cardVm.Description,
                 SpecialAbilities = cardVm.SpecialAbilities,
                 DiceRollResults = cardVm.DiceRollResults,
@@ -59,6 +60,7 @@ namespace Gamebook.Server.Controllers {
             return Ok(new CardDetailVM {
                 Id = card.CardId,
                 Title = card.Title,
+                Type = card.Type,
                 Description = card.Description,
                 SpecialAbilities = card.SpecialAbilities,
                 ImageId = card.ImageId,
@@ -79,6 +81,7 @@ namespace Gamebook.Server.Controllers {
                 .Select(c => new CardListVM {
                     Id = c.CardId,
                     Title = c.Title,
+                    Type = c.Type,
                     EnemyId = c.EnemyId,
                     ImageId = c.ImageId
                 })
@@ -100,6 +103,7 @@ namespace Gamebook.Server.Controllers {
             }
 
             card.Title = cardVm.Title;
+            card.Type = cardVm.Type;
             card.Description = cardVm.Description;
             card.SpecialAbilities = cardVm.SpecialAbilities;
             card.DiceRollResults = cardVm.DiceRollResults;

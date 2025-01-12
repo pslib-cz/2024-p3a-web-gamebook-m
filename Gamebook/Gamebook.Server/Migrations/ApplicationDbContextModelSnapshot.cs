@@ -46,6 +46,10 @@ namespace Gamebook.Server.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("CardId");
 
                     b.HasIndex("EnemyId");
@@ -293,13 +297,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "766ce8d9-f0dd-4156-b9ac-ca4a62eeef57",
+                            Id = "39e9574a-260f-46fb-8e04-54f22a721be0",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "94ba9043-1bba-4ded-8db0-baf0db513140",
+                            Id = "41493973-d798-42c8-9e15-8fbce39018c7",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         });
@@ -371,15 +375,15 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d00f7361-5b13-4a06-999e-5921d4368186",
+                            Id = "bea07638-d03a-453b-bc7d-5be75436dab4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "789e0342-c553-4ce0-a20e-a2250c74d11a",
+                            ConcurrencyStamp = "362a9a0f-1637-44ae-ade8-7126ca280851",
                             Email = "admin@localhost.test",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.TEST",
                             NormalizedUserName = "ADMIN@LOCALHOST.TEST",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJB68HXR/OhmoUrfNqV18wLJOElbr7UaL0ebX+NbvMztfJY79TzmNntbMcSn2NIyRQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPK5trdT6k+CUBmu6wB/Bd4XrhMMBe6vhm0dyg/5ikHXj0yUUpCmmo8H0KnsqqFt5A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -472,13 +476,13 @@ namespace Gamebook.Server.Migrations
                     b.HasData(
                         new
                         {
-                            RoleId = "766ce8d9-f0dd-4156-b9ac-ca4a62eeef57",
-                            UserId = "d00f7361-5b13-4a06-999e-5921d4368186"
+                            RoleId = "39e9574a-260f-46fb-8e04-54f22a721be0",
+                            UserId = "bea07638-d03a-453b-bc7d-5be75436dab4"
                         },
                         new
                         {
-                            RoleId = "94ba9043-1bba-4ded-8db0-baf0db513140",
-                            UserId = "d00f7361-5b13-4a06-999e-5921d4368186"
+                            RoleId = "41493973-d798-42c8-9e15-8fbce39018c7",
+                            UserId = "bea07638-d03a-453b-bc7d-5be75436dab4"
                         });
                 });
 
