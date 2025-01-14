@@ -6,3 +6,4 @@ C:\Users\Radek\Source\Repos\2024-p3a-web-gamebook-m8\Gamebook\gamebook.client\ob
 C:\Users\Radek\Downloads\gmb\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\radek.belohlav.022\Downloads\DAMN\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Radek\Downloads\ajojo\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
+C:\Users\Radek\Downloads\EARTH\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache

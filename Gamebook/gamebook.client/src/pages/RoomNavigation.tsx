@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
-import { all } from "axios";
+import cedule from '/img/neco.png';
+
 
 interface Field {
   fieldId: number;
@@ -181,6 +182,7 @@ const RoomNavigate: React.FC = () => {
   if (!field) return <p>Chyba: Pole s ID {startingFieldId} nebylo nalezeno.</p>;
 
   return (
+    
     <div
       className={`${styles.container} ${fieldImage ? styles.withBackground : ""}`}
       style={fieldImage ? { backgroundImage: `url(${fieldImage})` } : {}}
@@ -193,19 +195,20 @@ const RoomNavigate: React.FC = () => {
               alt={selectedCharacter.name}
               className={styles.characterImage}
             />
-            <div className={styles.characterInfo}>
-              <p className={styles.characterUsername}>{selectedCharacter.username}</p>
+         
+              <div className={styles.characterStats2}>
               <p>Síla: {localStorage.getItem("strength")}</p>
               <p>Vůle: {localStorage.getItem("will")}</p>
+              </div>
+              <div className={styles.characterStats}>
               <p>Body osudu: {localStorage.getItem("pointsOfDestiny")}</p>
-              <p>HP: {localStorage.getItem("hp")}</p>
+              <p>HP: {localStorage.getItem("hp")}</p></div>
             </div>
-          </div>
         )}
+        <div className={styles.fieldInfo}>
         <h1>{field.title}</h1>
+        </div>
         <p>{field.description}</p>
-        <p>Obtížnost: {field.difficulty}</p>
-
         <div className={styles.diceRollContainer}>
           {isRolling ? (
             <div className={styles.slotAnimation}>
@@ -228,7 +231,12 @@ const RoomNavigate: React.FC = () => {
             <button onClick={() => handleMove("right")}>Jít vpravo</button>
           </div>
         )}
+        <div className={styles.cedule}>
+          <img src={cedule} alt="Popis obrázku" />
+          <img src={cedule} alt="Popis obrázku" />
+          <img src={cedule} alt="Popis obrázku" />
 
+          </div>
         <button
           onClick={handleFilterAndMove}
           disabled={isRolling || isMoved}
