@@ -198,8 +198,7 @@
               "RelativeToolTip": "Gamebook.Server\\Controllers\\CharactersController.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAAAuwIoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:37:28.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T15:37:28.125Z"
             },
             {
               "$type": "Document",
@@ -295,8 +294,7 @@
               "RelativeToolTip": "Gamebook.Server\\Controllers\\FieldsController.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAuwEAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:35:49.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T16:35:49.424Z"
             },
             {
               "$type": "Document",
@@ -306,7 +304,7 @@
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Character.cs",
               "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Character.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T15:39:51.874Z",
               "EditorCaption": ""

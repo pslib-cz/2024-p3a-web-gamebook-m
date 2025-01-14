@@ -100,6 +100,7 @@ const ChoosingCharacter: React.FC = () => {
       localStorage.setItem("will", selectedCharacter.will.toString());
       localStorage.setItem("pointsOfDestiny", selectedCharacter.pointsOfDestiny.toString());
       localStorage.setItem("hp", selectedCharacter.maxHP.toString());
+      localStorage.setItem("selectedCharacter", JSON.stringify(selectedCharacter));
       navigate(`/game/${selectedCharacter.startingFieldId}`);
     }
   };
