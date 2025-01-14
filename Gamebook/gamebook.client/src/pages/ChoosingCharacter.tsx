@@ -8,6 +8,9 @@ interface Character {
   class: string;
   startingFieldId: number;
   imageId: number | null;
+  hp: number; // HP postavy
+  strength: number; // Síla postavy
+  willpower: number; // Vůle postavy
 }
 
 interface CharacterDetail {
@@ -92,23 +95,39 @@ const ChoosingCharacter: React.FC = () => {
 
   const handleStartGameClick = () => {
     if (selectedCharacter) {
+      // Uložíme postavu včetně statistik do localStorage
+      localStorage.setItem("selectedCharacter", JSON.stringify(selectedCharacter));
       navigate(`/game/${selectedCharacter.startingFieldId}`);
     }
   };
 
+  useEffect(() => {
+    // Načtení vybrané postavy z localStorage
+    const storedCharacter = localStorage.getItem('selectedCharacter');
+    if (storedCharacter) {
+      const character: Character = JSON.parse(storedCharacter);
+      setSelectedCharacter(character);
+      // Můžete načíst další herní údaje, například HP, sílu apod.
+      console.log('HP:', character.hp); // Například zobrazíme HP
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       {backgroundImage && (
-        <div
-          className={styles.background}
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        />
+        <>
+          <div
+            className={styles.background}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          <div className={styles.overlay} />
+        </>
       )}
-
+  
       <div className={styles.content}>
         {error && <p className={styles.error}>{error}</p>}
         {loading && <p className={styles.loading}>Načítám postavy...</p>}
-
+  
         <div className={styles.characterList}>
           {characters.map((character) => (
             <div
@@ -123,36 +142,32 @@ const ChoosingCharacter: React.FC = () => {
                 alt={character.name}
                 className={styles.characterImage}
               />
-              <p>{character.name}</p>
             </div>
           ))}
         </div>
-
+  
         {selectedCharacter && selectedCharacterDetail && (
-          <div className={styles.characterDetailsContent}>
+          <>
             <div className={styles.characterImageContainer}>
-              <img
-                src={characterImages[selectedCharacter.id] || ""}
-                alt={selectedCharacter.name}
-              />
-              <div className={styles.characterName}>
-                {selectedCharacter.name}
+              <div className={styles.jmeno}>
+                <h2>{selectedCharacter.name}</h2>
+                <p className={styles.characterClass}>{selectedCharacter.class}</p>
+              </div>
+              <div className={styles.characterDetails}>
+                <div className={styles.about}>
+                  <h3>Backstory</h3>
+                  <p>{selectedCharacterDetail.backstory}</p>
+                </div>
+                <img src={characterImages[selectedCharacter.id] || ""} alt={selectedCharacter.name} />
+                <div className={styles.abilities}>
+                  <h3>Abilities</h3>
+                  <p>{selectedCharacterDetail.ability}</p>
+                </div>
               </div>
             </div>
-
-            <div className={styles.characterDetailsText}>
-              <h2>{selectedCharacter.name}</h2>
-              <p className={styles.characterClass}>{selectedCharacter.class}</p>
-              <div className={styles.characterBackstory}>
-                <strong>Backstory:</strong> {selectedCharacterDetail.backstory}
-              </div>
-              <div className={styles.characterAbility}>
-                <strong>Ability:</strong> {selectedCharacterDetail.ability}
-              </div>
-            </div>
-          </div>
+          </>
         )}
-
+  
         <button
           className={styles.startButton}
           onClick={handleStartGameClick}
@@ -163,6 +178,7 @@ const ChoosingCharacter: React.FC = () => {
       </div>
     </div>
   );
+  
 };
 
 export default ChoosingCharacter;

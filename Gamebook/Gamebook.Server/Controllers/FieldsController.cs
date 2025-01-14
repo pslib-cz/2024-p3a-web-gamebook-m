@@ -3,22 +3,42 @@ using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
-namespace Gamebook.Server.Controllers {
+namespace Gamebook.Server.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
-    public class FieldsController : ControllerBase {
+    public class FieldsController : ControllerBase
+    {
         private readonly ApplicationDbContext _context;
 
-        public FieldsController(ApplicationDbContext context) {
+        public FieldsController(ApplicationDbContext context)
+        {
             _context = context;
         }
 
+        // GET /api/fields/{id}/imageid
+        [HttpGet("{id}/imageid")]
+        public async Task<IActionResult> GetFieldImageId(int id)
+        {
+            var field = await _context.Fields.FirstOrDefaultAsync(f => f.FieldId == id);
+
+            if (field == null)
+            {
+                return NotFound();
+            }
+            return Ok(new { imageId = field.ImageId });
+        }
+
+
         [HttpGet]
-        public async Task<ActionResult<ListResult<FieldListVM>>> GetFields(string? title, int? page = null, int? size = null) {
+        public async Task<ActionResult<ListResult<FieldListVM>>> GetFields(string? title, int? page = null, int? size = null)
+        {
             var query = _context.Fields.Include(f => f.Image).Include(f => f.Card).AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(title)) {
+            if (!string.IsNullOrWhiteSpace(title))
+            {
                 query = query.Where(f => f.Title.Contains(title));
             }
 
@@ -26,7 +46,8 @@ namespace Gamebook.Server.Controllers {
             var fields = await query
                 .Skip((page ?? 0) * (size ?? 10))
                 .Take(size ?? 10)
-                .Select(f => new FieldListVM {
+                .Select(f => new FieldListVM
+                {
                     FieldId = f.FieldId,
                     Title = f.Title,
                     Difficulty = f.Difficulty,
@@ -35,7 +56,8 @@ namespace Gamebook.Server.Controllers {
                 })
                 .ToListAsync();
 
-            return Ok(new ListResult<FieldListVM> {
+            return Ok(new ListResult<FieldListVM>
+            {
                 Total = total,
                 Items = fields,
                 Count = fields.Count,
@@ -45,26 +67,32 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateField([FromBody] FieldVM fieldVm) {
+        public async Task<IActionResult> CreateField([FromBody] FieldVM fieldVm)
+        {
             Image image = null;
-            if (fieldVm.ImageId.HasValue) {
+            if (fieldVm.ImageId.HasValue)
+            {
                 image = await _context.Images.FindAsync(fieldVm.ImageId.Value);
-                if (image == null) {
+                if (image == null)
+                {
                     return BadRequest("Invalid ImageId provided.");
                 }
             }
 
             // Fetch the Enemy if EnemyId is provided
             Enemy enemy = null;
-            if (fieldVm.CardId.HasValue) {
+            if (fieldVm.CardId.HasValue)
+            {
                 enemy = await _context.Enemies.FindAsync(fieldVm.CardId.Value);
-                if (enemy == null) {
+                if (enemy == null)
+                {
                     return BadRequest("Invalid EnemyId provided.");
                 }
             }
 
             // Create the new field
-            var field = new Field {
+            var field = new Field
+            {
                 Title = fieldVm.Title,
                 Description = fieldVm.Description,
                 Difficulty = fieldVm.Difficulty,
@@ -81,13 +109,15 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetFieldById(int id) {
+        public async Task<IActionResult> GetFieldById(int id)
+        {
             var field = await _context.Fields
                 .Include(f => f.Image)
                 .Include(f => f.Card)
                 .FirstOrDefaultAsync(f => f.FieldId == id);
 
-            if (field == null) {
+            if (field == null)
+            {
                 return NotFound();
             }
 
@@ -95,9 +125,11 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateField(int id, [FromBody] FieldVM fieldVm) {
+        public async Task<IActionResult> UpdateField(int id, [FromBody] FieldVM fieldVm)
+        {
             var field = await _context.Fields.FindAsync(id);
-            if (field == null) {
+            if (field == null)
+            {
                 return NotFound();
             }
 
@@ -116,9 +148,11 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteField(int id) {
+        public async Task<IActionResult> DeleteField(int id)
+        {
             var field = await _context.Fields.FindAsync(id);
-            if (field == null) {
+            if (field == null)
+            {
                 return NotFound();
             }
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../components/common";
-import styles from "../styles/SignPage.module.css"; 
+import styles from "../styles/SignPage.module.css";
 
 const SignUpPage = () => {
   const [error, setError] = useState<Error | null>(null);
@@ -11,17 +11,27 @@ const SignUpPage = () => {
   const registerUser = async (username: string, email: string, password: string) => {
     setLoading(true);
     try {
+      console.log("Sending registration request with", username, email, password); // Debugging
       const response = await fetch("/api/Users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userName: username, email, password }),
       });
+
       if (!response.ok) {
         throw new Error("Registrace nebyla úspěšná");
       }
-      // Přesměrování na FrontPage po úspěšné registraci
+      
+      console.log("Registration successful, redirecting to choosing character."); // Debugging
+
+      // Store the username in localStorage
+      localStorage.setItem("username", username);
+      console.log("Username saved to localStorage:", username); // Debugging
+
+      // Redirect to choosing character page after successful registration
       navigate("/choosingcharacter");
     } catch (error) {
+      console.error("Registration error:", error); // Debugging error
       if (error instanceof Error) {
         setError(error);
       } else {
@@ -44,6 +54,7 @@ const SignUpPage = () => {
             const username = form.username.value;
             const email = form.email.value;
             const password = form.password.value;
+            console.log("Form submitted with", username, email, password); // Debugging
             registerUser(username, email, password);
           }}
         >
