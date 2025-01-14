@@ -44,8 +44,8 @@ namespace Gamebook.Server.Controllers
 
             var total = await query.CountAsync();
             var fields = await query
-                .Skip((page ?? 0) * (size ?? 10))
-                .Take(size ?? 10)
+                .Skip((page ?? 0) * (size ?? 100))
+                .Take(size ?? 100)
                 .Select(f => new FieldListVM
                 {
                     FieldId = f.FieldId,
@@ -62,7 +62,7 @@ namespace Gamebook.Server.Controllers
                 Items = fields,
                 Count = fields.Count,
                 Page = page ?? 0,
-                Size = size ?? 10
+                Size = size ?? 100
             });
         }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
+import { all } from "axios";
 
 interface Field {
   fieldId: number;
@@ -65,6 +66,7 @@ const RoomNavigate: React.FC = () => {
   }, [baseURL]);
 
   useEffect(() => {
+
     const loadData = async () => {
       if (!startingFieldId) {
         navigate("/");
@@ -134,7 +136,8 @@ const RoomNavigate: React.FC = () => {
 
       const data = await response.json();
       let allFields: Field[] = [];
-      
+      console.log(allFields);
+
       if (Array.isArray(data)) {
         allFields = data;
       } else if (typeof data === 'object' && data !== null) {
@@ -147,6 +150,7 @@ const RoomNavigate: React.FC = () => {
       }
 
       const difficulty1Fields = allFields.filter((field: Field) => field.difficulty === 1);
+      console.log(difficulty1Fields);
       const totalFields = difficulty1Fields.length;
       const currentIndex = difficulty1Fields.findIndex((f: Field) => f.fieldId === field.fieldId);
 
@@ -191,13 +195,10 @@ const RoomNavigate: React.FC = () => {
             />
             <div className={styles.characterInfo}>
               <p className={styles.characterUsername}>{selectedCharacter.username}</p>
-              <p>Síla: {selectedCharacter.strength}</p>
-              <p>Vůle: {selectedCharacter.will}</p>
-              <p>Body osudu: {selectedCharacter.pointsOfDestiny}</p>
-              <p>Max HP: {selectedCharacter.maxHP}</p> {/* Zobrazení Max HP */}
-              <p>Max obtížnost: {selectedCharacter.maxDificulty}</p>
-              <p>Schopnost: {selectedCharacter.ability}</p>
-              <p>Backstory: {selectedCharacter.backstory}</p> {/* Zobrazení Backstory */}
+              <p>Síla: {localStorage.getItem("strength")}</p>
+              <p>Vůle: {localStorage.getItem("will")}</p>
+              <p>Body osudu: {localStorage.getItem("pointsOfDestiny")}</p>
+              <p>HP: {localStorage.getItem("hp")}</p>
             </div>
           </div>
         )}
