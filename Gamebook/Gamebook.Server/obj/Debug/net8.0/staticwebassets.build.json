@@ -1,21 +1,13 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "QL2qzYlR1KKyOx4XGtYW3zOh/8tPhMAy9n+HIt567r8=",
-=======
-  "Hash": "FuO6obGbVOKAGaF5XP1R7CJfKf9skB8BhG2lIFLa6Kg=",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+  "Hash": "DEUGGl0HROh4Cug6pLjOUIsFeVay9tl0SGIwk/xewts=",
   "Source": "Gamebook.Server",
   "BasePath": "_content/Gamebook.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\gamebook.client\\gamebook.client.esproj",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\gamebook.client\\gamebook.client.esproj",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\gamebook.client\\gamebook.client.esproj",
       "Version": 2,
       "Source": "gamebook.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
@@ -30,28 +22,17 @@
     {
       "Name": "Gamebook.Server\\wwwroot",
       "Source": "Gamebook.Server",
-<<<<<<< HEAD
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap.min.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "Identity": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap.min.css",
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/bootstrap.min.css",
       "AssetKind": "All",
@@ -62,17 +43,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "grcrty03hn",
+      "Integrity": "pMEjVRQy8QqWW4qfcG06j57TbhVkYg9SDeZM31v+bck=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-grid.min.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap.min.css"
     },
     {
@@ -80,7 +54,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -91,17 +64,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "7fq13y6f7c",
+      "Integrity": "/fgwtSnmPD3eVfdzl3urLT5535LT6iPau24LJM2k9DE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-grid.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-reboot.min.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-grid.min.css"
     },
     {
@@ -109,7 +75,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -120,17 +85,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "p8qbzq9x34",
+      "Integrity": "mdTOzHm8F/Z2yGUUywJTUpHjauM8IdFchQpEh7vg6Oo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-reboot.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\bootstrap-reboot.min.css"
     },
     {
@@ -138,7 +96,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/easymde/easymde.css",
       "AssetKind": "All",
@@ -149,17 +106,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "5mytmx9lqh",
+      "Integrity": "fR45ZEDtjBBqkENoxiaOqZE826+Iukp/FKbVlvf8IJY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde-dark.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde.css"
     },
     {
@@ -167,7 +117,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/easymde/easymde-dark.css",
       "AssetKind": "All",
@@ -178,17 +127,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "oz8lzjv3to",
+      "Integrity": "PADL9pc8DDfGexzmNHcKenfW8ZwTNtXO+iwQkbjRuoM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde-dark.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\easymde\\easymde-dark.css"
     },
     {
@@ -196,7 +138,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/fonts/bootstrap-icons.woff",
       "AssetKind": "All",
@@ -207,17 +148,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "lssqqxhxcq",
+      "Integrity": "ux3pibg5cPb05U3hzZdMXLpVtzWC2l4bIlptDt8ClIM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff2",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff"
     },
     {
@@ -225,7 +159,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/fonts/bootstrap-icons.woff2",
       "AssetKind": "All",
@@ -236,17 +169,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "xeyugjpn2t",
+      "Integrity": "R2rfQrQDJQmPz6izarPnaRhrtPbOaiSXU+LhqcIr+Z4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff2"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\fonts\\grid-glyphs.woff",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\fonts\\bootstrap-icons.woff2"
     },
     {
@@ -254,7 +180,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/mvc-grid/fonts/grid-glyphs.woff",
       "AssetKind": "All",
@@ -265,17 +190,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "rpgb5d6o9r",
+      "Integrity": "of2H+Or1d3n5V3cioIJ4n6X3bmyVMg7oIyN5eSrNHeA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\fonts\\grid-glyphs.woff"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\fonts\\grid-glyphs.woff"
     },
     {
@@ -283,7 +201,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/mvc-grid/mvc-grid.css",
       "AssetKind": "All",
@@ -294,17 +211,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "e5dtw7jnae",
+      "Integrity": "LoxkDIiG2e7+jmgEapuWTnOP8dTvt7T3AVZ2jYimCbo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid-dark.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid.css"
     },
     {
@@ -312,7 +222,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/mvc-grid/mvc-grid-dark.css",
       "AssetKind": "All",
@@ -323,17 +232,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "6w1s52en43",
+      "Integrity": "lgXU3wnYeJwimr6tVrGloZ3gcZOrqwKOqO4lbWwI4xE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid-dark.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\style.css",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\mvc-grid\\mvc-grid-dark.css"
     },
     {
@@ -341,7 +243,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -352,17 +253,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "5kzk7c0d7v",
+      "Integrity": "+7dBXs7VbZ+Kl3/okpksc00GCdhgro3mpXTtqI2eNGo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\style.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\aspnet-validation.min.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\css\\style.css"
     },
     {
@@ -370,7 +264,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/aspnet-validation.min.js",
       "AssetKind": "All",
@@ -381,17 +274,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "pk1r4oqdfi",
+      "Integrity": "uQSx8pV3YqVfRoCaCvPNFspsDzv3cABCJ7AMB03dz+0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\aspnet-validation.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.bundle.min.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\aspnet-validation.min.js"
     },
     {
@@ -399,7 +285,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -410,17 +295,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "4kxxa0wni9",
+      "Integrity": "JDJ424DHaphTAZCH6UKdhuZNr9MC6j5HTngeLbi7vPs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.bundle.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.min.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.bundle.min.js"
     },
     {
@@ -428,7 +306,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/bootstrap.min.js",
       "AssetKind": "All",
@@ -439,17 +316,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "15p7anafwl",
+      "Integrity": "+x6VdLCX5+jIZXfqlZ42Ig5lVTyWNp/BXpi6ZBSYLoQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\color-modes.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\bootstrap.min.js"
     },
     {
@@ -457,7 +327,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/color-modes.js",
       "AssetKind": "All",
@@ -468,17 +337,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "i0nexn83m4",
+      "Integrity": "Ain2y2B0ucsSv29rv3fiOHytdFduy8Bpg9JBKa1LaEE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\color-modes.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\easymde\\easymde.min.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\color-modes.js"
     },
     {
@@ -486,7 +348,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/easymde/easymde.min.js",
       "AssetKind": "All",
@@ -497,17 +358,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "wsy07pgzew",
+      "Integrity": "0CRA+QWKxczLgIj5mqDe8H/dPZaiyA5xcEoNEwKwwz8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\easymde\\easymde.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\mvc-grid\\mvc-grid.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\easymde\\easymde.min.js"
     },
     {
@@ -515,7 +369,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/mvc-grid/mvc-grid.js",
       "AssetKind": "All",
@@ -526,17 +379,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "3od57ba4vs",
+      "Integrity": "c+c6aRfDkZVNt4JaMs6tJEDSI0cMKL7uVPe0GrRYtpM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\mvc-grid\\mvc-grid.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\navbar.js",
-      "SourceId": "CoreAdmin",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\mvc-grid\\mvc-grid.js"
     },
     {
@@ -544,7 +390,6 @@
       "SourceId": "CoreAdmin",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "_content/CoreAdmin",
       "RelativePath": "js/navbar.js",
       "AssetKind": "All",
@@ -555,17 +400,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "k96zq0762m",
+      "Integrity": "iKtjcVEPCo+DRRbSQvVaj45QE3EJr58ggKid4DAIYnk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\navbar.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\css\\site.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\coreadmin\\3.0.0\\staticwebassets\\js\\navbar.js"
     },
     {
@@ -573,7 +411,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -584,17 +421,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "o84wqeh1og",
+      "Integrity": "iIBjbvm5vITl1MTy8HKNN3NBvO3WBn8nJD7zOoyqoaU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\favicon.ico",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\css\\site.css"
     },
     {
@@ -602,7 +432,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -613,17 +442,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "90yqlj465b",
+      "Integrity": "qU+KhVPK6oQw3UyjzAHU4xjRmCj3TLZUU/+39dni9E0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\js\\site.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\favicon.ico"
     },
     {
@@ -631,7 +453,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -642,17 +463,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "xtxxf3hu2r",
+      "Integrity": "hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\js\\site.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\js\\site.js"
     },
     {
@@ -660,7 +474,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -671,17 +484,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mpyigms19s",
+      "Integrity": "xlexqj9/k3uobVwGfciZcj/eDdooaNgcf4OFLtLUygM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
@@ -689,7 +495,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -700,17 +505,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "73kdqttayv",
+      "Integrity": "DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
@@ -718,7 +516,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -729,17 +526,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "bpk8xqwxhs",
+      "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
@@ -747,7 +537,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -758,17 +547,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "8inm30yfxf",
+      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
@@ -776,7 +558,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -787,17 +568,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ve6x09088i",
+      "Integrity": "SZ2mKaD4A+b+HIvttwl+TvLFnVy8o8/X40j+EKVwyvY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
@@ -805,7 +579,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -816,17 +589,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "4gxs3k148c",
+      "Integrity": "VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
@@ -834,7 +600,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -845,17 +610,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "9b9oa1qrmt",
+      "Integrity": "22wR6QTidoeiRZXp6zkRQyMSUb/FB+Av11jqmZJF6uU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
@@ -863,7 +621,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -874,17 +631,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "fctod5rc9n",
+      "Integrity": "j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
@@ -892,7 +642,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -903,17 +652,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "agp80tu62r",
+      "Integrity": "JtktgiuQAd+AXerCnPMrHCDz1h5AtkH5tobvpuG7xZ4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
@@ -921,7 +663,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -932,17 +673,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "st1cbwfwo5",
+      "Integrity": "QO8cMbVkLiktUX1cHeXSUSe5nXMXUgyL9cjwnMyxPqc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
@@ -950,7 +684,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -961,17 +694,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "unj9p35syc",
+      "Integrity": "ysBT/JYxH9gcMnwxT4+MB4sPxOx/JMg9wi77FA13T9A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
@@ -979,7 +705,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -990,17 +715,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "5vj65cig9w",
+      "Integrity": "72C/qDCGu+OwWeVA03bf9Ke0T8oIozCub0lfJkhzhvE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
@@ -1008,7 +726,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1019,17 +736,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "q2ku51ktnl",
+      "Integrity": "3vUJkZSpKL/zG7x6GNvDjs0TxYUo9zMt6dAc8hp9CVo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
@@ -1037,7 +747,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1048,17 +757,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2q4vfeazbq",
+      "Integrity": "qvA39OMlEs53jaewqVFmE8DQQrio47bZtlTs+Wu6U8g=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
@@ -1066,7 +768,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1077,17 +778,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "n1oizzvkh6",
+      "Integrity": "O6lb2kXarGgVw4/RDD42yYPhZIwREthThQFKGmD+3j0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
@@ -1095,7 +789,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1106,17 +799,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "o371a8zbv2",
+      "Integrity": "NDSZjIiMPRIoO7/w7+jHef8retP4riQa8PMj4BVRGok=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
@@ -1124,7 +810,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1135,17 +820,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "7na4sro3qu",
+      "Integrity": "4zbWr0QNFhpUwGkn4WdGWXt80KnhRFv0qXkZyVnhajY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
@@ -1153,7 +831,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1164,17 +841,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "jeal3x0ldm",
+      "Integrity": "FZG0KxbNqITUi4QY7QvPFRS/TccntMfFWfSTdHN/pws=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
@@ -1182,7 +852,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1193,17 +862,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "f8imaxxbri",
+      "Integrity": "z0OApR88UEocYXTXHU7Ueycaiib9XbDUmel9Gx0gbx4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
@@ -1211,7 +873,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1222,17 +883,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "okkk44j0xs",
+      "Integrity": "2BbRsE/+czX1ufmDPGpnEieC9u6I3m5BKNDSX1ob3lg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
@@ -1240,7 +894,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1251,17 +904,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "0wve5yxp74",
+      "Integrity": "8NXw3kF49FkQVPMdjnGDqoXXRU0TwzsLfCGbK9U8gnk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
@@ -1269,7 +915,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1280,17 +925,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "cwzlr5n8x4",
+      "Integrity": "/EdWHN6t5XYPplC88vixGfrBvfEii19kAssb+0YBVU8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
@@ -1298,7 +936,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1309,17 +946,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "npxfuf8dg6",
+      "Integrity": "a5KlgysZ4fQXw4rzIvXDHErFDPeHRSLccP7kX6HuvSQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
@@ -1327,7 +957,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1338,17 +967,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "wmug9u23qg",
+      "Integrity": "GMDk5pA5dFkOimkBAWeEjYZ+7lgHPS0jYln6p/WJVYs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
@@ -1356,7 +978,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1367,17 +988,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "tey0rigmnh",
+      "Integrity": "NbFZxZLmBVNLzb/7B0WdFfb6+8jXHGX6XY190uwgbec=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
@@ -1385,7 +999,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1396,17 +1009,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "j75batdsum",
+      "Integrity": "4WIqPof/vrXYO/jeJ4fDOQKUYWIwe64V3d+9/qNju20=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
@@ -1414,7 +1020,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1425,17 +1030,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "16095smhkz",
+      "Integrity": "5+ExmMkiaI3keYQRLhNibJ5ZXnNuWRbwrXOAZoTXMFg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
@@ -1443,7 +1041,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1454,17 +1051,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "vy0bq9ydhf",
+      "Integrity": "p1dop4slefZhL4zG2pa6+2HUrOY1UUArGJXmet8Md9c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
@@ -1472,7 +1062,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1483,17 +1072,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "b4skse8du6",
+      "Integrity": "peAGH8Gu/ZL9VnbUGSMN69Ji5MxwbvOb53gDXU2cPaQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
@@ -1501,7 +1083,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1512,17 +1093,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ab1c3rmv7g",
+      "Integrity": "puDgKwvlFAord9R8G8of9P2CVYIJUFSoIbjDLEsKEH0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
@@ -1530,7 +1104,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1541,17 +1114,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "u3xrusw2ol",
+      "Integrity": "Wi5ZuFSHLfx6dlEgjvW3BY9TC/1NqdBjj+XFifSSqN4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
@@ -1559,7 +1125,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1570,17 +1135,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "56d2bn4wt9",
+      "Integrity": "02ka4ymoE5yEecLUncLG3/SouTQMnTJOktX+96Pt/88=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
@@ -1588,7 +1146,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1599,17 +1156,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "l2av4jpuoj",
+      "Integrity": "vQTf4d3WJi9vmWQNA4kJnjoedgEhMFXFDEMXqtHtgzk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
@@ -1617,7 +1167,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1628,17 +1177,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "kbynt5jhd9",
+      "Integrity": "gO4uhxfGuK0ONjRlHuwfghGfEXT5azm1oHWnTEFGTfk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
@@ -1646,7 +1188,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1657,17 +1198,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "25iw1kog22",
+      "Integrity": "KuvCVS19rfTjoLgMyDDCdOkRRlhNrY4psEM4uezts2M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
@@ -1675,7 +1209,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1686,17 +1219,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "c2nslu3uf3",
+      "Integrity": "xIBBxDPvWhk8/JdaFEZoejadfaKFUfZFwRS1D4Jkuro=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
@@ -1704,7 +1230,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1715,17 +1240,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "m39kt2b5c9",
+      "Integrity": "EuDXUJYKnfZuO8dSLN0f5iVbVasz36AROuAU3NJ3JBo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
@@ -1733,7 +1251,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1744,17 +1261,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2lgwfvgpvi",
+      "Integrity": "CllC/sbLvyLE9cQljmFRlITfqdZRnBv2ysX5LJtl/dg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
@@ -1762,7 +1272,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1773,17 +1282,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "um2aeqy4ik",
+      "Integrity": "Kj4irQWPwfSb5NFeos/h0IroI5/nIg0HtAjQ+w4v6TE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
@@ -1791,7 +1293,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1802,17 +1303,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "wsezl0heh6",
+      "Integrity": "sPqzWcSS9aRa2gpWTVNQzemajn8hrFjgXPj3j9QItQo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
@@ -1820,7 +1314,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1831,17 +1324,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "o4kw7cc6tf",
+      "Integrity": "6IStRQerBchYSw6J2GWTOWGOnDRrWXmaG0r6nCwN5s4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
@@ -1849,7 +1335,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1860,17 +1345,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "6ukhryfubh",
+      "Integrity": "Qkl5mZUZ64aYBaORRMP9jfD1kz8J6FwiV2M86JDJkdQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
@@ -1878,7 +1356,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1889,17 +1366,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "zwph15dxgs",
+      "Integrity": "c4Ll6eSIg6Eothk8pCWAF8aE923EvtU11pqjBy+NjNM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
@@ -1907,7 +1377,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1918,17 +1387,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "u33ctipx7g",
+      "Integrity": "ui/FQI+y0IUsY8Pbi80b8s3GeEL+PsvdaLTONobpn88=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\LICENSE",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
@@ -1936,7 +1398,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1947,17 +1408,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "81b7ukuj9c",
+      "Integrity": "ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\LICENSE"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\bootstrap\\LICENSE"
     },
     {
@@ -1965,7 +1419,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1976,17 +1429,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "fwhahm2icz",
+      "Integrity": "H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
     },
     {
@@ -1994,7 +1440,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2005,17 +1450,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "dd6z7egasc",
+      "Integrity": "/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
@@ -2023,7 +1461,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2034,17 +1471,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "5pze98is44",
+      "Integrity": "OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
@@ -2052,7 +1482,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2063,17 +1492,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mlv21k5csn",
+      "Integrity": "hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
     },
     {
@@ -2081,7 +1503,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -2092,17 +1513,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ay5nd8zt9x",
+      "Integrity": "4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
@@ -2110,7 +1524,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -2121,17 +1534,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "9oaff4kq20",
+      "Integrity": "N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
@@ -2139,7 +1545,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -2150,17 +1555,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "pzqfkb6aqo",
+      "Integrity": "m0l81WDPiG7CcG7CDsTuZzvcGvyFmrQY5DLIxx3aRGw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
@@ -2168,7 +1566,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2179,17 +1576,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "b7iojwaux1",
+      "Integrity": "JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
@@ -2197,7 +1587,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2208,17 +1597,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "x0q3zqp4vz",
+      "Integrity": "geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md"
     },
     {
@@ -2226,7 +1608,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2237,17 +1618,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "47otxtyo56",
+      "Integrity": "wJQaJ0XynBE2fq6CexXXhxKu7fstVmQc7V2MHNTo+WQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
@@ -2255,7 +1629,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2266,17 +1639,10 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "4v8eqarkd7",
+      "Integrity": "YJa7W8EiQdQpkk93iGEjjnLSUWRpRJbSfzfURh1kxz4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "SourceId": "Microsoft.AspNetCore.Identity.UI",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
@@ -2284,7 +1650,6 @@
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       "BasePath": "Identity",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -2295,561 +1660,453 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "356vix0kms",
+      "Integrity": "16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
       "OriginalItemSpec": "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "71fvs1q4sw",
+      "Integrity": "JcKEH6JPx8/ShVCQxnsjGAZ0+mY4BzSnToezsh5PPfc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrjtt8pe3x",
+      "Integrity": "rolXg6EPar/b0V/M8X458MHZ5USegq5+r8aD5outkxM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "6b9nfc4n3r",
+      "Integrity": "4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "v6m5p5skml",
+      "Integrity": "aVN5YQW66ca7FQKuscZ26XxdIS8MiEDSytAJ//zSDXY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "03oo8upvww",
+      "Integrity": "FOBP3+AHXtTW90Bvm3tcyi6dc89QfX48chz/ufOFBgw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "qw0gswe0jc",
+      "Integrity": "mmSjCFWUDo9XBsgjR6oedcY7nP37Bf6GmyJzqlV23ag=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "j8cnqd2tbo",
+      "Integrity": "s6vr5kpNdG1/VlNbixjYmlnb2a136WCFI0VzAPibHag=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "kthszpo25x",
+      "Integrity": "OFA+I4eWrOgi0IG6QsImj9c5DvHO1g7fl7utjaZ6KMQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "fyefszcrts",
+      "Integrity": "d4Gv/Agn91RvIoLaxsuZh2vVyP9dLznudTpZNpJEW04=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/bootstrap/LICENSE",
+      "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "v40p3nq8rk",
+      "Integrity": "7wsI1/ltF8c9BcWA3oWfnbDUy3yz6Pac9T6GH4WSiaA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery/dist/jquery.js",
+      "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "dwodslis6g",
+      "Integrity": "Te+ap/ASOn1gjrdrryk/Qma0qiqfdRGZV0FBBm/hMKY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery/dist/jquery.min.js",
+      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "1wfpn8jc0z",
+      "Integrity": "seMJcN8oWbZ58+IV777YPO8f4ti29/46t5hYDrzJoaM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery/dist/jquery.min.map",
+      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "nxr18lxtbg",
+      "Integrity": "qw8XrdkYl8M160LFCDRk+5rwcmLatmxELm84iPqHpi8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery/LICENSE.txt",
+      "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "9lr4agq7k5",
+      "Integrity": "U7H+U8xa3oH0nknlAI8pPIHKDB5Fy/R0tKIm2Z/YElE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "hr0j3vc5qk",
+      "Integrity": "nUn6Lsu34zoFUBQ7z5/IXlxnXja4UUWLFbe/P8yCtpM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "9kcpivpdbo",
+      "Integrity": "J/a5LqAYnqrj++Y6jiefCMXOIjaExjlpz68ZwwZezw0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2j0ubt9rx4",
+      "Integrity": "0tJy/U0wQ9nzAC8zutJyVg5tFzAfZ6bch/D9RE7etM4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "fgl3536q9z",
+      "Integrity": "oX9rjMAZJpHLojty9o8KRwrIPsEZrbUw+usnyNIorHY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation/LICENSE.md",
+      "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "8kekns2cqo",
+      "Integrity": "SPLmZCVbAauuju6P/BOrZFnDEaKLqk9p2Kmkmv759xQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "k3h1tm1wl9",
+      "Integrity": "0HEyUFVmyp5U+5gFieeJ/OKnoRbmGbCP1fsmflv2qbE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Gamebook.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "SourceId": "Gamebook.Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "ContentRoot": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\",
       "BasePath": "_content/Gamebook.Server",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "54ivspb16x",
+      "Integrity": "iwJErayv9kTPAhYOGOQTQbAXQyh6sBl8ZbJQmZSwtow=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     }
-<<<<<<< HEAD
-=======
   ],
   "Endpoints": [
     {
@@ -3520,7 +2777,7 @@
     },
     {
       "Route": "css/site.71fvs1q4sw.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3541,7 +2798,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3565,7 +2822,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3586,7 +2843,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3602,7 +2859,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3623,7 +2880,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3639,7 +2896,7 @@
     },
     {
       "Route": "favicon.mrjtt8pe3x.ico",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3660,7 +2917,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5904,7 +5161,7 @@
     },
     {
       "Route": "js/site.6b9nfc4n3r.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5925,7 +5182,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5949,7 +5206,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5970,7 +5227,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5986,7 +5243,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6007,7 +5264,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6023,7 +5280,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.03oo8upvww.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6044,7 +5301,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6068,7 +5325,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6089,7 +5346,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6105,7 +5362,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6126,7 +5383,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6142,7 +5399,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.j8cnqd2tbo.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6163,7 +5420,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6187,7 +5444,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6208,7 +5465,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6224,7 +5481,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.qw0gswe0jc.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6245,7 +5502,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6269,7 +5526,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.v6m5p5skml.css",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6290,7 +5547,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6314,7 +5571,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6335,7 +5592,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6351,7 +5608,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.kthszpo25x.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6372,7 +5629,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6396,7 +5653,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.fyefszcrts.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6417,7 +5674,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6441,7 +5698,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6462,7 +5719,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6478,7 +5735,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6499,7 +5756,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6515,7 +5772,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.v40p3nq8rk",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6536,7 +5793,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6560,7 +5817,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.dwodslis6g.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6581,7 +5838,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6605,7 +5862,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6626,7 +5883,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6642,7 +5899,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.1wfpn8jc0z.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6663,7 +5920,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6687,7 +5944,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6708,7 +5965,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6724,7 +5981,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6745,7 +6002,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6761,7 +6018,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.nxr18lxtbg.map",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6782,7 +6039,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6806,7 +6063,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.9lr4agq7k5.txt",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6827,7 +6084,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6851,7 +6108,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6872,7 +6129,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6888,7 +6145,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.hr0j3vc5qk.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6909,7 +6166,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6933,7 +6190,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6954,7 +6211,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6970,7 +6227,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9kcpivpdbo.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6991,7 +6248,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7015,7 +6272,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7036,7 +6293,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7052,7 +6309,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.2j0ubt9rx4.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7073,7 +6330,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7097,7 +6354,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7118,7 +6375,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7134,7 +6391,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.fgl3536q9z.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7155,7 +6412,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7179,7 +6436,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7200,7 +6457,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7216,7 +6473,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.8kekns2cqo.md",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7237,7 +6494,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7261,7 +6518,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7282,7 +6539,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7298,7 +6555,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7319,7 +6576,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7335,7 +6592,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.k3h1tm1wl9.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7356,7 +6613,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7380,7 +6637,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.54ivspb16x.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7401,7 +6658,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7425,7 +6682,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7446,7 +6703,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 09:55:00 GMT"
+          "Value": "Fri, 24 Jan 2025 08:06:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7460,6 +6717,5 @@
         }
       ]
     }
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
   ]
 }

@@ -9054,39 +9054,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\": {},
-=======
     "C:\\Users\\rkmek\\.nuget\\packages\\": {},
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "projectUniqueName": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
       "projectName": "Gamebook.Server",
-      "projectPath": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
-      "packagesPath": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
-      "projectName": "Gamebook.Server",
-      "projectPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "projectPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
       "packagesPath": "C:\\Users\\rkmek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\obj\\",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
+      "outputPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\radek.belohlav.022\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
         "C:\\Users\\rkmek\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9113,7 +9097,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -9181,12 +9166,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
->>>>>>> 39f75bc1b028282ddf17ba857275c29e4e593a0c
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Při čtení souboru mezipaměti C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\obj\\project.nuget.cache došlo k problému: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
