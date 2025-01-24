@@ -1,41 +1,25 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
+import Dice from "../components/Dice";
 
-const CharacterImage: React.FC = () => {
-  const [characterImageUrl, setCharacterImageUrl] = useState<string | null>(null);
+const DiceControl: React.FC = () => {
+  const [canRoll, setCanRoll] = useState(true);
+  const [result, setResult] = useState<number | null>(null);
 
-  // Funkce pro načtení obrázku charakteru s ID 1
-  const fetchCharacterImage = useCallback(async () => {
-    try {
-      const response = await fetch(`/api/Files/1`); // Endpoint pro načtení obrázku s ID 1
-      if (!response.ok) {
-        throw new Error("Nepodařilo se načíst obrázek charakteru.");
-      }
-
-      // Načtení binárních dat (blob)
-      const blob = await response.blob();
-
-      // Vytvoření URL pro tento blob
-      const imageUrl = URL.createObjectURL(blob);
-
-      setCharacterImageUrl(imageUrl); // Uložení URL pro obrázek
-    } catch (error) {
-      console.error("Chyba při načítání obrázku charakteru:", error);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchCharacterImage(); // Načíst obrázek při mountu komponenty
-  }, [fetchCharacterImage]);
+  const handleRoll = (result: number) => {
+    setCanRoll(false);
+    setResult(result);
+  };
 
   return (
+    <>     
     <div>
-      {characterImageUrl ? (
-        <img src={characterImageUrl} alt="Character" />
-      ) : (
-        <p>Načítám obrázek...</p>
-      )}
+      <Dice onRoll={handleRoll} canRoll={canRoll} />
     </div>
-  );
-};
+    <button onClick={() => setCanRoll(true)}>Roll again!</button>
+    <p>Result : {result} </p>
+</>
 
-export default CharacterImage;
+  );
+}
+
+export default DiceControl;
