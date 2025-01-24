@@ -39,6 +39,8 @@ const router = createBrowserRouter([
     path: "/game/:id", // Hlavní hra s ID místnosti
     element: <RoomNavigate />,
   },
+  
+
 ]);
 
 function App() {
