@@ -745,7 +745,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SpaProxy/8.0.11": {
+      "Microsoft.AspNetCore.SpaProxy/8.0.12": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll": {}
@@ -4289,10 +4289,10 @@
         "microsoft.aspnetcore.razor.language.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SpaProxy/8.0.11": {
-      "sha512": "jwE/cg81t/FTZF1DOKpd90ztzZz6NNNHdo+vLUL4I2IzqL3e8Coo+2eR0KeD4ShbJm+3LNPXH9a6gYv/oP+aQQ==",
+    "Microsoft.AspNetCore.SpaProxy/8.0.12": {
+      "sha512": "3FCqH7rdZVENLCSbBwiX9K034j5fUbqh8qk14Etj4pROGZGqH/nzlFZ+LdT/S2MtpWJSOUJLTT72Xk/Jf6+UVw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaproxy/8.0.11",
+      "path": "microsoft.aspnetcore.spaproxy/8.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4300,7 +4300,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.AspNetCore.SpaProxy.targets",
         "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll",
-        "microsoft.aspnetcore.spaproxy.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.spaproxy.8.0.12.nupkg.sha512",
         "microsoft.aspnetcore.spaproxy.nuspec"
       ]
     },
@@ -9054,23 +9054,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Radek\\.nuget\\packages\\": {},
+    "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Radek\\Downloads\\EARTH\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "projectUniqueName": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
       "projectName": "Gamebook.Server",
-      "projectPath": "C:\\Users\\Radek\\Downloads\\EARTH\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
-      "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Radek\\Downloads\\EARTH\\Gamebook\\Gamebook.Server\\obj\\",
+      "projectPath": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "packagesPath": "C:\\Users\\radek.belohlav.022\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\radek.belohlav.022\\Downloads\\Damn\\Gamebook\\Gamebook.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Radek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\radek.belohlav.022\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9079,6 +9079,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9096,8 +9097,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -9165,7 +9165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

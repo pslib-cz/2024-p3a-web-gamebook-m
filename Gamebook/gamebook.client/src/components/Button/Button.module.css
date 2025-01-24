@@ -1,0 +1,20 @@
+.Button {
+    margin-top: 20px;
+    padding: 18px 48px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #F4E5C3; 
+    color: black; 
+    font-weight: bold;
+    border: 2px solid #C0A080;
+    text-transform: uppercase;
+    font-family: "MedievalSharp", sans-serif; 
+    transition: all 0.3s ease;
+  }
+  
+  .Button:hover {
+    color: black; 
+    border: 2px solid #C0A080;
+    transform: scale(1.05); 
+  }
+  

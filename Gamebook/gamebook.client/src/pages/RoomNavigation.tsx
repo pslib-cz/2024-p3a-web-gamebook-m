@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
 import cedule from '/img/neco.png';
+ import Button from '../components/Button/Button.tsx';
 
 
 interface Field {
@@ -65,6 +66,9 @@ const RoomNavigate: React.FC = () => {
       setError("Nepodařilo se načíst obrázek.");
     }
   }, [baseURL]);
+
+  const deviceWidth = window.innerWidth;
+  const deviceHeight = window.innerHeight;
 
   useEffect(() => {
 
@@ -237,13 +241,7 @@ const RoomNavigate: React.FC = () => {
           <img src={cedule} alt="Popis obrázku" />
 
           </div>
-        <button
-          onClick={handleFilterAndMove}
-          disabled={isRolling || isMoved}
-          className={styles.rollDiceButton}
-        >
-          {isRolling ? "Hod kostkou..." : "Hodit kostkou"}
-        </button>
+          <Button text="Hodit kostkou" onClick={handleFilterAndMove} />
       </div>
     </div>
   );
