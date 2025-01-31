@@ -22,7 +22,7 @@ namespace Gamebook.Server.Controllers {
                 Type = cardVm.Type,
                 Description = cardVm.Description,
                 SpecialAbilities = cardVm.SpecialAbilities,
-                DiceRollResults = cardVm.DiceRollResults,
+                DiceRollResults = cardVm.DiceRollResults?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
                 ImageId = cardVm.ImageId,
                 EnemyId = cardVm.EnemyId
             };
@@ -30,7 +30,7 @@ namespace Gamebook.Server.Controllers {
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
 
-            return Ok(card);
+            return CreatedAtAction(nameof(GetCardById), new { id = card.CardId }, card);
         }
 
         [HttpDelete("{id}")]
@@ -43,7 +43,7 @@ namespace Gamebook.Server.Controllers {
             _context.Cards.Remove(card);
             await _context.SaveChangesAsync();
 
-            return Ok();
+            return NoContent();
         }
 
         [HttpGet("{id}")]
@@ -66,7 +66,8 @@ namespace Gamebook.Server.Controllers {
                 ImageId = card.ImageId,
                 EnemyId = card.EnemyId,
                 EnemyName = card.Enemy?.Name,
-                ImageName = card.Image?.Name
+                ImageName = card.Image?.Name,
+                DiceRollResults = card.DiceRollResults
             });
         }
 
@@ -95,6 +96,7 @@ namespace Gamebook.Server.Controllers {
                 Size = size ?? 10
             });
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm) {
             var card = await _context.Cards.FindAsync(id);
@@ -106,7 +108,7 @@ namespace Gamebook.Server.Controllers {
             card.Type = cardVm.Type;
             card.Description = cardVm.Description;
             card.SpecialAbilities = cardVm.SpecialAbilities;
-            card.DiceRollResults = cardVm.DiceRollResults;
+            card.DiceRollResults = cardVm.DiceRollResults?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             card.ImageId = cardVm.ImageId;
             card.EnemyId = cardVm.EnemyId;
 

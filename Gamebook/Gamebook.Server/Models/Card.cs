@@ -11,8 +11,12 @@ namespace Gamebook.Server.Models {
         public string Type { get; set; }
         public string Description { get; set; }
         public string? SpecialAbilities { get; set; }
+        public int? BonusWile { get; set; }
+        public int? BonusStrength { get; set; }
+        public int? BonusHP { get; set; }
+        public string? ClassOnly { get; set; }
 
-        public string[]? DiceRollResults { get; set; }
+        public Dictionary<int, string>? DiceRollResults { get; set; }
 
         [ForeignKey("Image")]
         public int? ImageId { get; set; }

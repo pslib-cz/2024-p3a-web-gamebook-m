@@ -32,6 +32,12 @@ namespace Gamebook.Server.Data {
                 v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
                 v => JsonSerializer.Deserialize<Dictionary<int, string>>(v, (JsonSerializerOptions?)null)
             );
+            modelBuilder.Entity<Card>()
+    .Property(f => f.DiceRollResults)
+    .HasConversion(
+        v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
+        v => JsonSerializer.Deserialize<Dictionary<int, string>>(v, (JsonSerializerOptions?)null)
+    );
             modelBuilder.Entity<Models.Role>(options => {
                 options.HasData(
                     new Models.Role {
