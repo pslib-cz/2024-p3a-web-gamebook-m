@@ -1,0 +1,55 @@
+/* src/components/Inventory/Inventory.module.css */
+.inventoryContainer {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    width: 300px;
+  }
+  
+  .inventoryTitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+      list-style: none;
+      padding: 0;
+  }
+  
+  .cardItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #eee;
+  }
+  
+  .cardName {
+    flex-grow: 1;
+  }
+  
+  .removeButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 3px 6px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .removeButton:hover {
+    background-color: #c82333;
+  }
+  .emptySlot {
+    color: gray;
+    padding: 5px;
+    border: 1px dashed #ccc;
+    display: block;
+    text-align: center;
+  }

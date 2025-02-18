@@ -1,0 +1,26 @@
+/* src/components/FieldCardsDisplay/FieldCardsDisplay.module.css */
+.cardContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px; /* Space between card and other elements */
+    background-color: #f8f8f8;
+    width: 200px; /* Set a fixed width, adjust as needed */
+  }
+
+  .cardImage {
+    max-width: 100%; /* Make sure image fits within the container */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;   /* Remove any extra space below the image */
+    margin-bottom: 5px;
+  }
+
+  .cardName {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .cardDescription {
+    font-size: 0.9em;
+    color: #555;
+  }

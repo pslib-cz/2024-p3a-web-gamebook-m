@@ -1,9 +1,12 @@
+// src/pages/RoomNavigate.tsx
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
 import cedule from '/img/neco.png';
- import Button from '../components/Button/Button.tsx';
-
+import Button from '../components/Button/Button.tsx';
+import InventoryDisplay from "../components/Inventory";
+import { API_BASE_URL } from "../api/apiConfig";
+import FieldCardsDisplay from "../components/FieldsCardDisplay";
 
 interface Field {
   fieldId: number;
@@ -44,16 +47,23 @@ const RoomNavigate: React.FC = () => {
   const [isRolling, setIsRolling] = useState<boolean>(false);
   const [isMoved, setIsMoved] = useState<boolean>(false);
   const [canRoll, setCanRoll] = useState<boolean>(true);
-  const startingFieldId = id ? parseInt(id, 10) : null;
-  const baseURL = "https://localhost:58186/api";
+  const [fightResult, setFightResult] = useState<string | null>(null);
+  const [gameOver, setGameOver] = useState(false);
+  const [isFighting, setIsFighting] = useState(false); // Track if we're in a fight
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [currentEnemy, setCurrentEnemy] = useState<{strength: number; will: number} | null>(null); // Store current enemy stats
 
-  const fetchFieldImage = useCallback(async (imageId: number | null) => {
+
+  const startingFieldId = id ? parseInt(id, 10) : null;
+  const characterInventoryId = 1;
+
+    const fetchFieldImage = useCallback(async (imageId: number | null) => {
     if (!imageId) {
       setFieldImage(null);
       return;
     }
     try {
-      const response = await fetch(`${baseURL}/files/${imageId}`);
+      const response = await fetch(`${API_BASE_URL}/files/${imageId}`);
       if (!response.ok) {
         throw new Error("Nepodařilo se načíst obrázek.");
       }
@@ -65,21 +75,33 @@ const RoomNavigate: React.FC = () => {
       setFieldImage(null);
       setError("Nepodařilo se načíst obrázek.");
     }
-  }, [baseURL]);
+  }, [API_BASE_URL]);
 
-  const deviceWidth = window.innerWidth;
-  const deviceHeight = window.innerHeight;
+    // --- RESET FUNCTION ---
+  const resetGame = () => {
+    setGameOver(false);
+    setFightResult(null);
+     const initialHP = selectedCharacter?.maxHP || 10;
+     localStorage.setItem("hp", initialHP.toString());
+     if(startingFieldId)
+        navigate(`/game/${startingFieldId}`);
+    setIsFighting(false);
+    setCurrentEnemy(null);
+  };
 
-  useEffect(() => {
+    useEffect(() => {
+     loadData();
+     loadCharacter();
+  }, [startingFieldId, navigate, fetchFieldImage, API_BASE_URL]);
 
-    const loadData = async () => {
+  const loadData = async () => {
       if (!startingFieldId) {
         navigate("/");
         return;
       }
       setLoading(true);
       try {
-        const response = await fetch(`${baseURL}/fields/${startingFieldId}`);
+        const response = await fetch(`${API_BASE_URL}/fields/${startingFieldId}`);
         if (!response.ok) {
           throw new Error("Nepodařilo se načíst pole.");
         }
@@ -93,6 +115,8 @@ const RoomNavigate: React.FC = () => {
         setIsMoved(false);
         setDiceRollResult(null);
         setCanRoll(true);
+          setFightResult(null); // Reset fight result on room change
+
       } catch (err) {
         setError(err instanceof Error ? err.message : "Chyba při načítání pole.");
       } finally {
@@ -103,22 +127,66 @@ const RoomNavigate: React.FC = () => {
     const loadCharacter = async () => {
       const storedCharacter = localStorage.getItem("selectedCharacter");
       const storedUsername = localStorage.getItem("username");
-      
+       const storedHp = localStorage.getItem("hp");
+
       if (storedCharacter) {
         const character = JSON.parse(storedCharacter) as Character;
         character.username = storedUsername || "Neznámé uživatelské jméno";
         setSelectedCharacter(character);
+
+        if (storedHp && parseInt(storedHp, 10) <= 0) {
+            setGameOver(true);
+        }
+
       } else {
         setError("Žádná postava nebyla vybrána.");
       }
     };
+ const handleFight = (enemyStrength: number, enemyWill: number, statToUse: "strength" | "will" = "strength") => {
+        if (gameOver) return; // Prevent fighting if game over
+        setIsFighting(true);
+        setCurrentEnemy({ strength: enemyStrength, will: enemyWill }); // Store for later use
+        //Initial fight logic
+        continueFight(enemyStrength, enemyWill, statToUse);
+    };
+    const continueFight = (enemyStrength: number, enemyWill: number, statToUse: "strength" | "will" = "strength") => {
+        if (gameOver || !isFighting) return; // Prevent fighting if game over or not fighting
 
-    loadData();
-    loadCharacter();
-  }, [startingFieldId, navigate, fetchFieldImage, baseURL]);
+        const playerStrength = parseInt(localStorage.getItem("strength") || "0", 10);
+        const playerWill = parseInt(localStorage.getItem("will") || "0", 10);
+        const playerRoll = Math.floor(Math.random() * 6) + 1;
+        const enemyRoll = Math.floor(Math.random() * 6) + 1;
+        const playerTotal = statToUse === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
+        const enemyTotal = (statToUse === "strength" ? enemyStrength : enemyWill) + enemyRoll;
+
+        let resultMessage = "";
+        let damage = 0;
+
+        if (playerTotal > enemyTotal) {
+            damage = playerTotal - enemyTotal;
+            resultMessage = `You win! (You: ${playerTotal}, Enemy: ${enemyTotal}).  You deal ${damage} damage!`;
+            // TODO: Apply damage to the enemy (you'll need to track enemy HP)
+        } else if (enemyTotal > playerTotal) {
+            damage = enemyTotal - playerTotal;
+            resultMessage = `You lose! (You: ${playerTotal}, Enemy: ${enemyTotal}). You take ${damage} damage!`;
+            let currentHp = parseInt(localStorage.getItem("hp") || "0", 10);
+            currentHp = Math.max(0, currentHp - damage);
+            localStorage.setItem("hp", currentHp.toString());
+
+            if (currentHp <= 0) {
+                setGameOver(true);
+                 setIsFighting(false);
+                return; // Exit if game over
+            }
+        } else {
+            resultMessage = `It's a draw! (You: ${playerTotal}, Enemy: ${enemyTotal})`;
+        }
+
+        setFightResult(resultMessage);
+    };
 
   const handleFilterAndMove = async () => {
-    if (!canRoll) return;
+     if (gameOver || !canRoll) return;
 
     setIsRolling(true);
     setCanRoll(false);
@@ -131,10 +199,10 @@ const RoomNavigate: React.FC = () => {
   };
 
   const handleMove = async (direction: "left" | "right") => {
-    if (!field || diceRollResult === null) return;
+    if (gameOver || !field || diceRollResult === null) return;
 
-    try {
-      const response = await fetch(`${baseURL}/fields`);
+        try {
+      const response = await fetch(`${API_BASE_URL}/fields`);
       if (!response.ok) {
         throw new Error("Nepodařilo se načíst pole.");
       }
@@ -166,7 +234,7 @@ const RoomNavigate: React.FC = () => {
 
       const moveBy = direction === "left" ? -diceRollResult : diceRollResult;
       let newIndex = (currentIndex + moveBy) % totalFields;
-      
+
       if (newIndex < 0) {
         newIndex = totalFields + newIndex;
       }
@@ -185,34 +253,53 @@ const RoomNavigate: React.FC = () => {
   if (error) return <p>Chyba: {error}</p>;
   if (!field) return <p>Chyba: Pole s ID {startingFieldId} nebylo nalezeno.</p>;
 
+   if (gameOver) {
+    return (
+      <div className={styles.gameOver}>
+        <h1>Game Over!</h1>
+        <p>Your HP reached 0.</p>
+        <button onClick={resetGame}>Try Again</button>
+      </div>
+    );
+  }
+
   return (
-    
     <div
       className={`${styles.container} ${fieldImage ? styles.withBackground : ""}`}
       style={fieldImage ? { backgroundImage: `url(${fieldImage})` } : {}}
     >
+    {isFighting && <div className={styles.dimmedOverlay} />}
       <div className={styles.content}>
         {selectedCharacter && (
           <div className={styles.characterCard}>
             <img
-              src={selectedCharacter.imageId ? `${baseURL}/files/${selectedCharacter.imageId}` : "/default-character.png"}
+              src={selectedCharacter.imageId ? `${API_BASE_URL}/files/${selectedCharacter.imageId}` : "/default-character.png"}
               alt={selectedCharacter.name}
               className={styles.characterImage}
             />
-         
-              <div className={styles.characterStats2}>
+
+            <div className={styles.characterStats2}>
               <p>Síla: {localStorage.getItem("strength")}</p>
               <p>Vůle: {localStorage.getItem("will")}</p>
-              </div>
-              <div className={styles.characterStats}>
-              <p>Body osudu: {localStorage.getItem("pointsOfDestiny")}</p>
-              <p>HP: {localStorage.getItem("hp")}</p></div>
             </div>
+            <div className={styles.characterStats}>
+              <p>Body osudu: {localStorage.getItem("pointsOfDestiny")}</p>
+              <p>HP: {localStorage.getItem("hp")}</p>
+            </div>
+          </div>
         )}
         <div className={styles.fieldInfo}>
-        <h1>{field.title}</h1>
+          <h1>{field.title}</h1>
         </div>
         <p>{field.description}</p>
+
+        <div className={styles.inventoryWrapper}>
+          <InventoryDisplay inventoryId={characterInventoryId} />
+        </div>
+
+        {startingFieldId && <FieldCardsDisplay fieldId={startingFieldId} onFight={handleFight} />}
+		 {fightResult && <p>{fightResult}</p>}
+
         <div className={styles.diceRollContainer}>
           {isRolling ? (
             <div className={styles.slotAnimation}>
@@ -239,9 +326,8 @@ const RoomNavigate: React.FC = () => {
           <img src={cedule} alt="Popis obrázku" />
           <img src={cedule} alt="Popis obrázku" />
           <img src={cedule} alt="Popis obrázku" />
-
-          </div>
-          <Button text="Hodit kostkou" onClick={handleFilterAndMove} />
+        </div>
+        <Button text="Hodit kostkou" onClick={handleFilterAndMove} disabled={gameOver}/>
       </div>
     </div>
   );
