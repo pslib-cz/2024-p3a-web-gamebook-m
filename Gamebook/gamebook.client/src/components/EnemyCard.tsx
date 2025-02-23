@@ -1,8 +1,6 @@
-// src/components/EnemyCard/EnemyCard.tsx
 import React, { useState } from 'react';
 import styles from '../styles/EnemyCard.module.css';
 import { API_BASE_URL } from '../api/apiConfig';
-
 
 interface EnemyCardProps {
     name: string;
@@ -13,66 +11,81 @@ interface EnemyCardProps {
     onDontFight: () => void;
     imageId?: number | null;
     imageName: string | null;
-  }
-  
-  const EnemyCard: React.FC<EnemyCardProps> = ({
+}
+
+const EnemyCard: React.FC<EnemyCardProps> = ({
     name,
     description,
     strength,
     will,
     onFight,
-    onDontFight,
     imageId,
     imageName = "Enemy",
-  }) => {
+}) => {
+    console.log("EnemyCard re-rendered");
+
     const [isFlipped, setIsFlipped] = useState(false);
     const [isFighting, setIsFighting] = useState(false);
-  
+
     const handleFightClick = () => {
-      setIsFighting(true);
-      setIsFlipped(false)
+        console.log("handleFightClick called");
+        console.log("isFighting before:", isFighting);
+        setIsFighting(prevIsFighting => {
+            console.log("prevIsFighting:", prevIsFighting);
+            const newIsFighting = true;
+            console.log("newIsFighting:", newIsFighting);
+            return newIsFighting;
+        });
     };
-  
-    const handleDontFightClick = () => {
-      onDontFight();
-      setIsFlipped(false);
-    };
-  
-    const handleHit = () => {
-      onFight(strength, will);
+
+
+
+    //New functions
+    const handleHitStrength = () => {
+        onFight(strength, will, "strength");
     }
-  
-   return (
-      <div className={`${styles.cardContainer} ${isFighting ? styles.fighting : ''}`}>
-        <div className={styles.cardInner}>
-          {!isFighting && (
-            <>
-              <div className={`${styles.cardFront} `} onClick={() => setIsFlipped(!isFlipped)}>
-               {imageId && (
-                  <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName  || ''} className={styles.cardImage} /> //Handle NULL
+
+    const handleHitWill = () => {
+        onFight(strength, will, "will");
+    }
+
+
+    return (
+        <div className={`${styles.cardContainer} ${isFighting ? styles.fighting : ''}`}>
+            <div className={styles.cardInner}>
+                {!isFighting && (
+                    <>
+                        <div className={`${styles.cardFront} `} onClick={() => setIsFlipped(!isFlipped)}>
+                            {imageId && (
+                                <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} /> //Handle NULL
+                            )}
+                            <h3>{name}</h3>
+                            <p>{description}</p>
+                        </div>
+                        <div className={`${styles.cardBack} `} onClick={() => setIsFlipped(!isFlipped)}>
+                            <p>Strength: {strength}</p>
+                            <p>Will: {will}</p>
+                            <button onClick={handleFightClick}>Fight</button>
+                        </div>
+                    </>
                 )}
-                <h3>{name}</h3>
-                <p>{description}</p>
-              </div>
-              <div className={`${styles.cardBack} `} onClick={() => setIsFlipped(!isFlipped)}>
-                <p>Strength: {strength}</p>
-                <p>Will: {will}</p>
-                <button onClick={handleFightClick}>Fight</button>
-                <button onClick={handleDontFightClick}>Don't Fight</button>
-              </div>
-            </>
-          )}
-          {isFighting && (
-            <div className={styles.fightMode}>
-              <h3>{name}</h3>
-              <p>Strength: {strength}</p>
-              <p>Will: {will}</p>
-              <button className={styles.hitButton} onClick={handleHit}>HIT</button>
+                {isFighting && (
+                    <div className={styles.fightMode}>
+                         {imageId && ( // Přidáno: Podmíněné zobrazení obrázku
+                            <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
+                         )}
+                        <h3>{name}</h3>
+                        <p>Strength: {strength}</p>
+                        <p>Will: {will}</p>
+                         <div className={styles.fightButtons}>
+                            <button className={styles.hitButton} onClick={handleHitStrength}>HIT (Síla)</button>
+                            <button className={styles.hitButton} onClick={handleHitWill}>HIT (Vůle)</button>
+                         </div>
+                    </div>
+                )}
             </div>
-          )}
         </div>
-      </div>
     );
-  };
-  
-  export default EnemyCard;
+};
+
+export default EnemyCard;

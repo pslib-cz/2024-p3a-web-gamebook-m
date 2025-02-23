@@ -1,5 +1,6 @@
+
+import { GameContextProvider } from './context/Gamecontext'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
 import { AuthProvider } from "./providers/authProvider.tsx";
 import SignInPage from "./pages/SignInPage";
 import ChoosingCharacter from "./pages/ChoosingCharacter.tsx";
@@ -43,10 +44,14 @@ const router = createBrowserRouter([
 
 ]);
 
+//Použití:
+
 function App() {
   return (
     <AuthProvider>
+       <GameContextProvider>
       <RouterProvider router={router} />
+        </GameContextProvider>
     </AuthProvider>
   );
 }

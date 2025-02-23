@@ -4,27 +4,37 @@ using Gamebook.Server.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gamebook.Server.Controllers {
+namespace Gamebook.Server.Controllers
+{
 
     [Route("api/[controller]")]
     [ApiController]
-    public class CardsController : ControllerBase {
+    public class CardsController : ControllerBase
+    {
         private readonly ApplicationDbContext _context;
 
-        public CardsController(ApplicationDbContext context) {
+        public CardsController(ApplicationDbContext context)
+        {
             _context = context;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm) {
-            var card = new Card {
+        public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm)
+        {
+            var card = new Card
+            {
                 Title = cardVm.Title,
                 Type = cardVm.Type,
                 Description = cardVm.Description,
                 SpecialAbilities = cardVm.SpecialAbilities,
                 DiceRollResults = cardVm.DiceRollResults?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
                 ImageId = cardVm.ImageId,
-                EnemyId = cardVm.EnemyId
+                EnemyId = cardVm.EnemyId,
+                BonusWile = cardVm.BonusWile,
+                BonusStrength = cardVm.BonusStrength,
+                BonusHP = cardVm.BonusHP,
+                ClassOnly = cardVm.ClassOnly
+
             };
 
             _context.Cards.Add(card);
@@ -34,9 +44,11 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCard(int id) {
+        public async Task<IActionResult> DeleteCard(int id)
+        {
             var card = await _context.Cards.FindAsync(id);
-            if (card == null) {
+            if (card == null)
+            {
                 return NotFound();
             }
 
@@ -47,17 +59,20 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCardById(int id) {
+        public async Task<IActionResult> GetCardById(int id)
+        {
             var card = await _context.Cards
                 .Include(c => c.Image)
                 .Include(c => c.Enemy)
                 .FirstOrDefaultAsync(c => c.CardId == id);
 
-            if (card == null) {
+            if (card == null)
+            {
                 return NotFound();
             }
 
-            return Ok(new CardDetailVM {
+            return Ok(new CardDetailVM
+            {
                 Id = card.CardId,
                 Title = card.Title,
                 Type = card.Type,
@@ -67,19 +82,25 @@ namespace Gamebook.Server.Controllers {
                 EnemyId = card.EnemyId,
                 EnemyName = card.Enemy?.Name,
                 ImageName = card.Image?.Name,
-                DiceRollResults = card.DiceRollResults
+                DiceRollResults = card.DiceRollResults,
+                BonusWile = card.BonusWile,
+                BonusStrength = card.BonusStrength,
+                BonusHP = card.BonusHP,
+                ClassOnly = card.ClassOnly
             });
         }
 
         [HttpGet]
-        public async Task<ActionResult<ListResult<CardListVM>>> GetCards([FromQuery] int? page = 0, [FromQuery] int? size = 10) {
+        public async Task<ActionResult<ListResult<CardListVM>>> GetCards([FromQuery] int? page = 0, [FromQuery] int? size = 100)
+        {
             var query = _context.Cards.AsQueryable();
 
             var total = await query.CountAsync();
             var cards = await query
-                .Skip((page ?? 0) * (size ?? 10))
-                .Take(size ?? 10)
-                .Select(c => new CardListVM {
+                .Skip((page ?? 0) * (size ?? 100))
+                .Take(size ?? 100)
+                .Select(c => new CardListVM
+                {
                     Id = c.CardId,
                     Title = c.Title,
                     Type = c.Type,
@@ -88,19 +109,22 @@ namespace Gamebook.Server.Controllers {
                 })
                 .ToListAsync();
 
-            return Ok(new ListResult<CardListVM> {
+            return Ok(new ListResult<CardListVM>
+            {
                 Total = total,
                 Items = cards,
                 Count = cards.Count,
                 Page = page ?? 0,
-                Size = size ?? 10
+                Size = size ?? 100
             });
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm) {
+        public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm)
+        {
             var card = await _context.Cards.FindAsync(id);
-            if (card == null) {
+            if (card == null)
+            {
                 return NotFound();
             }
 
@@ -111,6 +135,11 @@ namespace Gamebook.Server.Controllers {
             card.DiceRollResults = cardVm.DiceRollResults?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             card.ImageId = cardVm.ImageId;
             card.EnemyId = cardVm.EnemyId;
+            card.BonusHP = cardVm.BonusHP;
+            card.BonusStrength = cardVm.BonusStrength;
+            card.BonusWile = cardVm.BonusWile;
+            card.ClassOnly = cardVm.ClassOnly;
+
 
             _context.Cards.Update(card);
             await _context.SaveChangesAsync();

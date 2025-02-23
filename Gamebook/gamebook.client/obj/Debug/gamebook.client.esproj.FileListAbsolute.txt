@@ -10,3 +10,5 @@ C:\Users\rkmek\Source\Repos\2024-p3a-web-gamebook-m1\Gamebook\gamebook.client\ob
 C:\Users\rkmek\Source\Repos\2024-p3a-web-gamebook-m\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Radek\Downloads\Nová složka (14)\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Rad3k_m\Source\Repos\2024-p3a-web-gamebook-m1\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
+C:\Users\Radek\Downloads\Gamebooks\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
+C:\Users\Radek\OneDrive\Plocha\Yoro\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache

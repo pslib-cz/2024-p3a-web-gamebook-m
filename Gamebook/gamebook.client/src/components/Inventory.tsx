@@ -1,110 +1,107 @@
-// src/components/Inventory/InventoryDisplay.tsx
-import React, { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../api/apiConfig';
+import React from 'react';
 import styles from '../styles/Inventory.module.css';
+import { API_BASE_URL } from '../api/apiConfig';
 
-interface IInventory {
-  id: number;
-  cardIds: number[];
+interface InventoryProps {
+    inventory: number[];
+    onRemoveItem: (itemId: number) => void;
+    equippedItemId: number | null;
+    onEquipItem: (card: Card) => void;
 }
 
-interface ICard {
-  cardId: number;
-  name: string;
-  description: string;
-  imageId: number | null;
-  title: string;
-  type: string;
-  enemyId: number | null;
-  enemyName: string;
-  imageName: string;
-  diceRollResults:  { [key: number]: string };
+interface Card {
+    id: number;
+    cardId?: number;
+    title: string;
+    type: string;
+    description: string;
+    specialAbilities: string | null;
+    bonusWile: number | null;
+    bonusStrength: number | null;
+    bonusHP: number | null;
+    classOnly: string | null;
+    diceRollResults: { [key: number]: string } | null;
+    imageId: number | null;
+    imageName: string | null;
+    enemyId: number | null;
 }
 
-interface InventoryDisplayProps {
-  inventoryId: number;
-}
-
-const InventoryDisplay: React.FC<InventoryDisplayProps> = ({ inventoryId }) => {
-  const [inventory, setInventory] = useState<IInventory | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [cards, setCards] = useState<ICard[]>([]);
-  const MAX_CARDS = 6;
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        const inventoryResponse = await fetch(`${API_BASE_URL}/inventories/${inventoryId}`);
-
-        if (!inventoryResponse.ok) {
-          const errorText = await inventoryResponse.text();
-          console.warn(`Failed to fetch inventory: ${inventoryResponse.status} ${inventoryResponse.statusText} ${errorText}`);
-          setInventory(null);
-          setCards([]);
-          return;
-        }
-
-        const inventoryData: IInventory = await inventoryResponse.json();
-        setInventory(inventoryData);
-
-        if (inventoryData.cardIds.length > 0) {
-          const cardDetailsPromises = inventoryData.cardIds.map(async (cardId) => {
-            const cardResponse = await fetch(`${API_BASE_URL}/cards/${cardId}`);
-            if (!cardResponse.ok) {
-              const errorText = await cardResponse.text();
-              console.warn(`Failed to fetch card ${cardId}: ${cardResponse.status} ${cardResponse.statusText} ${errorText}`);
-              return null;
-            }
-            return await cardResponse.json() as ICard;
-          });
-
-          const cardDetails = (await Promise.all(cardDetailsPromises)).filter((card): card is ICard => card !== null);
-          setCards(cardDetails);
-        } else {
-          setCards([]);
-        }
-      } catch (err) {
-        console.error(err instanceof Error ? err.message : "Failed to load data");
-        setCards([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadData();
-  }, [inventoryId]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  const displayedCards: (ICard | null)[] = [...cards];
-  while (displayedCards.length < MAX_CARDS) {
-    displayedCards.push(null);
-  }
-
-  return (
-    <div className={styles.inventoryContainer}>
-      <h2 className={styles.inventoryTitle}>
-        Inventory {inventory ? `(ID: ${inventory.id})` : "(Not Loaded)"}
-      </h2>
-      <ul className={styles.cardList}>
-        {displayedCards.map((card, index) => (
-          <li key={index} className={styles.cardItem}>
-            {card ? (
-              <>
-                <strong className={styles.cardName}>{card.name}</strong>:{" "}
-                {card.description}
-              </>
-            ) : (
-              <span className={styles.emptySlot}>Empty Slot</span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const Inventory: React.FC<InventoryProps> = ({ inventory, onRemoveItem, equippedItemId, onEquipItem }) => {
+    return (
+        <div className={styles.inventoryContainer}>
+            <h3>Inventory</h3>
+            <ul className={styles.inventoryList}>
+                {inventory.map((itemId) => (
+                    <InventoryItem key={itemId} itemId={itemId} onRemoveItem={onRemoveItem} equippedItemId={equippedItemId} onEquipItem={onEquipItem} />
+                ))}
+            </ul>
+        </div>
+    );
 };
 
-export default InventoryDisplay;
+interface InventoryItemProps {
+    itemId: number;
+    onRemoveItem: (itemId: number) => void;
+    equippedItemId: number | null;
+    onEquipItem: (card: Card) => void;
+}
+
+const InventoryItem: React.FC<InventoryItemProps> = ({ itemId, onRemoveItem, equippedItemId, onEquipItem }) => {
+    const [card, setCard] = React.useState<Card | null>(null);
+    const [loading, setLoading] = React.useState<boolean>(true);
+    const [error, setError] = React.useState<string | null>(null);
+
+    React.useEffect(() => {
+        const fetchCard = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch(`${API_BASE_URL}/cards/${itemId}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch card with ID ${itemId}: ${response.status}`);
+                }
+                const cardData = await response.json();
+                setCard(cardData);
+            } catch (error: any) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCard();
+    }, [itemId]);
+
+    if (loading) {
+        return <li>Loading item...</li>;
+    }
+
+    if (error) {
+        return <li>Error: {error}</li>;
+    }
+
+    if (!card) {
+        return <li>Card not found</li>;
+    }
+
+    const handleEquip = () => {
+        onEquipItem(card);
+    };
+
+    return (
+        <li className={styles.inventoryItem}>
+            {card.imageId && (
+                <img
+                    src={`${API_BASE_URL}/files/${card.imageId}`}
+                    alt={card.title}
+                    className={styles.inventoryItemImage}
+                />
+            )}
+            <div className={styles.inventoryItemDetails}>
+                <span className={styles.inventoryItemName}>{card.title}</span>
+             
+            </div>
+        </li>
+    );
+};
+
+export default Inventory;

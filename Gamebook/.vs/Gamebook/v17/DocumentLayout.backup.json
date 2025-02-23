@@ -1,167 +1,167 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\",
+  "WorkspaceRootPath": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\cardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\cardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\cardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\enemiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\enemiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\fieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\fieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20250131101515_ble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250131101515_ble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\cardvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\cardvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\cardvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\field.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\charactervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\charactervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\inventoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\inventoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\enemiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\enemiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\fieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\fieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20250131101515_ble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250131101515_ble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\field.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\field.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\enemyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\enemyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\enemyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\characterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\characterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\characterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\charactervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\charactervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\gamevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\gamevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\gamevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\gamestatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\gamestatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\gamestatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\fieldvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\fieldvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\fieldvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\gamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\gamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\gamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\gamestatescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\gamestatescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\gamestatescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\changelog.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\changelog.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\changelog.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\inventoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\inventoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\listresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\listresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\listresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\filelistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\filelistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\filelistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20250112101938_lul.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20250112101938_lul.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250112101938_lul.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20250111192610_ndff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20250111192610_ndff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250111192610_ndff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\viewmodels\\userlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20241213144355_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20241213144355_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20241213144355_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20250111192414_nemamnatouzfdsfff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20250111192414_nemamnatouzfdsfff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250111192414_nemamnatouzfdsfff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m1\\gamebook\\gamebook.server\\migrations\\20250111190823_nemamnatouz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\radek\\onedrive\\plocha\\yoro\\gamebook\\gamebook.server\\migrations\\20250111190823_nemamnatouz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\migrations\\20250111190823_nemamnatouz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gamebook.Server\\Controllers\\RoomNavigationController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gamebook.Server\\Controllers\\CardsController - Kopie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -172,7 +172,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -183,73 +183,42 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20250131101515_ble.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250131101515_ble.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250131101515_ble.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250131101515_ble.cs",
-              "RelativeToolTip": "Gamebook.Server\\Migrations\\20250131101515_ble.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwBwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T10:15:15.355Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "InventoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\InventoriesController.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAIwJkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAYwJkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Card.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
-              "RelativeToolTip": "Gamebook.Server\\Models\\Card.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAkwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.59Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAcwFcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.543Z",
+              "WhenOpened": "2025-01-24T08:06:57.494Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Inventory.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Inventory.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Inventory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.626Z"
+              "WhenOpened": "2025-01-24T08:06:57.626Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Program.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Program.cs",
               "RelativeToolTip": "Gamebook.Server\\Program.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAcwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -257,11 +226,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "FieldsController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FieldsController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\FieldsController.cs",
               "ViewState": "AgIAAIkAAAAAAAAAAAAAwKQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -269,23 +238,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CardsController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\CardsController.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAIwHkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAUwHUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.526Z"
+              "WhenOpened": "2025-01-24T08:06:57.526Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Enemy.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Enemy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -293,11 +263,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "EnemiesController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\EnemiesController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\EnemiesController.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAIwG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -305,22 +275,97 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 3,
+              "Title": "InventoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA2wBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:06:57.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CharacterVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA7wCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:06:57.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CardVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CardVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
+              "RelativeToolTip": "Gamebook.Server\\ViewModels\\CardVM.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:06:57.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAcwFAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:06:57.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Card.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
+              "RelativeToolTip": "Gamebook.Server\\Models\\Card.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:06:57.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20250131101515_ble.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250131101515_ble.cs",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250131101515_ble.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250131101515_ble.cs",
+              "RelativeToolTip": "Gamebook.Server\\Migrations\\20250131101515_ble.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAwwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T10:15:15.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2025-01-24T08:08:36.825Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "EnemyVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\EnemyVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\EnemyVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -328,11 +373,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "GameState.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\GameState.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\GameState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -340,11 +385,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Field.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Field.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Field.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -352,11 +397,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAL0AAAAAAAAAAAAUwMsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -364,23 +409,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CardVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CardVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\CardVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.532Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Character.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Character.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Character.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -388,23 +421,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CharacterVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAqwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "GameVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\GameVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -412,11 +433,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "GameStateVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameStateVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\GameStateVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -424,11 +445,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "FieldVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FieldVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\FieldVM.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAcwBAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -436,11 +457,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "CharactersController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CharactersController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\CharactersController.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAAAuwIoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -448,11 +469,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "GamesController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GamesController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\GamesController.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAqwHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -460,11 +481,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "GameStatesController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GameStatesController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\GameStatesController.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAcwAYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -472,11 +493,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "FilesController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FilesController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\FilesController.cs",
               "ViewState": "AgIAAOMAAAAAAAAAAAAqwPMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -484,23 +505,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "InventoryVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "RelativeToolTip": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAA2wBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T08:06:57.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "CHANGELOG.md",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\CHANGELOG.md",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\CHANGELOG.md",
               "RelativeDocumentMoniker": "Gamebook.Server\\CHANGELOG.md",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\CHANGELOG.md",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\CHANGELOG.md",
               "RelativeToolTip": "Gamebook.Server\\CHANGELOG.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
@@ -510,9 +519,9 @@
               "$type": "Document",
               "DocumentIndex": 39,
               "Title": "RoomNavigationController.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\RoomNavigationController.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\RoomNavigationController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAiwE0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -522,9 +531,9 @@
               "$type": "Document",
               "DocumentIndex": 40,
               "Title": "CardsController - Kopie.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -534,9 +543,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "ListResult.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\ListResult.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\ListResult.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\ListResult.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\ListResult.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\ListResult.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\ListResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -546,9 +555,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "FileListVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FileListVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\FileListVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -558,9 +567,9 @@
               "$type": "Document",
               "DocumentIndex": 29,
               "Title": "20250112101938_lul.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250112101938_lul.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250112101938_lul.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250112101938_lul.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250112101938_lul.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250112101938_lul.cs",
               "RelativeToolTip": "Gamebook.Server\\Migrations\\20250112101938_lul.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -570,9 +579,9 @@
               "$type": "Document",
               "DocumentIndex": 30,
               "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Game.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Game.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -582,9 +591,9 @@
               "$type": "Document",
               "DocumentIndex": 32,
               "Title": "Image.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Image.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\Image.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAowAwAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -594,9 +603,9 @@
               "$type": "Document",
               "DocumentIndex": 31,
               "Title": "20250111192610_ndff.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
               "RelativeToolTip": "Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -606,9 +615,9 @@
               "$type": "Document",
               "DocumentIndex": 37,
               "Title": "20250111192414_nemamnatouzfdsfff.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
               "RelativeToolTip": "Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -618,9 +627,9 @@
               "$type": "Document",
               "DocumentIndex": 38,
               "Title": "20250111190823_nemamnatouz.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
               "RelativeToolTip": "Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -630,9 +639,9 @@
               "$type": "Document",
               "DocumentIndex": 33,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\User.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Models\\User.cs",
               "RelativeToolTip": "Gamebook.Server\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -642,9 +651,9 @@
               "$type": "Document",
               "DocumentIndex": 36,
               "Title": "20241213144355_db.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20241213144355_db.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
               "RelativeToolTip": "Gamebook.Server\\Migrations\\20241213144355_db.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -655,9 +664,9 @@
               "DocumentIndex": 34,
               "Title": "20241213140925_db.cs",
               "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
-              "RelativeDocumentMoniker": "..\\..\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
               "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
-              "RelativeToolTip": "..\\..\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:09:25.849Z"
             },
@@ -665,17 +674,13 @@
               "$type": "Document",
               "DocumentIndex": 35,
               "Title": "UserListVM.cs",
-              "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "DocumentMoniker": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\UserListVM.cs",
-              "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m1\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
+              "ToolTip": "C:\\Users\\Radek\\OneDrive\\Plocha\\Yoro\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
               "RelativeToolTip": "Gamebook.Server\\ViewModels\\UserListVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T08:06:57.65Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }
