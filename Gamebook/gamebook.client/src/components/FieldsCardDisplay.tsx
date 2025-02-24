@@ -3,7 +3,23 @@ import { API_BASE_URL } from '../api/apiConfig';
 import styles from '../styles/FieldCardsDisplay.module.css';
 import EnemyCard from './EnemyCard';
 import ItemCard from './ItemCard';
-import { Card } from '../interfaces/Card'; // Import Card interface!
+interface Card {
+    id: number;
+    cardId?: number;
+    title: string;
+    type: string;
+    description: string;
+    specialAbilities: string | null;
+    bonusWile: number | null;
+    bonusStrength: number | null;
+    bonusHP: number | null;
+    classOnly: string | null;
+    diceRollResults: { [key: number]: string } | null;
+    imageId: number | null;
+    imageName: string | null;
+    enemyId: number | null;
+    isBoss: boolean;
+}
 
 interface IEnemy {
     enemyId: number;
@@ -18,16 +34,17 @@ interface IEnemy {
 interface FieldCardsDisplayProps {
     fieldId: number;
     onFight: (enemyStrength: number, enemyWill: number, statToUse?: "strength" | "will") => void;
-    onEquipItem: (card: Card) => void;  // Use the Card interface!
+    onEquipItem: (card: Card) => void;
 }
 
 const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight, onEquipItem }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [enemy, setEnemy] = useState<IEnemy | null>(null);
-    const [card, setCard] = useState<Card | null>(null); // Use the Card interface!
-    const [isFlipped, setIsFlipped] = useState(false); // For initial back display.
-    const backImage: number | null = 16; // Default back image
+    const [card, setCard] = useState<Card | null>(null);
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [showBossChoice, setShowBossChoice] = useState(false);
+    const backImage: number | null = 16;
 
     useEffect(() => {
         const loadData = async () => {
@@ -47,12 +64,11 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                 // Filter out enemy cards *before* picking a random ID.
                 const nonEnemyCards = allCards.filter((card: Card) => card.type !== "enemy");
                 const itemCards = allCards.filter((card: Card) => card.type === "item");
+                const bossCards = allCards.filter((card: Card) => card.isBoss === true);
 
-                if (nonEnemyCards.length > 0) {
-                    // Pick a random card ID from the *filtered* list.
-                    let selectedCard = nonEnemyCards[Math.floor(Math.random() * nonEnemyCards.length)];
+                if (bossCards.length > 0) {
+                    const selectedCard = bossCards[Math.floor(Math.random() * bossCards.length)];
 
-                    // Fetch the *specific* card by its ID.
                     const cardResponse = await fetch(`${API_BASE_URL}/cards/${selectedCard.id}`);
 
                     if (!cardResponse.ok) {
@@ -68,21 +84,19 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                         title: cardData.title,
                         description: cardData.description,
                         imageId: cardData.imageId,
-                        title: cardData.title,
                         type: cardData.type,
                         enemyId: cardData.enemyId,
-                        enemyName: cardData.enemyName || null,
                         imageName: cardData.imageName || null,
                         diceRollResults: cardData.diceRollResults,
-                        bonusWile: cardData.bonusWile || null,  // Added
-                        bonusStrength: cardData.bonusStrength || null, // Added
-                        bonusHP: cardData.bonusHP || null,  // Added
+                        bonusWile: cardData.bonusWile || null,
+                        bonusStrength: cardData.bonusStrength || null,
+                        bonusHP: cardData.bonusHP || null,
                         specialAbilities: cardData.specialAbilities || null,
                         classOnly: cardData.classOnly || null,
+                        isBoss: cardData.isBoss || false,
                     };
                     setCard(newCard);
 
-                    // Fetch enemy data only if enemyId exists (shouldn't for non-enemy cards, but good to be safe)
                     if (newCard.enemyId) {
                         const enemyResponse = await fetch(`${API_BASE_URL}/enemies/${newCard.enemyId}`);
                         if (!enemyResponse.ok) {
@@ -98,18 +112,17 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                             description: enemyData.description,
                             strength: enemyData.strength,
                             will: enemyData.will,
-                            imageId: newCard.imageId, //This is right
-                            imageName: newCard.imageName, //This is right
+                            imageId: newCard.imageId,
+                            imageName: newCard.imageName,
                         }
                         setEnemy(newEnemy);
                     } else {
                         setEnemy(null);
                     }
+                } else if (nonEnemyCards.length > 0) {
+                    // Pick a random card ID from the *filtered* list.
+                    const selectedCard = nonEnemyCards[Math.floor(Math.random() * nonEnemyCards.length)];
 
-                } else if (itemCards.length > 0) {
-                    let selectedCard = itemCards[Math.floor(Math.random() * itemCards.length)];
-
-                    // Fetch the *specific* card by its ID.
                     const cardResponse = await fetch(`${API_BASE_URL}/cards/${selectedCard.id}`);
 
                     if (!cardResponse.ok) {
@@ -125,22 +138,74 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                         title: cardData.title,
                         description: cardData.description,
                         imageId: cardData.imageId,
-                        title: cardData.title,
                         type: cardData.type,
                         enemyId: cardData.enemyId,
-                        enemyName: cardData.enemyName || null,
                         imageName: cardData.imageName || null,
                         diceRollResults: cardData.diceRollResults,
-                        bonusWile: cardData.bonusWile || null,  // Added
-                        bonusStrength: cardData.bonusStrength || null, // Added
-                        bonusHP: cardData.bonusHP || null,  // Added
+                        bonusWile: cardData.bonusWile || null,
+                        bonusStrength: cardData.bonusStrength || null,
+                        bonusHP: cardData.bonusHP || null,
                         specialAbilities: cardData.specialAbilities || null,
                         classOnly: cardData.classOnly || null,
+                        isBoss: cardData.isBoss || false,
+                    };
+                    setCard(newCard);
+
+                    if (newCard.enemyId) {
+                        const enemyResponse = await fetch(`${API_BASE_URL}/enemies/${newCard.enemyId}`);
+                        if (!enemyResponse.ok) {
+                            const errorText = await enemyResponse.text();
+                            console.warn(`Failed to fetch enemy: ${enemyResponse.status} - ${errorText}`);
+                            setEnemy(null);
+                            return;
+                        }
+                        const enemyData = await enemyResponse.json();
+                        const newEnemy: IEnemy = {
+                            enemyId: enemyData.id,
+                            name: enemyData.name,
+                            description: enemyData.description,
+                            strength: enemyData.strength,
+                            will: enemyData.will,
+                            imageId: newCard.imageId,
+                            imageName: newCard.imageName,
+                        }
+                        setEnemy(newEnemy);
+                    } else {
+                        setEnemy(null);
+                    }
+
+                } else if (itemCards.length > 0) {
+                    const selectedCard = itemCards[Math.floor(Math.random() * itemCards.length)];
+
+                    const cardResponse = await fetch(`${API_BASE_URL}/cards/${selectedCard.id}`);
+
+                    if (!cardResponse.ok) {
+                        const errorText = await cardResponse.text();
+                        console.warn(`Failed to fetch card with ID ${selectedCard.id}: ${cardResponse.status} - ${errorText}`);
+                        setCard(null);
+                        return;
+                    }
+                    const cardData = await cardResponse.json();
+                    const newCard: Card = {
+                        id: cardData.id,
+                        cardId: cardData.cardId,
+                        title: cardData.title,
+                        description: cardData.description,
+                        imageId: cardData.imageId,
+                        type: cardData.type,
+                        enemyId: cardData.enemyId,
+                        imageName: cardData.imageName || null,
+                        diceRollResults: cardData.diceRollResults,
+                        bonusWile: cardData.bonusWile || null,
+                        bonusStrength: cardData.bonusStrength || null,
+                        bonusHP: cardData.bonusHP || null,
+                        specialAbilities: cardData.specialAbilities || null,
+                        classOnly: cardData.classOnly || null,
+                        isBoss: cardData.isBoss || false,
                     };
                     setCard(newCard);
                     setEnemy(null);
                 } else {
-                    // Handle the case where there are NO non-enemy cards.
                     console.warn("No non-enemy cards found.");
                     setCard(null);
                     setEnemy(null);
@@ -148,7 +213,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
 
             } catch (err) {
                 setError(err instanceof Error ? err.message : "An unexpected error occurred.");
-                setCard(null);  // Set Card to null
+                setCard(null);
                 setEnemy(null);
             } finally {
                 setLoading(false);
@@ -165,18 +230,33 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
     if (error) {
         return <p>Error: {error}</p>;
     }
+
     const handleFlip = () => {
-        setIsFlipped(true);
+        if (card?.isBoss) {
+            setShowBossChoice(true);
+        } else {
+            setIsFlipped(true);
+        }
     };
 
-    const handleDontFight = () => {
-        console.log("Player chose not to fight.");
+    const handleFightChoice = () => {
+        setIsFlipped(true);
+        setShowBossChoice(false);
+
+        if (enemy) {
+            onFight(enemy.strength, enemy.will);
+        }
+    };
+
+    const handleDontFightChoice = () => {
+        console.log("Player chose not to fight the boss.");
+        setShowBossChoice(false);
         setIsFlipped(false);
     };
 
     const handleEquip = () => {
         if (card) {
-            onEquipItem(card);  // Call the equip function passed as a prop
+            onEquipItem(card);
         }
     };
 
@@ -186,24 +266,33 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
 
     return (
         <div className={`${styles.cardContainer} ${isFlipped ? styles.flipped : ''}`} onClick={() => handleFlip()}>
+
             {!isFlipped && (<div className={styles.cardBack}>
                 {backImage && (
                     <img src={`${API_BASE_URL}/files/${backImage}`} alt="Card Back" className={styles.cardImage} />
                 )}
             </div>)}
 
-            {isFlipped && (
+            {showBossChoice && (
+                <div className={styles.bossChoiceDialog}>
+                    <p>This is a Boss! Do you want to fight?</p>
+                    <button onClick={handleFightChoice}>Fight</button>
+                    <button onClick={handleDontFightChoice}>Don't Fight</button>
+                </div>
+            )}
+
+            {isFlipped && !showBossChoice && (
                 <>
-                    {enemy ? ( // Check for enemy existence
+                    {enemy ? (
                         <EnemyCard
                             name={enemy.name}
                             description={enemy.description}
                             strength={enemy.strength}
                             will={enemy.will}
-                            imageId={enemy.imageId} // Pass imageId
-                            imageName={enemy.imageName || "default-card-image"}  // Pass imageName
+                            imageId={enemy.imageId}
+                            imageName={enemy.imageName || "default-card-image"}
                             onFight={onFight}
-                            onDontFight={handleDontFight}
+                            onDontFight={handleDontFightChoice} //Používám handleDontFightChoice správně
                             cardId={card.id}
                             onEquip={onEquipItem}
                         />
@@ -220,7 +309,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                         />
                     ) : (
                         <div className={styles.cardContainer}>
-                            {card.imageId && ( //Check image.
+                            {card.imageId && (
                                 <img
                                     src={`${API_BASE_URL}/files/${card.imageId}`}
                                     alt={card.title}
@@ -229,7 +318,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                             )}
                             <h3 className={styles.cardName}>{card.title}</h3>
                             <p className={styles.cardDescription}>{card.description}</p>
-                            <button className={styles.equipButton} onClick={handleEquip}>Equip</button>  {/* Add Equip button here! */}
+                            <button className={styles.equipButton} onClick={handleEquip}>Equip</button>
                         </div>
                     )}
                 </>

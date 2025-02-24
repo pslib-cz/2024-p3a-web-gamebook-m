@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/EnemyCard.module.css';
 import { API_BASE_URL } from '../api/apiConfig';
 
@@ -7,7 +7,7 @@ interface EnemyCardProps {
     description: string;
     strength: number;
     will: number;
-    onFight: (enemyStrength: number, enemyWill: number, statToUse?: "strength" | "will") => void;
+    onFight: (enemyStrength: number, enemyWill: number, attackType: "strength" | "will") => void;
     onDontFight: () => void;
     imageId?: number | null;
     imageName: string | null;
@@ -19,6 +19,7 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     strength,
     will,
     onFight,
+    onDontFight,
     imageId,
     imageName = "Enemy",
 }) => {
@@ -26,6 +27,16 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [isFighting, setIsFighting] = useState(false);
+    const [attackType, setAttackType] = useState<"strength" | "will" | null>(null); // State pro určení typu útoku
+
+    useEffect(() => {
+        // Určení typu útoku na základě síly a vůle nepřítele
+        if (strength > will) {
+            setAttackType("strength");
+        } else {
+            setAttackType("will");
+        }
+    }, [strength, will]);
 
     const handleFightClick = () => {
         console.log("handleFightClick called");
@@ -38,17 +49,11 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
         });
     };
 
-
-
-    //New functions
-    const handleHitStrength = () => {
-        onFight(strength, will, "strength");
-    }
-
-    const handleHitWill = () => {
-        onFight(strength, will, "will");
-    }
-
+    const handleHit = () => {
+        if (attackType) {
+            onFight(strength, will, attackType);
+        }
+    };
 
     return (
         <div className={`${styles.cardContainer} ${isFighting ? styles.fighting : ''}`}>
@@ -71,16 +76,19 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                 )}
                 {isFighting && (
                     <div className={styles.fightMode}>
-                         {imageId && ( // Přidáno: Podmíněné zobrazení obrázku
+                        {imageId && ( // Přidáno: Podmíněné zobrazení obrázku
                             <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
-                         )}
+                        )}
                         <h3>{name}</h3>
                         <p>Strength: {strength}</p>
                         <p>Will: {will}</p>
-                         <div className={styles.fightButtons}>
-                            <button className={styles.hitButton} onClick={handleHitStrength}>HIT (Síla)</button>
-                            <button className={styles.hitButton} onClick={handleHitWill}>HIT (Vůle)</button>
-                         </div>
+                        {attackType && (
+                            <div className={styles.fightButtons}>
+                                <button className={styles.hitButton} onClick={handleHit}>
+                                    HIT ({attackType === "strength" ? "Síla" : "Vůle"})
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

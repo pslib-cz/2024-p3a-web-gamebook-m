@@ -8,6 +8,8 @@ import FieldCardsDisplay from "../components/FieldsCardDisplay";
 import Inventory from "../components/Inventory";
 import EquippedItemBonuses from "../components/EquippedItemBonuses";
 import ItemCard from "../components/ItemCard";
+import BossCard from "../components/BossCard";
+import EnemyCard from "../components/EnemyCard"; // Import the EnemyCard component
 
 interface Field {
     fieldId: number;
@@ -19,18 +21,19 @@ interface Field {
     imageId: number | null;
     enemyId: number | null;
     items?: Item[];
+    type: string;
 }
 
 interface Character {
     id: number;
     name: string;
     class: string;
-    strength: number; // Základní síla
-    will: number;   // Základní vůle
+    strength: number;
+    will: number;
     pointsOfDestiny: number;
     backstory: string;
     ability: string;
-    maxHP: number; // Maximální HP
+    maxHP: number;
     maxDificulty: number;
     startingFieldId: number;
     imageId: number | null;
@@ -38,7 +41,6 @@ interface Character {
     CurrentStrength?: number;
     CurrentWill?: number;
     CurrentHP?: number;
-
 }
 
 interface Card {
@@ -55,7 +57,7 @@ interface Card {
     diceRollResults: { [key: number]: string } | null;
     imageId: number | null;
     enemyId: number | null;
-    enemyName?: string | null; // Make enemyName optional
+    enemyName?: string | null;
     imageName?: string | null;
 }
 
@@ -65,6 +67,8 @@ interface Enemy {
     description: string;
     strength: number;
     will: number;
+    imageId?: number | null;
+    imageName?: string | null;
 }
 
 interface Item {
@@ -77,6 +81,8 @@ interface Item {
     bonusHP?: number | null;
 }
 
+type AttackType = "strength" | "will";
+
 const RoomNavigate: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -85,10 +91,9 @@ const RoomNavigate: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
-    // Stats as state variables
-    const [strength, setStrength] = useState(0); // Aktuální síla
-    const [will, setWill] = useState(0);   // Aktuální vůle
-    const [hp, setHp] = useState(0);     // Aktuální HP
+    const [strength, setStrength] = useState(0);
+    const [will, setWill] = useState(0);
+    const [hp, setHp] = useState(0);
 
     const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
     const [diceRollResult, setDiceRollResult] = useState<number | null>(null);
@@ -102,6 +107,9 @@ const RoomNavigate: React.FC = () => {
     const [inventory, setInventory] = useState<number[]>([]);
     const [equippedItem, setEquippedItem] = useState<Card | null>(null);
     const [showDiceRollButton, setShowDiceRollButton] = useState(false);
+    const [showBossButtons, setShowBossButtons] = useState(false);
+    const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
+    const [attackType, setAttackType] = useState<AttackType | null>(null); // Store the determined attack type
 
     const startingFieldId = id ? parseInt(id, 10) : null;
 
@@ -128,7 +136,6 @@ const RoomNavigate: React.FC = () => {
     const resetGame = () => {
         setGameOver(false);
         setFightResult(null);
-        //Používám selectedCharacter.maxHP pro reset
         const initialHP = selectedCharacter?.maxHP || 10;
         localStorage.setItem("hp", initialHP.toString());
         if (startingFieldId)
@@ -164,14 +171,25 @@ const RoomNavigate: React.FC = () => {
             setCanRoll(true);
             setFightResult(null);
             setHasWonFight(false);
-            setShowDiceRollButton(false); // Skryjeme tlačítko na začátku načítání lokace
+            setShowDiceRollButton(false);
+            setAttackType(null); // Reset typ útoku
 
-        } catch (err) {
-            setError("Nastala chyba");
-        } finally {
-            setLoading(false);
-        }
-    };
+            // NEW LOGIC: Check if the field type is "Boss"
+            const isBossField = fetchedField.type === "Boss";
+
+            console.log("Fetched Field:", fetchedField);
+            console.log("field.type:", fetchedField.type);
+            console.log("isBossField:", isBossField);
+
+            setShowBossButtons(isBossField);
+            console.log("showBossButtons:", isBossField);
+
+    } catch (err) {
+        setError("Nastala chyba");
+    } finally {
+        setLoading(false);
+    }
+};
 
     const loadCharacter = async () => {
         const storedCharacter = localStorage.getItem("selectedCharacter");
@@ -190,19 +208,18 @@ const RoomNavigate: React.FC = () => {
                         const response = await fetch(`${API_BASE_URL}/cards/${equippedItemId}`);
                         if (response.ok) {
                             equippedCard = await response.json() as Card;
-                            console.log("loadCharacter - Loaded equippedCard from API:", equippedCard);  // Log
+                            console.log("loadCharacter - Loaded equippedCard from API:", equippedCard);
                             setEquippedItem(equippedCard);
                         } else {
                             console.error("Failed to load equipped item:", response.status);
-                            localStorage.removeItem("equippedItemId"); // Remove invalid item
+                            localStorage.removeItem("equippedItemId");
                         }
                     } catch (error) {
                         console.error("Error loading equipped item:", error);
-                         localStorage.removeItem("selectedCharacter"); // Remove invalid item
+                        localStorage.removeItem("selectedCharacter");
                     }
                 }
 
-                // Initialize stats based on character and equipped item
                 updateCharacterStats(character, equippedCard);
 
             } catch (error) {
@@ -219,7 +236,7 @@ const RoomNavigate: React.FC = () => {
     const updateCharacterStats = useCallback(
         (character: Character, equippedItem: Card | null) => {
             console.log("updateCharacterStats called", character, equippedItem);
-            console.log("Equipped Item:", equippedItem); // Přidáno
+            console.log("Equipped Item:", equippedItem);
             if (!character) return;
 
             let newStrength = character.strength;
@@ -252,45 +269,50 @@ const RoomNavigate: React.FC = () => {
         }
     }, [selectedCharacter, equippedItem, updateCharacterStats]);
 
-    const handleFight = useCallback(async (enemyStrength: number, enemyWill: number, statToUse: "strength" | "will" = "strength") => {
-        if (gameOver) return;
+    const handleFight = useCallback(
+        async (enemyStrength: number, enemyWill: number, attackType: AttackType) => {
+            if (gameOver) return;
 
-        const playerStrength = strength; // Use state variables
-        const playerWill = will; // Use state variables
-        const playerRoll = Math.floor(Math.random() * 6) + 1;
-        const enemyRoll = Math.floor(Math.random() * 6) + 1;
-        const playerTotal = statToUse === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
-        const enemyTotal = (statToUse === "strength" ? enemyStrength : enemyWill) + enemyRoll;
+            const playerStrength = strength;
+            const playerWill = will;
+            const playerRoll = Math.floor(Math.random() * 6) + 1;
+            const enemyRoll = Math.floor(Math.random() * 6) + 1;
 
-        let resultMessage = "";
-        let damage = 0;
+            const playerTotal = attackType === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
+            const enemyTotal = attackType === "strength" ? enemyStrength + enemyRoll : enemyWill + enemyRoll;
 
-        if (playerTotal > enemyTotal) {
-            damage = playerTotal - enemyTotal;
-            resultMessage = `You win! (You: ${playerTotal}, Enemy: ${enemyTotal}).  You deal ${damage} damage!`;
-            setHasWonFight(true);
-            setShowDiceRollButton(true); // Zobrazíme tlačítko po výhře
-        } else if (enemyTotal > playerTotal) {
-            resultMessage = `You lose! (You: ${playerTotal}, Enemy: ${enemyTotal}). You take 1 damage!`;
-            setHp(prevHp => {
-                const newHp = Math.max(0, prevHp - 1);
-                localStorage.setItem("hp", newHp.toString());
-                return newHp;
-            });
+            let resultMessage = "";
+            let damage = 0;
 
-            if (hp <= 0) {
-                setGameOver(true);
-                setIsFighting(false);
-                return;
+            if (playerTotal > enemyTotal) {
+                damage = playerTotal - enemyTotal;
+                resultMessage = `You win! (You: ${playerTotal}, Enemy: ${enemyTotal}).  You deal ${damage} damage!`;
+                setHasWonFight(true);
+                setShowDiceRollButton(true);
+
+            } else if (enemyTotal > playerTotal) {
+                resultMessage = `You lose! (You: ${playerTotal}, Enemy: ${enemyTotal}). You take 1 damage!`;
+                setHp(prevHp => {
+                    const newHp = Math.max(0, prevHp - 1);
+                    localStorage.setItem("hp", newHp.toString());
+                    return newHp;
+                });
+
+                if (hp <= 0) {
+                    setGameOver(true);
+                    setIsFighting(false);
+                    return;
+                }
+            } else {
+                resultMessage = `It's a draw! (You: ${playerTotal}, Enemy: ${enemyTotal})`;
+                setHasWonFight(false);
             }
-        } else {
-            resultMessage = `It's a draw! (You: ${playerTotal}, Enemy: ${enemyTotal})`;
-            setHasWonFight(false);
-        }
-        setIsFighting(false);
-
-        setFightResult(resultMessage);
-    }, [strength, will, hp]);
+            setIsFighting(false);
+            setAttackType(null); // Reset typ útoku
+            setFightResult(resultMessage);
+        },
+        [strength, will, hp, setShowDiceRollButton]
+    );
 
     const handleFilterAndMove = async () => {
         if (gameOver || !canRoll) return;
@@ -348,7 +370,7 @@ const RoomNavigate: React.FC = () => {
             navigate(`/game/${nextField.fieldId}`);
             setIsMoved(true);
             setDiceRollResult(null);
-            setShowDiceRollButton(false); // Po přesunu skryjeme tlačítko
+            setShowDiceRollButton(false);
         } catch (err) {
             console.error("Error in handleMove:", err);
             setError("Chyba při načítání polí.");
@@ -373,7 +395,7 @@ const RoomNavigate: React.FC = () => {
 
     const handleEquipItem = useCallback(
         async (card: Card) => {
-            console.log("handleEquipItem called with card:", card); // Log the card
+            console.log("handleEquipItem called with card:", card);
             if (!selectedCharacter) {
                 console.error("No character selected to equip item to.");
                 return;
@@ -381,8 +403,6 @@ const RoomNavigate: React.FC = () => {
 
             if (card.id) {
                 setEquippedItem(card);
-                console.log("Equipped Item after setEquippedItem:", card);
-
                 localStorage.setItem("equippedItemId", card.id.toString());
 
                 setInventory((prevInventory) => {
@@ -413,6 +433,8 @@ const RoomNavigate: React.FC = () => {
                     if (selectedCharacter) {
                         updateCharacterStats(selectedCharacter, card);
                     }
+                    setShowDiceRollButton(true);
+
                 } catch (error) {
                     console.error("Error adding card to inventory:", error);
                 }
@@ -446,13 +468,44 @@ const RoomNavigate: React.FC = () => {
             console.log('Card removed from inventory on the server.');
             setEquippedItem(null);
             localStorage.removeItem("equippedItemId");
-            updateCharacterStats(selectedCharacter, null); // Update stats after unequipping
+            updateCharacterStats(selectedCharacter, null);
+            setShowDiceRollButton(false);
 
         } catch (error) {
             console.error('Error removing card from inventory:', error);
         }
     }, [API_BASE_URL, equippedItem, selectedCharacter, updateCharacterStats]);
 
+    const handleFightBoss = () => {
+         console.log("handleFightBoss called");
+        if (field?.enemyId) {
+            console.log("Attempting to fetch enemy with ID:", field.enemyId);
+            fetch(`${API_BASE_URL}/enemies/${field.enemyId}`)
+                .then(response => {
+                     console.log("Enemy fetch response:", response);
+                    return response.json();
+                })
+                .then((enemy: Enemy) => {
+                    if (enemy) {
+                        console.log("Fetched enemy:", enemy);
+                        setCurrentEnemy(enemy);
+                        setIsFighting(true);
+                    } else {
+                        console.error("Boss enemy not found!");
+                    }
+                })
+                .catch(error => console.error("Error fetching boss enemy:", error));
+        } else {
+            console.error("No enemy ID associated with this boss field.");
+        }
+    };
+
+    const handleDontFightBoss = () => {
+         console.log("handleDontFightBoss called");
+        alert("You chose not to fight the boss. Something else happens...");
+    };
+
+    //  removing the handleAttack function, as the attacking will now be triggered from the EnemyCard component.
     if (loading) return <p>Načítám...</p>;
     if (error) return <p>Chyba: {error}</p>;
     if (!field) return <p>Chyba: Pole s ID {startingFieldId} nebylo nalezeno.</p>;
@@ -492,14 +545,36 @@ const RoomNavigate: React.FC = () => {
                     </div>
                 )}
 
-                {/*<EquippedItemBonuses equippedItemId={equippedItem?.id || null} selectedCharacter={selectedCharacter} />*/}
-
                 <div className={styles.fieldInfo}>
                     <h1>{field.title}</h1>
                 </div>
                 <p>{field.description}</p>
 
-                {startingFieldId && !isFighting && !hasWonFight && <FieldCardsDisplay fieldId={startingFieldId} onFight={handleFight} onEquipItem={handleEquipItem} />}
+                {showBossButtons ? (
+                    <>
+                        <BossCard
+                            title={field.title}
+                            type={field.type}
+                            description={field.description}
+                        />
+                        {currentEnemy && (
+                            <EnemyCard
+                                {...currentEnemy}
+                                onFight={(enemyStrength, enemyWill, attackType) => {
+                                    setIsFighting(true);
+                                    handleFight(enemyStrength, enemyWill, attackType);
+                                }}
+                            />
+                        )}
+                        <div className={styles.bossButtons}>
+                            <Button text="Fight" onClick={handleFightBoss} />
+                            <Button text="Don't Fight" onClick={handleDontFightBoss} />
+                        </div>
+                    </>
+                ) : (
+                    startingFieldId && !isFighting && !hasWonFight && <FieldCardsDisplay fieldId={startingFieldId} onFight={handleFight} onEquipItem={handleEquipItem} />
+                )}
+
                 {fightResult && isFighting && <p>{fightResult}</p>}
 
                 <div className={styles.diceRollContainer}>
@@ -530,7 +605,6 @@ const RoomNavigate: React.FC = () => {
                     <img src={cedule} alt="Popis obrázku" />
                 </div>
 
-
                 {showDiceRollButton && (
                     <Button text="Hodit kostkou" onClick={handleFilterAndMove} disabled={gameOver} />
                 )}
@@ -549,10 +623,9 @@ const RoomNavigate: React.FC = () => {
                                         imageId={item.imageId}
                                         cardId={item.itemId}
                                         onEquip={handleEquipItem}
-                                        bonusWile={item.bonusWile || 0} // Poskytnout výchozí hodnotu
-                                        bonusStrength={item.bonusStrength || 0} // Poskytnout výchozí hodnotu
-                                        bonusHP={item.bonusHP || 0} // Poskytnout výchozí hodnotu
-                                        setShowDiceRollButton={setShowDiceRollButton}
+                                        bonusWile={item.bonusWile || 0}
+                                        bonusStrength={item.bonusStrength || 0}
+                                        bonusHP={item.bonusHP || 0}
                                     />
                                     <button onClick={() => handleItemInteraction(item)}>
                                         Take Item
