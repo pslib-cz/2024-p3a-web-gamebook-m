@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:58186",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\Radek\\Downloads\\dneska\\Gamebook\\Gamebook.Server\\..\\gamebook.client",
+"WorkingDirectory": "C:\\Users\\Radek\\OneDrive\\Plocha\\odvetvi\\Gamebook\\Gamebook.Server\\..\\gamebook.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

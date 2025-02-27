@@ -1,3 +1,4 @@
+// ItemCard.tsx
 import React from 'react';
 import styles from "../styles/ItemCard.module.css";
 
@@ -10,10 +11,11 @@ interface ItemCardProps {
     bonusWile: number;
     bonusStrength: number;
     bonusHP: number;
-    setShowDiceRollButton: (show: boolean) => void; // Přidána funkce pro nastavení viditelnosti tlačítka kostky
+    // Removed setShowDiceRollButton from here. ItemCard should not directly manipulate RoomNavigate's state
+    // Instead, the ItemCard should call onEquip which should call the logic in RoomNavigate
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ name, description, imageId, cardId, onEquip, bonusWile, bonusStrength, bonusHP, setShowDiceRollButton }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ name, description, imageId, cardId, onEquip, bonusWile, bonusStrength, bonusHP }) => {
     const handleEquip = () => {
         const card = {
             id: cardId,
@@ -25,7 +27,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ name, description, imageId, cardId,
             imageId: imageId
         };
         onEquip(card);
-        setShowDiceRollButton(true); // Zobrazit tlačítko po equipnutí
+        //setShowDiceRollButton(true); // Remove this line
     };
 
     return (

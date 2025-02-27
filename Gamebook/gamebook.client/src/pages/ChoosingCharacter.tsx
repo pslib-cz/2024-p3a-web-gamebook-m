@@ -1,257 +1,193 @@
-// src/pages/RoomNavigate.tsx
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import styles from "../styles/RoomNavigate.module.css";
-import cedule from '/img/neco.png';
-import Button from '../components/Button/Button.tsx';
-import InventoryDisplay from "../components/Inventory.tsx"; // Import
-import { API_BASE_URL } from "../api/apiConfig.tsx"; // Import base URL
-
-
-interface Field {
-  fieldId: number;
-  title: string;
-  description: string;
-  difficulty: number;
-  numOfCards: number;
-  diceRollResults: { [key: number]: string };
-  imageId: number | null;
-  enemyId: number | null;
-}
+import { useNavigate } from "react-router-dom";
+import styles from "../styles/ChoosingCharacter.module.css";
+import { useGameContext } from "../context/GameContext.tsx"; // Import the context
 
 interface Character {
   id: number;
   name: string;
   class: string;
-  strength: number;
-  will: number;
-  pointsOfDestiny: number;
-  backstory: string;
-  ability: string;
-  maxHP: number;
-  maxDificulty: number;
   startingFieldId: number;
   imageId: number | null;
-  username?: string;
+  hp: number;
+  strength: number;
+  willpower: number;
 }
 
-const RoomNavigate: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const [field, setField] = useState<Field | null>(null);
-  const [fieldImage, setFieldImage] = useState<string | null>(null);
+interface CharacterDetail {
+  id: number;
+  name: string;
+  backstory: string;
+  ability: string;
+}
+
+const ChoosingCharacter: React.FC = () => {
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [selectedCharacterDetail, setSelectedCharacterDetail] = useState<CharacterDetail | null>(null);
+  const [characterImages, setCharacterImages] = useState<Record<number, string>>({});
+  const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
-  const [diceRollResult, setDiceRollResult] = useState<number | null>(null);
-  const [isRolling, setIsRolling] = useState<boolean>(false);
-  const [isMoved, setIsMoved] = useState<boolean>(false);
-  const [canRoll, setCanRoll] = useState<boolean>(true);
-  const startingFieldId = id ? parseInt(id, 10) : null;
-  //const baseURL = "https://localhost:58186/api"; // Now using API_BASE_URL
-
-  // --- Inventory-related State ---
-  // DUMMY DATA, this should come from your character, probably local storage
-  const characterInventoryId = 1;
-
-  const fetchFieldImage = useCallback(async (imageId: number | null) => {
-    if (!imageId) {
-      setFieldImage(null);
-      return;
-    }
-    try {
-      const response = await fetch(`${API_BASE_URL}/files/${imageId}`);
-      if (!response.ok) {
-        throw new Error("Nepodařilo se načíst obrázek.");
-      }
-      const blob = await response.blob();
-      const imageUrl = URL.createObjectURL(blob);
-      setFieldImage(imageUrl);
-    } catch (err) {
-      console.error("Chyba při načítání obrázku:", err);
-      setFieldImage(null);
-      setError("Nepodařilo se načíst obrázek.");
-    }
-  }, [API_BASE_URL]);
+  const navigate = useNavigate();
+  
+  // Use the game context instead of localStorage
+  const { setCharacter } = useGameContext();
 
   useEffect(() => {
-
-    const loadData = async () => {
-      if (!startingFieldId) {
-        navigate("/");
-        return;
-      }
-      setLoading(true);
+    const fetchCharacters = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/fields/${startingFieldId}`);
+        setLoading(true);
+        const response = await fetch("/api/characters");
         if (!response.ok) {
-          throw new Error("Nepodařilo se načíst pole.");
+          throw new Error("Chyba při načítání postav.");
         }
-        const fetchedField = (await response.json()) as Field;
-        setField(fetchedField);
-        if (fetchedField.imageId) {
-          fetchFieldImage(fetchedField.imageId);
-        } else {
-          setFieldImage(null);
-        }
-        setIsMoved(false);
-        setDiceRollResult(null);
-        setCanRoll(true);
+
+        const data = await response.json();
+        setCharacters(data.items || []);
+
+        // Load images for each character
+        data.items.forEach((character: Character) => {
+          if (character.imageId) {
+            fetchCharacterImage(character.imageId, (imageUrl) => {
+              setCharacterImages((prev) => ({ ...prev, [character.id]: imageUrl }));
+            });
+          }
+        });
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Chyba při načítání pole.");
+        setError(err instanceof Error ? err.message : "Neznámá chyba");
       } finally {
         setLoading(false);
       }
     };
 
-    const loadCharacter = async () => {
-      const storedCharacter = localStorage.getItem("selectedCharacter");
-      const storedUsername = localStorage.getItem("username");
+    fetchCharacters();
+  }, []);
 
-      if (storedCharacter) {
-        const character = JSON.parse(storedCharacter) as Character;
-        character.username = storedUsername || "Neznámé uživatelské jméno";
-        setSelectedCharacter(character);
-      } else {
-        setError("Žádná postava nebyla vybrána.");
+  const fetchCharacterImage = useCallback(async (imageId: number, callback: (url: string) => void) => {
+    try {
+      const response = await fetch(`/api/Files/${imageId}`);
+      if (!response.ok) {
+        throw new Error("Nepodařilo se načíst obrázek.");
       }
-    };
+      const blob = await response.blob();
+      const imageUrl = URL.createObjectURL(blob);
+      callback(imageUrl);
+    } catch (err) {
+      console.error("Chyba při načítání obrázku:", err);
+    }
+  }, []);
 
-    loadData();
-    loadCharacter();
-  }, [startingFieldId, navigate, fetchFieldImage, API_BASE_URL]);
-
-  const handleFilterAndMove = async () => {
-    if (!canRoll) return;
-
-    setIsRolling(true);
-    setCanRoll(false);
-
-    setTimeout(() => {
-      const randomNumber = Math.floor(Math.random() * 6) + 1;
-      setDiceRollResult(randomNumber);
-      setIsRolling(false);
-    }, 3000);
-  };
-
-  const handleMove = async (direction: "left" | "right") => {
-    if (!field || diceRollResult === null) return;
+  const handleCharacterClick = async (character: Character) => {
+    setSelectedCharacter(character);
+    if (character.imageId) {
+      setBackgroundImage(characterImages[character.id] || null);
+    }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/fields`);
+      const response = await fetch(`/api/characters/${character.id}`);
       if (!response.ok) {
-        throw new Error("Nepodařilo se načíst pole.");
+        throw new Error("Chyba při načítání detailů postavy.");
       }
 
-      const data = await response.json();
-      let allFields: Field[] = [];
-      console.log(allFields);
-
-      if (Array.isArray(data)) {
-        allFields = data;
-      } else if (typeof data === 'object' && data !== null) {
-        const possibleFields = Object.values(data).find(Array.isArray);
-        if (possibleFields) {
-          allFields = possibleFields as Field[];
-        } else {
-          throw new Error("Nepodařilo se najít pole v datech.");
-        }
-      }
-
-      const difficulty1Fields = allFields.filter((field: Field) => field.difficulty === 1);
-      console.log(difficulty1Fields);
-      const totalFields = difficulty1Fields.length;
-      const currentIndex = difficulty1Fields.findIndex((f: Field) => f.fieldId === field.fieldId);
-
-      if (currentIndex === -1) {
-        setError("Aktuální pole nebylo nalezeno v poli s obtížností 1.");
-        return;
-      }
-
-      const moveBy = direction === "left" ? -diceRollResult : diceRollResult;
-      let newIndex = (currentIndex + moveBy) % totalFields;
-
-      if (newIndex < 0) {
-        newIndex = totalFields + newIndex;
-      }
-
-      const nextField = difficulty1Fields[newIndex];
-      navigate(`/game/${nextField.fieldId}`);
-      setIsMoved(true);
-      setDiceRollResult(null);
+      const detail = await response.json();
+      setSelectedCharacterDetail(detail);
     } catch (err) {
-      console.error("Error in handleMove:", err);
-      setError(err instanceof Error ? err.message : "Chyba při načítání polí.");
+      setError(err instanceof Error ? err.message : "Neznámá chyba");
     }
   };
 
-  if (loading) return <p>Načítám...</p>;
-  if (error) return <p>Chyba: {error}</p>;
-  if (!field) return <p>Chyba: Pole s ID {startingFieldId} nebylo nalezeno.</p>;
+  const handleStartGameClick = () => {
+    if (selectedCharacter) {
+      // 1. Store in context
+      setCharacter({
+        ...selectedCharacter,
+        hp: selectedCharacter.hp || 10,
+        maxHP: selectedCharacter.hp || 10,
+        will: selectedCharacter.willpower || 10,
+        pointsOfDestiny: 3, // Default value
+      });
+      
+      // 2. Store in localStorage for backward compatibility until migration is complete
+      const characterToSave = {
+        ...selectedCharacter,
+        strength: selectedCharacter.strength || 10,
+        will: selectedCharacter.willpower || 10,
+        maxHP: selectedCharacter.hp || 10,
+      };
+      localStorage.setItem("selectedCharacter", JSON.stringify(characterToSave));
+      
+      // 3. Navigate to the game
+      navigate(`/game/${selectedCharacter.startingFieldId}`);
+    }
+  };
 
   return (
-    <div
-      className={`${styles.container} ${fieldImage ? styles.withBackground : ""}`}
-      style={fieldImage ? { backgroundImage: `url(${fieldImage})` } : {}}
-    >
+    <div className={styles.container}>
+      {backgroundImage && (
+        <>
+          <div
+            className={styles.background}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          <div className={styles.overlay} />
+        </>
+      )}
+  
       <div className={styles.content}>
-        {selectedCharacter && (
-          <div className={styles.characterCard}>
-            <img
-              src={selectedCharacter.imageId ? `${API_BASE_URL}/files/${selectedCharacter.imageId}` : "/default-character.png"}
-              alt={selectedCharacter.name}
-              className={styles.characterImage}
-            />
-
-            <div className={styles.characterStats2}>
-              <p>Síla: {localStorage.getItem("strength")}</p>
-              <p>Vůle: {localStorage.getItem("will")}</p>
+        {error && <p className={styles.error}>{error}</p>}
+        {loading && <p className={styles.loading}>Načítám postavy...</p>}
+  
+        <div className={styles.characterList}>
+          {characters.map((character) => (
+            <div
+              key={character.id}
+              className={`${styles.characterItem} ${
+                selectedCharacter?.id === character.id ? styles.selected : ""
+              }`}
+              onClick={() => handleCharacterClick(character)}
+            >
+              <img
+                src={characterImages[character.id] || ""}
+                alt={character.name}
+                className={styles.characterImage}
+              />
             </div>
-            <div className={styles.characterStats}>
-              <p>Body osudu: {localStorage.getItem("pointsOfDestiny")}</p>
-              <p>HP: {localStorage.getItem("hp")}</p>
-            </div>
-          </div>
-        )}
-        <div className={styles.fieldInfo}>
-          <h1>{field.title}</h1>
+          ))}
         </div>
-        <p>{field.description}</p>
-
-        {/* Inventory Display */}
-        <InventoryDisplay inventoryId={characterInventoryId} />
-
-        <div className={styles.diceRollContainer}>
-          {isRolling ? (
-            <div className={styles.slotAnimation}>
-              <div className={styles.slot}>
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <div key={num} className={styles.slotItem}>
-                    {num}
-                  </div>
-                ))}
+  
+        {selectedCharacter && selectedCharacterDetail && (
+          <>
+            <div className={styles.characterImageContainer}>
+              <div className={styles.jmeno}>
+                <h2>{selectedCharacter.name}</h2>
+                <p className={styles.characterClass}>{selectedCharacter.class}</p>
+              </div>
+              <div className={styles.characterDetails}>
+                <div className={styles.about}>
+                  <h3>Backstory</h3>
+                  <p>{selectedCharacterDetail.backstory}</p>
+                </div>
+                <img src={characterImages[selectedCharacter.id] || ""} alt={selectedCharacter.name} />
+                <div className={styles.abilities}>
+                  <h3>Abilities</h3>
+                  <p>{selectedCharacterDetail.ability}</p>
+                </div>
               </div>
             </div>
-          ) : (
-            <p>Výsledek hodu kostkou: {diceRollResult}</p>
-          )}
-        </div>
-
-        {!isRolling && diceRollResult !== null && !isMoved && (
-          <div className={styles.moveButtons}>
-            <button onClick={() => handleMove("left")}>Jít vlevo</button>
-            <button onClick={() => handleMove("right")}>Jít vpravo</button>
-          </div>
+          </>
         )}
-        <div className={styles.cedule}>
-          <img src={cedule} alt="Popis obrázku" />
-          <img src={cedule} alt="Popis obrázku" />
-          <img src={cedule} alt="Popis obrázku" />
-        </div>
-        <Button text="Hodit kostkou" onClick={handleFilterAndMove} />
+  
+        <button
+          className={styles.startButton}
+          onClick={handleStartGameClick}
+          disabled={!selectedCharacter}
+        >
+          Vybrat postavu
+        </button>
       </div>
     </div>
   );
 };
 
-export default RoomNavigate;
+export default ChoosingCharacter;
