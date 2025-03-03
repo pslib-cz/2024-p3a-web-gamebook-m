@@ -98,7 +98,6 @@ const InventoryItem: React.FC<InventoryItemProps> = ({ itemId, onRemoveItem, equ
             )}
             <div className={styles.inventoryItemDetails}>
                 <span className={styles.inventoryItemName}>{card.title}</span>
-             
             </div>
         </li>
     );

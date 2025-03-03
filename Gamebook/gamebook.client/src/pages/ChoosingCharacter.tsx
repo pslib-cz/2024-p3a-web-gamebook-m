@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/ChoosingCharacter.module.css";
-import { useGameContext } from "../context/GameContext.tsx"; // Import the context
 
 interface Character {
   id: number;
@@ -11,7 +10,7 @@ interface Character {
   imageId: number | null;
   hp: number;
   strength: number;
-  willpower: number;
+  will: number;
 }
 
 interface CharacterDetail {
@@ -30,9 +29,6 @@ const ChoosingCharacter: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
-  
-  // Use the game context instead of localStorage
-  const { setCharacter } = useGameContext();
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -46,7 +42,7 @@ const ChoosingCharacter: React.FC = () => {
         const data = await response.json();
         setCharacters(data.items || []);
 
-        // Load images for each character
+        // Načtení obrázků pro každou postavu
         data.items.forEach((character: Character) => {
           if (character.imageId) {
             fetchCharacterImage(character.imageId, (imageUrl) => {
@@ -99,25 +95,16 @@ const ChoosingCharacter: React.FC = () => {
 
   const handleStartGameClick = () => {
     if (selectedCharacter) {
-      // 1. Store in context
-      setCharacter({
-        ...selectedCharacter,
-        hp: selectedCharacter.hp || 10,
-        maxHP: selectedCharacter.hp || 10,
-        will: selectedCharacter.willpower || 10,
-        pointsOfDestiny: 3, // Default value
-      });
-      
-      // 2. Store in localStorage for backward compatibility until migration is complete
+      // Uložení do místního úložiště
       const characterToSave = {
         ...selectedCharacter,
         strength: selectedCharacter.strength || 10,
-        will: selectedCharacter.willpower || 10,
+        will: selectedCharacter.will || 10,
         maxHP: selectedCharacter.hp || 10,
       };
       localStorage.setItem("selectedCharacter", JSON.stringify(characterToSave));
       
-      // 3. Navigate to the game
+      // Přechod na herní stránku
       navigate(`/game/${selectedCharacter.startingFieldId}`);
     }
   };

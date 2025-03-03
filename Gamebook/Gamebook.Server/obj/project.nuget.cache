@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kc54Pg1dDsM=",
+  "dgSpecHash": "7wEuFEYP0Nc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Radek\\OneDrive\\Plocha\\odvetvi\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+  "projectFilePath": "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Radek\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
