@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj": {}
+    "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj": {
+    "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
         "projectName": "Gamebook.Server",
-        "projectPath": "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+        "projectPath": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
         "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Radek\\Downloads\\ayo\\Gamebook\\Gamebook.Server\\obj\\",
+        "outputPath": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -11,6 +11,8 @@ import BossCard from "../components/BossCard";
 import EnemyCard from "../components/EnemyCard";
 import VictoryScreen from "../components/VictoryScreen";
 import { useGameContext } from "../context/Gamecontext";
+import useItemStats from "../hooks/useItemStats";
+import ItemStatsDebugger from "../components/ItemStatsDebugger";
 
 interface Field {
     fieldId: number;
@@ -115,8 +117,6 @@ const RoomNavigate: React.FC = () => {
     const [showBossButtons, setShowBossButtons] = useState(false);
     const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
     const [attackType, setAttackType] = useState<AttackType | null>(null);
-    const [equippedCards, setEquippedCards] = useState<Card[]>([]);
-    const [equippedItemIds, setEquippedItemIds] = useState<number[]>(contextEquippedItemIds);
     const [notification, setNotification] = useState<string | null>(null);
     const [showBossChoice, setShowBossChoice] = useState(false);
     const [showNextDifficultyButton, setShowNextDifficultyButton] = useState(false);
@@ -130,6 +130,7 @@ const RoomNavigate: React.FC = () => {
 
     const startingFieldId = id ? parseInt(id, 10) : null;
 
+    // Enemy bonuses
     const [strengthBonusFromEnemies, setStrengthBonusFromEnemies] = useState(() => {
         const stored = localStorage.getItem("strengthBonusFromEnemies");
         return stored ? parseFloat(stored) || 0 : 0;
@@ -139,19 +140,31 @@ const RoomNavigate: React.FC = () => {
         return stored ? parseFloat(stored) || 0 : 0;
     });
 
+    // Base character stats
     const baseStrength = character?.strength || 0;
     const baseWill = character?.will || 0;
     const baseHP = character?.maxHP || 10;
 
-    // Calculate total item bonuses from all equipped items
-    const [itemStrengthBonus, setItemStrengthBonus] = useState(0);
-    const [itemWillBonus, setItemWillBonus] = useState(0);
-    const [itemHPBonus, setItemHPBonus] = useState(0);
+    // Use the custom hook to manage item stats
+    const itemStats = useItemStats(
+        character,
+        contextEquippedItemIds,
+        baseStrength,
+        baseWill,
+        baseHP,
+        strengthBonusFromEnemies,
+        willBonusFromEnemies
+    );
+
+    // Extract values from the hook
+    const itemStrengthBonus = itemStats.strengthBonus;
+    const itemWillBonus = itemStats.willBonus;
+    const itemHPBonus = itemStats.hpBonus;
+    const maxHP = itemStats.maxHP;
 
     // Total stats calculation
-    const strength = baseStrength + strengthBonusFromEnemies + itemStrengthBonus + tempStrengthBoost;
-    const will = baseWill + willBonusFromEnemies + itemWillBonus + tempWillBoost;
-    const maxHP = baseHP + itemHPBonus;
+    const strength = itemStats.totalStrength + tempStrengthBoost;
+    const will = itemStats.totalWill + tempWillBoost;
 
     const [difficulty, setDifficulty] = useState(() => {
         const savedDifficulty = localStorage.getItem("currentDifficulty");
@@ -169,67 +182,38 @@ const RoomNavigate: React.FC = () => {
                hasTempBoost || isVeryStrong || hasIsBossFlag;
     };
 
-    // Calculate cumulative bonuses from all equipped items
-    useEffect(() => {
-        const fetchEquippedCards = async () => {
-            const cards: Card[] = [];
-            let totalStrength = 0;
-            let totalWill = 0;
-            let totalHP = 0;
-
-            for (const itemId of contextEquippedItemIds) {
-                try {
-                    const response = await fetch(`${API_BASE_URL}/cards/${itemId}`);
-                    if (response.ok) {
-                        const card = await response.json();
-                        cards.push(card);
-                        
-                        // Add up bonuses
-                        totalStrength += card.bonusStrength || 0;
-                        totalWill += card.bonusWile || 0;
-                        totalHP += card.bonusHP || 0;
-                    }
-                } catch (error) {
-                    console.error(`Error fetching card ${itemId}:`, error);
-                }
-            }
-            
-            setEquippedCards(cards);
-            setItemStrengthBonus(totalStrength);
-            setItemWillBonus(totalWill);
-            setItemHPBonus(totalHP);
-        };
-
-        fetchEquippedCards();
-    }, [contextEquippedItemIds]);
-
-    // Update HP when character or bonuses change
+    // Update HP when maxHP changes from the hook
     useEffect(() => {
         if (character && typeof setHp === 'function') {
-            const totalHP = baseHP + itemHPBonus;
-            setHp(totalHP);
-            localStorage.setItem("currentHP", totalHP.toString());
-        }
-    }, [character, baseHP, itemHPBonus, setHp]);
-
-    // Load stored HP on component mount
-    useEffect(() => {
-        const storedHP = localStorage.getItem("currentHP");
-        if (storedHP && typeof setHp === 'function') {
-            const parsedHP = parseFloat(storedHP);
-            if (!isNaN(parsedHP)) {
-                setHp(parsedHP);
+            const storedCurrentHP = localStorage.getItem("currentHP");
+            
+            if (storedCurrentHP) {
+                // Don't exceed the new maxHP
+                const currentHP = Math.min(parseFloat(storedCurrentHP), maxHP);
+                setHp(currentHP);
+            } else {
+                // If no stored HP, set to maxHP
+                setHp(maxHP);
+                localStorage.setItem("currentHP", maxHP.toString());
             }
         }
-    }, [setHp]);
+    }, [maxHP, character, setHp]);
 
     // Load enemy bonuses from localStorage
     useEffect(() => {
         const storedData = localStorage.getItem('gameData');
         if (storedData) {
-            const { strengthBonus, willBonus } = JSON.parse(storedData);
-            setStrengthBonusFromEnemies(strengthBonus);
-            setWillBonusFromEnemies(willBonus);
+            try {
+                const { strengthBonus, willBonus } = JSON.parse(storedData);
+                if (typeof strengthBonus === 'number' && !isNaN(strengthBonus)) {
+                    setStrengthBonusFromEnemies(strengthBonus);
+                }
+                if (typeof willBonus === 'number' && !isNaN(willBonus)) {
+                    setWillBonusFromEnemies(willBonus);
+                }
+            } catch (error) {
+                console.error("Error parsing gameData from localStorage:", error);
+            }
         }
     }, []);
 
@@ -330,17 +314,22 @@ const RoomNavigate: React.FC = () => {
         setIsBossFight(false);
         setForceBossFight(false);
         
+        // Reset HP to base value
         if (character && typeof setHp === 'function') {
             setHp(character.maxHP || 10);
         }
         localStorage.setItem("currentHP", character?.maxHP.toString() || "10");
+        
+        // Reset enemy bonuses
         localStorage.setItem("strengthBonusFromEnemies", "0");
         localStorage.setItem("willBonusFromEnemies", "0");
         setStrengthBonusFromEnemies(0);
         setWillBonusFromEnemies(0);
         
-        setDifficulty(1);
-        localStorage.setItem("currentDifficulty", "1");
+        // Reset item bonuses
+        localStorage.setItem("itemStrengthBonus", "0");
+        localStorage.setItem("itemWillBonus", "0");
+        localStorage.setItem("itemHPBonus", "0");
         
         if (startingFieldId) navigate(`/game/${startingFieldId}`);
         setIsFighting(false);
@@ -464,8 +453,24 @@ const RoomNavigate: React.FC = () => {
                 }
             }
 
-            const playerStrength = strength;
-            const playerWill = will;
+            // Use the total calculated strength and will that include all bonuses
+            // These values come from our useItemStats hook
+            const playerStrength = strength;  // This includes base + enemy bonus + item bonus + temp boost
+            const playerWill = will;          // This includes base + enemy bonus + item bonus + temp boost
+            
+            console.log("Combat stats:", {
+                playerStrength,
+                playerWill,
+                baseStrength,
+                baseWill,
+                enemyBonusStr: strengthBonusFromEnemies,
+                enemyBonusWill: willBonusFromEnemies,
+                itemBonusStr: itemStrengthBonus,
+                itemBonusWill: itemWillBonus,
+                tempBoostStr: tempStrengthBoost,
+                tempBoostWill: tempWillBoost
+            });
+
             const playerRoll = Math.floor(Math.random() * 6) + 1;
             const enemyRoll = Math.floor(Math.random() * 6) + 1;
             const playerTotal = attackType === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
@@ -485,7 +490,7 @@ const RoomNavigate: React.FC = () => {
 
             if (playerTotal > enemyTotal) {
                 damage = playerTotal - enemyTotal;
-                resultMessage = `You win! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)}). You deal ${damage.toFixed(2)} damage!`;
+                resultMessage = `You win! (You: ${playerTotal.toFixed(1)}, Enemy: ${enemyTotal.toFixed(1)}). You deal ${damage.toFixed(1)} damage!`;
                 setHasWonFight(true);
 
                 let strengthGain, willGain;
@@ -509,7 +514,7 @@ const RoomNavigate: React.FC = () => {
                     const newDifficultyLevel = difficulty + 1;
                     setDifficulty(newDifficultyLevel);
                     localStorage.setItem("currentDifficulty", newDifficultyLevel.toString());
-                    setFightResult(`You defeated the BOSS! The path to difficulty ${newDifficultyLevel} is now open. Your strength increased by ${strengthGain.toFixed(2)} and will by ${willGain.toFixed(2)}!`);
+                    setFightResult(`You defeated the BOSS! The path to difficulty ${newDifficultyLevel} is now open. Your strength increased by ${strengthGain.toFixed(1)} and will by ${willGain.toFixed(1)}!`);
                     setShowNextDifficultyButton(true);
                     setShowDiceRollButton(false);
 
@@ -532,7 +537,7 @@ const RoomNavigate: React.FC = () => {
                     setFightResult(resultMessage);
                 }
             } else if (enemyTotal > playerTotal) {
-                resultMessage = `You lose! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)}). You take 1 damage!`;
+                resultMessage = `You lose! (You: ${playerTotal.toFixed(1)}, Enemy: ${enemyTotal.toFixed(1)}). You take 1 damage!`;
                 if (typeof setHp === 'function') {
                     setHp(prevHp => {
                         const newHp = Math.max(0, prevHp - 1);
@@ -548,7 +553,7 @@ const RoomNavigate: React.FC = () => {
                 setFightResult(resultMessage);
                 setHasWonFight(false);
             } else {
-                resultMessage = `It's a draw! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)})`;
+                resultMessage = `It's a draw! (You: ${playerTotal.toFixed(1)}, Enemy: ${enemyTotal.toFixed(1)})`;
                 setHasWonFight(false);
                 setFightResult(resultMessage);
             }
@@ -563,7 +568,7 @@ const RoomNavigate: React.FC = () => {
             setIsFighting(false);
             setAttackType(null);
         },
-        [strength, will, setHp, setGameOver, gameOver, strengthBonusFromEnemies, willBonusFromEnemies, field, currentEnemy, difficulty, isBossEnemy, isBossFight, forceBossFight, tempStrengthBoost, tempWillBoost]
+        [strength, will, setHp, setGameOver, gameOver, strengthBonusFromEnemies, willBonusFromEnemies, field, currentEnemy, difficulty, isBossEnemy, isBossFight, forceBossFight, tempStrengthBoost, tempWillBoost, baseStrength, baseWill, itemStrengthBonus, itemWillBonus]
     );
 
     const handleProceedToNextDifficulty = () => {
@@ -661,11 +666,37 @@ const RoomNavigate: React.FC = () => {
                     contextEquipItem(card.id);
                 }
                 setShowDiceRollButton(true);
+                
+                // Log the item being equipped
+                console.log("Equipped item:", card);
+                console.log("Current equipped items:", contextEquippedItemIds);
+                
+                // Optional: show a notification when item is equipped
+                const itemName = card.title || card.name || "Item";
+                const strBonus = card.bonusStrength || 0;
+                const willBonus = card.bonusWile || 0;
+                const hpBonus = card.bonusHP || 0;
+                
+                let bonusText = "";
+                if (strBonus > 0) bonusText += `+${strBonus} STR `;
+                if (willBonus > 0) bonusText += `+${willBonus} WILL `;
+                if (hpBonus > 0) bonusText += `+${hpBonus} HP`;
+                
+                if (bonusText) {
+                    setNotification(`Equipped ${itemName} (${bonusText.trim()})`);
+                } else {
+                    setNotification(`Equipped ${itemName}`);
+                }
+                
+                // Auto-close notification after 3 seconds
+                setTimeout(() => {
+                    setNotification(null);
+                }, 3000);
             } else {
                 setNotification("You can only equip up to 8 items at once. Unequip something first.");
             }
         },
-        [contextEquipItem, contextEquippedItemIds.length]
+        [contextEquipItem, contextEquippedItemIds]
     );
 
     const handleUnequipItem = useCallback((itemId: number) => {
@@ -776,36 +807,41 @@ const RoomNavigate: React.FC = () => {
                         <div className={styles.characterInfo}>
                             <h3 className={styles.characterName}>{character.name}</h3>
                             <div className={styles.statGrid}>
+                                {/* HP Stat with current/max display */}
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>HP:</span>
-                                    <span className={styles.statValue}>{hp.toFixed(2)}</span>
-                                    {itemHPBonus > 0 && (
-                                        <span className={styles.statBonus}>+{itemHPBonus.toFixed(2)}</span>
-                                    )}
+                                    <span className={styles.statValue}>{hp.toFixed(1)}</span>
+                                    <span className={styles.statMaxValue}>/{maxHP.toFixed(1)}</span>
                                 </div>
+                                
+                                {/* Strength Stat with breakdown */}
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Strength:</span>
-                                    <span className={styles.statValue}>{(baseStrength + strengthBonusFromEnemies).toFixed(2)}</span>
-                                    {itemStrengthBonus > 0 && (
-                                        <span className={styles.statBonus}>+{itemStrengthBonus.toFixed(2)}</span>
-                                    )}
-                                    {tempStrengthBoost > 0 && (
-                                        <span className={styles.tempBonus}>+{tempStrengthBoost} BOSS BOOST!</span>
-                                    )}
+                                    <span className={styles.statValue}>{strength.toFixed(1)}</span>
+                                    <span className={styles.statBreakdown}>
+                                        (Base: {baseStrength.toFixed(1)}
+                                        {strengthBonusFromEnemies > 0 && ` + Enemy: ${strengthBonusFromEnemies.toFixed(1)}`}
+                                        {itemStrengthBonus > 0 && ` + Items: ${itemStrengthBonus.toFixed(1)}`}
+                                        {tempStrengthBoost > 0 && ` + Boss: ${tempStrengthBoost}`})
+                                    </span>
                                 </div>
+                                
+                                {/* Will Stat with breakdown */}
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Will:</span>
-                                    <span className={styles.statValue}>{(baseWill + willBonusFromEnemies).toFixed(2)}</span>
-                                    {itemWillBonus > 0 && (
-                                        <span className={styles.statBonus}>+{itemWillBonus.toFixed(2)}</span>
-                                    )}
-                                    {tempWillBoost > 0 && (
-                                        <span className={styles.tempBonus}>+{tempWillBoost} BOSS BOOST!</span>
-                                    )}
+                                    <span className={styles.statValue}>{will.toFixed(1)}</span>
+                                    <span className={styles.statBreakdown}>
+                                        (Base: {baseWill.toFixed(1)}
+                                        {willBonusFromEnemies > 0 && ` + Enemy: ${willBonusFromEnemies.toFixed(1)}`}
+                                        {itemWillBonus > 0 && ` + Items: ${itemWillBonus.toFixed(1)}`}
+                                        {tempWillBoost > 0 && ` + Boss: ${tempWillBoost}`})
+                                    </span>
                                 </div>
+                                
+                                {/* Additional stats */}
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Destiny Points:</span>
-                                    <span className={styles.statValue}>{character.pointsOfDestiny?.toFixed(2) || 0}</span>
+                                    <span className={styles.statValue}>{character.pointsOfDestiny?.toFixed(1) || 0}</span>
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Difficulty:</span>
@@ -814,15 +850,15 @@ const RoomNavigate: React.FC = () => {
                             </div>
                         </div>
                         
-                        {/* Display equipped items count instead of a single equipped card */}
+                        {/* Equipped items summary */}
                         <div className={styles.equippedItemContainer}>
                             <h4>Equipped Items: {contextEquippedItemIds.length}/8</h4>
                             {contextEquippedItemIds.length > 0 ? (
                                 <div className={styles.equippedItemsSummary}>
                                     <div className={styles.totalBonuses}>
-                                        {itemStrengthBonus > 0 && <p>+{itemStrengthBonus.toFixed(2)} Strength</p>}
-                                        {itemWillBonus > 0 && <p>+{itemWillBonus.toFixed(2)} Will</p>}
-                                        {itemHPBonus > 0 && <p>+{itemHPBonus.toFixed(2)} HP</p>}
+                                        {itemStrengthBonus > 0 && <p>+{itemStrengthBonus.toFixed(1)} Strength</p>}
+                                        {itemWillBonus > 0 && <p>+{itemWillBonus.toFixed(1)} Will</p>}
+                                        {itemHPBonus > 0 && <p>+{itemHPBonus.toFixed(1)} HP</p>}
                                     </div>
                                 </div>
                             ) : (
@@ -982,6 +1018,9 @@ const RoomNavigate: React.FC = () => {
                     </div>
                 )}
             </div>
+            
+            {/* Optional item stats debugger - uncomment during development */}
+            <ItemStatsDebugger showDebug={true} />
         </div>
     );
 };

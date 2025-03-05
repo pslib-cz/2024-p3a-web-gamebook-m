@@ -15,3 +15,4 @@ C:\Users\Radek\OneDrive\Plocha\Yoro\Gamebook\gamebook.client\obj\Debug\gamebook.
 C:\Users\Radek\Downloads\dneska\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Radek\OneDrive\Plocha\odvetvi\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
 C:\Users\Radek\Downloads\ayo\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
+C:\Users\Radek\Source\Repos\2024-p3a-web-gamebook-md\Gamebook\gamebook.client\obj\Debug\gamebook.client.esproj.CoreCompileInputs.cache
