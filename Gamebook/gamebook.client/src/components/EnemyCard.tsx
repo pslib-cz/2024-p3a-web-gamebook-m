@@ -12,7 +12,7 @@ interface EnemyCardProps {
     imageId?: number | null;
     imageName?: string | null;
     cardId?: number;
-    onEquip?: (card: any) => void;
+    onEquip?: (card: { id: number; name: string; }) => void;
     isBoss?: boolean;
     hasWonFight?: boolean;
 }
@@ -23,11 +23,8 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     strength,
     will,
     onFight,
-    onDontFight,
     imageId,
     imageName = "Enemy",
-    cardId,
-    onEquip,
     isBoss = false,
     hasWonFight = false,
 }) => {

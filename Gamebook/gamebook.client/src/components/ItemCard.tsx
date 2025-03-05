@@ -7,7 +7,7 @@ interface ItemCardProps {
     description: string;
     imageId: number | null;
     cardId: number;
-    onEquip: (card: any) => void;
+    onEquip: (card: { id: number; name: string; description: string; bonusWile: number; bonusStrength: number; bonusHP: number; imageId: number | null }) => void;
     bonusWile: number | null;
     bonusStrength: number | null;
     bonusHP: number | null;

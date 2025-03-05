@@ -3,7 +3,7 @@
 
   .cardImage {
     max-width: 100%; /* Make sure image fits within the container */
-    height: 200px;    /* Maintain aspect ratio */
+    height: 400px;    /* Maintain aspect ratio */
     display: block;   /* Remove any extra space below the image */
     margin-bottom: 5px;
   }
@@ -17,4 +17,18 @@
   .cardDescription {
     font-size: 0.9em;
     color: #555;
+  }
+  .cardBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  
+  }
+  
+  .cardBack img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
   }

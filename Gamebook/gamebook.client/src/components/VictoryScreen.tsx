@@ -4,7 +4,12 @@ import styles from '../styles/VictoryScreen.module.css';
 import { API_BASE_URL } from '../api/apiConfig';
 
 interface VictoryScreenProps {
-  character: any;
+  character: {
+    name: string;
+    imageId?: string;
+    strength?: number;
+    will?: number;
+  };
   strengthBonusFromEnemies: number;
   willBonusFromEnemies: number;
   onRestart: () => void;
@@ -14,7 +19,7 @@ const VictoryScreen: React.FC<VictoryScreenProps> = ({
   character, 
   strengthBonusFromEnemies, 
   willBonusFromEnemies, 
-  onRestart 
+   
 }) => {
   const navigate = useNavigate();
   const [confetti, setConfetti] = useState<Array<{ id: number; left: string; animationDuration: string; color: string }>>([]);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
-import cedule from '/img/neco.png';
 import Button from '../components/Button/Button.tsx';
 import { API_BASE_URL } from "../api/apiConfig";
 import FieldCardsDisplay from "../components/FieldsCardDisplay";
@@ -12,7 +11,7 @@ import EnemyCard from "../components/EnemyCard";
 import VictoryScreen from "../components/VictoryScreen";
 import { useGameContext } from "../context/Gamecontext";
 import useItemStats from "../hooks/useItemStats";
-import ItemStatsDebugger from "../components/ItemStatsDebugger";
+import ItemStatsDebugger from "../components/ItemStatsDebugger.tsx";
 
 interface Field {
     fieldId: number;
@@ -81,7 +80,6 @@ const RoomNavigate: React.FC = () => {
 
     const {
         character,
-        fetchCharacter,
         inventory = [],
         addItemToInventory = () => { },
         removeItemFromInventory = () => { },
@@ -599,7 +597,7 @@ const RoomNavigate: React.FC = () => {
                 throw new Error("Failed to load fields.");
             }
             const data = await response.json();
-            let allFields: Field[] = Array.isArray(data) ? data : Object.values(data).find(Array.isArray) || [];
+            const allFields: Field[] = Array.isArray(data) ? data : Object.values(data).find(Array.isArray) || [];
             const currentDifficultyFields = allFields.filter((f: Field) => f.difficulty === difficulty);
 
             if (currentDifficultyFields.length === 0) {
@@ -745,8 +743,24 @@ const RoomNavigate: React.FC = () => {
 
     const handleDontFightBoss = () => {
         setShowBossChoice(false);
-        setShowDiceRollButton(true); // Show Roll Dice button when retreating
-        console.log("User chose to retreat from boss fight, showing dice roll button");
+        
+        // Calculate the next field ID (current field ID + 1)
+        const currentFieldId = field?.fieldId || startingFieldId;
+        if (currentFieldId) {
+            const nextFieldId = currentFieldId + 1;
+            console.log(`User chose to retreat from boss fight, navigating to next field (ID: ${nextFieldId})`);
+            
+            // Set loading state and navigate to the next field
+            setLoading(true);
+            setTimeout(() => {
+                navigate(`/game/${nextFieldId}`);
+                setLoading(false);
+            }, 500);
+        } else {
+            // Fallback in case field ID is not available
+            console.error("Could not determine current field ID for navigation");
+            setShowDiceRollButton(true);
+        }
     };
 
     useEffect(() => {
@@ -884,9 +898,9 @@ const RoomNavigate: React.FC = () => {
                         )}
                         {!showBossChoice && (
                             <BossCard
-                                title={field?.title}
-                                type={field?.type}
-                                description={field?.description}
+                                title={field?.title || ""}
+                                type={field?.type || ""}
+                                description={field?.description || ""}
                             />
                         )}
                         {currentEnemy && (
@@ -903,7 +917,7 @@ const RoomNavigate: React.FC = () => {
                 ) : (
                     field && (
                         <FieldCardsDisplay
-                            fieldId={startingFieldId}
+                            fieldId={startingFieldId ?? 0}
                             onFight={(enemyStrength, enemyWill, attackType) => {
                                 setIsFighting(true);
                                 if (attackType === "boss") {
@@ -914,10 +928,10 @@ const RoomNavigate: React.FC = () => {
                                 }
                                 handleFight(enemyStrength, enemyWill, attackType || "strength");
                             }}
+                            onDontFightBoss={handleDontFightBoss} // Pass the same function used in boss choice dialog
                             onEquipItem={handleEquipItem}
-                            shouldShowBossChoice={shouldShowBossChoice}
                             setShowBossChoice={setShowBossChoice}
-                            hasWonFight={hasWonFight} // Pass the hasWonFight prop here
+                            hasWonFight={hasWonFight}
                         />
                     )
                 )}

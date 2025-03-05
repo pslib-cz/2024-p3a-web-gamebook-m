@@ -8,7 +8,7 @@ interface Card {
     id: number;
     cardId?: number;
     title: string;
-    type: "Enemy" | "item" | "Boss" | string;
+    type: "Enemy" | "item" | "Boss";
     description: string;
     specialAbilities: string | null;
     bonusWile: number | null;
@@ -36,17 +36,17 @@ interface IEnemy {
 interface FieldCardsDisplayProps {
     fieldId: number;
     onFight: (enemyStrength: number, enemyWill: number, statToUse?: "strength" | "will" | "boss", specialAbility?: string) => void;
+    onDontFightBoss: () => void; // Added prop for handling boss retreat
     onEquipItem: (card: Card) => void;
-    shouldShowBossChoice: () => boolean;
-    setShowBossChoice: (show: boolean) => void;
-    hasWonFight?: boolean; // Added prop to track if fight was won
+    setShowBossChoice: (show: boolean) => void; // Prop for showing boss choice dialog
+    hasWonFight?: boolean; // Prop to track if fight was won
 }
 
 const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ 
     fieldId, 
     onFight, 
+    onDontFightBoss,
     onEquipItem, 
-    shouldShowBossChoice, 
     setShowBossChoice,
     hasWonFight = false 
 }) => {
@@ -55,7 +55,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
     const [enemy, setEnemy] = useState<IEnemy | null>(null);
     const [card, setCard] = useState<Card | null>(null);
     const [isFlipped, setIsFlipped] = useState(false);
-    const backImage: number | null = 16;
+    const backImage: number | null = 98;
 
     useEffect(() => {
         const loadData = async () => {
@@ -189,8 +189,11 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
     };
 
     const handleDontFightBoss = () => {
-        console.log("FieldCardsDisplay: handleDontFightBoss called");
+        console.log("FieldCardsDisplay: Don't fight boss button clicked");
         setIsFlipped(false);
+        
+        // Call the parent function to handle navigation to next field
+        onDontFightBoss();
     };
 
     if (loading) {
@@ -280,9 +283,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                                                 className={styles.hitButton}
                                                 onClick={(e) => {
                                                     e.stopPropagation();
-                                                    console.log("FieldCardsDisplay: Don't fight boss button clicked");
                                                     handleDontFightBoss();
-                                                    setIsFlipped(false); // Hide the card after retreating
                                                 }}
                                             >
                                                 Retreat

@@ -93,9 +93,9 @@ const Inventory: React.FC<InventoryProps> = ({
                             <div key={card.id} className={styles.itemBadge}>
                                 {card.title || card.name}
                                 <div className={styles.itemBonuses}>
-                                    {card.bonusStrength > 0 && <span>+{card.bonusStrength} STR</span>}
-                                    {card.bonusWile > 0 && <span>+{card.bonusWile} WILL</span>}
-                                    {card.bonusHP > 0 && <span>+{card.bonusHP} HP</span>}
+                                    {card.bonusStrength !== null && card.bonusStrength > 0 && <span>+{card.bonusStrength} STR</span>}
+                                    {card.bonusWile !== null && card.bonusWile > 0 && <span>+{card.bonusWile} WILL</span>}
+                                    {card.bonusHP !== null && card.bonusHP > 0 && <span>+{card.bonusHP} HP</span>}
                                 </div>
                                 <button 
                                     onClick={() => onUnequipItem(card.id)}
@@ -203,9 +203,9 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
                 <h3>{card.title || card.name}</h3>
                 <p>{card.description}</p>
                 
-                {card.bonusStrength > 0 && <p>+{card.bonusStrength.toFixed(2)} Strength</p>}
-                {card.bonusWile > 0 && <p>+{card.bonusWile.toFixed(2)} Will</p>}
-                {card.bonusHP > 0 && <p>+{card.bonusHP.toFixed(2)} HP</p>}
+                {card.bonusStrength !== null && card.bonusStrength > 0 && <p>+{card.bonusStrength.toFixed(2)} Strength</p>}
+                {card.bonusWile !== null && card.bonusWile > 0 && <p>+{card.bonusWile.toFixed(2)} Will</p>}
+                {card.bonusHP !== null && card.bonusHP > 0 && <p>+{card.bonusHP.toFixed(2)} HP</p>}
                 
                 {isEquipped && <span className={styles.equippedLabel}>Equipped</span>}
             </div>
