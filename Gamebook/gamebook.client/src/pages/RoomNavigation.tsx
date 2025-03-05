@@ -51,6 +51,7 @@ interface Enemy {
     will: number;
     imageId?: number | null;
     imageName?: string | null;
+    isBoss?: boolean;
 }
 
 interface Item {
@@ -63,7 +64,7 @@ interface Item {
     bonusHP?: number | null;
 }
 
-type AttackType = "strength" | "will";
+type AttackType = "strength" | "will" | "boss";
 
 const RoomNavigate: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -79,11 +80,11 @@ const RoomNavigate: React.FC = () => {
         character,
         fetchCharacter,
         inventory = [],
-        addItemToInventory = () => {},
-        removeItemFromInventory = () => {},
+        addItemToInventory = () => { },
+        removeItemFromInventory = () => { },
         equippedItemIds: contextEquippedItemIds = [],
-        equipItem: contextEquipItem = () => {},
-        unequipItem: contextUnequipItem = () => {},
+        equipItem: contextEquipItem = () => { },
+        unequipItem: contextUnequipItem = () => { },
         hp: contextHp,
         setHp: contextSetHp,
         isMoved: contextIsMoved,
@@ -116,10 +117,17 @@ const RoomNavigate: React.FC = () => {
     const [equippedCard, setEquippedCard] = useState<Card | null>(null);
     const [equippedItemIds, setEquippedItemIds] = useState<number[]>(contextEquippedItemIds);
     const [notification, setNotification] = useState<string | null>(null);
+    const [showBossChoice, setShowBossChoice] = useState(false);
+    const [showNextDifficultyButton, setShowNextDifficultyButton] = useState(false);
+    const [hasWonBossFight, setHasWonBossFight] = useState(false);
+
+    const [tempStrengthBoost, setTempStrengthBoost] = useState(0);
+    const [tempWillBoost, setTempWillBoost] = useState(0);
+    const [isBossFight, setIsBossFight] = useState(false);
+    const [forceBossFight, setForceBossFight] = useState(false);
 
     const startingFieldId = id ? parseInt(id, 10) : null;
 
-    // **Persistent Stat Bonuses from Enemies (with decimals)**
     const [strengthBonusFromEnemies, setStrengthBonusFromEnemies] = useState(() => {
         const stored = localStorage.getItem("strengthBonusFromEnemies");
         return stored ? parseFloat(stored) || 0 : 0;
@@ -129,7 +137,6 @@ const RoomNavigate: React.FC = () => {
         return stored ? parseFloat(stored) || 0 : 0;
     });
 
-    // **Calculate Stats with Bonuses**
     const baseStrength = character?.strength || 0;
     const baseWill = character?.will || 0;
     const baseHP = character?.maxHP || 10;
@@ -138,8 +145,44 @@ const RoomNavigate: React.FC = () => {
     const itemWillBonus = equippedCard?.bonusWile || 0;
     const itemHPBonus = equippedCard?.bonusHP || 0;
 
-    const strength = baseStrength + strengthBonusFromEnemies + itemStrengthBonus;
-    const will = baseWill + willBonusFromEnemies + itemWillBonus;
+    const strength = baseStrength + strengthBonusFromEnemies + itemStrengthBonus + tempStrengthBoost;
+    const will = baseWill + willBonusFromEnemies + itemWillBonus + tempWillBoost;
+
+    const [difficulty, setDifficulty] = useState(() => {
+        const savedDifficulty = localStorage.getItem("currentDifficulty");
+        return savedDifficulty ? parseInt(savedDifficulty, 10) : 1;
+    });
+
+    const isBossEnemy = (enemy: any, field: Field | null) => {
+        console.log("BOSS DETECTION DEBUG:");
+        console.log("- Field type:", field?.type);
+        console.log("- ShowBossButtons state:", showBossButtons);
+        console.log("- Enemy:", enemy);
+        console.log("- isBossFight state:", isBossFight);
+        console.log("- forceBossFight state:", forceBossFight);
+        console.log("- Enemy isBoss property:", enemy?.isBoss);
+
+        const fieldIsBossType = field?.type === "Boss";
+        console.log("- Field is Boss type:", fieldIsBossType);
+
+        const nameContainsBoss = enemy?.name?.toLowerCase().includes("boss") || false;
+        console.log("- Enemy name contains 'boss':", nameContainsBoss);
+
+        const hasTempBoost = isBossFight;
+        console.log("- Has temporary boss boost:", hasTempBoost);
+
+        const isVeryStrong = enemy?.strength >= 20 || enemy?.will >= 20;
+        console.log("- Enemy is very strong:", isVeryStrong);
+
+        const hasIsBossFlag = enemy?.isBoss === true;
+        console.log("- Enemy has isBoss flag:", hasIsBossFlag);
+
+        const isBoss = forceBossFight || fieldIsBossType || showBossButtons || nameContainsBoss ||
+                       hasTempBoost || isVeryStrong || hasIsBossFlag;
+        console.log("FINAL BOSS DETECTION RESULT:", isBoss);
+
+        return isBoss;
+    };
 
     useEffect(() => {
         if (character && typeof setHp === 'function') {
@@ -158,6 +201,27 @@ const RoomNavigate: React.FC = () => {
             }
         }
     }, [setHp]);
+
+    useEffect(() => {
+        const storedData = localStorage.getItem('gameData');
+        if (storedData) {
+            const { strengthBonus, willBonus } = JSON.parse(storedData);
+            setStrengthBonusFromEnemies(strengthBonus);
+            setWillBonusFromEnemies(willBonus);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('gameData', JSON.stringify({
+            strengthBonus: strengthBonusFromEnemies,
+            willBonus: willBonusFromEnemies
+        }));
+    }, [strengthBonusFromEnemies, willBonusFromEnemies]);
+
+    useEffect(() => {
+        localStorage.setItem("currentDifficulty", difficulty.toString());
+        console.log("RoomNavigation: Difficulty updated and saved to localStorage:", difficulty);
+    }, [difficulty]);
 
     useEffect(() => {
         const loadPersistedData = () => {
@@ -228,6 +292,14 @@ const RoomNavigate: React.FC = () => {
     const resetGame = () => {
         setGameOver(false);
         setFightResult(null);
+        setHasWonBossFight(false);
+        setShowNextDifficultyButton(false);
+        
+        setTempStrengthBoost(0);
+        setTempWillBoost(0);
+        setIsBossFight(false);
+        setForceBossFight(false);
+        
         if (character && typeof setHp === 'function') {
             setHp(character.maxHP || 10);
         }
@@ -236,6 +308,10 @@ const RoomNavigate: React.FC = () => {
         localStorage.setItem("willBonusFromEnemies", "0");
         setStrengthBonusFromEnemies(0);
         setWillBonusFromEnemies(0);
+        
+        setDifficulty(1);
+        localStorage.setItem("currentDifficulty", "1");
+        
         if (startingFieldId) navigate(`/game/${startingFieldId}`);
         setIsFighting(false);
     };
@@ -263,6 +339,58 @@ const RoomNavigate: React.FC = () => {
         }
     };
 
+    const loadNextDifficultyField = async (newDifficulty: number) => {
+        console.log("RoomNavigation: Loading fields for difficulty level:", newDifficulty);
+        try {
+            const response = await fetch(`${API_BASE_URL}/fields`);
+            if (!response.ok) {
+                throw new Error("Failed to load fields.");
+            }
+            const data = await response.json();
+            
+            let allFields: Field[] = [];
+            if (Array.isArray(data)) {
+                allFields = data;
+            } else if (data.items && Array.isArray(data.items)) {
+                allFields = data.items;
+            } else {
+                for (const key of Object.keys(data)) {
+                    const value = data[key];
+                    if (Array.isArray(value)) {
+                        allFields = value;
+                        break;
+                    }
+                }
+            }
+            
+            if (allFields.length === 0) {
+                setError("Error: Could not find fields in API response");
+                return;
+            }
+            
+            const targetDifficultyFields = allFields.filter((field: Field) => field.difficulty === newDifficulty);
+            
+            if (targetDifficultyFields.length === 0) {
+                setError(`No fields found for difficulty level ${newDifficulty}.`);
+                return;
+            }
+            
+            const randomIndex = Math.floor(Math.random() * targetDifficultyFields.length);
+            const nextField = targetDifficultyFields[randomIndex];
+            
+            setDifficulty(newDifficulty);
+            localStorage.setItem("currentDifficulty", newDifficulty.toString());
+            
+            setHasWonBossFight(false);
+            setShowNextDifficultyButton(false);
+            
+            navigate(`/game/${nextField.fieldId}`);
+        } catch (err) {
+            console.error("RoomNavigation: Error loading next difficulty fields:", err);
+            setError("Error loading fields of next difficulty level.");
+        }
+    };
+
     const loadData = async () => {
         if (!startingFieldId) {
             navigate("/");
@@ -286,11 +414,25 @@ const RoomNavigate: React.FC = () => {
             setCanRoll(true);
             setFightResult(null);
             setHasWonFight(false);
+            setHasWonBossFight(false);
             setShowDiceRollButton(false);
+            setShowNextDifficultyButton(false);
             setAttackType(null);
+            
+            setTempStrengthBoost(0);
+            setTempWillBoost(0);
+            setIsBossFight(false);
+            setForceBossFight(false);
+            
             const isBossField = fetchedField.type === "Boss";
             setShowBossButtons(isBossField);
+            
+            if (fetchedField.difficulty !== difficulty) {
+                setDifficulty(fetchedField.difficulty);
+                localStorage.setItem("currentDifficulty", fetchedField.difficulty.toString());
+            }
         } catch (err) {
+            console.error("RoomNavigation: Error loading field data:", err);
             setError(`Error: ${err}`);
         } finally {
             setLoading(false);
@@ -301,35 +443,98 @@ const RoomNavigate: React.FC = () => {
         async (enemyStrength: number, enemyWill: number, attackType: AttackType) => {
             if (gameOver) return;
 
+            let isBossFightLocal = false;
+            if (attackType === "boss") {
+                console.log("RoomNavigation: 'boss' attack type detected - switching to strength attack type");
+                attackType = "strength";
+                isBossFightLocal = true;
+                if (!isBossFight) {
+                    console.log("RoomNavigation: Activating boss mode due to 'boss' attack type");
+                    setIsBossFight(true);
+                    setTempStrengthBoost(100);
+                    setTempWillBoost(100);
+                    setForceBossFight(true);
+                }
+            }
+
+            console.log("RoomNavigation: Starting fight with enemy strength:", enemyStrength, "will:", enemyWill);
+            console.log(`RoomNavigation: Player stats: strength ${strength.toFixed(2)}, will ${will.toFixed(2)}`);
+            if (tempStrengthBoost > 0 || tempWillBoost > 0) {
+                console.log(`RoomNavigation: Including temporary boost: +${tempStrengthBoost} strength, +${tempWillBoost} will`);
+            }
+
             const playerStrength = strength;
             const playerWill = will;
-            const playerRoll = Math.floor(Math.random() * 6) + 1; // Random number between 1 and 6
+            const playerRoll = Math.floor(Math.random() * 6) + 1;
             const enemyRoll = Math.floor(Math.random() * 6) + 1;
-
-            // **Calculate Player Total with Decimals**
             const playerTotal = attackType === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
             const enemyTotal = attackType === "strength" ? enemyStrength + enemyRoll : enemyWill + enemyRoll;
 
+            console.log(`RoomNavigation: Player rolls ${playerRoll}, total ${playerTotal.toFixed(2)}`);
+            console.log(`RoomNavigation: Enemy rolls ${enemyRoll}, total ${enemyTotal.toFixed(2)}`);
+
             let resultMessage = "";
             let damage = 0;
+
+            const mockEnemy = {
+                strength: enemyStrength,
+                will: enemyWill,
+                name: currentEnemy?.name || "",
+                isBoss: currentEnemy?.isBoss || isBossFightLocal
+            };
+
+            const isBoss = isBossEnemy(mockEnemy, field);
+            console.log("FINAL BOSS DETERMINATION:", isBoss, "isBossFightLocal=", isBossFightLocal);
 
             if (playerTotal > enemyTotal) {
                 damage = playerTotal - enemyTotal;
                 resultMessage = `You win! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)}). You deal ${damage.toFixed(2)} damage!`;
                 setHasWonFight(true);
-                setShowDiceRollButton(true);
 
-                // **Calculate Exact Stat Gains**
-                const strengthGain = enemyStrength / 10;
-                const willGain = enemyWill / 10;
+                let strengthGain, willGain;
+                if (isBoss) {
+                    strengthGain = Math.max((enemyStrength / 10) * 5, 5);
+                    willGain = Math.max((enemyWill / 10) * 5, 5);
+                    console.log(`BOSS DEFEATED! Awarding ${strengthGain.toFixed(2)} strength and ${willGain.toFixed(2)} will bonus!`);
+                } else {
+                    strengthGain = enemyStrength / 10;
+                    willGain = enemyWill / 10;
+                }
 
-                // **Update Bonuses**
                 const newStrengthBonus = strengthBonusFromEnemies + strengthGain;
                 const newWillBonus = willBonusFromEnemies + willGain;
                 localStorage.setItem("strengthBonusFromEnemies", newStrengthBonus.toString());
                 localStorage.setItem("willBonusFromEnemies", newWillBonus.toString());
                 setStrengthBonusFromEnemies(newStrengthBonus);
                 setWillBonusFromEnemies(newWillBonus);
+
+                if (isBoss) {
+                    setHasWonBossFight(true);
+                    const newDifficultyLevel = difficulty + 1;
+                    setDifficulty(newDifficultyLevel);
+                    localStorage.setItem("currentDifficulty", newDifficultyLevel.toString());
+                    setFightResult(`You defeated the BOSS! The path to difficulty ${newDifficultyLevel} is now open. Your strength increased by ${strengthGain.toFixed(2)} and will by ${willGain.toFixed(2)}!`);
+                    setShowNextDifficultyButton(true);
+                    setShowDiceRollButton(false);
+
+                    try {
+                        const victoryAudio = new Audio('/sounds/victory.mp3');
+                        victoryAudio.play().catch(e => console.log('Audio play failed:', e));
+                    } catch (e) {
+                        console.log('Victory sound not available');
+                    }
+
+                    const container = document.querySelector(`.${styles.content}`);
+                    if (container) {
+                        container.classList.add(styles.victoryEffect);
+                        setTimeout(() => {
+                            container.classList.remove(styles.victoryEffect);
+                        }, 3000);
+                    }
+                } else {
+                    setShowDiceRollButton(true);
+                    setFightResult(resultMessage);
+                }
             } else if (enemyTotal > playerTotal) {
                 resultMessage = `You lose! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)}). You take 1 damage!`;
                 if (typeof setHp === 'function') {
@@ -344,17 +549,36 @@ const RoomNavigate: React.FC = () => {
                         return newHp;
                     });
                 }
+                setFightResult(resultMessage);
             } else {
                 resultMessage = `It's a draw! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)})`;
                 setHasWonFight(false);
+                setFightResult(resultMessage);
+            }
+
+            if (isBossFightLocal) {
+                console.log("RoomNavigation: Removing temporary boss fight boost and flags");
+                setTempStrengthBoost(0);
+                setTempWillBoost(0);
+                setIsBossFight(false);
+                setForceBossFight(false);
             }
 
             setIsFighting(false);
             setAttackType(null);
-            setFightResult(resultMessage);
+            console.log("RoomNavigation: Fight result:", resultMessage);
         },
-        [strength, will, setHp, setGameOver, gameOver, strengthBonusFromEnemies, willBonusFromEnemies]
+        [strength, will, setHp, setGameOver, gameOver, strengthBonusFromEnemies, willBonusFromEnemies, field, currentEnemy, difficulty, isBossEnemy, isBossFight, forceBossFight, tempStrengthBoost, tempWillBoost]
     );
+
+    const handleProceedToNextDifficulty = () => {
+        console.log("RoomNavigation: Player chose to proceed to next difficulty level:", difficulty);
+        setLoading(true);
+        setTimeout(() => {
+            loadNextDifficultyField(difficulty);
+            setLoading(false);
+        }, 500);
+    };
 
     const handleFilterAndMove = async () => {
         if (gameOver || !canRoll) return;
@@ -369,6 +593,7 @@ const RoomNavigate: React.FC = () => {
 
     const handleMove = async (direction: "left" | "right") => {
         if (gameOver || !field || diceRollResult === null) return;
+
         try {
             const response = await fetch(`${API_BASE_URL}/fields`);
             if (!response.ok) {
@@ -376,24 +601,41 @@ const RoomNavigate: React.FC = () => {
             }
             const data = await response.json();
             let allFields: Field[] = Array.isArray(data) ? data : Object.values(data).find(Array.isArray) || [];
-            const difficulty1Fields = allFields.filter((field: Field) => field.difficulty === 1);
-            const totalFields = difficulty1Fields.length;
-            const currentIndex = difficulty1Fields.findIndex((f: Field) => f.fieldId === field.fieldId);
-            if (currentIndex === -1) {
-                setError("Current field not found in difficulty 1 fields.");
+            const currentDifficultyFields = allFields.filter((f: Field) => f.difficulty === difficulty);
+
+            if (currentDifficultyFields.length === 0) {
+                const fallbackFields = allFields.filter((f: Field) => f.difficulty === 1);
+                if (fallbackFields.length === 0) {
+                    setError("No fields found for any difficulty level.");
+                    return;
+                }
+                const nextField = fallbackFields[0];
+                navigate(`/game/${nextField.fieldId}`);
                 return;
             }
+
+            const totalFields = currentDifficultyFields.length;
+            const currentIndex = currentDifficultyFields.findIndex((f: Field) => f.fieldId === field.fieldId);
+
+            if (currentIndex === -1) {
+                setError(`Current field not found in difficulty ${difficulty} fields.`);
+                return;
+            }
+
             const moveBy = direction === "left" ? -diceRollResult : diceRollResult;
             let newIndex = (currentIndex + moveBy) % totalFields;
             if (newIndex < 0) newIndex = totalFields + newIndex;
-            const nextField = difficulty1Fields[newIndex];
+
+            const nextField = currentDifficultyFields[newIndex];
             navigate(`/game/${nextField.fieldId}`);
             if (typeof setIsMoved === 'function') setIsMoved(true);
             setDiceRollResult(null);
             setShowDiceRollButton(false);
         } catch (err) {
+            console.error("RoomNavigation: Error in handleMove:", err);
             setError("Error loading fields.");
         }
+
         setIsFighting(false);
         setHasWonFight(false);
     };
@@ -432,22 +674,53 @@ const RoomNavigate: React.FC = () => {
     }, [contextUnequipItem]);
 
     const handleFightBoss = () => {
+        setShowBossChoice(false);
+        setTempStrengthBoost(100);
+        setTempWillBoost(100);
+        setIsBossFight(true);
+        setForceBossFight(true);
+
         if (field?.enemyId) {
             fetch(`${API_BASE_URL}/enemies/${field.enemyId}`)
                 .then(response => response.json())
                 .then((enemy: Enemy) => {
                     if (enemy) {
+                        enemy.name = enemy.name + " (BOSS)";
+                        enemy.isBoss = true;
                         setCurrentEnemy(enemy);
                         setIsFighting(true);
                     }
                 })
-                .catch(error => console.error("Error fetching boss enemy:", error));
+                .catch(error => console.error("RoomNavigation: Error fetching boss enemy:", error));
+        } else {
+            const defaultBoss: Enemy = {
+                enemyId: 9999,
+                name: "Mighty Boss",
+                description: "A powerful enemy that blocks your path to the next difficulty.",
+                strength: 10,
+                will: 10,
+                imageId: field?.imageId || null,
+                isBoss: true
+            };
+            setCurrentEnemy(defaultBoss);
+            setIsFighting(true);
         }
     };
 
     const handleDontFightBoss = () => {
-        alert("You chose not to fight the boss. Something else happens...");
+        setShowBossChoice(false);
+        alert("You chose not to fight the boss. Continue your journey...");
     };
+
+    useEffect(() => {
+        if (field && field.type === "Boss") {
+            setShowBossButtons(true);
+            setShowBossChoice(true);
+        } else {
+            setShowBossButtons(false);
+            setShowBossChoice(false);
+        }
+    }, [field]);
 
     useEffect(() => {
         if (inventory.length > 0) {
@@ -460,9 +733,12 @@ const RoomNavigate: React.FC = () => {
         }
     }, [inventory, contextEquipItem, contextEquippedItemIds]);
 
+    const shouldShowBossChoice = useCallback(() => {
+        return field?.type === "Boss";
+    }, [field]);
+
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-    if (!field) return <p>Error: Field with ID {startingFieldId} not found.</p>;
+    if (error) return <p>Error: Field with ID {startingFieldId} not found.</p>;
 
     if (gameOver) {
         return (
@@ -476,7 +752,7 @@ const RoomNavigate: React.FC = () => {
 
     return (
         <div
-            className={`${styles.container} ${fieldImage ? styles.withBackground : ""}`}
+            className={`${styles.container} ${fieldImage ? styles.withBackground : ""} ${isBossFight ? styles.bossBoostActive : ''}`}
             style={fieldImage ? { backgroundImage: `url(${fieldImage})` } : {}}
         >
             {isFighting && <div className={styles.dimmedOverlay} />}
@@ -500,21 +776,31 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Strength:</span>
-                                    <span className={styles.statValue}>{strength.toFixed(2)}</span>
+                                    <span className={styles.statValue}>{(baseStrength + strengthBonusFromEnemies + itemStrengthBonus).toFixed(2)}</span>
                                     {itemStrengthBonus > 0 && (
                                         <span className={styles.statBonus}>+{itemStrengthBonus.toFixed(2)}</span>
+                                    )}
+                                    {tempStrengthBoost > 0 && (
+                                        <span className={styles.tempBonus}>+{tempStrengthBoost} BOSS BOOST!</span>
                                     )}
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Will:</span>
-                                    <span className={styles.statValue}>{will.toFixed(2)}</span>
+                                    <span className={styles.statValue}>{(baseWill + willBonusFromEnemies + itemWillBonus).toFixed(2)}</span>
                                     {itemWillBonus > 0 && (
                                         <span className={styles.statBonus}>+{itemWillBonus.toFixed(2)}</span>
+                                    )}
+                                    {tempWillBoost > 0 && (
+                                        <span className={styles.tempBonus}>+{tempWillBoost} BOSS BOOST!</span>
                                     )}
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Destiny Points:</span>
                                     <span className={styles.statValue}>{character.pointsOfDestiny.toFixed(2)}</span>
+                                </div>
+                                <div className={styles.statItem}>
+                                    <span className={styles.statLabel}>Difficulty:</span>
+                                    <span className={styles.statValue}>{difficulty}</span>
                                 </div>
                             </div>
                         </div>
@@ -541,71 +827,112 @@ const RoomNavigate: React.FC = () => {
                     </div>
                 )}
                 <div className={styles.fieldInfo}>
-                    <h1>{field.title}</h1>
+                    <h1>{field?.title}</h1>
                 </div>
-                <p>{field.description}</p>
+                <p>{field?.description}</p>
+
                 {showBossButtons ? (
                     <>
-                        <BossCard
-                            title={field.title}
-                            type={field.type}
-                            description={field.description}
-                        />
+                        {showBossChoice && (
+                            <div className={styles.bossChoiceDialog} style={{ zIndex: 10000000 }}>
+                                <p>This is a Boss! Do you want to fight?</p>
+                                <Button text="Fight (Get +100 Boost)" onClick={handleFightBoss} />
+                                <Button text="Don't Fight" onClick={handleDontFightBoss} />
+                            </div>
+                        )}
+                        {!showBossChoice && (
+                            <BossCard
+                                title={field?.title}
+                                type={field?.type}
+                                description={field?.description}
+                            />
+                        )}
                         {currentEnemy && (
                             <EnemyCard
                                 {...currentEnemy}
                                 onFight={(enemyStrength, enemyWill, attackType) => {
                                     setIsFighting(true);
-                                    handleFight(enemyStrength, enemyWill, attackType);
+                                    handleFight(enemyStrength, enemyWill, currentEnemy.isBoss ? "boss" : attackType);
                                 }}
                             />
                         )}
-                        <div className={styles.bossButtons}>
-                            <Button text="Fight" onClick={handleFightBoss} />
-                            <Button text="Don't Fight" onClick={handleDontFightBoss} />
-                        </div>
                     </>
                 ) : (
-                    startingFieldId && !isFighting && !hasWonFight && (
+                    field && (
                         <FieldCardsDisplay
                             fieldId={startingFieldId}
-                            onFight={handleFight}
+                            onFight={(enemyStrength, enemyWill, attackType) => {
+                                console.log("RoomNavigation: Fight initiated from FieldCardsDisplay, attackType =", attackType);
+                                setIsFighting(true);
+                                if (attackType === "boss") {
+                                    console.log("RoomNavigation: FORCE BOSS MODE ACTIVATED from FieldCardsDisplay");
+                                    setIsBossFight(true);
+                                    setTempStrengthBoost(100);
+                                    setTempWillBoost(100);
+                                    setForceBossFight(true);
+                                }
+                                handleFight(enemyStrength, enemyWill, attackType || "strength");
+                            }}
                             onEquipItem={handleEquipItem}
+                            shouldShowBossChoice={shouldShowBossChoice}
+                            setShowBossChoice={setShowBossChoice}
                         />
                     )
                 )}
-                {fightResult && <p>{fightResult}</p>}
-                <div className={styles.diceRollContainer}>
-                    {isRolling ? (
-                        <div className={styles.slotAnimation}>
-                            <div className={styles.slot}>
-                                {[1, 2, 3, 4, 5, 6].map((num) => (
-                                    <div key={num} className={styles.slotItem}>
-                                        {num}
-                                    </div>
-                                ))}
+
+                {fightResult && !hasWonBossFight && <p>{fightResult}</p>}
+
+                {hasWonBossFight && showNextDifficultyButton && (
+                    <div className={styles.bossDefeatMessage}>
+                        <h3>Boss Defeated!</h3>
+                        <p>You have vanquished the boss and can now proceed to the next difficulty level.</p>
+                        <div className={styles.nextDifficultyWrapper}>
+                            <div className={styles.nextDifficultyButton}>
+                                <Button
+                                    text={`Proceed to Difficulty ${difficulty}`}
+                                    onClick={handleProceedToNextDifficulty}
+                                />
                             </div>
                         </div>
-                    ) : (
-                        <p>Dice Roll Result: {diceRollResult}</p>
-                    )}
-                </div>
-                {!isRolling && diceRollResult !== null && !isMoved && (
+                    </div>
+                )}
+
+                {!hasWonBossFight && (
+                    <div className={styles.diceRollContainer}>
+                        {isRolling ? (
+                            <div className={styles.slotAnimation}>
+                                <div className={styles.slot}>
+                                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                                        <div key={num} className={styles.slotItem}>
+                                            {num}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            diceRollResult !== null && <p>Dice Roll Result: {diceRollResult}</p>
+                        )}
+                    </div>
+                )}
+
+                {!hasWonBossFight && !isRolling && diceRollResult !== null && !isMoved && (
                     <div className={styles.moveButtons}>
                         <button onClick={() => handleMove("left")}>Go Left</button>
                         <button onClick={() => handleMove("right")}>Go Right</button>
                     </div>
                 )}
+
                 <div className={styles.cedule}>
                     <img src={cedule} alt="Description image" />
                     <img src={cedule} alt="Description image" />
                     <img src={cedule} alt="Description image" />
                 </div>
-                {showDiceRollButton && (
+
+                {showDiceRollButton && !hasWonBossFight && (
                     <Button text="Roll Dice" onClick={handleFilterAndMove} disabled={gameOver} />
                 )}
-                {fightResult && <p>{fightResult}</p>}
-                {field.items && field.items.length > 0 && (
+
+                {field?.items && field.items.length > 0 && (
                     <div className={styles.fieldItems}>
                         <h3>Items in this Room:</h3>
                         <ul>
@@ -629,6 +956,7 @@ const RoomNavigate: React.FC = () => {
                         </ul>
                     </div>
                 )}
+
                 <Inventory
                     inventory={inventory.filter(id => id !== undefined && id !== null)}
                     onRemoveItem={(itemId) => {
@@ -636,13 +964,14 @@ const RoomNavigate: React.FC = () => {
                             removeItemFromInventory(itemId);
                         }
                     }}
-                    equippedItemsIds={equippedItemIds.filter(id => id !== undefined && id !== null)}
+                    equippedItemIds={equippedItemIds.filter(id => id !== undefined && id !== null)}
                     onEquipItem={(card) => {
                         if (card && card.id) handleEquipItem(card as Card);
                     }}
                     onUnequipItem={handleUnequipItem}
                     maxCapacity={8}
                 />
+
                 {notification && (
                     <div className={styles.notification}>
                         {notification}

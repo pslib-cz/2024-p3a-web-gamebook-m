@@ -7,10 +7,13 @@ interface EnemyCardProps {
     description: string;
     strength: number;
     will: number;
-    onFight: (enemyStrength: number, enemyWill: number, attackType: "strength" | "will") => void;
+    onFight: (enemyStrength: number, enemyWill: number, attackType: "strength" | "will" | "boss") => void;
     onDontFight: () => void;
     imageId?: number | null;
     imageName: string | null;
+    cardId?: number;  // Optional to maintain compatibility
+    onEquip?: (card: any) => void; // Optional to maintain compatibility
+    isBoss?: boolean;  // Added to identify boss enemies
 }
 
 const EnemyCard: React.FC<EnemyCardProps> = ({
@@ -22,15 +25,19 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     onDontFight,
     imageId,
     imageName = "Enemy",
+    cardId,
+    onEquip,
+    isBoss = false, // Default to false if not provided
 }) => {
-    console.log("EnemyCard re-rendered");
+    console.log("EnemyCard re-rendered with isBoss:", isBoss, "name:", name);
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [isFighting, setIsFighting] = useState(false);
-    const [attackType, setAttackType] = useState<"strength" | "will" | null>(null); // State pro určení typu útoku
+    const [attackType, setAttackType] = useState<"strength" | "will" | null>(null); // State for determining attack type
+    const [waitingForReset, setWaitingForReset] = useState(false);
 
     useEffect(() => {
-        // Určení typu útoku na základě síly a vůle nepřítele
+        // Determine attack type based on strength and will values
         if (strength > will) {
             setAttackType("strength");
         } else {
@@ -39,24 +46,38 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     }, [strength, will]);
 
     const handleFightClick = () => {
-        console.log("handleFightClick called");
-        console.log("isFighting before:", isFighting);
-        setIsFighting(prevIsFighting => {
-            console.log("prevIsFighting:", prevIsFighting);
-            const newIsFighting = true;
-            console.log("newIsFighting:", newIsFighting);
-            return newIsFighting;
-        });
+        console.log("handleFightClick called - isBoss:", isBoss);
+        setIsFighting(true);
+        setWaitingForReset(false);
     };
 
     const handleHit = () => {
+        console.log("handleHit called - isBoss:", isBoss);
         if (attackType) {
-            onFight(strength, will, attackType);
+            // If this is a boss, use "boss" attack type, otherwise use the normal attack type
+            if (isBoss || name.toLowerCase().includes("boss")) {
+                console.log("EnemyCard: Using 'boss' attack type for boss enemy");
+                onFight(strength, will, "boss");
+            } else {
+                onFight(strength, will, attackType);
+            }
+            
+            // Instead of resetting fighting state immediately, set a flag
+            setWaitingForReset(true);
+            
+            // Reset fight state after a brief delay to allow animations/effects to complete
+            setTimeout(() => {
+                setIsFighting(false);
+                setWaitingForReset(false);
+            }, 2500);
         }
     };
 
+    // Determine if this is a boss based on the flag or the name
+    const displayAsBoss = isBoss || name.toLowerCase().includes("boss");
+
     return (
-        <div className={`${styles.cardContainer} ${isFighting ? styles.fighting : ''}`}>
+        <div className={`${styles.cardContainer} ${isFighting ? styles.fighting : ''} ${displayAsBoss ? styles.bossCard : ''}`}>
             <div className={styles.cardInner}>
                 {!isFighting && (
                     <>
@@ -64,29 +85,47 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                             {imageId && (
                                 <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} /> //Handle NULL
                             )}
-                            <h3>{name}</h3>
+                            <h3>{name} {displayAsBoss && <span className={styles.bossLabel}>BOSS</span>}</h3>
                             <p>{description}</p>
                         </div>
                         <div className={`${styles.cardBack} `} onClick={() => setIsFlipped(!isFlipped)}>
                             <p>Strength: {strength}</p>
                             <p>Will: {will}</p>
-                            <button onClick={handleFightClick}>Fight</button>
+                            <button 
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleFightClick();
+                                }}
+                                className={displayAsBoss ? styles.bossFightButton : ''}
+                            >
+                                Fight {displayAsBoss ? 'Boss' : ''}
+                            </button>
                         </div>
                     </>
                 )}
                 {isFighting && (
                     <div className={styles.fightMode}>
-                        {imageId && ( // Přidáno: Podmíněné zobrazení obrázku
+                        {imageId && ( 
                             <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
                         )}
-                        <h3>{name}</h3>
+                        <h3>{name} {displayAsBoss && <span className={styles.bossLabel}>BOSS</span>}</h3>
                         <p>Strength: {strength}</p>
                         <p>Will: {will}</p>
-                        {attackType && (
+                        
+                        {!waitingForReset && attackType && (
                             <div className={styles.fightButtons}>
-                                <button className={styles.hitButton} onClick={handleHit}>
+                                <button 
+                                    className={`${styles.hitButton} ${displayAsBoss ? styles.bossHitButton : ''}`} 
+                                    onClick={handleHit}
+                                >
                                     HIT ({attackType === "strength" ? "Síla" : "Vůle"})
                                 </button>
+                            </div>
+                        )}
+                        
+                        {waitingForReset && (
+                            <div className={styles.fightResult}>
+                                <p>Processing attack...</p>
                             </div>
                         )}
                     </div>

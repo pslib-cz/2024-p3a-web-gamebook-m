@@ -1,317 +1,758 @@
+/* RoomNavigate.module.css - Fantasy Old Design */
+
+/* Import fantasy fonts */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+/* Full screen layout and base styles */
 .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    overflow-y: auto;
+    background-color: #2c1b0d;
+    background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+    color: #3a2718;
+    font-family: 'MedievalSharp', cursive;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+}
+
+/* Background with image */
+.withBackground {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background 0.3s ease-in-out;
-    min-width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .withBackground {
-    background-color: rgba(0, 0, 0, 0.6); /* Poloprůhledné překrytí */
-  }
+    background-blend-mode: overlay;
+    background-color: rgba(44, 27, 13, 0.6);
+}
 
-  .container {
-    color: white;
-    background-color: #333;
-  }
-  
-  .withBackground {
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .content {
-    text-align: center;
-  }
-  
-  .characterCard {
-    margin-bottom: 20px;
-  }
-  
-  .characterImage {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
-  .diceRollContainer {
-    margin: 20px 0;
-  }
-  
-  .slotAnimation {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    overflow: hidden;
+/* Main content area */
+.content {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 85vh;
+    background-color: rgba(241, 227, 204, 0.9);
+    border: 15px solid transparent;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    margin: 2rem auto;
     position: relative;
-  }
-  
-  .slot {
-    position: absolute;
-    animation: rollAnimation 5s infinite;
-    text-align: center;
-  }
-  
-  .slotItem {
-    width: 100px;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #F4E5C3;
-    border: 1px solid #C0A080;
-    color: black;
+    overflow-y: auto;
+    border-radius: 5px;
+    max-height: 90vh;
+    scrollbar-width: thin;
+    scrollbar-color: #8b5a2b #f1e3cc;
+}
 
-  }
-  .slotItem img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .moveButtons button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-
-  
-  @keyframes rollAnimation {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-100px); }
-    50% { transform: translateY(-200px); }
-    75% { transform: translateY(-300px); }
-    100% { transform: translateY(-400px); }
-  }
-  .characterusername {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  .pfp {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: flex;
-  }
-  .characterCard {
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    margin: 20px; /* Optional: Add margin for spacing */
-    position: absolute;
-    top: 0%;
-    left: 0%;
-  }
-  
-  .characterImage {
-    width: 100px; /* Adjust the size as needed */
-    height: 100px; /* Adjust the size as needed */
-    border-radius: 50%; /* Optional: Makes the image circular */
-    object-fit: cover; /* Ensures the image fits well inside the circle */
-    margin-bottom: 10px; /* Space between image and username */
-  }
-  .cedule {
+.content:before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-  }
-  .fieldInfo {
-    width: 400px;
-    position: absolute;
-    top: 14%;
-    left: 39%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 1;
-    font-size: 0.8rem;
-  }
-  .fieldInfo h1 {
-    font-size: 2.0rem;
-    margin: 0;
-    text-align: center;
-  }
-  .characterStats2 {
-    position: absolute;
-    top: 85%;
-    left: 108%;
-    gap: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 1;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+    z-index: -1;
+    opacity: 0.7;
 }
-  .characterStats2 p {
-    text-align: center;
-    font-size: 26px;
-    width: 170px;
-  }
-  .characterStats {
-    position: absolute;
-    top: 85%;
-    left: 1400%;
-    gap: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 1;
-  }
-  .characterStats p {
-    text-align: center;
-    font-size: 26px;
-    width: 170px;
-  }
-  .rollDiceButton {
-    padding: 15px 67px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #F4E5C3;
-    color: black;
-    border: none;
+
+/* Scrollbar styling */
+.content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #f1e3cc;
     border-radius: 5px;
-    margin-top: 20px;
-    font-size: 48px;
-    border: 4px solid #C0A080;
-    border: radius 25px;
-  }
-  .rollDiceButton:hover {
-    background-color: #C0A080;
-    border: 4px solid #C0A080;
-  
-  }
-  .moveButtons button {
-    background-color: #F4E5C3;
-    border: 2px solid #C0A080;
-    color: black;
-
-  }
-  .moveButtons button:hover {
-    background-color: #C0A080;
-    border: 2px solid #C0A080;
-  }
-  .equippedItemContainer {
-    margin-top: 10px;
-    padding: 10px;
-    border: 2px solid #4CAF50;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease;
 }
 
-.equippedItemContainer h4 {
-    margin: 0 0 8px 0;
-    font-size: 14px;
-    text-align: center;
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Obrázek vybaveného předmětu */
-.equippedItemImage {
-    width: 80px;
-    height: 80px;
-    margin: 5px 0;
-    object-fit: contain;
-    border: 1px solid #ddd;
+.content::-webkit-scrollbar-thumb {
+    background-color: #8b5a2b;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    padding: 3px;
+    border: 3px solid #f1e3cc;
 }
 
-/* Bonusy vybaveného předmětu */
-.itemBonuses {
-    font-size: 0.9em;
-    margin: 8px 0;
-    width: 100%;
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #6b3e11;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
 }
 
-.itemBonuses p {
-    margin: 2px 0;
-    color: #0055aa;
-    font-weight: bold;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
-    padding: 2px 0;
-    border-radius: 3px;
-    background-color: rgba(0, 85, 170, 0.1);
+    position: relative;
 }
 
-/* Tlačítko pro odložení předmětu */
-.unequipButton {
-    margin-top: 8px;
-    padding: 5px 10px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
-    font-size: 12px;
+h1:after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #8b5a2b, transparent);
+    margin: 0.5rem auto;
 }
 
-.unequipButton:hover {
-    background-color: #d32f2f;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #502d16;
 }
 
-/* Vylepšené zobrazení statistik */
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    color: #3a2718;
+}
+
+/* Character card */
+.characterCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    background-color: rgba(255, 238, 204, 0.7);
+    border: 6px solid #92651d;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.characterCard:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/old-mathematics.png');
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.characterImage {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #c19a49;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.characterInfo {
+    flex: 1;
+    min-width: 250px;
+}
+
+.characterName {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #6b3e11;
+}
+
+/* Stats grid */
 .statGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-top: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
 }
 
 .statItem {
     display: flex;
-    align-items: center;
-    position: relative;
-    padding: 3px 6px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #b88c46;
 }
 
 .statLabel {
+    font-size: 0.9rem;
+    color: #6b3e11;
     font-weight: bold;
-    margin-right: 5px;
+    margin-bottom: 0.25rem;
 }
 
 .statValue {
-    font-weight: normal;
+    font-size: 1.2rem;
+    color: #3a2718;
+    font-weight: bold;
 }
 
 .statBonus {
-    margin-left: 5px;
-    color: #4CAF50;
+    color: #0a5c07;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.tempBonus {
+    color: #8e0909;
+    font-size: 0.9rem;
     font-weight: bold;
-    font-size: 0.85em;
-    background-color: rgba(76, 175, 80, 0.1);
-    padding: 1px 4px;
-    border-radius: 3px;
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    animation: pulsate 1.5s infinite alternate;
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Equipped item */
+.equippedItemContainer {
+    width: 180px;
+    background-color: rgba(183, 141, 75, 0.2);
+    border: 2px solid #92651d;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.equippedItemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0.5rem 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.itemBonuses {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #0a5c07;
+}
+
+.unequipButton {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background-color: #965c26;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.unequipButton:hover {
+    background-color: #7b4c1d;
+}
+
+/* Field info */
+.fieldInfo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Card container */
+.cardContainer {
+    max-width: 450px;
+    margin: 2rem auto;
+    perspective: 1000px;
+    transition: transform 0.3s;
+}
+
+/* Boss fight styles */
+.bossBoostActive {
+    animation: bossAura 2s infinite alternate;
+}
+
+@keyframes bossAura {
+    0% { box-shadow: 0 0 20px rgba(206, 60, 60, 0.4); }
+    100% { box-shadow: 0 0 40px rgba(206, 60, 60, 0.7); }
+}
+
+.dimmedOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+/* Boss defeat message */
+.bossDefeatMessage {
+    background-color: rgba(248, 222, 170, 0.9);
+    border: 4px solid #c19a49;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: glowVictory 2s infinite alternate;
+}
+
+@keyframes glowVictory {
+    0% { box-shadow: 0 0 10px rgba(193, 154, 73, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(193, 154, 73, 0.8); }
+}
+
+.nextDifficultyWrapper {
+    margin-top: 1.5rem;
+}
+
+.nextDifficultyButton button {
+    background-color: #78371c;
+    color: #f8deaa;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-family: 'Cinzel Decorative', cursive;
+    border: 2px solid #8e4822;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nextDifficultyButton button:hover {
+    background-color: #5e2c17;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nextDifficultyButton button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Dice rolling */
+.diceRollContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    min-height: 80px;
+}
+
+.slotAnimation {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid #8b5a2b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f8deaa;
+}
+
+.slot {
+    animation: slideSlot 0.5s infinite;
+}
+
+.slotItem {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6b3e11;
+}
+
+@keyframes slideSlot {
+    0% { transform: translateY(-300%); }
+    100% { transform: translateY(300%); }
+}
+
+/* Move buttons */
+.moveButtons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.moveButtons button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: none;
+    border-radius: 6px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.moveButtons button:hover {
+    background-color: #502d0c;
+    transform: translateY(-2px);
+}
+
+.moveButtons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cedule (images) */
+.cedule {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.cedule img {
+    max-width: 80px;
+    height: auto;
+    filter: sepia(0.6);
+    transition: all 0.3s;
+}
+
+.cedule img:hover {
+    transform: scale(1.1);
+    filter: sepia(0.3);
+}
+
+/* Inventory */
+.inventoryContainer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(183, 141, 75, 0.2);
+    border: 3px solid #c19a49;
+    border-radius: 8px;
+}
+
+.inventoryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.inventoryItem {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid #b88c46;
+    border-radius: 6px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.inventoryItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventoryItemImage {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.inventoryItemName {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #3a2718;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #f8deaa;
+    border: 2px solid #c19a49;
+    border-radius: 6px;
+    padding: 1rem;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.notification button {
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'MedievalSharp', cursive;
+}
+
+/* Game over screen */
+.gameOver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f8deaa;
+    z-index: 1000;
+}
+
+.gameOver h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #c19a49;
+    text-shadow: 0 0 10px rgba(193, 154, 73, 0.5);
+}
+
+.gameOver p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #f8deaa;
+}
+
+.gameOver button {
+    padding: 1rem 2rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: 2px solid #c19a49;
+    border-radius: 8px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gameOver button:hover {
+    background-color: #502d0c;
+    transform: scale(1.05);
+}
+
+/* Boss choice dialog */
+.bossChoiceDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: rgba(248, 222, 170, 0.95);
+    border: 8px solid #8b5a2b;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    text-align: center;
+}
+
+.bossChoiceDialog p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6b3e11;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bossChoiceDialog button {
+    padding: 0.8rem 1.5rem;
+    margin: 0 1rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: 2px solid #8b5a2b;
+    border-radius: 8px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bossChoiceDialog button:first-of-type {
+    background-color: #78371c;
+}
+
+.bossChoiceDialog button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Victory effect */
+.victoryEffect {
+    animation: victoryPulse 0.5s ease-in-out 3;
+}
+
+@keyframes victoryPulse {
+    0% { box-shadow: 0 0 0 rgba(193, 154, 73, 0); }
+    50% { box-shadow: 0 0 50px rgba(193, 154, 73, 0.8); }
+    100% { box-shadow: 0 0 0 rgba(193, 154, 73, 0); }
+}
+
+/* Field items */
+.fieldItems {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(183, 141, 75, 0.2);
+    border: 3px solid #c19a49;
+    border-radius: 8px;
+}
+
+.fieldItems h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.fieldItems ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.fieldItems li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fieldItems button {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: none;
+    border-radius: 5px;
+    font-family: 'MedievalSharp', cursive;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fieldItems button:hover {
+    background-color: #502d0c;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .characterCard {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .characterInfo {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .statGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .equippedItemContainer {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 1.5rem;
+    }
+    
+    .moveButtons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .moveButtons button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .statGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inventoryList {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .bossChoiceDialog {
+        padding: 1.5rem;
+    }
+    
+    .bossChoiceDialog p {
+        font-size: 1.2rem;
+    }
+    
+    .bossChoiceDialog button {
+        margin: 0.5rem;
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Animations for elements */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fieldInfo, .characterCard, .inventoryContainer, .fieldItems {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Hover effects */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:hover:after {
+    opacity: 1;
 }
