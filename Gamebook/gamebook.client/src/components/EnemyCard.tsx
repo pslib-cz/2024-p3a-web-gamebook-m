@@ -8,12 +8,13 @@ interface EnemyCardProps {
     strength: number;
     will: number;
     onFight: (enemyStrength: number, enemyWill: number, attackType: "strength" | "will" | "boss") => void;
-    onDontFight: () => void;
+    onDontFight?: () => void;
     imageId?: number | null;
-    imageName: string | null;
-    cardId?: number;  // Optional to maintain compatibility
-    onEquip?: (card: any) => void; // Optional to maintain compatibility
-    isBoss?: boolean;  // Added to identify boss enemies
+    imageName?: string | null;
+    cardId?: number;
+    onEquip?: (card: any) => void;
+    isBoss?: boolean;
+    hasWonFight?: boolean;
 }
 
 const EnemyCard: React.FC<EnemyCardProps> = ({
@@ -27,13 +28,12 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     imageName = "Enemy",
     cardId,
     onEquip,
-    isBoss = false, // Default to false if not provided
+    isBoss = false,
+    hasWonFight = false,
 }) => {
-    console.log("EnemyCard re-rendered with isBoss:", isBoss, "name:", name);
-
     const [isFlipped, setIsFlipped] = useState(false);
     const [isFighting, setIsFighting] = useState(false);
-    const [attackType, setAttackType] = useState<"strength" | "will" | null>(null); // State for determining attack type
+    const [attackType, setAttackType] = useState<"strength" | "will" | null>(null);
     const [waitingForReset, setWaitingForReset] = useState(false);
 
     useEffect(() => {
@@ -83,23 +83,54 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                     <>
                         <div className={`${styles.cardFront} `} onClick={() => setIsFlipped(!isFlipped)}>
                             {imageId && (
-                                <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} /> //Handle NULL
+                                <img src={`${API_BASE_URL}/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
                             )}
                             <h3>{name} {displayAsBoss && <span className={styles.bossLabel}>BOSS</span>}</h3>
                             <p>{description}</p>
+                            
+                            {/* Only show the Fight button if the fight hasn't been won */}
+                            {!hasWonFight && (
+                                <button 
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleFightClick();
+                                    }}
+                                    className={displayAsBoss ? styles.bossFightButton : ''}
+                                >
+                                    Fight {displayAsBoss ? 'Boss' : ''}
+                                </button>
+                            )}
+                            
+                            {/* Show victory message if fight was won */}
+                            {hasWonFight && (
+                                <p className={styles.victoryMessage}>
+                                    You defeated {displayAsBoss ? 'the BOSS!' : 'this enemy!'}
+                                </p>
+                            )}
                         </div>
                         <div className={`${styles.cardBack} `} onClick={() => setIsFlipped(!isFlipped)}>
                             <p>Strength: {strength}</p>
                             <p>Will: {will}</p>
-                            <button 
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleFightClick();
-                                }}
-                                className={displayAsBoss ? styles.bossFightButton : ''}
-                            >
-                                Fight {displayAsBoss ? 'Boss' : ''}
-                            </button>
+                            
+                            {/* Only show the Fight button if the fight hasn't been won */}
+                            {!hasWonFight && (
+                                <button 
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleFightClick();
+                                    }}
+                                    className={displayAsBoss ? styles.bossFightButton : ''}
+                                >
+                                    Fight {displayAsBoss ? 'Boss' : ''}
+                                </button>
+                            )}
+                            
+                            {/* Show victory message if fight was won */}
+                            {hasWonFight && (
+                                <p className={styles.victoryMessage}>
+                                    You defeated {displayAsBoss ? 'the BOSS!' : 'this enemy!'}
+                                </p>
+                            )}
                         </div>
                     </>
                 )}
@@ -112,7 +143,7 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                         <p>Strength: {strength}</p>
                         <p>Will: {will}</p>
                         
-                        {!waitingForReset && attackType && (
+                        {!waitingForReset && attackType && !hasWonFight && (
                             <div className={styles.fightButtons}>
                                 <button 
                                     className={`${styles.hitButton} ${displayAsBoss ? styles.bossHitButton : ''}`} 
@@ -127,6 +158,12 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                             <div className={styles.fightResult}>
                                 <p>Processing attack...</p>
                             </div>
+                        )}
+                        
+                        {hasWonFight && (
+                            <p className={styles.victoryMessage}>
+                                You defeated {displayAsBoss ? 'the BOSS!' : 'this enemy!'}
+                            </p>
                         )}
                     </div>
                 )}

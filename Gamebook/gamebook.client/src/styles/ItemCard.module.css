@@ -1,16 +1,230 @@
-.cardContainer {
-    padding: 10px;
-    margin-top: 20px;
-    background-color: transparent;
-    border-radius: 5px;
+/* ItemCard.module.css - Fantasy Style */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+.itemCard {
+    background-color: #F4E5C3;
+    border: 8px solid #92651d;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    max-width: 300px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'MedievalSharp', cursive;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.cardContainer img {
+
+/* Ornate border effect */
+.itemCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid rgba(146, 101, 29, 0.3);
+    border-radius: 10px;
+    pointer-events: none;
+    margin: 10px;
+}
+
+/* Parchment texture background */
+.itemCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.itemCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(193, 154, 73, 0.4);
+}
+
+.itemCard h3 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #6b3e11;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.75rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     width: 100%;
-    height: 200px;
-    border-radius: 5px;
 }
-.itemCard img {
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
+
+.itemCard h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #92651d, transparent);
+}
+
+.itemCard p {
+    color: #3a2718;
+    margin: 0.75rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.itemBonus {
+    color: #0a5c07;
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    background-color: rgba(10, 92, 7, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    border-left: 3px solid #0a5c07;
+    display: inline-block;
+    text-align: center;
+}
+
+.itemImage {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 3px solid #92651d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0.75rem 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px;
+}
+
+.equipButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #4b5320;
+    color: #f8deaa;
+    border: none;
+    border-radius: 6px;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.equipButton:hover {
+    background-color: #3a4119;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.equipButton:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light effect on button hover */
+.equipButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.equipButton:hover::after {
+    opacity: 1;
+}
+
+/* Special weapon effect */
+.weaponCard {
+    border-color: #7d4614;
+}
+
+.weaponCard .itemImage {
+    border-color: #7d4614;
+}
+
+/* Special armor effect */
+.armorCard {
+    border-color: #5a6e24;
+}
+
+.armorCard .itemImage {
+    border-color: #5a6e24;
+}
+
+/* Special magic item effect */
+.magicCard {
+    border-color: #4f4b8f;
+}
+
+.magicCard .itemImage {
+    border-color: #4f4b8f;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .itemCard {
+        max-width: 260px;
+        padding: 1rem;
+    }
+    
+    .itemImage {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .itemCard h3 {
+        font-size: 1.3rem;
+    }
+    
+    .itemCard p {
+        font-size: 0.9rem;
+    }
+    
+    .equipButton {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Item rarity indicators */
+.rarityCommon {
+    border-color: #92651d;
+}
+
+.rarityUncommon {
+    border-color: #408440;
+}
+
+.rarityRare {
+    border-color: #3f6da9;
+}
+
+.rarityEpic {
+    border-color: #9345bd;
+}
+
+.rarityLegendary {
+    border-color: #cd7f32;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(205, 127, 50, 0.5);
+}
+
+.rarityLegendary:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 30px rgba(205, 127, 50, 0.7);
 }

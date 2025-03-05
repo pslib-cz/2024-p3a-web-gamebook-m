@@ -119,7 +119,6 @@ p {
 /* Character card */
 .characterCard {
     display: flex;
-    flex-wrap: wrap;
     gap: 1.5rem;
     background-color: rgba(255, 238, 204, 0.7);
     border: 6px solid #92651d;
@@ -150,6 +149,8 @@ p {
     border-radius: 50%;
     border: 4px solid #c19a49;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    align-self: center;
+
 }
 
 .characterInfo {
@@ -664,7 +665,6 @@ p {
 @media (max-width: 768px) {
     .characterCard {
         flex-direction: column;
-        align-items: center;
     }
     
     .characterInfo {
@@ -680,6 +680,7 @@ p {
         width: 100%;
         max-width: 300px;
         margin-top: 1.5rem;
+        align-self: center;
     }
     
     .moveButtons {
@@ -755,4 +756,72 @@ button:after {
 
 button:hover:after {
     opacity: 1;
+}
+/* Add these styles to your RoomNavigate.module.css file */
+
+/* Center the Roll Dice button */
+.content button,
+.content .moveButtons,
+.content > Button {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Ensure the Button component is centered */
+.diceRollContainer + Button,
+.diceRollContainer ~ Button {
+  display: block !important;
+  margin: 1.5rem auto !important;
+  text-align: center !important;
+}
+
+/* Center the field description */
+.fieldInfo {
+  text-align: center !important;
+}
+
+/* Center field description paragraph */
+.fieldInfo + p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 800px !important;
+}
+
+/* Center the dice roll result text */
+.diceRollContainer p {
+  text-align: center !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+  color: #6b3e11 !important;
+}
+
+/* Center move buttons as a group */
+.moveButtons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Make boss defeat message centered */
+.bossDefeatMessage {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ensure the next difficulty button is centered */
+.nextDifficultyButton {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Center Button component wrapper */
+.nextDifficultyWrapper {
+  display: flex !important;
+  justify-content: center !important;
 }

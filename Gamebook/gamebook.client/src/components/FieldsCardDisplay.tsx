@@ -39,9 +39,17 @@ interface FieldCardsDisplayProps {
     onEquipItem: (card: Card) => void;
     shouldShowBossChoice: () => boolean;
     setShowBossChoice: (show: boolean) => void;
+    hasWonFight?: boolean; // Added prop to track if fight was won
 }
 
-const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight, onEquipItem, shouldShowBossChoice, setShowBossChoice }) => {
+const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ 
+    fieldId, 
+    onFight, 
+    onEquipItem, 
+    shouldShowBossChoice, 
+    setShowBossChoice,
+    hasWonFight = false 
+}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [enemy, setEnemy] = useState<IEnemy | null>(null);
@@ -229,6 +237,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                             cardId={card.id}
                             onEquip={onEquipItem}
                             isBoss={enemy.isBoss}
+                            hasWonFight={hasWonFight}
                         />
                     ) : card.type === "item" ? (
                         <ItemCard
@@ -242,37 +251,51 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({ fieldId, onFight,
                             bonusHP={card.bonusHP}
                         />
                     ) : card.type === "Boss" || card.isBoss ? (
-                        <div className={styles.cardContainer}>
-                            {card.imageId && (
-                                <img
-                                    src={`${API_BASE_URL}/files/${card.imageId}`}
-                                    alt={card.title}
-                                    className={styles.cardImage}
-                                />
-                            )}
-                            <h3 className={styles.cardName}>{card.title} <span className={styles.bossLabel}>BOSS</span></h3>
-                            <p className={styles.cardDescription}>{card.description}</p>
-                            <div className={styles.bossButtons}>
-                                <button
-                                    className={styles.fightButton}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        console.log("FieldCardsDisplay: BOSS FIGHT button clicked");
-                                        handleFightBoss();
-                                    }}
-                                >
-                                    Fight Boss
-                                </button>
-                                <button
-                                    className={styles.dontFightButton}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        console.log("FieldCardsDisplay: Don't fight boss button clicked");
-                                        handleDontFightBoss();
-                                    }}
-                                >
-                                    Retreat
-                                </button>
+                        <div className={`${styles.cardContainer} ${styles.bossCard}`}>
+                            <div className={styles.cardInner}>
+                                <div className={styles.fightMode}>
+                                    {card.imageId && (
+                                        <img 
+                                            src={`${API_BASE_URL}/files/${card.imageId}`} 
+                                            alt={card.title} 
+                                            className={styles.cardImage} 
+                                        />
+                                    )}
+                                    <h3>{card.title} <span className={styles.bossLabel}>BOSS</span></h3>
+                                    <p>{card.description}</p>
+                                    
+                                    {!hasWonFight && (
+                                        <div className={styles.fightButtons}>
+                                            <button
+                                                className={`${styles.hitButton} ${styles.bossHitButton}`}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    console.log("FieldCardsDisplay: BOSS FIGHT button clicked");
+                                                    handleFightBoss();
+                                                }}
+                                            >
+                                                Fight Boss
+                                            </button>
+                                            <button
+                                                className={styles.hitButton}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    console.log("FieldCardsDisplay: Don't fight boss button clicked");
+                                                    handleDontFightBoss();
+                                                    setIsFlipped(false); // Hide the card after retreating
+                                                }}
+                                            >
+                                                Retreat
+                                            </button>
+                                        </div>
+                                    )}
+                                    
+                                    {hasWonFight && (
+                                        <p className={styles.victoryMessage}>
+                                            You defeated the BOSS!
+                                        </p>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     ) : (

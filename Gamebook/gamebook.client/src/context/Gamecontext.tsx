@@ -134,46 +134,72 @@ export const GameContextProvider: React.FC<GameContextProviderProps> = ({ childr
     const addItemToInventory = (itemId: number) => {
         if (inventory.length >= 8) {
             console.warn("Inventory is full (max 8 items)");
-            return;
+            return false;
         }
         if (!inventory.includes(itemId)) {
-            setInventory(prev => [...prev, itemId]);
-            localStorage.setItem('playerInventory', JSON.stringify([...inventory, itemId]));
+            console.log(`Adding item ${itemId} to inventory`);
+            setInventory(prev => {
+                const newInventory = [...prev, itemId];
+                localStorage.setItem('playerInventory', JSON.stringify(newInventory));
+                return newInventory;
+            });
+            return true;
         }
+        return true; // Item already in inventory
     };
 
     const removeItemFromInventory = (itemId: number) => {
+        console.log(`Removing item ${itemId} from inventory`);
+        
+        // First, unequip the item if it's equipped
+        if (equippedItemIds.includes(itemId)) {
+            unequipItem(itemId);
+        }
+        
         setInventory(prev => {
             const newInventory = prev.filter(id => id !== itemId);
             localStorage.setItem('playerInventory', JSON.stringify(newInventory));
             return newInventory;
         });
-        setEquippedItemIds(prev => {
-            const newEquipped = prev.filter(id => id !== itemId);
-            localStorage.setItem('equippedItemIds', JSON.stringify(newEquipped));
-            return newEquipped;
-        });
     };
 
-    // Equipment management with 8-item limit
+    // Equipment management with 8-item limit and auto-adding to inventory
     const equipItem = (itemId: number) => {
-        if (!inventory.includes(itemId)) {
-            console.warn(`Item ${itemId} not in inventory`);
+        console.log(`Attempting to equip item ${itemId}`);
+        
+        // Check if we can add more equipped items
+        if (equippedItemIds.length >= 8) {
+            console.warn("Cannot equip more than 8 items");
             return;
         }
-        setEquippedItemIds(prev => {
-            if (prev.includes(itemId)) return prev;
-            if (prev.length >= 8) {
-                console.warn("Cannot equip more than 8 items");
-                return prev;
+        
+        // If item is already equipped, do nothing
+        if (equippedItemIds.includes(itemId)) {
+            console.log(`Item ${itemId} is already equipped`);
+            return;
+        }
+
+        // Check if item is in inventory, add it if not
+        if (!inventory.includes(itemId)) {
+            console.log(`Item ${itemId} not in inventory, adding it first`);
+            const added = addItemToInventory(itemId);
+            if (!added) {
+                console.warn("Could not add item to inventory - it might be full");
+                return;
             }
+        }
+        
+        // Now equip the item
+        setEquippedItemIds(prev => {
             const newEquipped = [...prev, itemId];
             localStorage.setItem('equippedItemIds', JSON.stringify(newEquipped));
+            console.log(`Item ${itemId} equipped successfully. Total equipped: ${newEquipped.length}`);
             return newEquipped;
         });
     };
 
     const unequipItem = (itemId: number) => {
+        console.log(`Unequipping item ${itemId}`);
         setEquippedItemIds(prev => {
             const newEquipped = prev.filter(id => id !== itemId);
             localStorage.setItem('equippedItemIds', JSON.stringify(newEquipped));
@@ -197,7 +223,11 @@ export const GameContextProvider: React.FC<GameContextProviderProps> = ({ childr
         if (storedInventory) {
             try {
                 const parsedInventory = JSON.parse(storedInventory);
-                if (Array.isArray(parsedInventory)) setInventory(parsedInventory);
+                if (Array.isArray(parsedInventory)) {
+                    // Filter out null or undefined values
+                    const validInventory = parsedInventory.filter(id => id !== null && id !== undefined);
+                    setInventory(validInventory);
+                }
             } catch (error) {
                 console.error('Error parsing inventory:', error);
             }
@@ -207,7 +237,11 @@ export const GameContextProvider: React.FC<GameContextProviderProps> = ({ childr
         if (storedEquipped) {
             try {
                 const parsedEquipped = JSON.parse(storedEquipped);
-                if (Array.isArray(parsedEquipped)) setEquippedItemIds(parsedEquipped);
+                if (Array.isArray(parsedEquipped)) {
+                    // Filter out null or undefined values
+                    const validEquipped = parsedEquipped.filter(id => id !== null && id !== undefined);
+                    setEquippedItemIds(validEquipped);
+                }
             } catch (error) {
                 console.error('Error parsing equipped items:', error);
             }

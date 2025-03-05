@@ -9,6 +9,7 @@ import Inventory from "../components/Inventory";
 import ItemCard from "../components/ItemCard";
 import BossCard from "../components/BossCard";
 import EnemyCard from "../components/EnemyCard";
+import VictoryScreen from "../components/VictoryScreen";
 import { useGameContext } from "../context/Gamecontext";
 
 interface Field {
@@ -114,12 +115,13 @@ const RoomNavigate: React.FC = () => {
     const [showBossButtons, setShowBossButtons] = useState(false);
     const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
     const [attackType, setAttackType] = useState<AttackType | null>(null);
-    const [equippedCard, setEquippedCard] = useState<Card | null>(null);
+    const [equippedCards, setEquippedCards] = useState<Card[]>([]);
     const [equippedItemIds, setEquippedItemIds] = useState<number[]>(contextEquippedItemIds);
     const [notification, setNotification] = useState<string | null>(null);
     const [showBossChoice, setShowBossChoice] = useState(false);
     const [showNextDifficultyButton, setShowNextDifficultyButton] = useState(false);
     const [hasWonBossFight, setHasWonBossFight] = useState(false);
+    const [hasWonGame, setHasWonGame] = useState(false);
 
     const [tempStrengthBoost, setTempStrengthBoost] = useState(0);
     const [tempWillBoost, setTempWillBoost] = useState(0);
@@ -141,12 +143,15 @@ const RoomNavigate: React.FC = () => {
     const baseWill = character?.will || 0;
     const baseHP = character?.maxHP || 10;
 
-    const itemStrengthBonus = equippedCard?.bonusStrength || 0;
-    const itemWillBonus = equippedCard?.bonusWile || 0;
-    const itemHPBonus = equippedCard?.bonusHP || 0;
+    // Calculate total item bonuses from all equipped items
+    const [itemStrengthBonus, setItemStrengthBonus] = useState(0);
+    const [itemWillBonus, setItemWillBonus] = useState(0);
+    const [itemHPBonus, setItemHPBonus] = useState(0);
 
+    // Total stats calculation
     const strength = baseStrength + strengthBonusFromEnemies + itemStrengthBonus + tempStrengthBoost;
     const will = baseWill + willBonusFromEnemies + itemWillBonus + tempWillBoost;
+    const maxHP = baseHP + itemHPBonus;
 
     const [difficulty, setDifficulty] = useState(() => {
         const savedDifficulty = localStorage.getItem("currentDifficulty");
@@ -154,44 +159,60 @@ const RoomNavigate: React.FC = () => {
     });
 
     const isBossEnemy = (enemy: any, field: Field | null) => {
-        console.log("BOSS DETECTION DEBUG:");
-        console.log("- Field type:", field?.type);
-        console.log("- ShowBossButtons state:", showBossButtons);
-        console.log("- Enemy:", enemy);
-        console.log("- isBossFight state:", isBossFight);
-        console.log("- forceBossFight state:", forceBossFight);
-        console.log("- Enemy isBoss property:", enemy?.isBoss);
-
         const fieldIsBossType = field?.type === "Boss";
-        console.log("- Field is Boss type:", fieldIsBossType);
-
         const nameContainsBoss = enemy?.name?.toLowerCase().includes("boss") || false;
-        console.log("- Enemy name contains 'boss':", nameContainsBoss);
-
         const hasTempBoost = isBossFight;
-        console.log("- Has temporary boss boost:", hasTempBoost);
-
         const isVeryStrong = enemy?.strength >= 20 || enemy?.will >= 20;
-        console.log("- Enemy is very strong:", isVeryStrong);
-
         const hasIsBossFlag = enemy?.isBoss === true;
-        console.log("- Enemy has isBoss flag:", hasIsBossFlag);
 
-        const isBoss = forceBossFight || fieldIsBossType || showBossButtons || nameContainsBoss ||
-                       hasTempBoost || isVeryStrong || hasIsBossFlag;
-        console.log("FINAL BOSS DETECTION RESULT:", isBoss);
-
-        return isBoss;
+        return forceBossFight || fieldIsBossType || showBossButtons || nameContainsBoss ||
+               hasTempBoost || isVeryStrong || hasIsBossFlag;
     };
 
+    // Calculate cumulative bonuses from all equipped items
+    useEffect(() => {
+        const fetchEquippedCards = async () => {
+            const cards: Card[] = [];
+            let totalStrength = 0;
+            let totalWill = 0;
+            let totalHP = 0;
+
+            for (const itemId of contextEquippedItemIds) {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/cards/${itemId}`);
+                    if (response.ok) {
+                        const card = await response.json();
+                        cards.push(card);
+                        
+                        // Add up bonuses
+                        totalStrength += card.bonusStrength || 0;
+                        totalWill += card.bonusWile || 0;
+                        totalHP += card.bonusHP || 0;
+                    }
+                } catch (error) {
+                    console.error(`Error fetching card ${itemId}:`, error);
+                }
+            }
+            
+            setEquippedCards(cards);
+            setItemStrengthBonus(totalStrength);
+            setItemWillBonus(totalWill);
+            setItemHPBonus(totalHP);
+        };
+
+        fetchEquippedCards();
+    }, [contextEquippedItemIds]);
+
+    // Update HP when character or bonuses change
     useEffect(() => {
         if (character && typeof setHp === 'function') {
             const totalHP = baseHP + itemHPBonus;
             setHp(totalHP);
             localStorage.setItem("currentHP", totalHP.toString());
         }
-    }, [character, baseHP, itemHPBonus, equippedCard, setHp]);
+    }, [character, baseHP, itemHPBonus, setHp]);
 
+    // Load stored HP on component mount
     useEffect(() => {
         const storedHP = localStorage.getItem("currentHP");
         if (storedHP && typeof setHp === 'function') {
@@ -202,6 +223,7 @@ const RoomNavigate: React.FC = () => {
         }
     }, [setHp]);
 
+    // Load enemy bonuses from localStorage
     useEffect(() => {
         const storedData = localStorage.getItem('gameData');
         if (storedData) {
@@ -211,6 +233,7 @@ const RoomNavigate: React.FC = () => {
         }
     }, []);
 
+    // Save enemy bonuses to localStorage when they change
     useEffect(() => {
         localStorage.setItem('gameData', JSON.stringify({
             strengthBonus: strengthBonusFromEnemies,
@@ -218,11 +241,12 @@ const RoomNavigate: React.FC = () => {
         }));
     }, [strengthBonusFromEnemies, willBonusFromEnemies]);
 
+    // Save difficulty to localStorage when it changes
     useEffect(() => {
         localStorage.setItem("currentDifficulty", difficulty.toString());
-        console.log("RoomNavigation: Difficulty updated and saved to localStorage:", difficulty);
     }, [difficulty]);
 
+    // Load inventory and equipped items from localStorage
     useEffect(() => {
         const loadPersistedData = () => {
             try {
@@ -238,13 +262,15 @@ const RoomNavigate: React.FC = () => {
                     }
                 }
 
-                const storedEquippedItemId = localStorage.getItem("equippedItemId");
-                if (storedEquippedItemId) {
-                    const itemId = parseInt(storedEquippedItemId, 10);
-                    if (contextEquippedItemIds.length === 0 && !isNaN(itemId)) {
-                        if (typeof contextEquipItem === 'function') {
-                            contextEquipItem(itemId);
-                        }
+                const storedEquippedItemIds = localStorage.getItem("equippedItemIds");
+                if (storedEquippedItemIds) {
+                    const parsedIds = JSON.parse(storedEquippedItemIds);
+                    if (contextEquippedItemIds.length === 0 && Array.isArray(parsedIds)) {
+                        parsedIds.forEach(itemId => {
+                            if (typeof contextEquipItem === 'function') {
+                                contextEquipItem(itemId);
+                            }
+                        });
                     }
                 }
             } catch (error) {
@@ -255,17 +281,19 @@ const RoomNavigate: React.FC = () => {
         loadPersistedData();
     }, [addItemToInventory, contextEquipItem, inventory, contextEquippedItemIds]);
 
+    // Save inventory to localStorage when it changes
     useEffect(() => {
         if (inventory.length > 0) {
             localStorage.setItem("playerInventory", JSON.stringify(inventory));
         }
     }, [inventory]);
 
+    // Save equipped items to localStorage when they change
     useEffect(() => {
-        if (contextEquippedItemIds.length > 0 && contextEquippedItemIds[0]) {
-            localStorage.setItem("equippedItemId", contextEquippedItemIds[0].toString());
-        } else if (contextEquippedItemIds.length === 0) {
-            localStorage.removeItem("equippedItemId");
+        if (contextEquippedItemIds.length > 0) {
+            localStorage.setItem("equippedItemIds", JSON.stringify(contextEquippedItemIds));
+        } else {
+            localStorage.removeItem("equippedItemIds");
         }
     }, [contextEquippedItemIds]);
 
@@ -294,6 +322,8 @@ const RoomNavigate: React.FC = () => {
         setFightResult(null);
         setHasWonBossFight(false);
         setShowNextDifficultyButton(false);
+        setHasWonGame(false);
+        setHasWonFight(false);
         
         setTempStrengthBoost(0);
         setTempWillBoost(0);
@@ -316,31 +346,7 @@ const RoomNavigate: React.FC = () => {
         setIsFighting(false);
     };
 
-    useEffect(() => {
-        if (contextEquippedItemIds && contextEquippedItemIds.length > 0 && contextEquippedItemIds[0]) {
-            fetchEquippedCard(contextEquippedItemIds[0]);
-        } else {
-            setEquippedCard(null);
-            setShowDiceRollButton(false);
-        }
-    }, [contextEquippedItemIds]);
-
-    const fetchEquippedCard = async (cardId: number) => {
-        if (!cardId) return;
-        try {
-            const response = await fetch(`${API_BASE_URL}/cards/${cardId}`);
-            if (response.ok) {
-                const card = await response.json() as Card;
-                setEquippedCard(card);
-                setShowDiceRollButton(true);
-            }
-        } catch (error) {
-            console.error("Error fetching equipped card:", error);
-        }
-    };
-
     const loadNextDifficultyField = async (newDifficulty: number) => {
-        console.log("RoomNavigation: Loading fields for difficulty level:", newDifficulty);
         try {
             const response = await fetch(`${API_BASE_URL}/fields`);
             if (!response.ok) {
@@ -370,8 +376,10 @@ const RoomNavigate: React.FC = () => {
             
             const targetDifficultyFields = allFields.filter((field: Field) => field.difficulty === newDifficulty);
             
+            // Check if there are fields at the next difficulty level
             if (targetDifficultyFields.length === 0) {
-                setError(`No fields found for difficulty level ${newDifficulty}.`);
+                // No more fields available - player has won the game!
+                setHasWonGame(true);
                 return;
             }
             
@@ -383,10 +391,11 @@ const RoomNavigate: React.FC = () => {
             
             setHasWonBossFight(false);
             setShowNextDifficultyButton(false);
+            setHasWonFight(false);
             
             navigate(`/game/${nextField.fieldId}`);
         } catch (err) {
-            console.error("RoomNavigation: Error loading next difficulty fields:", err);
+            console.error("Error loading next difficulty fields:", err);
             setError("Error loading fields of next difficulty level.");
         }
     };
@@ -432,7 +441,7 @@ const RoomNavigate: React.FC = () => {
                 localStorage.setItem("currentDifficulty", fetchedField.difficulty.toString());
             }
         } catch (err) {
-            console.error("RoomNavigation: Error loading field data:", err);
+            console.error("Error loading field data:", err);
             setError(`Error: ${err}`);
         } finally {
             setLoading(false);
@@ -445,22 +454,14 @@ const RoomNavigate: React.FC = () => {
 
             let isBossFightLocal = false;
             if (attackType === "boss") {
-                console.log("RoomNavigation: 'boss' attack type detected - switching to strength attack type");
                 attackType = "strength";
                 isBossFightLocal = true;
                 if (!isBossFight) {
-                    console.log("RoomNavigation: Activating boss mode due to 'boss' attack type");
                     setIsBossFight(true);
                     setTempStrengthBoost(100);
                     setTempWillBoost(100);
                     setForceBossFight(true);
                 }
-            }
-
-            console.log("RoomNavigation: Starting fight with enemy strength:", enemyStrength, "will:", enemyWill);
-            console.log(`RoomNavigation: Player stats: strength ${strength.toFixed(2)}, will ${will.toFixed(2)}`);
-            if (tempStrengthBoost > 0 || tempWillBoost > 0) {
-                console.log(`RoomNavigation: Including temporary boost: +${tempStrengthBoost} strength, +${tempWillBoost} will`);
             }
 
             const playerStrength = strength;
@@ -469,9 +470,6 @@ const RoomNavigate: React.FC = () => {
             const enemyRoll = Math.floor(Math.random() * 6) + 1;
             const playerTotal = attackType === "strength" ? playerStrength + playerRoll : playerWill + playerRoll;
             const enemyTotal = attackType === "strength" ? enemyStrength + enemyRoll : enemyWill + enemyRoll;
-
-            console.log(`RoomNavigation: Player rolls ${playerRoll}, total ${playerTotal.toFixed(2)}`);
-            console.log(`RoomNavigation: Enemy rolls ${enemyRoll}, total ${enemyTotal.toFixed(2)}`);
 
             let resultMessage = "";
             let damage = 0;
@@ -484,7 +482,6 @@ const RoomNavigate: React.FC = () => {
             };
 
             const isBoss = isBossEnemy(mockEnemy, field);
-            console.log("FINAL BOSS DETERMINATION:", isBoss, "isBossFightLocal=", isBossFightLocal);
 
             if (playerTotal > enemyTotal) {
                 damage = playerTotal - enemyTotal;
@@ -495,7 +492,6 @@ const RoomNavigate: React.FC = () => {
                 if (isBoss) {
                     strengthGain = Math.max((enemyStrength / 10) * 5, 5);
                     willGain = Math.max((enemyWill / 10) * 5, 5);
-                    console.log(`BOSS DEFEATED! Awarding ${strengthGain.toFixed(2)} strength and ${willGain.toFixed(2)} will bonus!`);
                 } else {
                     strengthGain = enemyStrength / 10;
                     willGain = enemyWill / 10;
@@ -550,6 +546,7 @@ const RoomNavigate: React.FC = () => {
                     });
                 }
                 setFightResult(resultMessage);
+                setHasWonFight(false);
             } else {
                 resultMessage = `It's a draw! (You: ${playerTotal.toFixed(2)}, Enemy: ${enemyTotal.toFixed(2)})`;
                 setHasWonFight(false);
@@ -557,7 +554,6 @@ const RoomNavigate: React.FC = () => {
             }
 
             if (isBossFightLocal) {
-                console.log("RoomNavigation: Removing temporary boss fight boost and flags");
                 setTempStrengthBoost(0);
                 setTempWillBoost(0);
                 setIsBossFight(false);
@@ -566,13 +562,11 @@ const RoomNavigate: React.FC = () => {
 
             setIsFighting(false);
             setAttackType(null);
-            console.log("RoomNavigation: Fight result:", resultMessage);
         },
         [strength, will, setHp, setGameOver, gameOver, strengthBonusFromEnemies, willBonusFromEnemies, field, currentEnemy, difficulty, isBossEnemy, isBossFight, forceBossFight, tempStrengthBoost, tempWillBoost]
     );
 
     const handleProceedToNextDifficulty = () => {
-        console.log("RoomNavigation: Player chose to proceed to next difficulty level:", difficulty);
         setLoading(true);
         setTimeout(() => {
             loadNextDifficultyField(difficulty);
@@ -631,8 +625,9 @@ const RoomNavigate: React.FC = () => {
             if (typeof setIsMoved === 'function') setIsMoved(true);
             setDiceRollResult(null);
             setShowDiceRollButton(false);
+            setHasWonFight(false); // Reset fight win state when moving
         } catch (err) {
-            console.error("RoomNavigation: Error in handleMove:", err);
+            console.error("Error in handleMove:", err);
             setError("Error loading fields.");
         }
 
@@ -660,18 +655,28 @@ const RoomNavigate: React.FC = () => {
     const handleEquipItem = useCallback(
         async (card: Card) => {
             if (!card || !card.id) return;
-            if (typeof contextEquipItem === 'function') contextEquipItem(card.id);
-            setEquippedCard(card);
-            setShowDiceRollButton(true);
+            // Only equip if we haven't reached the maximum number of equipped items
+            if (contextEquippedItemIds.length < 8) {
+                if (typeof contextEquipItem === 'function') {
+                    contextEquipItem(card.id);
+                }
+                setShowDiceRollButton(true);
+            } else {
+                setNotification("You can only equip up to 8 items at once. Unequip something first.");
+            }
         },
-        [contextEquipItem]
+        [contextEquipItem, contextEquippedItemIds.length]
     );
 
-    const handleUnequipItem = useCallback(() => {
-        if (typeof contextUnequipItem === 'function') contextUnequipItem();
-        setEquippedCard(null);
-        setShowDiceRollButton(false);
-    }, [contextUnequipItem]);
+    const handleUnequipItem = useCallback((itemId: number) => {
+        if (typeof contextUnequipItem === 'function') {
+            contextUnequipItem(itemId);
+        }
+        // Only hide dice roll button if no items are equipped
+        if (contextEquippedItemIds.length <= 1) {
+            setShowDiceRollButton(false);
+        }
+    }, [contextUnequipItem, contextEquippedItemIds.length]);
 
     const handleFightBoss = () => {
         setShowBossChoice(false);
@@ -691,7 +696,7 @@ const RoomNavigate: React.FC = () => {
                         setIsFighting(true);
                     }
                 })
-                .catch(error => console.error("RoomNavigation: Error fetching boss enemy:", error));
+                .catch(error => console.error("Error fetching boss enemy:", error));
         } else {
             const defaultBoss: Enemy = {
                 enemyId: 9999,
@@ -709,7 +714,8 @@ const RoomNavigate: React.FC = () => {
 
     const handleDontFightBoss = () => {
         setShowBossChoice(false);
-        alert("You chose not to fight the boss. Continue your journey...");
+        setShowDiceRollButton(true); // Show Roll Dice button when retreating
+        console.log("User chose to retreat from boss fight, showing dice roll button");
     };
 
     useEffect(() => {
@@ -722,17 +728,6 @@ const RoomNavigate: React.FC = () => {
         }
     }, [field]);
 
-    useEffect(() => {
-        if (inventory.length > 0) {
-            const itemsToEquip = inventory.slice(0, 8);
-            itemsToEquip.forEach(itemId => {
-                if (typeof contextEquipItem === 'function' && !contextEquippedItemIds.includes(itemId)) {
-                    contextEquipItem(itemId);
-                }
-            });
-        }
-    }, [inventory, contextEquipItem, contextEquippedItemIds]);
-
     const shouldShowBossChoice = useCallback(() => {
         return field?.type === "Boss";
     }, [field]);
@@ -740,6 +735,7 @@ const RoomNavigate: React.FC = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: Field with ID {startingFieldId} not found.</p>;
 
+    // Show the game over screen if player HP is 0
     if (gameOver) {
         return (
             <div className={styles.gameOver}>
@@ -750,12 +746,25 @@ const RoomNavigate: React.FC = () => {
         );
     }
 
+    // Show the victory screen if player has won the game
+    if (hasWonGame) {
+        return (
+            <VictoryScreen 
+                character={character}
+                strengthBonusFromEnemies={strengthBonusFromEnemies}
+                willBonusFromEnemies={willBonusFromEnemies}
+                onRestart={resetGame}
+            />
+        );
+    }
+
     return (
         <div
             className={`${styles.container} ${fieldImage ? styles.withBackground : ""} ${isBossFight ? styles.bossBoostActive : ''}`}
             style={fieldImage ? { backgroundImage: `url(${fieldImage})` } : {}}
         >
             {isFighting && <div className={styles.dimmedOverlay} />}
+            
             <div className={styles.content}>
                 {character && (
                     <div className={styles.characterCard}>
@@ -776,7 +785,7 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Strength:</span>
-                                    <span className={styles.statValue}>{(baseStrength + strengthBonusFromEnemies + itemStrengthBonus).toFixed(2)}</span>
+                                    <span className={styles.statValue}>{(baseStrength + strengthBonusFromEnemies).toFixed(2)}</span>
                                     {itemStrengthBonus > 0 && (
                                         <span className={styles.statBonus}>+{itemStrengthBonus.toFixed(2)}</span>
                                     )}
@@ -786,7 +795,7 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Will:</span>
-                                    <span className={styles.statValue}>{(baseWill + willBonusFromEnemies + itemWillBonus).toFixed(2)}</span>
+                                    <span className={styles.statValue}>{(baseWill + willBonusFromEnemies).toFixed(2)}</span>
                                     {itemWillBonus > 0 && (
                                         <span className={styles.statBonus}>+{itemWillBonus.toFixed(2)}</span>
                                     )}
@@ -796,7 +805,7 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Destiny Points:</span>
-                                    <span className={styles.statValue}>{character.pointsOfDestiny.toFixed(2)}</span>
+                                    <span className={styles.statValue}>{character.pointsOfDestiny?.toFixed(2) || 0}</span>
                                 </div>
                                 <div className={styles.statItem}>
                                     <span className={styles.statLabel}>Difficulty:</span>
@@ -804,32 +813,29 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        {equippedCard && (
-                            <div className={styles.equippedItemContainer}>
-                                <h4>Equipped: {equippedCard.title || equippedCard.name}</h4>
-                                {equippedCard.imageId && (
-                                    <img
-                                        src={`${API_BASE_URL}/files/${equippedCard.imageId}`}
-                                        alt={equippedCard.title || equippedCard.name || "Equipped Item"}
-                                        className={styles.equippedItemImage}
-                                    />
-                                )}
-                                <div className={styles.itemBonuses}>
-                                    {equippedCard.bonusStrength > 0 && <p>+{equippedCard.bonusStrength.toFixed(2)} Strength</p>}
-                                    {equippedCard.bonusWile > 0 && <p>+{equippedCard.bonusWile.toFixed(2)} Will</p>}
-                                    {equippedCard.bonusHP > 0 && <p>+{equippedCard.bonusHP.toFixed(2)} HP</p>}
+                        
+                        {/* Display equipped items count instead of a single equipped card */}
+                        <div className={styles.equippedItemContainer}>
+                            <h4>Equipped Items: {contextEquippedItemIds.length}/8</h4>
+                            {contextEquippedItemIds.length > 0 ? (
+                                <div className={styles.equippedItemsSummary}>
+                                    <div className={styles.totalBonuses}>
+                                        {itemStrengthBonus > 0 && <p>+{itemStrengthBonus.toFixed(2)} Strength</p>}
+                                        {itemWillBonus > 0 && <p>+{itemWillBonus.toFixed(2)} Will</p>}
+                                        {itemHPBonus > 0 && <p>+{itemHPBonus.toFixed(2)} HP</p>}
+                                    </div>
                                 </div>
-                                <button onClick={handleUnequipItem} className={styles.unequipButton}>
-                                    Unequip
-                                </button>
-                            </div>
-                        )}
+                            ) : (
+                                <p>No items equipped</p>
+                            )}
+                        </div>
                     </div>
                 )}
+                
                 <div className={styles.fieldInfo}>
                     <h1>{field?.title}</h1>
                 </div>
-                <p>{field?.description}</p>
+                <p style={{ textAlign: 'center' }}>{field?.description}</p>
 
                 {showBossButtons ? (
                     <>
@@ -854,6 +860,7 @@ const RoomNavigate: React.FC = () => {
                                     setIsFighting(true);
                                     handleFight(enemyStrength, enemyWill, currentEnemy.isBoss ? "boss" : attackType);
                                 }}
+                                hasWonFight={hasWonFight} // Pass the hasWonFight prop here
                             />
                         )}
                     </>
@@ -862,10 +869,8 @@ const RoomNavigate: React.FC = () => {
                         <FieldCardsDisplay
                             fieldId={startingFieldId}
                             onFight={(enemyStrength, enemyWill, attackType) => {
-                                console.log("RoomNavigation: Fight initiated from FieldCardsDisplay, attackType =", attackType);
                                 setIsFighting(true);
                                 if (attackType === "boss") {
-                                    console.log("RoomNavigation: FORCE BOSS MODE ACTIVATED from FieldCardsDisplay");
                                     setIsBossFight(true);
                                     setTempStrengthBoost(100);
                                     setTempWillBoost(100);
@@ -876,11 +881,12 @@ const RoomNavigate: React.FC = () => {
                             onEquipItem={handleEquipItem}
                             shouldShowBossChoice={shouldShowBossChoice}
                             setShowBossChoice={setShowBossChoice}
+                            hasWonFight={hasWonFight} // Pass the hasWonFight prop here
                         />
                     )
                 )}
 
-                {fightResult && !hasWonBossFight && <p>{fightResult}</p>}
+                {fightResult && <p style={{ textAlign: 'center' }}>{fightResult}</p>}
 
                 {hasWonBossFight && showNextDifficultyButton && (
                     <div className={styles.bossDefeatMessage}>
@@ -910,7 +916,7 @@ const RoomNavigate: React.FC = () => {
                                 </div>
                             </div>
                         ) : (
-                            diceRollResult !== null && <p>Dice Roll Result: {diceRollResult}</p>
+                            diceRollResult !== null && <p style={{ textAlign: 'center' }}>Dice Roll Result: {diceRollResult}</p>
                         )}
                     </div>
                 )}
@@ -922,14 +928,11 @@ const RoomNavigate: React.FC = () => {
                     </div>
                 )}
 
-                <div className={styles.cedule}>
-                    <img src={cedule} alt="Description image" />
-                    <img src={cedule} alt="Description image" />
-                    <img src={cedule} alt="Description image" />
-                </div>
 
                 {showDiceRollButton && !hasWonBossFight && (
-                    <Button text="Roll Dice" onClick={handleFilterAndMove} disabled={gameOver} />
+                    <div style={{ display: "flex", justifyContent: "center", margin: "1.5rem 0" }}>
+                        <Button text="Roll Dice" onClick={handleFilterAndMove} disabled={gameOver} />
+                    </div>
                 )}
 
                 {field?.items && field.items.length > 0 && (
@@ -964,7 +967,7 @@ const RoomNavigate: React.FC = () => {
                             removeItemFromInventory(itemId);
                         }
                     }}
-                    equippedItemIds={equippedItemIds.filter(id => id !== undefined && id !== null)}
+                    equippedItemIds={contextEquippedItemIds.filter(id => id !== undefined && id !== null)}
                     onEquipItem={(card) => {
                         if (card && card.id) handleEquipItem(card as Card);
                     }}

@@ -1,0 +1,324 @@
+/* EnemyCard.module.css */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+.cardContainer {
+  max-width: 320px;
+  margin: 20px auto;
+  perspective: 1000px;
+  transition: transform 0.3s;
+  font-family: 'MedievalSharp', cursive;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+
+.cardFront, .cardBack, .fightMode {
+  background-color: #F4E5C3;
+  border: 8px solid #92651d;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  backface-visibility: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardFront, .cardBack, .fightMode {
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+  background-color: #F4E5C3;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  background-color: #D7BF9D;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+}
+
+.cardContainer:hover .cardFront,
+.cardContainer:hover .cardBack,
+.cardContainer:hover .fightMode {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cardImage {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #92651d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cardFront h3, .cardBack h3, .fightMode h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #6b3e11;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cardFront h3::after, .cardBack h3::after, .fightMode h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #92651d, transparent);
+}
+
+.cardFront p, .cardBack p, .fightMode p {
+  color: #3a2718;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cardFront button, .cardBack button, .fightMode button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6b3e11;
+  color: #f8deaa;
+  border: none;
+  border-radius: 6px;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.cardFront button:hover, .cardBack button:hover, .fightMode button:hover {
+  background-color: #5d350e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cardFront button:active, .cardBack button:active, .fightMode button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bossCard {
+  border-color: #8e4822;
+  background-color: #F4E0C0;
+  box-shadow: 0 8px 16px rgba(142, 72, 34, 0.4), 0 0 30px rgba(142, 72, 34, 0.2);
+}
+
+.bossCard .cardImage {
+  border-color: #8e4822;
+}
+
+.bossLabel {
+  display: inline-block;
+  background-color: #8e4822;
+  color: #F4E5C3;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bossFightButton, .bossHitButton {
+  background-color: #8e4822 !important;
+}
+
+.bossFightButton:hover, .bossHitButton:hover {
+  background-color: #7d3c1d !important;
+}
+
+.fighting .cardInner {
+  transform: rotateY(0deg);
+}
+
+.fightMode {
+  background-color: #F4E0C0;
+}
+
+.fightButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  z-index: 100;
+}
+
+.hitButton {
+  background-color: #734d26;
+  z-index: 100;
+}
+
+.hitButton:hover {
+  background-color: #5e3e1f;
+}
+
+.fightResult {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-style: italic;
+}
+
+/* Victory message styling */
+.victoryMessage {
+  background-color: rgba(10, 92, 7, 0.15);
+  color: #0a5c07;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-weight: bold;
+  border-left: 3px solid #0a5c07;
+  text-align: center;
+  font-size: 1.1rem;
+  animation: fadeInGlow 0.5s ease-in;
+}
+
+@keyframes fadeInGlow {
+  0% { opacity: 0; box-shadow: 0 0 0 rgba(10, 92, 7, 0); }
+  100% { opacity: 1; box-shadow: 0 0 10px rgba(10, 92, 7, 0.2); }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .cardContainer {
+    max-width: 280px;
+  }
+  
+  .cardFront, .cardBack, .fightMode {
+    padding: 1rem;
+    min-height: 350px;
+  }
+  
+  .cardImage {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cardFront h3, .cardBack h3, .fightMode h3 {
+    font-size: 1.3rem;
+  }
+  
+  .cardFront p, .cardBack p, .fightMode p {
+    font-size: 0.9rem;
+  }
+  
+  .cardFront button, .cardBack button, .fightMode button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .fightButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Flip animation */
+@keyframes flipIn {
+  from { transform: rotateY(-90deg); }
+  to { transform: rotateY(0deg); }
+}
+
+.cardFront, .fightMode {
+  animation: flipIn 0.5s ease-out;
+}
+/* Add these to your EnemyCard.module.css if they don't already exist */
+
+/* Boss card styling */
+.bossCard {
+    background-color: rgba(157, 66, 52, 0.85);
+    border: 2px solid darkred;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
+  }
+  
+  .bossLabel {
+    color: #ff3333;
+    font-weight: bold;
+    margin-left: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+  
+  .fightButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  .hitButton {
+    padding: 8px 15px;
+    background-color: #3a4764;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .hitButton:hover {
+    background-color: #4c5d80;
+    transform: scale(1.05);
+  }
+  
+  .bossHitButton {
+    background-color: darkred;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .bossHitButton:hover {
+    background-color: #a00;
+  }
+  
+  .victoryMessage {
+    color: gold;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Animation for boss fight */
+  @keyframes bossGlow {
+    0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+  }
+  
+  .bossCard {
+    animation: bossGlow 2s infinite;
+  }

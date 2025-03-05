@@ -1,0 +1,124 @@
+.victoryContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .victoryContent {
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(241, 227, 204, 0.95);
+    border: 15px solid #c19a49;
+    border-radius: 15px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(193, 154, 73, 0.8);
+    animation: glowVictory 2s infinite alternate;
+  }
+  
+  @keyframes glowVictory {
+    0% { box-shadow: 0 0 30px rgba(193, 154, 73, 0.5); }
+    100% { box-shadow: 0 0 60px rgba(193, 154, 73, 0.9); }
+  }
+  
+  .victoryTitle {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    color: #6b3e11;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .victoryMessage {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #3a2718;
+    margin-bottom: 2rem;
+  }
+  
+  .statsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .statItem {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid #b88c46;
+    min-width: 120px;
+  }
+  
+  .statLabel {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2rem;
+    color: #6b3e11;
+    margin-bottom: 0.5rem;
+  }
+  
+  .statValue {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2rem;
+    color: #3a2718;
+    font-weight: bold;
+  }
+  
+  .returnButton {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: #6b3e11;
+    color: #f8deaa;
+    border: 2px solid #c19a49;
+    border-radius: 8px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .returnButton:hover {
+    background-color: #502d0c;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #c19a49;
+    animation: confettiFall 4s linear infinite;
+  }
+  
+  @keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+  
+  .character {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 4px solid #c19a49;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(193, 154, 73, 0.6);
+  }
