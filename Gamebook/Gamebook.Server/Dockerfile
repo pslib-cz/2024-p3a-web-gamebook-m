@@ -14,7 +14,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Gamebook/Gamebook.Server/Gamebook.Server.csproj", "Gamebook.Server/"]
 COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "gamebook.client/"]
-RUN dotnet restore "./Gamebook/Gamebook.Server/Gamebook.Server.csproj"
+RUN dotnet restore "./Gamebook.Server/Gamebook.Server.csproj"
 COPY . .
 WORKDIR "/src/Gamebook.Server"
 RUN dotnet build "./Gamebook/Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
