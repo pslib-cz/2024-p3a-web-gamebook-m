@@ -12,8 +12,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Gamebook.Server/Gamebook.Server.csproj", "Gamebook.Server/"]
-COPY ["gamebook.client/gamebook.client.esproj", "gamebook.client/"]
+COPY ["Gamebook/Gamebook.Server/Gamebook.Server.csproj", "Gamebook.Server/"]
+COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "gamebook.client/"]
 RUN dotnet restore "./Gamebook/Gamebook.Server/Gamebook.Server.csproj"
 COPY . .
 WORKDIR "/src/Gamebook.Server"
