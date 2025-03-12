@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rkmek\\source\\repos\\2024-p3a-web-gamebook-mom\\gamebook\\gamebook.server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4297F00A-C6DC-4EFD-8704-CD745CED5C07}|gamebook.client\\gamebook.client.esproj|c:\\users\\rkmek\\source\\repos\\2024-p3a-web-gamebook-mom\\gamebook\\gamebook.client\\src\\pages\\roomnavigation.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{4297F00A-C6DC-4EFD-8704-CD745CED5C07}|gamebook.client\\gamebook.client.esproj|solutionrelative:gamebook.client\\src\\pages\\roomnavigation.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
@@ -193,19 +197,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Dockerfile",
+              "RelativeDocumentMoniker": "Gamebook.Server\\Dockerfile",
+              "ToolTip": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Dockerfile",
+              "RelativeToolTip": "Gamebook.Server\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-12T10:33:01.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "RoomNavigation.tsx",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\gamebook.client\\src\\pages\\RoomNavigation.tsx",
               "RelativeDocumentMoniker": "gamebook.client\\src\\pages\\RoomNavigation.tsx",
               "ToolTip": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\gamebook.client\\src\\pages\\RoomNavigation.tsx",
               "RelativeToolTip": "gamebook.client\\src\\pages\\RoomNavigation.tsx",
-              "ViewState": "AgIAAPwCAAAAAAAAAAAkwBEEAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAPwCAAAAAAAAAAAkwP4CAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-03-05T07:13:55.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "InventoriesController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\InventoriesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\InventoriesController.cs",
@@ -217,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Inventory.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Inventory.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Inventory.cs",
@@ -229,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Program.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Program.cs",
@@ -241,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "FieldsController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\FieldsController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FieldsController.cs",
@@ -253,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CardsController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\CardsController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController.cs",
@@ -265,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Enemy.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Enemy.cs",
@@ -277,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "EnemiesController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\EnemiesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\EnemiesController.cs",
@@ -289,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InventoryVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\InventoryVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\InventoryVM.cs",
@@ -301,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CharacterVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\CharacterVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CharacterVM.cs",
@@ -313,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CardVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\CardVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\CardVM.cs",
@@ -325,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Card.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Card.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Card.cs",
@@ -337,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Data\\ApplicationDbContext.cs",
@@ -349,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "20250131101515_ble.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20250131101515_ble.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250131101515_ble.cs",
@@ -361,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
@@ -372,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "EnemyVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\EnemyVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\EnemyVM.cs",
@@ -384,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\GameState.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\GameState.cs",
@@ -396,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Field.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Field.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Field.cs",
@@ -408,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\UsersController.cs",
@@ -420,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Character.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Character.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Character.cs",
@@ -432,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "GameVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\GameVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameVM.cs",
@@ -444,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "GameStateVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\GameStateVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\GameStateVM.cs",
@@ -456,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "FieldVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\FieldVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FieldVM.cs",
@@ -468,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "CharactersController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\CharactersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CharactersController.cs",
@@ -480,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "GamesController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\GamesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GamesController.cs",
@@ -492,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "GameStatesController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\GameStatesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\GameStatesController.cs",
@@ -504,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "FilesController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FilesController.cs",
@@ -516,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "CHANGELOG.md",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\CHANGELOG.md",
               "RelativeDocumentMoniker": "Gamebook.Server\\CHANGELOG.md",
@@ -528,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "RoomNavigationController.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\RoomNavigationController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\RoomNavigationController.cs",
@@ -540,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "CardsController - Kopie.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\CardsController - Kopie.cs",
@@ -552,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ListResult.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\ListResult.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\ListResult.cs",
@@ -564,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "FileListVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\FileListVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\FileListVM.cs",
@@ -576,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "20250112101938_lul.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20250112101938_lul.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250112101938_lul.cs",
@@ -588,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Game.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Game.cs",
@@ -600,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Image.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\Image.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\Image.cs",
@@ -612,7 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "20250111192610_ndff.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111192610_ndff.cs",
@@ -624,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "20250111192414_nemamnatouzfdsfff.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111192414_nemamnatouzfdsfff.cs",
@@ -636,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "20250111190823_nemamnatouz.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20250111190823_nemamnatouz.cs",
@@ -648,7 +665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Models\\User.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Models\\User.cs",
@@ -660,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "20241213144355_db.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Migrations\\20241213144355_db.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Migrations\\20241213144355_db.cs",
@@ -672,7 +689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "20241213140925_db.cs",
               "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Migrations\\20241213140925_db.cs",
@@ -683,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "UserListVM.cs",
               "DocumentMoniker": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\ViewModels\\UserListVM.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\ViewModels\\UserListVM.cs",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a4AXlaN7XCY=",
+  "dgSpecHash": "RnHyj6TuTTQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
   "expectedPackageFiles": [
@@ -122,6 +122,7 @@
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\8.0.7\\microsoft.visualstudio.web.codegeneration.8.0.7.nupkg.sha512",
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\8.0.7\\microsoft.visualstudio.web.codegeneration.core.8.0.7.nupkg.sha512",
     "C:\\Users\\rkmek\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\8.0.7\\microsoft.visualstudio.web.codegeneration.design.8.0.7.nupkg.sha512",
