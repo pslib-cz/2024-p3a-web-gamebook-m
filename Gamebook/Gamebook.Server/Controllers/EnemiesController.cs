@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -60,6 +62,7 @@ namespace Gamebook.Server.Controllers {
 
         // POST /api/enemies
         [HttpPost]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> CreateEnemy([FromBody] EnemyCreateVM enemyVm) {
             var enemy = new Enemy {
                 Name = enemyVm.Name,
@@ -76,6 +79,7 @@ namespace Gamebook.Server.Controllers {
 
         // PUT /api/enemies/{id}
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> UpdateEnemy(int id, [FromBody] EnemyCreateVM enemyVm) {
             var enemy = await _context.Enemies.FindAsync(id);
             if (enemy == null) {
@@ -95,6 +99,7 @@ namespace Gamebook.Server.Controllers {
 
         // DELETE /api/enemies/{id}
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> DeleteEnemy(int id) {
             var enemy = await _context.Enemies.FindAsync(id);
             if (enemy == null) {

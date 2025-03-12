@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -63,6 +65,7 @@ namespace Gamebook.Server.Controllers {
 
         // POST /api/gamestates
         [HttpPost]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> CreateGameState([FromBody] GameStateCreateVM gameStateVm) {
             var inventory = await _context.Inventories.FindAsync(gameStateVm.InventoryId);
             var character = await _context.Characters.FindAsync(gameStateVm.CharacterId);
@@ -86,6 +89,7 @@ namespace Gamebook.Server.Controllers {
 
         // PUT /api/gamestates/{id}
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> UpdateGameState(int id, [FromBody] GameStateCreateVM gameStateVm) {
             var gameState = await _context.GameStates.FindAsync(id);
             if (gameState == null) {
@@ -112,6 +116,7 @@ namespace Gamebook.Server.Controllers {
 
         // DELETE /api/gamestates/{id}
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> DeleteGameState(int id) {
             var gameState = await _context.GameStates.FindAsync(id);
             if (gameState == null) {

@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -67,6 +69,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> CreateField([FromBody] FieldVM fieldVm)
         {
             Image image = null;
@@ -125,6 +128,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> UpdateField(int id, [FromBody] FieldVM fieldVm)
         {
             var field = await _context.Fields.FindAsync(id);
@@ -148,6 +152,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> DeleteField(int id)
         {
             var field = await _context.Fields.FindAsync(id);

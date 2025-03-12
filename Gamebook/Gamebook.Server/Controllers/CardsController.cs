@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +21,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> CreateCard([FromBody] CardCreateVM cardVm)
         {
             var card = new Card
@@ -44,6 +47,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> DeleteCard(int id)
         {
             var card = await _context.Cards.FindAsync(id);
@@ -120,6 +124,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> UpdateCard(int id, [FromBody] CardCreateVM cardVm)
         {
             var card = await _context.Cards.FindAsync(id);

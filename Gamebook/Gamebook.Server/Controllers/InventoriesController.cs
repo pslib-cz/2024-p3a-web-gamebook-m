@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -57,6 +59,7 @@ namespace Gamebook.Server.Controllers {
 
         // POST /api/inventories
         [HttpPost]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> CreateInventory([FromBody] InventoryCreateVM inventoryVm) {
             var cards = await _context.Cards.Where(c => inventoryVm.CardIds.Contains(c.CardId)).ToListAsync();
 
@@ -76,6 +79,7 @@ namespace Gamebook.Server.Controllers {
 
         // PUT /api/inventories/{id}
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> UpdateInventory(int id, [FromBody] InventoryCreateVM inventoryVm) {
             var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == id);
             if (inventory == null) {
@@ -98,6 +102,7 @@ namespace Gamebook.Server.Controllers {
 
         // DELETE /api/inventories/{id}
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> DeleteInventory(int id) {
             var inventory = await _context.Inventories.FindAsync(id);
             if (inventory == null) {
@@ -110,6 +115,7 @@ namespace Gamebook.Server.Controllers {
             return Ok();
         }
         [HttpPost("add-card")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> AddCardToInventory([FromBody] AddCardToInventoryVM inventoryVm) {
             var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == inventoryVm.InventoryId);
             if (inventory == null) {
@@ -132,6 +138,7 @@ namespace Gamebook.Server.Controllers {
 
         // Odstraní kartu z inventáře
         [HttpPost("remove-card")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> DeleteCardFromInventory([FromBody] RemoveCardFromInventoryVM inventoryVm) {
             var inventory = await _context.Inventories.Include(i => i.Cards).FirstOrDefaultAsync(i => i.InventoryId == inventoryVm.InventoryId);
             if (inventory == null) {

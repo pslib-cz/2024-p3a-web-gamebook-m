@@ -19,6 +19,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<ActionResult<ListResult<UserListVM>>> GetUsers(string? username, string? email, string? roleId, UsersOrderBy order = UsersOrderBy.Id, int? page = null, int? size = null)
         {
             var query = _userManager.Users.Include(x => x.Roles).AsQueryable();
@@ -63,6 +64,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> CreateUser([FromBody] RegisterUserVM userVM)
         {
             if (string.IsNullOrWhiteSpace(userVM.UserName))
@@ -90,6 +92,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> GetUserById(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
@@ -139,6 +142,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpGet("{id}/role")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> GetUserRoles(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
@@ -151,6 +155,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPost("{id}/role")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> AddUserRole(Guid id, [FromBody] string role)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());

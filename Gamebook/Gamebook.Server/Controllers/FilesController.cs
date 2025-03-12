@@ -75,7 +75,7 @@ namespace Gamebook.Server.Controllers {
 
 
         // GET: api/Files/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]        [Authorize(Policy = Policy.Author)]
         public async Task<ActionResult<Models.Image>> GetFile(int id) {
             var file = await _context.Images.FindAsync(id);
             _logger.LogInformation($"Getting file {id}");
@@ -100,6 +100,7 @@ namespace Gamebook.Server.Controllers {
 
         // POST: api/Files
         [HttpPost]
+        [Authorize(Policy = Policy.Author)]
         //[Authorize(Policy = Policy.Author)]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> PostFile(IFormFile file) {
@@ -130,6 +131,7 @@ namespace Gamebook.Server.Controllers {
         }
         // POST: api/Files/upload-anonymous
         [HttpPost("upload-anonymous")]
+        [Authorize(Policy = Policy.Author)]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> PostFileAnonymous(IFormFile file) {
             _logger.LogInformation("Uploading file anonymously");
@@ -164,6 +166,7 @@ namespace Gamebook.Server.Controllers {
         }
 
         [HttpGet("download-file/{id}")]
+        [Authorize(Policy = Policy.Author)]
         public async Task<IActionResult> DownloadFiles(int id) {
             _logger.LogInformation("Downloading file with ID {FileId}", id);
 
@@ -182,7 +185,8 @@ namespace Gamebook.Server.Controllers {
 
 
         [HttpDelete("{id}")]
-      //  [Authorize(Policy = Policy.Author)]
+        [Authorize(Policy = Policy.Author)]
+        //  [Authorize(Policy = Policy.Author)]
         public async Task<ActionResult> DeleteFile(int id) {
             var file = await _context.Images.FindAsync(id);
             _logger.LogInformation($"Deleting file {id}");

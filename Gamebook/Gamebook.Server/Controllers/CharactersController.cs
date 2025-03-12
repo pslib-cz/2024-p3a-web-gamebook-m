@@ -1,6 +1,8 @@
-﻿using Gamebook.Server.Data;
+﻿using Gamebook.Server.Constants;
+using Gamebook.Server.Data;
 using Gamebook.Server.Models;
 using Gamebook.Server.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -80,6 +82,7 @@ namespace Gamebook.Server.Controllers
 
         // POST /api/characters
         [HttpPost]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> CreateCharacter([FromBody] CharacterCreateVM characterVm)
         {
             var startingField = await _context.Fields.FindAsync(characterVm.StartingFieldId);
@@ -113,6 +116,7 @@ namespace Gamebook.Server.Controllers
 
         // PUT /api/characters/{id}
         [HttpPut("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> UpdateCharacter(int id, [FromBody] CharacterCreateVM characterVm)
         {
             var character = await _context.Characters.FindAsync(id);
@@ -149,6 +153,7 @@ namespace Gamebook.Server.Controllers
 
         // DELETE /api/characters/{id}
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> DeleteCharacter(int id)
         {
             var character = await _context.Characters.FindAsync(id);

@@ -90,7 +90,9 @@ const RoomNavigate: React.FC = () => {
         setHp: contextSetHp,
         isMoved: contextIsMoved,
         setIsMoved: contextSetIsMoved,
+        // @ts-ignore
         gameOver: contextGameOver,
+        // @ts-ignore
         setGameOver: contextSetGameOver,
     } = contextValues;
 
@@ -145,6 +147,7 @@ const RoomNavigate: React.FC = () => {
 
     // Use the custom hook to manage item stats
     const itemStats = useItemStats(
+        // @ts-ignore
         character,
         contextEquippedItemIds,
         baseStrength,
@@ -795,6 +798,7 @@ const RoomNavigate: React.FC = () => {
     if (hasWonGame) {
         return (
             <VictoryScreen 
+            // @ts-ignore
                 character={character}
                 strengthBonusFromEnemies={strengthBonusFromEnemies}
                 willBonusFromEnemies={willBonusFromEnemies}
