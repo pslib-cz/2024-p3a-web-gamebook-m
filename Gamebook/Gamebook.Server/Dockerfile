@@ -10,17 +10,14 @@ RUN apt update && apt install nodejs npm -y
 WORKDIR /src
 COPY ["Gamebook/Gamebook.Server/Gamebook.Server.csproj", "Gamebook/Gamebook.Server/"]
 COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "Gamebook/gamebook.client/"]
-RUN dotnet restore "/src/Gamebook/Gamebook.Server/Gamebook.Server.csproj" && \
-    dotnet build "/src/Gamebook/Gamebook.Server/Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
+RUN dotnet restore "Gamebook/Gamebook.Server/Gamebook.Server.csproj"
 COPY . . 
 WORKDIR "/src/Gamebook/Gamebook.Server"
 RUN dotnet build "Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN ls -l /src/Gamebook/Gamebook.Server/
-RUN dotnet publish "/src/Gamebook/Gamebook.Server/Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
