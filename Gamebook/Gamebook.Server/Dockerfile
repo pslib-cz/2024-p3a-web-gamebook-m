@@ -17,7 +17,7 @@ COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "gamebook.client/"]
 RUN dotnet restore "./Gamebook.Server/Gamebook.Server.csproj"
 COPY . .
 WORKDIR "/src/Gamebook.Server"
-RUN dotnet build "./Gamebook/Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Tato fáze slouží k publikování projektu služby, který se má zkopírovat do konečné fáze.
 FROM build AS publish
