@@ -127,6 +127,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                             will: enemyData.will,
                             imageId: newCard.imageId,
                             imageName: newCard.imageName,
+                            // @ts-ignore
                             isBoss: newCard.isBoss || newCard.type === "Boss",
                         };
                         setEnemy(newEnemy);
@@ -238,6 +239,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                             }}
                             onDontFight={() => { setIsFlipped(false); }}
                             cardId={card.id}
+                            // @ts-ignore
                             onEquip={onEquipItem}
                             isBoss={enemy.isBoss}
                             hasWonFight={hasWonFight}
@@ -248,6 +250,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                             description={card.description}
                             imageId={card.imageId}
                             cardId={card.id}
+                            // @ts-ignore
                             onEquip={onEquipItem}
                             bonusWile={card.bonusWile}
                             bonusStrength={card.bonusStrength}

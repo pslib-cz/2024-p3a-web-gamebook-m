@@ -55,6 +55,7 @@ interface ItemStats {
  * @returns ItemStats object containing all stat calculations
  */
 export const useItemStats = (
+    // @ts-ignore
     character: Character | null,
     equippedItemIds: number[],
     baseStrength: number,

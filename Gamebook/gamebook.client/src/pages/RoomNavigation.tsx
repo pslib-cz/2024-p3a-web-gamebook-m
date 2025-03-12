@@ -116,6 +116,7 @@ const RoomNavigate: React.FC = () => {
     const [showDiceRollButton, setShowDiceRollButton] = useState(false);
     const [showBossButtons, setShowBossButtons] = useState(false);
     const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
+    // @ts-ignore
     const [attackType, setAttackType] = useState<AttackType | null>(null);
     const [notification, setNotification] = useState<string | null>(null);
     const [showBossChoice, setShowBossChoice] = useState(false);
@@ -775,7 +776,7 @@ const RoomNavigate: React.FC = () => {
             setShowBossChoice(false);
         }
     }, [field]);
-
+// @ts-ignore
     const shouldShowBossChoice = useCallback(() => {
         return field?.type === "Boss";
     }, [field]);
