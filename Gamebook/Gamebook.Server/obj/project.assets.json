@@ -745,7 +745,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SpaProxy/8.0.13": {
+      "Microsoft.AspNetCore.SpaProxy/8.0.14": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll": {}
@@ -4289,10 +4289,10 @@
         "microsoft.aspnetcore.razor.language.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SpaProxy/8.0.13": {
-      "sha512": "MwrXZfC53RySu6fnXeL6+l8JaiuHs1c3oruvs1ZzKCKH6vJ4MR0zLuGETb37kiS9wzIVXQCtqgR5Bsf5Dzm1+Q==",
+    "Microsoft.AspNetCore.SpaProxy/8.0.14": {
+      "sha512": "pkiYeNCNjZjSU5PVD6zlYSuDMCKNRHvhVF3O8pw6rPNNG7khKq8fIRbz/ROCLaiLTHVeOiNfsn8TSVYP0NIboA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaproxy/8.0.13",
+      "path": "microsoft.aspnetcore.spaproxy/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4300,7 +4300,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.AspNetCore.SpaProxy.targets",
         "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll",
-        "microsoft.aspnetcore.spaproxy.8.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.spaproxy.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.spaproxy.nuspec"
       ]
     },
@@ -9054,23 +9054,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Radek\\.nuget\\packages\\": {},
+    "C:\\Users\\rkmek\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "projectUniqueName": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
       "projectName": "Gamebook.Server",
-      "projectPath": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
-      "packagesPath": "C:\\Users\\Radek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Radek\\Source\\Repos\\2024-p3a-web-gamebook-md\\Gamebook\\Gamebook.Server\\obj\\",
+      "projectPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\Gamebook.Server.csproj",
+      "packagesPath": "C:\\Users\\rkmek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rkmek\\Source\\Repos\\2024-p3a-web-gamebook-mom\\Gamebook\\Gamebook.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Radek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rkmek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9166,7 +9166,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
