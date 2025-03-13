@@ -13,6 +13,8 @@ COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "gamebook.client/"]
 RUN dotnet restore "Gamebook.Server/Gamebook.Server.csproj"
 COPY . . 
 WORKDIR "/src/Gamebook.Server"
+RUN ls -R /src
+
 RUN dotnet build "Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
