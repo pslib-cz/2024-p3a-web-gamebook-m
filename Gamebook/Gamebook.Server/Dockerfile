@@ -8,13 +8,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 RUN apt update && apt install nodejs npm -y
 WORKDIR /src
-COPY ["Gamebook/Gamebook.Server/Gamebook.Server.csproj", "Gamebook.Server/"]
-COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "gamebook.client/"]
-RUN dotnet restore "Gamebook.Server/Gamebook.Server.csproj"
+COPY ["Gamebook/Gamebook.Server/Gamebook.Server.csproj", "Gamebook/Gamebook.Server/"]
+COPY ["Gamebook/gamebook.client/gamebook.client.esproj", "Gamebook/gamebook.client/"]
+RUN dotnet restore "Gamebook/Gamebook.Server/Gamebook.Server.csproj"
 COPY . . 
-WORKDIR "/src/Gamebook.Server"
-RUN ls -R /src
-
+WORKDIR "/src/Gamebook/Gamebook.Server"
 RUN dotnet build "Gamebook.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
