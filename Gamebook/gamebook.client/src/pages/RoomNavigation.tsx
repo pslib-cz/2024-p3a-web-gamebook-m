@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../styles/RoomNavigate.module.css";
 import Button from '../components/Button/Button.tsx';
-import { API_BASE_URL } from "../api/apiConfig";
 import FieldCardsDisplay from "../components/FieldsCardDisplay";
 import Inventory from "../components/Inventory";
 import ItemCard from "../components/ItemCard";
