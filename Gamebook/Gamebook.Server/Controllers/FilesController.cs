@@ -75,7 +75,7 @@ namespace Gamebook.Server.Controllers {
 
 
         // GET: api/Files/5
-        [HttpGet("{id}")]        [Authorize(Policy = Policy.Author)]
+        [HttpGet("{id}")]   
         public async Task<ActionResult<Models.Image>> GetFile(int id) {
             var file = await _context.Images.FindAsync(id);
             _logger.LogInformation($"Getting file {id}");

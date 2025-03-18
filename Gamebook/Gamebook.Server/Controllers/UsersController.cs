@@ -64,7 +64,6 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = Policy.Admin)]
         public async Task<IActionResult> CreateUser([FromBody] RegisterUserVM userVM)
         {
             if (string.IsNullOrWhiteSpace(userVM.UserName))
@@ -109,7 +108,7 @@ namespace Gamebook.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Policy = Policy.Admin)]
+
         public async Task<IActionResult> UpdateUser(string id, [FromBody] User user)
         {
             if (id != user.Id)
