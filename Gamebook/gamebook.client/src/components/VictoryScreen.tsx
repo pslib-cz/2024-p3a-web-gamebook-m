@@ -67,7 +67,7 @@ const VictoryScreen: React.FC<VictoryScreenProps> = ({
         
         {character?.imageId && (
           <img 
-            src={`api/files/${character.imageId}`} 
+            src={`/api/files/${character.imageId}`} 
             alt={character.name} 
             className={styles.character}
           />

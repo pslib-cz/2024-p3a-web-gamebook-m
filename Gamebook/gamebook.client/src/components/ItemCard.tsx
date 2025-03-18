@@ -57,7 +57,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
             
             {imageId && (
                 <img 
-                    src={`api/files/${imageId}`} 
+                    src={`/api/files/${imageId}`} 
                     alt={name} 
                     className={styles.itemImage}
                 />

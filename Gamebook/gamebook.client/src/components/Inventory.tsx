@@ -54,7 +54,7 @@ const Inventory: React.FC<InventoryProps> = ({
 
             for (const itemId of equippedItemIds) {
                 try {
-                    const response = await fetch(`api/cards/${itemId}`);
+                    const response = await fetch(`/api/cards/${itemId}`);
                     if (response.ok) {
                         const card = await response.json();
                         cards.push(card);
@@ -163,7 +163,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
         const fetchCard = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`api/cards/${itemId}`);
+                const response = await fetch(`/api/cards/${itemId}`);
                 if (!response.ok) {
                     throw new Error(`Failed to fetch card with ID ${itemId}`);
                 }
@@ -211,7 +211,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             
             {card.imageId && (
                 <img 
-                    src={`api/files/${card.imageId}`} 
+                    src={`/api/files/${card.imageId}`} 
                     alt={card.title || card.name || "Item"} 
                     className={styles.itemImage}
                 />

@@ -43,18 +43,18 @@ export interface Inventory {
 }
 // Funkce pro fetchování dat
 export const fetchCharacters = async (): Promise<Character[]> => {
-    const response = await fetch(`api/characters`);
+    const response = await fetch(`/api/characters`);
     const data = await handleResponse(response).then(res => res.json());
     return data.items;
 }
 
 export const fetchCharacter = async (id: number): Promise<Character> => {
-    const response = await fetch(`api/characters/${id}`);
+    const response = await fetch(`/api/characters/${id}`);
     return await handleResponse(response).then(res => res.json());
 }
 
 export const fetchImage = async (imageId: number): Promise<string> => {
-    const response = await fetch(`api/files/${imageId}`);
+    const response = await fetch(`/api/files/${imageId}`);
      if (!response.ok) {
         let errorMessage = "An error occurred.";
         try {
@@ -70,24 +70,24 @@ export const fetchImage = async (imageId: number): Promise<string> => {
 };
 
 export const fetchField = async (id: number): Promise<Field> => {
-    const response = await fetch(`api/fields/${id}`);
+    const response = await fetch(`/api/fields/${id}`);
     return handleResponse(response).then(res => res.json());
 }
 
 export const fetchFields = async (): Promise<Field[]> => {
-    const response = await fetch(`api/fields`);
+    const response = await fetch(`/api/fields`);
     return handleResponse(response).then(res => res.json()).then(data => data.items)
 }
 
 // Funkce pro fetchování imageId
 export const fetchFieldImageId = async (id: number): Promise<number | null> => {
-    const response = await fetch(`api/fields/${id}/imageid`);
+    const response = await fetch(`/api/fields/${id}/imageid`);
     const data = await handleResponse(response).then(res => res.json());
      return data.imageId;
 };
 
 // Funkce pro fetchování dat inventáře
 export const fetchInventory = async (id: number): Promise<Inventory> => {
-    const response = await fetch(`api/inventories/${id}`);
+    const response = await fetch(`/api/inventories/${id}`);
      return await handleResponse(response).then(res => res.json());
 };

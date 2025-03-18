@@ -79,7 +79,7 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                     <>
                         <div className={`${styles.cardFront} `} onClick={() => setIsFlipped(!isFlipped)}>
                             {imageId && (
-                                <img src={`api/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
+                                <img src={`/api/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
                             )}
                             <h3>{name} {displayAsBoss && <span className={styles.bossLabel}>BOSS</span>}</h3>
                             <p>{description}</p>
@@ -133,7 +133,7 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
                 {isFighting && (
                     <div className={styles.fightMode}>
                         {imageId && ( 
-                            <img src={`api/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
+                            <img src={`/api/files/${imageId}`} alt={imageName || ''} className={styles.cardImage} />
                         )}
                         <h3>{name} {displayAsBoss && <span className={styles.bossLabel}>BOSS</span>}</h3>
                         <p>Strength: {strength}</p>

@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/StartPage.module.css"; // Importujeme CSS modul
 
+
+import bgImage from "../assets/public/img/BG_Start.avif";
+
+const styles1 = {
+  backgroundImage: `url(${bgImage})`,
+};
+
 const StartPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.startPageContainer}>
+    <div style={styles1} className={styles.startPageContainer}>
       <div className={styles.startPage}>
         <button className={styles.buttonStart} onClick={() => navigate("/signin")}>
           Přihlásit se a hrát
