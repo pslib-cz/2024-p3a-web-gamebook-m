@@ -24,6 +24,6 @@ jobs:
           context: .
           file: ./Gamebook/Gamebook.Server/Dockerfile # změň cestu podle toho, kde se nachází Dockerfile
           push: true
-          tags: registry.pslib.cloud/sandbox/app-48:latest
+          tags: registry.pslib.cloud/sandbox/app-57:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
