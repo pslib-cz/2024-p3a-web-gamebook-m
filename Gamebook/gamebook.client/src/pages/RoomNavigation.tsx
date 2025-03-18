@@ -289,7 +289,7 @@ const RoomNavigate: React.FC = () => {
             return;
         }
         try {
-            const response = await fetch(`${API_BASE_URL}/files/${imageId}`);
+            const response = await fetch(`api/files/${imageId}`);
             if (!response.ok) {
                 throw new Error("Failed to load image.");
             }
@@ -339,7 +339,7 @@ const RoomNavigate: React.FC = () => {
 
     const loadNextDifficultyField = async (newDifficulty: number) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/fields`);
+            const response = await fetch(`api/fields`);
             if (!response.ok) {
                 throw new Error("Failed to load fields.");
             }
@@ -398,7 +398,7 @@ const RoomNavigate: React.FC = () => {
         }
         setLoading(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/fields/${startingFieldId}`);
+            const response = await fetch(`api/fields/${startingFieldId}`);
             if (!response.ok) {
                 throw new Error("Failed to load field.");
             }
@@ -596,7 +596,7 @@ const RoomNavigate: React.FC = () => {
         if (gameOver || !field || diceRollResult === null) return;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/fields`);
+            const response = await fetch(`api/fields`);
             if (!response.ok) {
                 throw new Error("Failed to load fields.");
             }
@@ -719,7 +719,7 @@ const RoomNavigate: React.FC = () => {
         setForceBossFight(true);
 
         if (field?.enemyId) {
-            fetch(`${API_BASE_URL}/enemies/${field.enemyId}`)
+            fetch(`api/enemies/${field.enemyId}`)
                 .then(response => response.json())
                 .then((enemy: Enemy) => {
                     if (enemy) {
@@ -819,7 +819,7 @@ const RoomNavigate: React.FC = () => {
                 {character && (
                     <div className={styles.characterCard}>
                         <img
-                            src={character.imageId ? `${API_BASE_URL}/files/${character.imageId}` : "/default-character.png"}
+                            src={character.imageId ? `api/files/${character.imageId}` : "/default-character.png"}
                             alt={character.name}
                             className={styles.characterImage}
                         />
