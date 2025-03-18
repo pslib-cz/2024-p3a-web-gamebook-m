@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m\\gamebook\\gamebook.server\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m\\gamebook\\gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|solutionrelative:gamebook.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{723BA6AA-0410-4C3D-A82D-72276367A1AE}|Gamebook.Server\\Gamebook.Server.csproj|c:\\users\\rad3k_m\\source\\repos\\2024-p3a-web-gamebook-m\\gamebook\\gamebook.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -189,7 +189,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -198,10 +198,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -213,8 +209,7 @@
               "RelativeToolTip": "Gamebook.Server\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-13T16:09:04.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T16:09:04.141Z"
             },
             {
               "$type": "Document",
@@ -290,20 +285,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FilesController.cs",
               "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\FilesController.cs",
               "ToolTip": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Controllers\\FilesController.cs",
               "RelativeToolTip": "Gamebook.Server\\Controllers\\FilesController.cs",
-              "ViewState": "AgIAAM0AAAAAAAAAAAAzwE0AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAgwE0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T08:06:57.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Rad3k_m\\Source\\Repos\\2024-p3a-web-gamebook-m\\Gamebook\\Gamebook.Server\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Gamebook.Server\\Controllers\\UsersController.cs",
@@ -743,6 +738,10 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T08:06:57.65Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }
