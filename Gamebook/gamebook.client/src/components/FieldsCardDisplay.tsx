@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../api/apiConfig';
 import styles from '../styles/FieldCardsDisplay.module.css';
 import EnemyCard from './EnemyCard';
 import ItemCard from './ItemCard';
@@ -62,7 +61,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
             try {
                 setLoading(true);
                 console.log("FieldCardsDisplay: Loading data for field ID:", fieldId);
-                const allCardsResponse = await fetch(`${API_BASE_URL}/cards`);
+                const allCardsResponse = await fetch(`api/cards`);
                 if (!allCardsResponse.ok) {
                     const errorText = await allCardsResponse.text();
                     console.warn(`Failed to fetch cards: ${allCardsResponse.status} - ${errorText}`);
@@ -81,7 +80,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                     const selectedCard = availableCards[Math.floor(Math.random() * availableCards.length)];
                     console.log("FieldCardsDisplay: Selected Card:", selectedCard.id, selectedCard.title, "Type:", selectedCard.type);
 
-                    const cardResponse = await fetch(`${API_BASE_URL}/cards/${selectedCard.id}`);
+                    const cardResponse = await fetch(`api/cards/${selectedCard.id}`);
                     if (!cardResponse.ok) {
                         const errorText = await cardResponse.text();
                         console.warn(`Failed to fetch card with ID ${selectedCard.id}: ${cardResponse.status} - ${errorText}`);
@@ -111,7 +110,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
 
                     if (newCard.type === "Enemy" && newCard.enemyId) {
                         console.log("FieldCardsDisplay: Loading enemy data for enemyId:", newCard.enemyId);
-                        const enemyResponse = await fetch(`${API_BASE_URL}/enemies/${newCard.enemyId}`);
+                        const enemyResponse = await fetch(`api/enemies/${newCard.enemyId}`);
                         if (!enemyResponse.ok) {
                             const errorText = await enemyResponse.text();
                             console.warn(`Failed to fetch enemy: ${enemyResponse.status} - ${errorText}`);
@@ -214,7 +213,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
             {!isFlipped && (
                 <div className={styles.cardBack}>
                     {backImage && (
-                        <img src={`${API_BASE_URL}/files/${backImage}`} alt="Card Back" className={styles.cardImage} />
+                        <img src={`api/files/${backImage}`} alt="Card Back" className={styles.cardImage} />
                     )}
                 </div>
             )}
@@ -262,7 +261,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                                 <div className={styles.fightMode}>
                                     {card.imageId && (
                                         <img 
-                                            src={`${API_BASE_URL}/files/${card.imageId}`} 
+                                            src={`api/files/${card.imageId}`} 
                                             alt={card.title} 
                                             className={styles.cardImage} 
                                         />
@@ -306,7 +305,7 @@ const FieldCardsDisplay: React.FC<FieldCardsDisplayProps> = ({
                         <div className={styles.cardContainer}>
                             {card.imageId && (
                                 <img
-                                    src={`${API_BASE_URL}/files/${card.imageId}`}
+                                    src={`api/files/${card.imageId}`}
                                     alt={card.title}
                                     className={styles.cardImage}
                                 />

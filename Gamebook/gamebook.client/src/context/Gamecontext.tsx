@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { API_BASE_URL } from '../api/apiConfig';
 
 // Centralized Card interface (move this to a shared types file later if reusable)
 interface Card {
@@ -66,7 +65,7 @@ export const GameContextProvider: React.FC<GameContextProviderProps> = ({ childr
     const getCard = async (cardId: number): Promise<Card | null> => {
         if (cards[cardId]) return cards[cardId];
         try {
-            const response = await fetch(`${API_BASE_URL}/cards/${cardId}`);
+            const response = await fetch(`api/cards/${cardId}`);
             if (!response.ok) {
                 console.error(`Failed to fetch card ${cardId}: ${response.status}`);
                 return null;
@@ -119,7 +118,7 @@ export const GameContextProvider: React.FC<GameContextProviderProps> = ({ childr
     // Fetch character
     const fetchCharacter = async (id: number) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/characters/${id}`);
+            const response = await fetch(`api/characters/${id}`);
             if (!response.ok) throw new Error('Failed to fetch character');
             const data = await response.json() as Character;
             setCharacter(data);

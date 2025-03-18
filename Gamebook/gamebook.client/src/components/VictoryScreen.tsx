@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/VictoryScreen.module.css';
-import { API_BASE_URL } from '../api/apiConfig';
 
 interface VictoryScreenProps {
   character: {
@@ -68,7 +67,7 @@ const VictoryScreen: React.FC<VictoryScreenProps> = ({
         
         {character?.imageId && (
           <img 
-            src={`${API_BASE_URL}/files/${character.imageId}`} 
+            src={`api/files/${character.imageId}`} 
             alt={character.name} 
             className={styles.character}
           />

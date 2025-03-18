@@ -50,7 +50,7 @@ const EquippedItemBonuses: React.FC<EquippedItemBonusesProps> = ({ equippedItemI
             }
 
             try {
-                const response = await fetch(`${API_BASE_URL}/cards/${equippedItemId}`);
+                const response = await fetch(`api/cards/${equippedItemId}`);
                 if (!response.ok) {
                     throw new Error(`Failed to fetch card detail: ${response.status}`);
                 }

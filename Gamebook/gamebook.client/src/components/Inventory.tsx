@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Inventory.module.css';
-import { API_BASE_URL } from '../api/apiConfig';
 
 interface Card {
     id: number;
@@ -55,7 +54,7 @@ const Inventory: React.FC<InventoryProps> = ({
 
             for (const itemId of equippedItemIds) {
                 try {
-                    const response = await fetch(`${API_BASE_URL}/cards/${itemId}`);
+                    const response = await fetch(`api/cards/${itemId}`);
                     if (response.ok) {
                         const card = await response.json();
                         cards.push(card);
@@ -164,7 +163,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
         const fetchCard = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`${API_BASE_URL}/cards/${itemId}`);
+                const response = await fetch(`api/cards/${itemId}`);
                 if (!response.ok) {
                     throw new Error(`Failed to fetch card with ID ${itemId}`);
                 }
@@ -212,7 +211,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             
             {card.imageId && (
                 <img 
-                    src={`${API_BASE_URL}/files/${card.imageId}`} 
+                    src={`api/files/${card.imageId}`} 
                     alt={card.title || card.name || "Item"} 
                     className={styles.itemImage}
                 />

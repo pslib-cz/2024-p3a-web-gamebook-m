@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "../styles/ItemCard.module.css";
-import { API_BASE_URL } from '../api/apiConfig';
 
 interface ItemCardProps {
     name: string;
@@ -58,7 +57,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
             
             {imageId && (
                 <img 
-                    src={`${API_BASE_URL}/files/${imageId}`} 
+                    src={`api/files/${imageId}`} 
                     alt={name} 
                     className={styles.itemImage}
                 />
