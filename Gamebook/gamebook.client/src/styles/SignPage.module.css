@@ -15,7 +15,7 @@
             rgba(112, 19, 126, 0.3),
             rgb(0, 0, 0)  
         ),
-        url(../assets/public/img/BG_Prihlaseni.avif) no-repeat center center;
+        url(/img/BG_Prihlaseni.avif) no-repeat center center;
     background-size: cover;
 }
 
