@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/StartPage.module.css"; // Importujeme CSS modul
 
 
-import bgImage from "../assets/public/img/BG_Start.avif";
+import bgImage from "/public/img/BG_Start.avif";
 
 const styles1 = {
   backgroundImage: `url(${bgImage})`,

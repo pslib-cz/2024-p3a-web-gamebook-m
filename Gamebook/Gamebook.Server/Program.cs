@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Gamebook.Server.Constants;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCoreAdmin();
+var provider = new FileExtensionContentTypeProvider();
+
+// add avif and glb
+provider.Mappings[".avif"] = "image/avif";
+provider.Mappings[".glb"] = "model/gltf-binary";
+
+
 
 
 var app = builder.Build();
@@ -50,6 +58,10 @@ app.UseStaticFiles();
 app.MapDefaultControllerRoute();
 
 app.UseCors("AllowMyApp");
+
+app.UseStaticFiles(new StaticFileOptions {
+    ContentTypeProvider = provider
+});
 
 
 app.UseDefaultFiles();
